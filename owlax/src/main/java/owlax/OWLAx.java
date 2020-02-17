@@ -1,14 +1,14 @@
 package owlax;
 
-import java.io.File;
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.apibinding.*;
+import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.util.*;
 
-@SuppressWarnings("deprecation")
-public class OWLAx {
+public class OWLAx<R> {
 	
 	/**
 	 * AXIOMS
@@ -32,14 +32,29 @@ public class OWLAx {
 	 *  A ⊑ >=0R.B
 	 *  
 	 **/	
-	public static void main(String[] args) {		
-		try {
-			OWLOntologyManager man = OWLManager.createOWLOntologyManager();	
-			OWLOntology ont = man.loadOntologyFromOntologyDocument(new File("enslavedv2.owl"));
-			System.out.println(ont.getAxioms().size());
-		} catch (OWLOntologyCreationException e) {
-			e.printStackTrace();
+	public static void main(String[] args) throws Exception {		
+		OWLOntologyManager man = OWLManager.createOWLOntologyManager();	
+		OWLOntology ont = man.loadOntologyFromOntologyDocument(new File("enslavedv2.owl"));
+		String type;
+		
+		for (OWLAxiom ax : getAxioms(ont)) {
+			
+			type = ax.getAxiomType().getName();
+			
+			if (correctType(type)) {
+				System.out.println(String.format("%s\n",ax.toString()));
+			}
+			
 		}
+		
+	}
+	
+	public static boolean correctType(String type) {
+		return !(type.equals("AnnotationAssertion") || type.equals("Declaration"));
+	}
+	
+	public static ArrayList<OWLAxiom> getAxioms(OWLOntology ont){
+		return ont.axioms().collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
 	}
 	
 }
