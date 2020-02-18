@@ -17,13 +17,11 @@ public class NNF  {
 		axioms = getAxioms(ont);
 		rbox = new ArrayList<OWLPropertyAxiom>();
 		tbox = new ArrayList<OWLClassAxiom>();
-		process();
+		sortAxiomTypes();
 	}
 	
-	private void process() throws Exception {
-		
-		for (OWLAxiom ax : axioms) {
-			
+	private void sortAxiomTypes() throws Exception {		
+		for (OWLAxiom ax : axioms) {			
 			if (ax.getAxiomType().getName().equals("SubPropertyChainOf")) {
 				rbox.add((OWLSubPropertyChainOfAxiom)ax);
 			}else if (ax.getAxiomType().getName().equals("SubObjectPropertyOf")) {

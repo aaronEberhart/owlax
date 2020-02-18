@@ -7,28 +7,7 @@ import org.semanticweb.owlapi.model.*;
 
 public class OWLAx {
 	
-	/**
-	 * AXIOMS
-	 * 
-	 *  A ⊑ B
-	 *  A ⊓ B ⊑ ⊥
-	 *  ∃R.⊤ ⊑ A
-	 *  ∃R.B ⊑ A
-	 *  ⊤ ⊑ ∀R.B
-	 *  A ⊑ ∀R.B
-	 *  A ⊑ ∃R.B
-	 *  A ⊑ ∃R-.B
-	 *  ⊤ ⊑ <=1R.T
-	 *  ⊤ ⊑ <=1R.B
-	 *  A ⊑ <=1R.T
-	 *  A ⊑ <=1R.B
-	 *  ⊤ ⊑ <=1R-.T
-	 *  ⊤ ⊑ <=1R-.B
-	 *  A ⊑ <=1R-.T
-	 *  A ⊑ <=1R-.B
-	 *  A ⊑ >=0R.B
-	 *  
-	 **/	
+	
 	public static void main(String[] args) throws Exception {		
 		
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();	
@@ -36,6 +15,12 @@ public class OWLAx {
 		
 		NNF nnf = new NNF(ont);
 		System.out.println(nnf.toString());
+		
+		AxiomMatcher mat = new AxiomMatcher(nnf.getTBox(),nnf.getRBox());
+		
+		for (OWLSubClassOfAxiom ax : mat.getOWLAxaxioms()) {
+			System.out.println(ax.toString());
+		}
 	}
 	
 	
