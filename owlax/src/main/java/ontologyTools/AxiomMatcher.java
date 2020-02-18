@@ -1,8 +1,8 @@
-package owlax;
+package ontologyTools;
 
 import java.util.*;
 
-import org.eclipse.rdf4j.model.vocabulary.OWL;
+import org.eclipse.rdf4j.model.vocabulary.*;
 import org.semanticweb.owlapi.model.*;
 
 import uk.ac.manchester.cs.owl.owlapi.*;
@@ -10,6 +10,8 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class AxiomMatcher {
 	
 	/**
+	 * Existential mincard = exact card
+	 * 
 	 * AXIOMS
 	 * 
 	 * 01 A ⊑ B

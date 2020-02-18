@@ -1,12 +1,12 @@
-package owlax;
 
 import java.io.*;
 
 import org.semanticweb.owlapi.apibinding.*;
 import org.semanticweb.owlapi.model.*;
 
-public class OWLAx {
-	
+import ontologyTools.*;
+
+public class Main {
 	
 	public static void main(String[] args) throws Exception {		
 		

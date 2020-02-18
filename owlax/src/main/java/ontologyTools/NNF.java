@@ -1,4 +1,4 @@
-package owlax;
+package ontologyTools;
 
 import java.util.*;
 import java.util.stream.*;
@@ -18,6 +18,7 @@ public class NNF  {
 		rbox = new ArrayList<OWLPropertyAxiom>();
 		tbox = new ArrayList<OWLClassAxiom>();
 		sortAxiomTypes();
+		//Existential mincard = exact card
 	}
 	
 	private void sortAxiomTypes() throws Exception {		
@@ -29,7 +30,9 @@ public class NNF  {
 			}else if (ax.getAxiomType().getName().equals("InverseObjectProperties")) {
 				rbox.add((OWLInverseObjectPropertiesAxiom)ax);
 			}else if (ax.getAxiomType().getName().equals("SubClassOf")) {
-				tbox.add((OWLSubClassOfAxiom)ax);
+				if (!ax.getNNF().equals(ax)) {
+					System.out.println(String.format("%s\n%s\n",ax.toString(),ax.getNNF().toString()));				}
+				tbox.add((OWLSubClassOfAxiom)ax.getNNF());
 			}else {
 				throw new Exception("Axiom not handeled:\n\t"+ax.toString());
 			}
