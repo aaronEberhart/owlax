@@ -10,7 +10,6 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class AxiomMatcher {
 	
 	/**
-	 * Existential mincard = exact card
 	 * 
 	 * AXIOMS
 	 * 

@@ -20,7 +20,6 @@ public class NNF  {
 		rbox = new ArrayList<OWLPropertyAxiom>();
 		tbox = new ArrayList<OWLClassAxiom>();
 		sortAxiomTypes();
-		//Existential mincard = exact card
 	}
 	
 	private void sortAxiomTypes() throws Exception {		
@@ -43,11 +42,13 @@ public class NNF  {
 	
 	private void parseClassAxiom(OWLSubClassOfAxiom ax) throws Exception {
 		
+		//is it not in nnf?
 		if (!ax.getNNF().equals(ax)) {
 			
 			OWLClassExpression sup = ((OWLSubClassOfAxiom)ax).getSuperClass();
 			OWLClassExpression sub = ((OWLSubClassOfAxiom)ax).getSubClass();
 			
+			//is it a role cardinality?
 			if (sup.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
 				
 				sup = ((OWLObjectExactCardinalityImpl)sup);
@@ -67,6 +68,8 @@ public class NNF  {
 				
 				tbox.add(ax);
 				tbox.add(ax2);
+				
+			//is it a data cardinality?
 			}else if (sup.getClassExpressionType().getName().equals("DataExactCardinality")) {
 				
 				sup = ((OWLDataExactCardinalityImpl)sup);
@@ -86,9 +89,13 @@ public class NNF  {
 				
 				tbox.add(ax);
 				tbox.add(ax2);
+				
+			//uh oh
 			}else{
 				System.err.println(String.format("\nHARD AXIOM:\n%s\nNNF:\n%s\n",ax.toString(),ax.getNNF().toString()));	
 			}
+			
+		//it was nnf woohoo
 		}else {
 			tbox.add((OWLSubClassOfAxiom)ax);
 		}
