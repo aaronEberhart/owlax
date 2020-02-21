@@ -60,10 +60,10 @@ public class NNF  {
 			OWLClassExpression sup = ((OWLSubClassOfAxiom)ax).getSuperClass();
 			OWLClassExpression sub = ((OWLSubClassOfAxiom)ax).getSubClass();
 			
-			//is it an object cardinality?
+			//is it an object exact cardinality?
 			if (sup.getClassExpressionType().getName().equals("ObjectExactCardinality")) {				
 				parseObjectExactCardinality(ax,sub,sup);				
-			//is it a data cardinality?
+			//is it a data exact cardinality?
 			}else if (sup.getClassExpressionType().getName().equals("DataExactCardinality")) {				
 				parseDataExactCardinality(ax,sub,sup);				
 			//uh oh
@@ -135,7 +135,7 @@ public class NNF  {
 		
 		//split into new axioms
 		ax = new OWLSubClassOfAxiomImpl(sub,new OWLDataMaxCardinalityImpl(props.get(0), 1, dat.get(0)), nots);
-		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLDataMinCardinalityImpl(props.get(0), 1, dat.get(0)), nots);
+		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLDataSomeValuesFromImpl(props.get(0), dat.get(0)), nots);
 		
 		//add to tbox
 		tbox.add(ax);
