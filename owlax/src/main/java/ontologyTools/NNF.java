@@ -68,7 +68,7 @@ public class NNF  {
 				parseDataExactCardinality(ax,sub,sup);				
 			//uh oh
 			}else{
-				System.err.println(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",ax.toString(),ax.getNNF().toString()));	
+				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",ax.toString(),ax.getNNF().toString()));	
 			}
 			
 		//it was nnf woohoo
