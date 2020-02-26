@@ -18,12 +18,12 @@ public class NNF  {
 	/**
 	 * Constructor - Gets axioms from the ontology and then sorts them
 	 * 
-	 * @param Ontology o
+	 * @param OWLOntology ontology
 	 * @throws Exception
 	 */
 	public NNF(OWLOntology ontology) throws Exception {
 		
-		//get the axioms that we want
+		//get the axioms from the ontology
 		axioms = getAxioms(ontology);
 		
 		//initialize everything
@@ -195,7 +195,7 @@ public class NNF  {
 	}
 	
 	/**
-	 * gets the size of a subclass axiom
+	 * Gets the size of a subclass axiom
 	 * 
 	 * @param OWLSubClassOfAxiom ax
 	 */
@@ -214,7 +214,7 @@ public class NNF  {
 	}
 	
 	/**
-	 * gets the size of an owl expression
+	 * Gets the size of an owl expression
 	 * 
 	 * @param OWLClassExpression ex
 	 */
@@ -257,7 +257,7 @@ public class NNF  {
 	}
 	
 	/**
-	 * gets the size of a property axiom
+	 * Gets the size of a property axiom
 	 * 
 	 * @param OWLObjectPropertyAxiom ax
 	 */
