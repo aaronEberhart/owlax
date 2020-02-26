@@ -106,11 +106,13 @@ public class NNF  {
 	 * gets the size of an owl expression
 	 */
 	private static int getClassExpressionSize(OWLClassExpression ex) {
+		//look at its type
 		String type = ex.getClassExpressionType().getName();
+		
 		// class = 1
 		if (type.equals("Class")) {
 			return 1;
-		//negation = 0
+		// negation = 0
 		} else if (type.equals("ObjectComplementOf")) {
 			return getClassExpressionSize(ex.getComplementNNF());
 		// quantifier = | class expression | + 1
@@ -124,10 +126,10 @@ public class NNF  {
 			return getClassExpressionSize(((OWLObjectMinCardinality)ex).getFiller()) + 1;
 		}else if (type.equals("ObjectExactCardinality")) {
 				return getClassExpressionSize(((OWLObjectExactCardinality)ex).getFiller()) + 1;
-		//data = same as quantifier just not nested
+		// data = same as quantifier just not nested
 		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
 			return 2;
-		//self = always exactly one thing
+		// self = always exactly one thing
 		}else if (type.equals("ObjectHasSelf")) {
 			return 1;
 		// conjunction = sum of conjuncts
@@ -137,22 +139,30 @@ public class NNF  {
 		}else if (type.equals("ObjectUnionOf")) {
 			return ((OWLObjectUnionOf)ex).disjunctSet().mapToInt(a -> getClassExpressionSize(a)).sum();
 		}
-		return -1;
+		// don't want to throw an exception but this should be obviously wrong
+		return Integer.MIN_VALUE;
 	}
 	
 	/**
 	 * gets the size of a property axiom
 	 */
 	public static int getObjectPropertyAxiomSize(OWLObjectPropertyAxiom ax) {
+		
+		// look at its type
 		String type = ax.getAxiomType().getName();
+		
+		// chain = | chain | + 1
 		if (type.equals("SubPropertyChainOf")) {
 			return ((OWLSubPropertyChainOfAxiom)ax).getPropertyChain().size() + 1;
+		// property = 2 (no chain)
 		}else if (type.equals("SubObjectPropertyOf")) {
 			return 2;
+		// inverse = 2 (same as property)
 		}else if (type.equals("InverseObjectProperties")) {
 			return 2;
 		}
-		return -1;
+		//don't want to throw an exception but this should be obviously wrong
+		return Integer.MIN_VALUE;
 	}
 		
 	/**
