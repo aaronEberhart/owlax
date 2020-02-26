@@ -4,7 +4,6 @@ import java.util.*;
 
 import org.eclipse.rdf4j.model.vocabulary.*;
 import org.semanticweb.owlapi.model.*;
-
 import uk.ac.manchester.cs.owl.owlapi.*;
 
 public class AxiomMatcher {
@@ -59,23 +58,32 @@ public class AxiomMatcher {
 			//tautology
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList())	
 			);
-	private ArrayList<OWLClassAxiom> tbox;
-	private ArrayList<OWLPropertyAxiom> rbox;
+	private ArrayList<OWLSubClassOfAxiom> tbox;
+	private ArrayList<OWLObjectPropertyAxiom> rbox;
 		
-	public AxiomMatcher(ArrayList<OWLClassAxiom> t,ArrayList<OWLPropertyAxiom> r) {
+	public AxiomMatcher(ArrayList<OWLSubClassOfAxiom> t,ArrayList<OWLObjectPropertyAxiom> r) {
 		tbox = t;
 		rbox = r;
+	}
+	
+	public String getOWLAxiomsString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("OWLAx Axioms:\n");
+		for (OWLSubClassOfAxiom s : owlaxioms) {
+			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",NNF.getSubClassOfAxiomSize(s),s.toString()));
+		}
+		return sb.toString();
 	}
 	
 	public List<OWLSubClassOfAxiom> getOWLAxaxioms() {
 		return owlaxioms;
 	}
 	
-	public ArrayList<OWLClassAxiom> getTBox() {
+	public ArrayList<OWLSubClassOfAxiom> getTBox() {
 		return tbox;
 	}
 	
-	public ArrayList<OWLPropertyAxiom> getRBox() {
+	public ArrayList<OWLObjectPropertyAxiom> getRBox() {
 		return rbox;
 	}
 }

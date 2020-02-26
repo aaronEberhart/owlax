@@ -17,7 +17,7 @@ public class Main {
 		//System.out.println(nnf.toString());
 		
 		AxiomMatcher mat = new AxiomMatcher(nnf.getTBox(),nnf.getRBox());
-		mat.hashCode();
+		//System.out.println(mat.getOWLAxiomsString());
 	}
 	
 	

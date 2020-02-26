@@ -9,16 +9,19 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 
 public class NNF  {
 	
+	private static final int maxSize = 3;
 	private OWLOntology ont;
 	private ArrayList<OWLAxiom> axioms;
-	private ArrayList<OWLClassAxiom> tbox;
-	private ArrayList<OWLPropertyAxiom> rbox;
+	private ArrayList<OWLSubClassOfAxiom> tbox;
+	private ArrayList<OWLSubClassOfAxiom> complex;
+	private ArrayList<OWLObjectPropertyAxiom> rbox;
 	
 	public NNF(OWLOntology o) throws Exception {
 		ont = o;
 		axioms = getAxioms(ont);
-		rbox = new ArrayList<OWLPropertyAxiom>();
-		tbox = new ArrayList<OWLClassAxiom>();
+		rbox = new ArrayList<OWLObjectPropertyAxiom>();
+		tbox = new ArrayList<OWLSubClassOfAxiom>();
+		complex = new ArrayList<OWLSubClassOfAxiom>();
 		sortAxiomTypes();
 	}
 	
@@ -38,7 +41,7 @@ public class NNF  {
 			}else if (type.equals("InverseObjectProperties")) {
 				rbox.add((OWLInverseObjectPropertiesAxiom)ax);
 			}else if (type.equals("SubClassOf")) {
-				parseClassAxiom((OWLSubClassOfAxiom)ax);
+				parseSubClassOfAxiom((OWLSubClassOfAxiom)ax);
 			}else {
 				throw new Exception("Axiom not handeled:\n\t"+ax.toString());
 			}
@@ -51,10 +54,13 @@ public class NNF  {
 	 * @param OWLSubClassOfAxiom ax
 	 * @throws Exception
 	 */
-	private void parseClassAxiom(OWLSubClassOfAxiom ax) throws Exception {
+	private void parseSubClassOfAxiom(OWLSubClassOfAxiom ax) throws Exception {
 		
-		//is it already in nnf?
-		if (!ax.getNNF().equals(ax)) {
+		//see how big it is
+		int size = getSubClassOfAxiomSize(ax);
+		
+		//is it the right size, but not nnf?
+		if (!ax.getNNF().equals(ax) && size <= maxSize) {
 
 			//get the antecedent and consequent
 			OWLClassExpression sup = ((OWLSubClassOfAxiom)ax).getSuperClass();
@@ -65,18 +71,89 @@ public class NNF  {
 				parseObjectExactCardinality(ax,sub,sup);				
 			//is it a data exact cardinality?
 			}else if (sup.getClassExpressionType().getName().equals("DataExactCardinality")) {				
-				parseDataExactCardinality(ax,sub,sup);				
+				parseDataExactCardinality(ax,sub,sup);	
+			}			
 			//uh oh
-			}else{
+			else{				
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",ax.toString(),ax.getNNF().toString()));	
 			}
-			
+		}
+		//too big for now
+		else if (size > maxSize) {
+			complex.add(ax);
+		}	
 		//it was nnf woohoo
-		}else {
-			tbox.add((OWLSubClassOfAxiom)ax);
+		else {
+			tbox.add(ax);
 		}
 	}
 	
+	/**
+	 * gets the size of a subclass axiom
+	 */
+	public static int getSubClassOfAxiomSize(OWLSubClassOfAxiom ax) {
+		return getSubClassOfAxiomSize(((OWLSubClassOfAxiom)ax).getSubClass(),((OWLSubClassOfAxiom)ax).getSuperClass());
+	}
+	
+	/**
+	 * Gets the size of the subclass axiom by adding the sizes of its components
+	 */
+	private static int getSubClassOfAxiomSize(OWLClassExpression sub,OWLClassExpression sup) {
+		return getClassExpressionSize(sub) + getClassExpressionSize(sup);
+	}
+	
+	/**
+	 * gets the size of an owl expression
+	 */
+	private static int getClassExpressionSize(OWLClassExpression ex) {
+		String type = ex.getClassExpressionType().getName();
+		// class = 1
+		if (type.equals("Class")) {
+			return 1;
+		//negation = 0
+		} else if (type.equals("ObjectComplementOf")) {
+			return getClassExpressionSize(ex.getComplementNNF());
+		// quantifier = | class expression | + 1
+		}else if (type.equals("ObjectSomeValuesFrom")) {
+			return getClassExpressionSize(((OWLObjectSomeValuesFrom)ex).getFiller()) + 1;
+		}else if (type.equals("ObjectAllValuesFrom")) {
+			return getClassExpressionSize(((OWLObjectAllValuesFrom)ex).getFiller()) + 1;
+		}else if (type.equals("ObjectMaxCardinality")) {
+			return getClassExpressionSize(((OWLObjectMaxCardinality)ex).getFiller()) + 1;
+		}else if (type.equals("ObjectMinCardinality")) {
+			return getClassExpressionSize(((OWLObjectMinCardinality)ex).getFiller()) + 1;
+		}else if (type.equals("ObjectExactCardinality")) {
+				return getClassExpressionSize(((OWLObjectExactCardinality)ex).getFiller()) + 1;
+		//data = same as quantifier just not nested
+		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
+			return 2;
+		}else if (type.equals("ObjectHasSelf")) {
+			return 2;
+		// conjunction = sum of conjuncts
+		}else if (type.equals("ObjectIntersectionOf")) {
+			return ((OWLObjectIntersectionOf)ex).conjunctSet().mapToInt(a -> getClassExpressionSize(a)).sum();
+		// disjunction = sum of disjuncts
+		}else if (type.equals("ObjectUnionOf")) {
+			return ((OWLObjectUnionOf)ex).disjunctSet().mapToInt(a -> getClassExpressionSize(a)).sum();
+		}
+		return -1;
+	}
+	
+	/**
+	 * gets the size of a property axiom
+	 */
+	public static int getObjectPropertyAxiomSize(OWLObjectPropertyAxiom ax) {
+		String type = ax.getAxiomType().getName();
+		if (type.equals("SubPropertyChainOf")) {
+			return ((OWLSubPropertyChainOfAxiom)ax).getPropertyChain().size() + 1;
+		}else if (type.equals("SubObjectPropertyOf")) {
+			return 2;
+		}else if (type.equals("InverseObjectProperties")) {
+			return 2;
+		}
+		return -1;
+	}
+		
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 * 
@@ -163,22 +240,29 @@ public class NNF  {
 		return ont.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
 	}
 	
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (OWLClassAxiom s : tbox) {
-			sb.append(String.format("%s\n",s.toString()));
+		sb.append("TBox:\n");
+		for (OWLSubClassOfAxiom s : tbox) {
+			sb.append(String.format("Axiom Size: %d \nAxiom: %s\n",getSubClassOfAxiomSize(s),s.toString()));
 		}
-		for (OWLPropertyAxiom s : rbox) {
-			sb.append(String.format("%s\n",s.toString()));
+		sb.append("\nComplex Class Axioms:\n");
+		for (OWLSubClassOfAxiom s : complex) {
+			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",getSubClassOfAxiomSize(s),s.toString()));
+		}
+		sb.append("\nRBox:\n");
+		for (OWLObjectPropertyAxiom s : rbox) {
+			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",getObjectPropertyAxiomSize(s),s.toString()));
 		}
 		return sb.toString();
 	}
 
-	public ArrayList<OWLPropertyAxiom> getRBox() {
+	public ArrayList<OWLObjectPropertyAxiom> getRBox() {
 		return rbox;
 	}
 	
-	public ArrayList<OWLClassAxiom> getTBox() {
+	public ArrayList<OWLSubClassOfAxiom> getTBox() {
 		return tbox;
 	}
 	
