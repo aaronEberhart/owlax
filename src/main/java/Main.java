@@ -16,7 +16,7 @@ public class Main {
 		NNF nnf = new NNF(ont);
 		System.out.println(nnf.toString());
 		
-		AxiomMatcher mat = new AxiomMatcher(nnf.getTBox(),nnf.getRBox());
+		OWLAxMatcher mat = new OWLAxMatcher(nnf.getTBox(),nnf.getRBox());
 		System.out.println(mat.getOWLAxiomsString());
 	}
 	

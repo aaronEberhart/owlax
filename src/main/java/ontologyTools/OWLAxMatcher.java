@@ -6,7 +6,7 @@ import org.eclipse.rdf4j.model.vocabulary.*;
 import org.semanticweb.owlapi.model.*;
 import uk.ac.manchester.cs.owl.owlapi.*;
 
-public class AxiomMatcher {
+public class OWLAxMatcher {
 	
 	/**
 	 * 
@@ -63,7 +63,7 @@ public class AxiomMatcher {
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLObjectPropertyAxiom> rbox;
 		
-	public AxiomMatcher(ArrayList<OWLSubClassOfAxiom> classAxioms,ArrayList<OWLObjectPropertyAxiom> roleAxioms) {
+	public OWLAxMatcher(ArrayList<OWLSubClassOfAxiom> classAxioms,ArrayList<OWLObjectPropertyAxiom> roleAxioms) {
 		tbox = classAxioms;
 		rbox = roleAxioms;
 	}
