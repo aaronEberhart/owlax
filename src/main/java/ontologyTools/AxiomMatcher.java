@@ -63,9 +63,9 @@ public class AxiomMatcher {
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLObjectPropertyAxiom> rbox;
 		
-	public AxiomMatcher(ArrayList<OWLSubClassOfAxiom> t,ArrayList<OWLObjectPropertyAxiom> r) {
-		tbox = t;
-		rbox = r;
+	public AxiomMatcher(ArrayList<OWLSubClassOfAxiom> classAxioms,ArrayList<OWLObjectPropertyAxiom> roleAxioms) {
+		tbox = classAxioms;
+		rbox = roleAxioms;
 	}
 	
 	public String getOWLAxiomsString() {
