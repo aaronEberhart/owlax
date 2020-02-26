@@ -237,7 +237,7 @@ public class NNF  {
 		}else if (type.equals("ObjectMinCardinality")) {
 			return getClassExpressionSize(((OWLObjectMinCardinality)ex).getFiller()) + 1;
 		}else if (type.equals("ObjectExactCardinality")) {
-				return getClassExpressionSize(((OWLObjectExactCardinality)ex).getFiller()) + 1;
+			return getClassExpressionSize(((OWLObjectExactCardinality)ex).getFiller()) + 1;
 		// data = same as quantifier just not nested
 		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
 			return 2;
