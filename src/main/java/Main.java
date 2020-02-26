@@ -14,10 +14,10 @@ public class Main {
 		OWLOntology ont = man.loadOntologyFromOntologyDocument(new File("enslavedv2.owl"));
 		
 		NNF nnf = new NNF(ont);
-		//System.out.println(nnf.toString());
+		System.out.println(nnf.toString());
 		
 		AxiomMatcher mat = new AxiomMatcher(nnf.getTBox(),nnf.getRBox());
-		//System.out.println(mat.getOWLAxiomsString());
+		System.out.println(mat.getOWLAxiomsString());
 	}
 	
 	

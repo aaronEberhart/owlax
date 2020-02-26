@@ -9,7 +9,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 
 public class NNF  {
 	
-	private static final int maxSize = AxiomMatcher.maxSize;
+	private final int maxOWLAxSize = AxiomMatcher.maxSize;
 	private ArrayList<OWLAxiom> axioms;
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;
@@ -100,7 +100,7 @@ public class NNF  {
 		int size = getSubClassOfAxiomSize(ax);
 		
 		//is it the right size, but not nnf?
-		if (!ax.getNNF().equals(ax) && size <= maxSize) {
+		if (!ax.getNNF().equals(ax) && size <= maxOWLAxSize) {
 
 			//get the antecedent and consequent
 			OWLClassExpression sup = ((OWLSubClassOfAxiom)ax).getSuperClass();
@@ -119,7 +119,7 @@ public class NNF  {
 			}
 		}
 		// is it too big for now?
-		else if (size > maxSize) {
+		else if (size > maxOWLAxSize) {
 			complex.add(ax);
 		}	
 		//it was nnf and the right size! woohoo!
