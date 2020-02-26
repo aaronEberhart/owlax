@@ -127,8 +127,9 @@ public class NNF  {
 		//data = same as quantifier just not nested
 		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
 			return 2;
+		//self = always exactly one thing
 		}else if (type.equals("ObjectHasSelf")) {
-			return 2;
+			return 1;
 		// conjunction = sum of conjuncts
 		}else if (type.equals("ObjectIntersectionOf")) {
 			return ((OWLObjectIntersectionOf)ex).conjunctSet().mapToInt(a -> getClassExpressionSize(a)).sum();
