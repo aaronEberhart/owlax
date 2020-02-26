@@ -9,7 +9,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 
 public class NNF  {
 	
-	private static final int maxSize = 3;
+	private static final int maxSize = AxiomMatcher.maxSize;
 	private ArrayList<OWLAxiom> axioms;
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;

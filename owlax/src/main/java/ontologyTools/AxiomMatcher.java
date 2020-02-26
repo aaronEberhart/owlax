@@ -58,6 +58,7 @@ public class AxiomMatcher {
 			//tautology
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList())	
 			);
+	protected static final int maxSize = owlaxioms.stream().mapToInt(a -> NNF.getSubClassOfAxiomSize(a)).sum();
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLObjectPropertyAxiom> rbox;
 		
