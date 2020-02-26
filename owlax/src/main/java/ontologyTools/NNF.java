@@ -196,6 +196,8 @@ public class NNF  {
 	
 	/**
 	 * gets the size of a subclass axiom
+	 * 
+	 * @param OWLSubClassOfAxiom ax
 	 */
 	public static int getSubClassOfAxiomSize(OWLSubClassOfAxiom ax) {
 		return getSubClassOfAxiomSize(((OWLSubClassOfAxiom)ax).getSubClass(),((OWLSubClassOfAxiom)ax).getSuperClass());
@@ -203,6 +205,9 @@ public class NNF  {
 	
 	/**
 	 * Gets the size of the subclass axiom by adding the sizes of its components
+	 * 
+	 * @param OWLClassExpression sub
+	 * @param OWLClassExpression sup
 	 */
 	private static int getSubClassOfAxiomSize(OWLClassExpression sub,OWLClassExpression sup) {
 		return getClassExpressionSize(sub) + getClassExpressionSize(sup);
@@ -210,6 +215,8 @@ public class NNF  {
 	
 	/**
 	 * gets the size of an owl expression
+	 * 
+	 * @param OWLClassExpression ex
 	 */
 	private static int getClassExpressionSize(OWLClassExpression ex) {
 		//look at its type
@@ -251,6 +258,8 @@ public class NNF  {
 	
 	/**
 	 * gets the size of a property axiom
+	 * 
+	 * @param OWLObjectPropertyAxiom ax
 	 */
 	public static int getObjectPropertyAxiomSize(OWLObjectPropertyAxiom ax) {
 		
