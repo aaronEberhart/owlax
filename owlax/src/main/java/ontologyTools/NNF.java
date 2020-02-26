@@ -10,38 +10,78 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class NNF  {
 	
 	private static final int maxSize = 3;
-	private OWLOntology ont;
 	private ArrayList<OWLAxiom> axioms;
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;
 	private ArrayList<OWLObjectPropertyAxiom> rbox;
 	
-	public NNF(OWLOntology o) throws Exception {
-		ont = o;
-		axioms = getAxioms(ont);
+	/**
+	 * Constructor - Gets axioms from the ontology and then sorts them
+	 * 
+	 * @param Ontology o
+	 * @throws Exception
+	 */
+	public NNF(OWLOntology ontology) throws Exception {
+		
+		//get the axioms that we want
+		axioms = getAxioms(ontology);
+		
+		//initialize everything
 		rbox = new ArrayList<OWLObjectPropertyAxiom>();
 		tbox = new ArrayList<OWLSubClassOfAxiom>();
 		complex = new ArrayList<OWLSubClassOfAxiom>();
+		
+		//sort the axioms
 		sortAxiomTypes();
+	}	
+
+	/**
+	 * Gets all axioms from the ontology, ignoring annotations and declarations
+	 * 
+	 * @param OWLOntology ont
+	 * @return ArrayList<OWLAxiom>
+	 */
+	private ArrayList<OWLAxiom> getAxioms(OWLOntology ont){
+		return ont.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
 	}
 	
 	/**
-	 * Sorts all axioms in ontology into a TBox and RBox.
+	 * False if the type string of an axiom is Annotation or Declaration, True otherwise
+	 * 
+	 * @param String type
+	 * @return boolean
+	 */
+	private boolean correctType(String type) {
+		return !(type.equals("AnnotationAssertion") || type.equals("Declaration"));
+	}
+		
+	/**
+	 * Sorts all axioms in ontology into a TBox and RBox, also diverts complex complex class expressions.
 	 * 
 	 * @throws Exception
 	 */
 	private void sortAxiomTypes() throws Exception {		
-		String type;
+				
+		//look through all the axioms
 		for (OWLAxiom ax : axioms) {	
-			type = ax.getAxiomType().getName();
+			
+			//check what type they are
+			String type = ax.getAxiomType().getName();
+			
+			// Role chain
 			if (type.equals("SubPropertyChainOf")) {
 				rbox.add((OWLSubPropertyChainOfAxiom)ax);
+			// Role Inclusion
 			}else if (type.equals("SubObjectPropertyOf")) {
 				rbox.add((OWLSubObjectPropertyOfAxiom)ax);
+			// Inverse Role
 			}else if (type.equals("InverseObjectProperties")) {
 				rbox.add((OWLInverseObjectPropertiesAxiom)ax);
+			// Subclass
 			}else if (type.equals("SubClassOf")) {
+				//these are nested so parse them separately
 				parseSubClassOfAxiom((OWLSubClassOfAxiom)ax);
+			// oops forgot one
 			}else {
 				throw new Exception("Axiom not handeled:\n\t"+ax.toString());
 			}
@@ -78,14 +118,80 @@ public class NNF  {
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",ax.toString(),ax.getNNF().toString()));	
 			}
 		}
-		//too big for now
+		// is it too big for now?
 		else if (size > maxSize) {
 			complex.add(ax);
 		}	
-		//it was nnf woohoo
+		//it was nnf and the right size! woohoo!
 		else {
 			tbox.add(ax);
 		}
+	}
+	
+	/**
+	 * Splits an exact cardinality axiom into two axioms that are equivalent
+	 * 
+	 * @param OWLSubClassOfAxiom ax
+	 * @param OWLClassExpression sub
+	 * @param OWLClassExpression sup
+	 * @throws Exception
+	 */
+	private void parseObjectExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
+		
+		//get stuff from old axiom
+		sup = ((OWLObjectExactCardinalityImpl)sup);		
+		List<OWLObjectProperty> props = sup.objectPropertiesInSignature().collect(Collectors.toList());
+		List<OWLClass> cls = sup.classesInSignature().collect(Collectors.toList());
+		List<OWLAnnotation> nots = ax.annotations().collect(Collectors.toCollection(ArrayList::new));
+		
+		//check if axiom is the right size
+		if(props.size() > 1) {
+			throw new Exception("Too many properties in consequent of \n"+ax.toString());
+		}else if(cls.size() > 1) {
+			throw new Exception("Too many classes in consequent of \n"+ax.toString());
+		}
+		
+		//split into new axioms
+		ax = new OWLSubClassOfAxiomImpl(sub,new OWLObjectMaxCardinalityImpl(props.get(0), 1, cls.get(0)), nots);
+		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLObjectSomeValuesFromImpl(props.get(0), cls.get(0)), nots);
+		
+		//add to tbox
+		tbox.add(ax);
+		tbox.add(ax2);
+		
+	}
+	
+	/**
+	 * Splits an exact cardinality axiom into two axioms that are equivalent
+	 * 
+	 * @param OWLSubClassOfAxiom ax
+	 * @param OWLClassExpression sub
+	 * @param OWLClassExpression sup
+	 * @throws Exception
+	 */
+	private void parseDataExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
+		
+		//get stuff from old axiom
+		sup = ((OWLDataExactCardinalityImpl)sup);		
+		List<OWLDataProperty> props = sup.dataPropertiesInSignature().collect(Collectors.toList());
+		List<OWLDatatype> dat = sup.datatypesInSignature().collect(Collectors.toList());
+		List<OWLAnnotation> nots = ax.annotations().collect(Collectors.toCollection(ArrayList::new));
+		
+		//check if axiom is the right size
+		if(props.size() > 1) {
+			throw new Exception("Too many properties in consequent of \n"+ax.toString());
+		}else if(dat.size() > 1) {
+			throw new Exception("Too many datatypes in consequent of \n"+ax.toString());
+		}
+		
+		//split into new axioms
+		ax = new OWLSubClassOfAxiomImpl(sub,new OWLDataMaxCardinalityImpl(props.get(0), 1, dat.get(0)), nots);
+		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLDataSomeValuesFromImpl(props.get(0), dat.get(0)), nots);
+		
+		//add to tbox
+		tbox.add(ax);
+		tbox.add(ax2);
+		
 	}
 	
 	/**
@@ -164,92 +270,6 @@ public class NNF  {
 		//don't want to throw an exception but this should be obviously wrong
 		return Integer.MIN_VALUE;
 	}
-		
-	/**
-	 * Splits an exact cardinality axiom into two axioms that are equivalent
-	 * 
-	 * @param OWLSubClassOfAxiom ax
-	 * @param OWLClassExpression sub
-	 * @param OWLClassExpression sup
-	 * @throws Exception
-	 */
-	private void parseObjectExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
-		
-		//get stuff from old axiom
-		sup = ((OWLObjectExactCardinalityImpl)sup);		
-		List<OWLObjectProperty> props = sup.objectPropertiesInSignature().collect(Collectors.toList());
-		List<OWLClass> cls = sup.classesInSignature().collect(Collectors.toList());
-		List<OWLAnnotation> nots = ax.annotations().collect(Collectors.toCollection(ArrayList::new));
-		
-		//check if axiom is the right size
-		if(props.size() > 1) {
-			throw new Exception("Too many properties in consequent of \n"+ax.toString());
-		}else if(cls.size() > 1) {
-			throw new Exception("Too many classes in consequent of \n"+ax.toString());
-		}
-		
-		//split into new axioms
-		ax = new OWLSubClassOfAxiomImpl(sub,new OWLObjectMaxCardinalityImpl(props.get(0), 1, cls.get(0)), nots);
-		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLObjectSomeValuesFromImpl(props.get(0), cls.get(0)), nots);
-		
-		//add to tbox
-		tbox.add(ax);
-		tbox.add(ax2);
-		
-	}
-	
-	/**
-	 * Splits an exact cardinality axiom into two axioms that are equivalent
-	 * 
-	 * @param OWLSubClassOfAxiom ax
-	 * @param OWLClassExpression sub
-	 * @param OWLClassExpression sup
-	 * @throws Exception
-	 */
-	private void parseDataExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
-		
-		//get stuff from old axiom
-		sup = ((OWLDataExactCardinalityImpl)sup);		
-		List<OWLDataProperty> props = sup.dataPropertiesInSignature().collect(Collectors.toList());
-		List<OWLDatatype> dat = sup.datatypesInSignature().collect(Collectors.toList());
-		List<OWLAnnotation> nots = ax.annotations().collect(Collectors.toCollection(ArrayList::new));
-		
-		//check if axiom is the right size
-		if(props.size() > 1) {
-			throw new Exception("Too many properties in consequent of \n"+ax.toString());
-		}else if(dat.size() > 1) {
-			throw new Exception("Too many datatypes in consequent of \n"+ax.toString());
-		}
-		
-		//split into new axioms
-		ax = new OWLSubClassOfAxiomImpl(sub,new OWLDataMaxCardinalityImpl(props.get(0), 1, dat.get(0)), nots);
-		OWLSubClassOfAxiom ax2 = new OWLSubClassOfAxiomImpl(sub,new OWLDataSomeValuesFromImpl(props.get(0), dat.get(0)), nots);
-		
-		//add to tbox
-		tbox.add(ax);
-		tbox.add(ax2);
-		
-	}
-	
-	/**
-	 * False if the type string of an axiom is Annotation or Declaration, True otherwise
-	 * 
-	 * @param String type
-	 * @return boolean
-	 */
-	private boolean correctType(String type) {
-		return !(type.equals("AnnotationAssertion") || type.equals("Declaration"));
-	}
-	
-	/**
-	 * Gets all axioms from the ontology, ignoring annotations and declarations
-	 * 
-	 * @param OWLOntology ont
-	 * @return ArrayList<OWLAxiom>
-	 */
-	private ArrayList<OWLAxiom> getAxioms(OWLOntology ont){
-		return ont.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
-	}
 	
 	@Override
 	public String toString() {
@@ -275,6 +295,10 @@ public class NNF  {
 	
 	public ArrayList<OWLSubClassOfAxiom> getTBox() {
 		return tbox;
+	}
+	
+	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms() {
+		return complex;
 	}
 	
 	public ArrayList<OWLAxiom> getAxioms() {
