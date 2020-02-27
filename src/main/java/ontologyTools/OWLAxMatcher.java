@@ -54,8 +54,8 @@ public class OWLAxMatcher {
 	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
 	private NormalizeAndSortAxioms normalizedAxioms;
 		
-	public OWLAxMatcher(NormalizeAndSortAxioms nnf) {
-		normalizedAxioms = nnf;
+	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
+		normalizedAxioms = axioms;
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
