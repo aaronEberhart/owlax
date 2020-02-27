@@ -15,7 +15,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class OWLAxMatcher {
 	
 	// all axioms used by OWLAx
-	private static final List<OWLSubClassOfAxiom> owlaxioms = Arrays.asList(
+	private static final List<OWLSubClassOfAxiom> OWLAxAxioms = Arrays.asList(
 			//subclass - A ⊑ B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLClassImpl(IRI.create("B")), Collections.emptyList()),
 			//disjoint classes - A ⊓ B ⊑ ⊥
@@ -51,7 +51,7 @@ public class OWLAxMatcher {
 			//structural tautology - A ⊑ >=0R.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()));
 	// max size of all the axioms (should be 3...)
-	protected static final int maxSize = owlaxioms.stream().mapToInt(a -> NormalizedAndSortedAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
+	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizedAndSortedAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
 	private NormalizedAndSortedAxioms normalizedAxioms;
 		
 	public OWLAxMatcher(NormalizedAndSortedAxioms nnf) {
@@ -62,8 +62,8 @@ public class OWLAxMatcher {
 		normalizedAxioms = new NormalizedAndSortedAxioms(ontology);
 	}
 	
-	public List<OWLSubClassOfAxiom> getOWLAxaxioms() {
-		return owlaxioms;
+	public List<OWLSubClassOfAxiom> getOWLAxAxioms() {
+		return OWLAxAxioms;
 	}
 	
 	public ArrayList<OWLSubClassOfAxiom> getTBox() {
@@ -81,7 +81,7 @@ public class OWLAxMatcher {
 	public String getOWLAxAxiomsString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("OWLAx Axioms:\n");
-		for (OWLSubClassOfAxiom s : owlaxioms) {
+		for (OWLSubClassOfAxiom s : OWLAxAxioms) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizedAndSortedAxioms.getSubClassOfAxiomSize(s)));
 		}
 		return sb.toString();
