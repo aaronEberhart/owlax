@@ -12,6 +12,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
  * they can be evaluated for OWLAx coverage
  * 
  * @author Aaron Eberhart
+ * @author DaSe Lab
  *
  */
 public class NormalizeAndSortAxioms  {
@@ -40,17 +41,17 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Gets all axioms from the ontology, ignoring annotations and declarations
 	 * 
-	 * @param OWLOntology ont
+	 * @param ontology OWLOntology 
 	 * @return ArrayList<OWLAxiom>
 	 */
-	private ArrayList<OWLAxiom> getAxioms(OWLOntology ont){
-		return ont.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
+	private ArrayList<OWLAxiom> getAxioms(OWLOntology ontology){
+		return ontology.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
 	}
 	
 	/**
 	 * False if the type string of an axiom is Annotation or Declaration, True otherwise
 	 * 
-	 * @param String type
+	 * @param type String
 	 * @return boolean
 	 */
 	private boolean correctType(String type) {
@@ -93,7 +94,7 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Sorts TBox statements based on their NNF
 	 * 
-	 * @param OWLSubClassOfAxiom ax
+	 * @param ax OWLSubClassOfAxiom 
 	 * @throws Exception
 	 */
 	private void parseSubClassOfAxiom(OWLSubClassOfAxiom ax) throws Exception {
@@ -133,9 +134,9 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 * 
-	 * @param OWLSubClassOfAxiom ax
-	 * @param OWLClassExpression sub
-	 * @param OWLClassExpression sup
+	 * @param ax OWLSubClassOfAxiom
+	 * @param sub OWLClassExpression
+	 * @param sup OWLClassExpression
 	 * @throws Exception
 	 */
 	private void parseObjectExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
@@ -166,9 +167,9 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 * 
-	 * @param OWLSubClassOfAxiom ax
-	 * @param OWLClassExpression sub
-	 * @param OWLClassExpression sup
+	 * @param ax OWLSubClassOfAxiom
+	 * @param sub OWLClassExpression
+	 * @param sup OWLClassExpression
 	 * @throws Exception
 	 */
 	private void parseDataExactCardinality(OWLSubClassOfAxiom ax,OWLClassExpression sub,OWLClassExpression sup) throws Exception {
@@ -208,8 +209,8 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Gets the size of the subclass axiom by adding the sizes of its components
 	 * 
-	 * @param OWLClassExpression sub
-	 * @param OWLClassExpression sup
+	 * @param sub OWLClassExpression
+	 * @param sup OWLClassExpression
 	 */
 	private static int getSubClassOfAxiomSize(OWLClassExpression sub,OWLClassExpression sup) {
 		return getClassExpressionSize(sub) + getClassExpressionSize(sup);
@@ -218,7 +219,7 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Gets the size of an owl expression
 	 * 
-	 * @param OWLClassExpression ex
+	 * @param ex OWLClassExpression
 	 */
 	private static int getClassExpressionSize(OWLClassExpression ex) {
 		//look at its type

@@ -91,15 +91,15 @@ public class OWLAxMatcher {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("TBox:\n");
-		for (OWLSubClassOfAxiom s : this.getTBox()) {
+		for (OWLSubClassOfAxiom s : getTBox()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nComplex Class Axioms:\n");
-		for (OWLSubClassOfAxiom s : this.getComplexClassAxioms()) {
+		for (OWLSubClassOfAxiom s : getComplexClassAxioms()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRBox:\n");
-		for (OWLObjectPropertyAxiom s : this.getRBox()) {
+		for (OWLObjectPropertyAxiom s : getRBox()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();

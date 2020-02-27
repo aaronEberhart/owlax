@@ -11,7 +11,6 @@ import ontologyTools.*;
  * Test Class for OWLAx evaluation program
  * 
  * @author DaSe Lab
- *
  */
 public class Main {
 	
