@@ -21,7 +21,7 @@ public class Main {
 		
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
 		
-		OWLAxMatcher matcher = new OWLAxMatcher(new NormalizedAndSortedAxioms(ontology));
+		OWLAxMatcher matcher = new OWLAxMatcher(new NormalizeAndSortAxioms(ontology));
 		
 		System.out.println(matcher.getOWLAxAxiomsString());
 		System.out.println(matcher.toString());

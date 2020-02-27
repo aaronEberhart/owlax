@@ -51,15 +51,15 @@ public class OWLAxMatcher {
 			//structural tautology - A ⊑ >=0R.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()));
 	// max size of all the axioms (should be 3...)
-	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizedAndSortedAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
-	private NormalizedAndSortedAxioms normalizedAxioms;
+	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
+	private NormalizeAndSortAxioms normalizedAxioms;
 		
-	public OWLAxMatcher(NormalizedAndSortedAxioms nnf) {
+	public OWLAxMatcher(NormalizeAndSortAxioms nnf) {
 		normalizedAxioms = nnf;
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
-		normalizedAxioms = new NormalizedAndSortedAxioms(ontology);
+		normalizedAxioms = new NormalizeAndSortAxioms(ontology);
 	}
 	
 	public List<OWLSubClassOfAxiom> getOWLAxAxioms() {
@@ -82,7 +82,7 @@ public class OWLAxMatcher {
 		StringBuilder sb = new StringBuilder();
 		sb.append("OWLAx Axioms:\n");
 		for (OWLSubClassOfAxiom s : OWLAxAxioms) {
-			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizedAndSortedAxioms.getSubClassOfAxiomSize(s)));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		return sb.toString();
 	}
@@ -92,15 +92,15 @@ public class OWLAxMatcher {
 		StringBuilder sb = new StringBuilder();
 		sb.append("TBox:\n");
 		for (OWLSubClassOfAxiom s : this.getTBox()) {
-			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizedAndSortedAxioms.getSubClassOfAxiomSize(s)));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nComplex Class Axioms:\n");
 		for (OWLSubClassOfAxiom s : this.getComplexClassAxioms()) {
-			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizedAndSortedAxioms.getSubClassOfAxiomSize(s)));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRBox:\n");
 		for (OWLObjectPropertyAxiom s : this.getRBox()) {
-			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizedAndSortedAxioms.getObjectPropertyAxiomSize(s)));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();
 	}

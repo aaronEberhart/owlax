@@ -14,7 +14,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
  * @author Aaron Eberhart
  *
  */
-public class NormalizedAndSortedAxioms  {
+public class NormalizeAndSortAxioms  {
 	
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;
@@ -26,7 +26,7 @@ public class NormalizedAndSortedAxioms  {
 	 * @param ontology OWLOntology
 	 * @throws Exception
 	 */
-	public NormalizedAndSortedAxioms(OWLOntology ontology) throws Exception {
+	public NormalizeAndSortAxioms(OWLOntology ontology) throws Exception {
 		
 		//initialize everything
 		rbox = new ArrayList<OWLObjectPropertyAxiom>();
