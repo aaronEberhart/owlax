@@ -1,6 +1,7 @@
 package main;
 
 import java.io.*;
+import java.util.*;
 
 import org.semanticweb.owlapi.apibinding.*;
 import org.semanticweb.owlapi.model.*;
@@ -16,14 +17,21 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {		
 		
-		File owlfile = new File("OWL/enslavedv2.owl");
+		List<HashMap<String,Integer>> results = new ArrayList<HashMap<String,Integer>>();
+		List<String> owlpaths = Arrays.asList("OWL/enslavedv2.owl");
 		
-		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
+		for (String owlpath : owlpaths) {
+			
+			File owlfile = new File(owlpath);
+			
+			OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
+			
+			OWLAxMatcher matcher = new OWLAxMatcher(new NormalizeAndSortAxioms(ontology));
+			
+			results.add(matcher.getMatches());
+		}
 		
-		OWLAxMatcher matcher = new OWLAxMatcher(new NormalizeAndSortAxioms(ontology));
-		
-		System.out.println(matcher.getOWLAxAxiomsString());
-		System.out.println(matcher.toString());
+		HashMap<String,Integer> result = results.stream().reduce();
 		
 	}	
 }

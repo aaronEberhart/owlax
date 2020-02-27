@@ -53,9 +53,11 @@ public class OWLAxMatcher {
 	// max size of all the axioms (should be 3...)
 	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
 	private NormalizeAndSortAxioms normalizedAxioms;
-		
+	private HashMap<String,Integer> result;
+	
 	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
 		normalizedAxioms = axioms;
+		result = new HashMap<String,Integer>();
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
@@ -85,6 +87,10 @@ public class OWLAxMatcher {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		return sb.toString();
+	}
+	
+	public HashMap<String,Integer> getMatches(){
+		return result;
 	}
 	
 	@Override
