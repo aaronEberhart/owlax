@@ -277,6 +277,7 @@ public class NormalizeAndSortAxioms  {
 		return roleAxioms;
 	}
 	
+	
 	public ArrayList<OWLSubClassOfAxiom> getTBox() {
 		return classAxioms;
 	}
