@@ -9,7 +9,6 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 
 public class NNF  {
 	
-	private ArrayList<OWLAxiom> axioms;
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;
 	private ArrayList<OWLObjectPropertyAxiom> rbox;
@@ -22,16 +21,13 @@ public class NNF  {
 	 */
 	public NNF(OWLOntology ontology) throws Exception {
 		
-		//get the axioms from the ontology
-		axioms = getAxioms(ontology);
-		
 		//initialize everything
 		rbox = new ArrayList<OWLObjectPropertyAxiom>();
 		tbox = new ArrayList<OWLSubClassOfAxiom>();
 		complex = new ArrayList<OWLSubClassOfAxiom>();
-		
-		//sort the axioms
-		sortAxiomTypes();
+
+		//sort the axioms from the ontology
+		sortAxiomsByType(getAxioms(ontology));
 	}	
 
 	/**
@@ -59,7 +55,7 @@ public class NNF  {
 	 * 
 	 * @throws Exception
 	 */
-	private void sortAxiomTypes() throws Exception {		
+	private void sortAxiomsByType(ArrayList<OWLAxiom> axioms) throws Exception {		
 				
 		//look through all the axioms
 		for (OWLAxiom ax : axioms) {	
@@ -309,7 +305,4 @@ public class NNF  {
 		return complex;
 	}
 	
-	public ArrayList<OWLAxiom> getAxioms() {
-		return axioms;
-	}
 }

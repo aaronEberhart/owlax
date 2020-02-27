@@ -10,14 +10,14 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {		
 		
-		OWLOntologyManager man = OWLManager.createOWLOntologyManager();	
-		OWLOntology ont = man.loadOntologyFromOntologyDocument(new File("OWL/enslavedv2.owl"));
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();	
+		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("OWL/enslavedv2.owl"));
 		
-		NNF nnf = new NNF(ont);
+		NNF nnf = new NNF(ontology);
 		System.out.println(nnf.toString());
 		
-		OWLAxMatcher mat = new OWLAxMatcher(nnf.getTBox(),nnf.getRBox());
-		System.out.println(mat.getOWLAxiomsString());
+		OWLAxMatcher matcher = new OWLAxMatcher(nnf);
+		System.out.println(matcher.getOWLAxiomsString());
 	}
 	
 	
