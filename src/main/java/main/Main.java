@@ -1,3 +1,4 @@
+package main;
 
 import java.io.*;
 
@@ -6,6 +7,12 @@ import org.semanticweb.owlapi.model.*;
 
 import ontologyTools.*;
 
+/**
+ * Test Class for OWLAx evaluation program
+ * 
+ * @author DaSe Lab
+ *
+ */
 public class Main {
 	
 	public static void main(String[] args) throws Exception {		
@@ -14,7 +21,7 @@ public class Main {
 		
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
 		
-		OWLAxMatcher matcher = new OWLAxMatcher(new NNF(ontology));
+		OWLAxMatcher matcher = new OWLAxMatcher(new NormalizedAndSortedAxioms(ontology));
 		
 		System.out.println(matcher.getOWLAxAxiomsString());
 		System.out.println(matcher.toString());

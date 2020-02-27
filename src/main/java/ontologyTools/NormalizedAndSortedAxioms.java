@@ -7,7 +7,14 @@ import org.semanticweb.owlapi.model.*;
 
 import uk.ac.manchester.cs.owl.owlapi.*;
 
-public class NNF  {
+/**
+ * Normalizes and sorts the axioms in an ontology so that 
+ * they can be evaluated for OWLAx coverage
+ * 
+ * @author Aaron Eberhart
+ *
+ */
+public class NormalizedAndSortedAxioms  {
 	
 	private ArrayList<OWLSubClassOfAxiom> tbox;
 	private ArrayList<OWLSubClassOfAxiom> complex;
@@ -16,10 +23,10 @@ public class NNF  {
 	/**
 	 * Constructor - Gets axioms from the ontology and then sorts them
 	 * 
-	 * @param OWLOntology ontology
+	 * @param ontology OWLOntology
 	 * @throws Exception
 	 */
-	public NNF(OWLOntology ontology) throws Exception {
+	public NormalizedAndSortedAxioms(OWLOntology ontology) throws Exception {
 		
 		//initialize everything
 		rbox = new ArrayList<OWLObjectPropertyAxiom>();
@@ -192,7 +199,7 @@ public class NNF  {
 	/**
 	 * Gets the size of a subclass axiom
 	 * 
-	 * @param OWLSubClassOfAxiom ax
+	 * @param ax OWLSubClassOfAxiom
 	 */
 	public static int getSubClassOfAxiomSize(OWLSubClassOfAxiom ax) {
 		return getSubClassOfAxiomSize(((OWLSubClassOfAxiom)ax).getSubClass(),((OWLSubClassOfAxiom)ax).getSuperClass());
@@ -254,7 +261,7 @@ public class NNF  {
 	/**
 	 * Gets the size of a property axiom
 	 * 
-	 * @param OWLObjectPropertyAxiom ax
+	 * @param ax OWLObjectPropertyAxiom
 	 */
 	public static int getObjectPropertyAxiomSize(OWLObjectPropertyAxiom ax) {
 		
