@@ -25,8 +25,5 @@ public class Main {
 		System.out.println(matcher.getOWLAxAxiomsString());
 		System.out.println(matcher.toString());
 		
-	}
-	
-	
-	
+	}	
 }

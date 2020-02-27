@@ -194,6 +194,7 @@ public class NormalizeAndSortAxioms  {
 	 * Gets the size of an owl expression
 	 */
 	private static int getClassExpressionSize(OWLClassExpression expression) {
+		
 		//look at its type
 		String type = expression.getClassExpressionType().getName();
 		
@@ -228,7 +229,7 @@ public class NormalizeAndSortAxioms  {
 			return ((OWLObjectUnionOf)expression).disjunctSet().mapToInt(a -> getClassExpressionSize(a)).sum();
 		}
 		// don't want to throw an exception but this should be obviously wrong
-		return Integer.MIN_VALUE;
+		return Integer.MAX_VALUE;
 	}
 	
 	/**
@@ -252,7 +253,7 @@ public class NormalizeAndSortAxioms  {
 			return 2;
 		}
 		//don't want to throw an exception but this should be obviously wrong
-		return Integer.MIN_VALUE;
+		return Integer.MAX_VALUE;
 	}
 	
 	@Override
@@ -276,7 +277,6 @@ public class NormalizeAndSortAxioms  {
 	public ArrayList<OWLObjectPropertyAxiom> getRBox() {
 		return roleAxioms;
 	}
-	
 	
 	public ArrayList<OWLSubClassOfAxiom> getTBox() {
 		return classAxioms;
