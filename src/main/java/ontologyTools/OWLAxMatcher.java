@@ -52,15 +52,6 @@ public class OWLAxMatcher {
 		normalizedAxioms = nnf;
 	}
 	
-	public String getOWLAxAxiomsString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("OWLAx Axioms:\n");
-		for (OWLSubClassOfAxiom s : owlaxioms) {
-			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",NNF.getSubClassOfAxiomSize(s),s.toString()));
-		}
-		return sb.toString();
-	}
-	
 	public List<OWLSubClassOfAxiom> getOWLAxaxioms() {
 		return owlaxioms;
 	}
@@ -77,20 +68,29 @@ public class OWLAxMatcher {
 		return normalizedAxioms.getComplexClassAxioms();
 	}
 	
+	public String getOWLAxAxiomsString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("OWLAx Axioms:\n");
+		for (OWLSubClassOfAxiom s : owlaxioms) {
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NNF.getSubClassOfAxiomSize(s)));
+		}
+		return sb.toString();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("TBox:\n");
 		for (OWLSubClassOfAxiom s : this.getTBox()) {
-			sb.append(String.format("Axiom Size: %d \nAxiom: %s\n",NNF.getSubClassOfAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NNF.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nComplex Class Axioms:\n");
 		for (OWLSubClassOfAxiom s : this.getComplexClassAxioms()) {
-			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",NNF.getSubClassOfAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NNF.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRBox:\n");
 		for (OWLObjectPropertyAxiom s : this.getRBox()) {
-			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",NNF.getObjectPropertyAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NNF.getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();
 	}

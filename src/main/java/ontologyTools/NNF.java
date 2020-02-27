@@ -280,15 +280,15 @@ public class NNF  {
 		StringBuilder sb = new StringBuilder();
 		sb.append("TBox:\n");
 		for (OWLSubClassOfAxiom s : tbox) {
-			sb.append(String.format("Axiom Size: %d \nAxiom: %s\n",getSubClassOfAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nComplex Class Axioms:\n");
 		for (OWLSubClassOfAxiom s : complex) {
-			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",getSubClassOfAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRBox:\n");
 		for (OWLObjectPropertyAxiom s : rbox) {
-			sb.append(String.format("Axiom Size: %d\nAxiom: %s\n",getObjectPropertyAxiomSize(s),s.toString()));
+			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();
 	}
