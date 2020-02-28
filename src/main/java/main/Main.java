@@ -6,6 +6,7 @@ import java.util.*;
 import org.semanticweb.owlapi.apibinding.*;
 import org.semanticweb.owlapi.model.*;
 
+import evaluation.OWLAxEvaluation;
 import ontologyTools.*;
 
 /**
@@ -17,7 +18,7 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {		
 		
-		List<HashMap<String,Integer>> results = new ArrayList<HashMap<String,Integer>>();
+		ArrayList<HashMap<String,Integer>> resultsList = new ArrayList<HashMap<String,Integer>>();
 		List<String> owlpaths = Arrays.asList("OWL/enslavedv2.owl");
 		
 		for (String owlpath : owlpaths) {
@@ -28,10 +29,13 @@ public class Main {
 			
 			OWLAxMatcher matcher = new OWLAxMatcher(new NormalizeAndSortAxioms(ontology));
 			
-			results.add(matcher.getMatches());
+			resultsList.add(matcher.getMatches());
 		}
 		
-		HashMap<String,Integer> result = results.stream().reduce();
+		OWLAxEvaluation evaluation = new OWLAxEvaluation(resultsList);
+		
+		System.out.println(evaluation.getAverageResult());
 		
 	}	
+	
 }
