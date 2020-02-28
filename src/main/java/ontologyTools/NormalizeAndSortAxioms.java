@@ -90,7 +90,7 @@ public class NormalizeAndSortAxioms  {
 				parseSubClassOfAxiom((OWLSubClassOfAxiom)axiom);
 			// functional
 			}else if (type.equals("FunctionalObjectProperty")) {
-				parseFunctionalObjectProperty((OWLFunctionalObjectPropertyAxiom)axiom);
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(((OWLFunctionalObjectPropertyAxiom)axiom).getProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));
 			// equivalent
 			}else if (type.equals("EquivalentClasses")) {
 				((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
@@ -149,11 +149,7 @@ public class NormalizeAndSortAxioms  {
 			classAxioms.add(axiom);
 		}
 	}
-	
-	private void parseFunctionalObjectProperty(OWLFunctionalObjectPropertyAxiom axiom) {
-		classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(axiom.getProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));
-	}
-	
+		
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 */
