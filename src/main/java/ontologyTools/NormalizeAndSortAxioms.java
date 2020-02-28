@@ -3,6 +3,7 @@ package ontologyTools;
 import java.util.*;
 import java.util.stream.*;
 
+import org.eclipse.rdf4j.model.vocabulary.OWL;
 import org.semanticweb.owlapi.model.*;
 
 import uk.ac.manchester.cs.owl.owlapi.*;
@@ -17,9 +18,11 @@ import uk.ac.manchester.cs.owl.owlapi.*;
  */
 public class NormalizeAndSortAxioms  {
 	
+	private static int i = -1;
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLObjectPropertyAxiom> roleAxioms;
+	private HashMap<String,Integer> ontologyComposition;
 	
 	/**
 	 * Gets axioms from the ontology and then sorts them
@@ -33,9 +36,18 @@ public class NormalizeAndSortAxioms  {
 		roleAxioms = new ArrayList<OWLObjectPropertyAxiom>();
 		classAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
-
+		
 		//sort the axioms from the ontology
 		sortAxiomsByType(getAxioms(ontology));
+		
+		//save the quantities of these things for later
+		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
+			put("number of classes",(int)ontology.classesInSignature().count());
+			put("number of roles",(int)ontology.objectPropertiesInSignature().count());
+			put("number of data properties",(int)ontology.dataPropertiesInSignature().count());
+			put(ontology.getFormat().toString(),i);
+			put(ontology.getOntologyID().toString(),i--);
+		}};
 	}	
 
 	/**
@@ -49,7 +61,7 @@ public class NormalizeAndSortAxioms  {
 	 * False if the type string of an axiom is Annotation or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("AnnotationAssertion") || type.equals("Declaration"));
+		return !(type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf"));
 	}
 		
 	/**
@@ -76,6 +88,24 @@ public class NormalizeAndSortAxioms  {
 			}else if (type.equals("SubClassOf")) {
 				//these are nested so parse them separately
 				parseSubClassOfAxiom((OWLSubClassOfAxiom)axiom);
+			// functional
+			}else if (type.equals("FunctionalObjectProperty")) {
+				parseFunctionalObjectProperty((OWLFunctionalObjectPropertyAxiom)axiom);
+			// equivalent
+			}else if (type.equals("EquivalentClasses")) {
+				((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
+			// transitive
+			}else if (type.equals("TransitiveObjectProperty")) {
+				roleAxioms.add(new OWLSubPropertyChainAxiomImpl(new ArrayList<OWLObjectPropertyExpression>() {private static final long serialVersionUID = 1L;{add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());}}, ((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
+			// disjoint classes
+			}else if (type.equals("DisjointClasses")) {
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectIntersectionOfImpl(axiom.nestedClassExpressions()), new OWLClassImpl(IRI.create(OWL.NOTHING.toString())), Collections.emptyList()));
+			//range
+			}else if (type.equals("ObjectPropertyRange")) {
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectAllValuesFromImpl(((OWLObjectPropertyRangeAxiom)axiom).getProperty(), ((OWLObjectPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));
+			//domain
+			}else if (type.equals("ObjectPropertyDomain")) {
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(((OWLObjectPropertyDomainAxiom)axiom).getProperty(), new OWLClassImpl(IRI.create(OWL.THING.toString()))), ((OWLObjectPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
 			// oops forgot one
 			}else {
 				throw new Exception("Axiom not handeled:\n\t"+axiom.toString());
@@ -92,7 +122,7 @@ public class NormalizeAndSortAxioms  {
 		int size = getSubClassOfAxiomSize(axiom);
 		
 		//is it the right size, but not nnf?
-		if (!axiom.getNNF().equals(axiom) && size <= OWLAxMatcher.maxSize) {
+		if (!axiom.getNNF().equals(axiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 
 			//get the antecedent and consequent
 			OWLClassExpression superClass = ((OWLSubClassOfAxiom)axiom).getSuperClass();
@@ -111,13 +141,17 @@ public class NormalizeAndSortAxioms  {
 			}
 		}
 		// is it too big for now?
-		else if (size > OWLAxMatcher.maxSize) {
+		else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			complexClassAxioms.add(axiom);
 		}	
 		//it was nnf and the right size! woohoo!
 		else {
 			classAxioms.add(axiom);
 		}
+	}
+	
+	private void parseFunctionalObjectProperty(OWLFunctionalObjectPropertyAxiom axiom) {
+		classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(axiom.getProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));
 	}
 	
 	/**
@@ -254,6 +288,10 @@ public class NormalizeAndSortAxioms  {
 		}
 		//don't want to throw an exception but this should be obviously wrong
 		return Integer.MAX_VALUE;
+	}
+	
+	public HashMap<String,Integer> getOntologyComposition(){
+		return ontologyComposition;
 	}
 	
 	@Override

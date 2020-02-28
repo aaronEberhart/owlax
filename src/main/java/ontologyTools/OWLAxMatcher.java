@@ -32,36 +32,48 @@ public class OWLAxMatcher {
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectSomeValuesFromImpl(new OWLObjectPropertyImpl(IRI.create("R")), new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),
 			//inverse existential - A ⊑ ∃R-.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectSomeValuesFromImpl(new OWLObjectInverseOfImpl(new OWLObjectPropertyImpl(IRI.create("R"))), new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),
-			//functionality - ⊤ ⊑ <=1R.T
+			//functional - ⊤ ⊑ <=1R.T
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()),
-			//qualified functionality - ⊤ ⊑ <=1R.B
+			//qualified functional - ⊤ ⊑ <=1R.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),1,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),			
-			//scoped functionality - A ⊑ <=1R.T
+			//scoped functional - A ⊑ <=1R.T
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMaxCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()),
-			//qualified scoped functionality - A ⊑ <=1R.B
+			//qualified scoped functional - A ⊑ <=1R.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMaxCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),1,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),	
-			//inverse functionality - ⊤ ⊑ <=1R-.T
+			//inverse functional - ⊤ ⊑ <=1R-.T
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(new OWLObjectInverseOfImpl(new OWLObjectPropertyImpl(IRI.create("R"))),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()),
-			//inverse qualified functionality - ⊤ ⊑ <=1R-.B
+			//inverse qualified functional - ⊤ ⊑ <=1R-.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(new OWLObjectInverseOfImpl(new OWLObjectPropertyImpl(IRI.create("R"))),1,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),			
-			//inverse scoped functionality - A ⊑ <=1R-.T
+			//inverse scoped functional - A ⊑ <=1R-.T
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMaxCardinalityImpl(new OWLObjectInverseOfImpl(new OWLObjectPropertyImpl(IRI.create("R"))),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()),
-			//inverse qualified scoped functionality - A ⊑ <=1R-.B
+			//inverse qualified scoped functional - A ⊑ <=1R-.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMaxCardinalityImpl(new OWLObjectInverseOfImpl(new OWLObjectPropertyImpl(IRI.create("R"))),1,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()),
 			//structural tautology - A ⊑ >=0R.B
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()));
 	// max size of all the axioms (should be 3...)
-	protected static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
+	private static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
+	//hashmap keys
+	private static final String[] axiomHashKeys = {"subclass","disjoint classes","domain","scoped domain","range","scoped range","existential","inverse existential","functional","qualified functional","scoped functional","qualified scoped functional","inverse functional","inverse qualified functional","inverse scoped functional","inverse qualified scoped functional","structural tautology"
+			,"simple class axioms","complex class axioms","role axioms"};
 	private NormalizeAndSortAxioms normalizedAxioms;
 	private HashMap<String,Integer> result;
 	
 	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
 		normalizedAxioms = axioms;
 		result = new HashMap<String,Integer>();
+		result.putAll(normalizedAxioms.getOntologyComposition());
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
 		normalizedAxioms = new NormalizeAndSortAxioms(ontology);
+	}
+	
+	public static String[] getAxiomHashKeys() {
+		return axiomHashKeys;
+	}
+	
+	public static int getMaxOWLAxAxiomSize() {
+		return maxSize;
 	}
 	
 	public List<OWLSubClassOfAxiom> getOWLAxAxioms() {
