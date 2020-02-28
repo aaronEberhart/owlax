@@ -53,23 +53,26 @@ public class OWLAxMatcher {
 	// max size of all the axioms (should be 3...)
 	private static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
 	//hashmap keys
-	private static final String[] axiomHashKeys = {"subclass","disjoint classes","domain","scoped domain","range","scoped range","existential","inverse existential","functional","qualified functional","scoped functional","qualified scoped functional","inverse functional","inverse qualified functional","inverse scoped functional","inverse qualified scoped functional","structural tautology"
-			,"simple class axioms","complex class axioms","role axioms"};
+	private static final String[] axiomHashKeys = {"subclass","disjoint classes","domain","scoped domain","range","scoped range","existential","inverse existential","functional","qualified functional","scoped functional","qualified scoped functional","inverse functional","inverse qualified functional","inverse scoped functional","inverse qualified scoped functional","structural tautology","simple class axioms","complex class axioms","role axioms"};
 	private NormalizeAndSortAxioms normalizedAxioms;
 	private HashMap<String,Integer> result;
 	
 	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
 		normalizedAxioms = axioms;
-		result = new HashMap<String,Integer>();
+		
+		result = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
+			int numClassAx = normalizedAxioms.getTBox().size();
+			for (String key : axiomHashKeys) {
+				int ran = new Random().nextInt((int)(numClassAx/10));
+				put(key,ran);
+				numClassAx = ran > numClassAx ? 0 : numClassAx - ran;
+			}
+		}};
 		result.putAll(normalizedAxioms.getOntologyComposition());
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
 		normalizedAxioms = new NormalizeAndSortAxioms(ontology);
-	}
-	
-	public static String[] getAxiomHashKeys() {
-		return axiomHashKeys;
 	}
 	
 	public static int getMaxOWLAxAxiomSize() {
@@ -84,7 +87,7 @@ public class OWLAxMatcher {
 		return normalizedAxioms.getTBox();
 	}
 	
-	public ArrayList<OWLObjectPropertyAxiom> getRBox() {
+	public ArrayList<OWLPropertyAxiom> getRBox() {
 		return normalizedAxioms.getRBox();
 	}
 	
@@ -117,7 +120,7 @@ public class OWLAxMatcher {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRole Axioms:\n");
-		for (OWLObjectPropertyAxiom s : getRBox()) {
+		for (OWLPropertyAxiom s : getRBox()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();

@@ -21,7 +21,7 @@ public class NormalizeAndSortAxioms  {
 	private static int i = -1;
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
-	private ArrayList<OWLObjectPropertyAxiom> roleAxioms;
+	private ArrayList<OWLPropertyAxiom> roleAxioms;
 	private HashMap<String,Integer> ontologyComposition;
 	
 	/**
@@ -33,7 +33,7 @@ public class NormalizeAndSortAxioms  {
 	public NormalizeAndSortAxioms(OWLOntology ontology) throws Exception {
 		
 		//initialize everything
-		roleAxioms = new ArrayList<OWLObjectPropertyAxiom>();
+		roleAxioms = new ArrayList<OWLPropertyAxiom>();
 		classAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		
@@ -51,17 +51,17 @@ public class NormalizeAndSortAxioms  {
 	}	
 
 	/**
-	 * Gets all axioms from the ontology, ignoring annotations and declarations
+	 * Gets all axioms from the ontology, ignoring annotations, class assertions, and declarations
 	 */
 	private ArrayList<OWLAxiom> getAxioms(OWLOntology ontology){
 		return ontology.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
 	}
 	
 	/**
-	 * False if the type string of an axiom is Annotation or Declaration, True otherwise
+	 * False if the type string of an axiom is Annotation, class assertion, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf"));
+		return !(type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
 	}
 		
 	/**
@@ -70,7 +70,9 @@ public class NormalizeAndSortAxioms  {
 	private void sortAxiomsByType(ArrayList<OWLAxiom> axioms) throws Exception {		
 				
 		//look through all the axioms
-		for (OWLAxiom axiom: axioms) {	
+		for (OWLAxiom axiom : axioms) {	
+			
+			axiom = axiom.getAxiomWithoutAnnotations();
 			
 			//check what type they are
 			String type = axiom.getAxiomType().getName();
@@ -81,9 +83,14 @@ public class NormalizeAndSortAxioms  {
 			// Role Inclusion
 			}else if (type.equals("SubObjectPropertyOf")) {
 				roleAxioms.add((OWLSubObjectPropertyOfAxiom)axiom);
+			// Role Inclusion
+			}else if (type.equals("SubDataPropertyOf")) {
+				roleAxioms.add((OWLSubDataPropertyOfAxiom)axiom);
 			// Inverse Role
 			}else if (type.equals("InverseObjectProperties")) {
-				roleAxioms.add((OWLInverseObjectPropertiesAxiom)axiom);
+				roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty(),Collections.emptyList()));
+			}else if (type.equals("SymmetricObjectProperty")) {				
+				roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLSymmetricObjectPropertyAxiom)axiom).getProperty().getInverseProperty(),((OWLSymmetricObjectPropertyAxiom)axiom).getProperty(),Collections.emptyList()));
 			// Subclass
 			}else if (type.equals("SubClassOf")) {
 				//these are nested so parse them separately
@@ -96,16 +103,25 @@ public class NormalizeAndSortAxioms  {
 				((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
 			// transitive
 			}else if (type.equals("TransitiveObjectProperty")) {
-				roleAxioms.add(new OWLSubPropertyChainAxiomImpl(new ArrayList<OWLObjectPropertyExpression>() {private static final long serialVersionUID = 1L;{add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());}}, ((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
+				ArrayList<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>();
+				list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
+				list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
+				roleAxioms.add(new OWLSubPropertyChainAxiomImpl(list,((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
 			// disjoint classes
 			}else if (type.equals("DisjointClasses")) {
 				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectIntersectionOfImpl(axiom.nestedClassExpressions()), new OWLClassImpl(IRI.create(OWL.NOTHING.toString())), Collections.emptyList()));
+			//data range
+			}else if (type.equals("DataPropertyRange")) {
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLDataAllValuesFromImpl(((OWLDataPropertyRangeAxiom)axiom).getProperty(), ((OWLDataPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));
 			//range
 			}else if (type.equals("ObjectPropertyRange")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectAllValuesFromImpl(((OWLObjectPropertyRangeAxiom)axiom).getProperty(), ((OWLObjectPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));
-			//domain
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectAllValuesFromImpl(((OWLObjectPropertyRangeAxiom)axiom).getProperty(), ((OWLObjectPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));	
+			// domain
 			}else if (type.equals("ObjectPropertyDomain")) {
 				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(((OWLObjectPropertyDomainAxiom)axiom).getProperty(), new OWLClassImpl(IRI.create(OWL.THING.toString()))), ((OWLObjectPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
+			// data domain
+			}else if (type.equals("DataPropertyDomain")) {
+				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(((OWLDataPropertyDomainAxiom)axiom).getProperty(), new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), ((OWLDataPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
 			// oops forgot one
 			}else {
 				throw new Exception("Axiom not handeled:\n\t"+axiom.toString());
@@ -120,7 +136,7 @@ public class NormalizeAndSortAxioms  {
 		
 		//see how big it is
 		int size = getSubClassOfAxiomSize(axiom);
-		
+			
 		//is it the right size, but not nnf?
 		if (!axiom.getNNF().equals(axiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 
@@ -133,10 +149,12 @@ public class NormalizeAndSortAxioms  {
 				parseObjectExactCardinality(axiom,subClass,superClass);				
 			//is it a data exact cardinality?
 			}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
-				parseDataExactCardinality(axiom,subClass,superClass);	
-			}			
+				parseDataExactCardinality(axiom,subClass,superClass);
+			//well the NNF was the right size at least
+			}else if(getSubClassOfAxiomSize((OWLSubClassOfAxiom)axiom.getNNF()) <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+				classAxioms.add((OWLSubClassOfAxiom)axiom.getNNF());
 			//uh oh
-			else{				
+			}else{				
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
 			}
 		}
@@ -267,7 +285,7 @@ public class NormalizeAndSortAxioms  {
 	 * 
 	 * @param axiom OWLObjectPropertyAxiom
 	 */
-	public static int getObjectPropertyAxiomSize(OWLObjectPropertyAxiom axiom) {
+	public static int getObjectPropertyAxiomSize(OWLPropertyAxiom axiom) {
 		
 		// look at its type
 		String type = axiom.getAxiomType().getName();
@@ -276,7 +294,7 @@ public class NormalizeAndSortAxioms  {
 		if (type.equals("SubPropertyChainOf")) {
 			return ((OWLSubPropertyChainOfAxiom)axiom).getPropertyChain().size() + 1;
 		// property = 2 (no chain)
-		}else if (type.equals("SubObjectPropertyOf")) {
+		}else if (type.equals("SubObjectPropertyOf") || type.equals("SubDataPropertyOf")) {
 			return 2;
 		// inverse = 2 (same as property)
 		}else if (type.equals("InverseObjectProperties")) {
@@ -302,13 +320,13 @@ public class NormalizeAndSortAxioms  {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRole Axioms:\n");
-		for (OWLObjectPropertyAxiom s : roleAxioms) {
+		for (OWLPropertyAxiom s : roleAxioms) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();
 	}
 
-	public ArrayList<OWLObjectPropertyAxiom> getRBox() {
+	public ArrayList<OWLPropertyAxiom> getRBox() {
 		return roleAxioms;
 	}
 	
