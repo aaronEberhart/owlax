@@ -1,0 +1,3965 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://gbo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://gbo">
+    <Prefix name="" IRI="http://gbo"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="main" IRI="http://gbo#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="geosparql" IRI="http://www.opengis.net/ont/geosparql#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
+        <IRI>http://schema.geolink.org/images/gbo-overview.svg</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeoLink base ontology.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A base ontology providing a conceptual view into the GeoLink patterns. For data providers, this is the default view of the patterns.</Literal>
+    </Annotation>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:GeologicAgeAppearance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isEditorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isFeatureTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCruise"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCreatorOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasByteLength"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasSamplingMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isGeoFeatureTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasVessel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasMeetingParticipant"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Dive"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:performs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isAuthoritativeDigitalRepositoryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasReplicaDigitalRepository"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isContainedDatasetBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRightsHolder"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasDuration"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:IdentifierScheme"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Submersible"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:strongCoReferentOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Person"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasSource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasChiefScientist"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasTitle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isDiveOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasEducator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="main:aguAbstractScheme"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPublisher"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasFormatType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isSchedulerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPortOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasLastUpdateDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasGeologicAge"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasParticipationStartTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasCollectionEndDate"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:CruiseType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isOwnerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isOperatorOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasProject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRegistrant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasDescription"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Document"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPlaceOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasParticipationEndTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isAffiliationOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasIdentifierResolveURL"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Meeting"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:StratigraphicUnit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasEmailAddress"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasCitationText"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:PlaceType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isOperationAreaOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isSampleTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPrincipalInvestigator"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:PlatformType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isDatasetOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasSampleType"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Vessel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isVesselOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Station"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasPublicationDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCollectorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPlaceType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasFamilyName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasOwner"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasStartTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasAbstract"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasVendor"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:RoleType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCruiseType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPublisherOf"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:gYearMonth"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isVendorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:weakCoReferentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPlatformTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasContact"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isInstrumentTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasFormat"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCreator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isStudentIn"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Feature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasAffiliation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isGeologicAgeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isDocumentTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPlatformType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasAuthoritativeDigitalRepository"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasEndPortCall"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasParticipant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isFormatOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasMaterial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCruiseOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Program"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPhysicalRepositoryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasObserver"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasStratigraphicUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isStratigraphicUnitOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isMidPortCallOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasStartPortCall"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Country"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasTectonicSetting"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasFullName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCoChiefScientistOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPilot"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isIdentifierOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:atPort"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:FeatureType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasStageName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasUploadDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPlaceTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasMidPortCall"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasOriginDigitalRepository"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Participant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasInstrument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isRepositoryOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasLandingPage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasMeasurementType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isTechnicianOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isRegistrantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCuratorOf"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:gYear"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasEndTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCountryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isContributorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasAward"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Award"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isProgramOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasTimeStamp"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasAcronym"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isAuthorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isEndPortCallOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasNameSuffix"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasContributor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isProgramManagerOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCruiseTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Repository"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isFeatureOfInterestOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:PhysicalSampleType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasSubmersible"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasPosition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPrincipalInvestigatorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasDataset"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isFirstAppearanceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isMeasurementTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:accordingTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasAuthor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="main:nsfAwardScheme"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:InstrumentType"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Format"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Place"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:fromCountry"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isRightsHolderOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasElevationDescription"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasProgramManager"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:MeasurementType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isContactOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isRoleTypeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isMeetingParticipantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCoChiefScientist"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasChecksum"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasTechnician"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasRoleType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isOriginOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPerformedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasTrack"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:GeoFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasProgram"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isIdentifierSchemeOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasIdentifierValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isReplicaDigitalRepositoryOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isEducatorIn"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Organization"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isSubOrganizationOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:GeoFeatureType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasMaxDepth"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasStartDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPhysicalRepository"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isChiefScientistOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isOriginDigitalRepositoryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasOperator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasPlace"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:DocumentType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasSponsor"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="rdf:HTML"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isLastAppearanceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifier"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasChecksumAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasOperationArea"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasScientist"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasMiddleName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasGeometryAsWktLiteral"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isParticipantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isStartPortCallOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:originatesFrom"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasNamePrefix"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCollector"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasFirstAppearance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCurator"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="geosparql:wktLiteral"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isPilotOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasDive"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasLastAppearance"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasRegistrationDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasEndDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Identifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasDocumentType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isObserverIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasGivenName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isInstrumentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:containsDataset"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasScheduler"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifierScheme"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isAwardOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isCoPrincipalInvestigatorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isScientistOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasCollectionStartDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasSubOrganization"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasCoPrincipalInvestigator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isSponsorOf"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="main:Platform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasEditor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="main:hasMaterialType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:hasInstrumentType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="main:isSubmersibleOf"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:GeoFeature"/>
+        <Class abbreviatedIRI="main:Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:GeoFeature"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:GeoFeatureType"/>
+        <Class abbreviatedIRI="main:FeatureType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:GeoFeatureType"/>
+        <Class abbreviatedIRI="main:PlaceType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:Station"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:Submersible"/>
+        <Class abbreviatedIRI="main:Platform"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="main:Vessel"/>
+        <Class abbreviatedIRI="main:Platform"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="main:IdentifierScheme"/>
+        <NamedIndividual abbreviatedIRI="main:aguAbstractScheme"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="main:IdentifierScheme"/>
+        <NamedIndividual abbreviatedIRI="main:nsfAwardScheme"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasAuthoritativeDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureType"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+        <ObjectProperty abbreviatedIRI="main:hasPlaceType"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasOriginDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasPhysicalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:hasReplicaDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:strongCoReferentOf"/>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="main:weakCoReferentOf"/>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:atPort"/>
+        <ObjectProperty abbreviatedIRI="main:isPortOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:containsDataset"/>
+        <ObjectProperty abbreviatedIRI="main:isContainedDatasetBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:fromCountry"/>
+        <ObjectProperty abbreviatedIRI="main:isCountryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasAffiliation"/>
+        <ObjectProperty abbreviatedIRI="main:isAffiliationOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasAuthor"/>
+        <ObjectProperty abbreviatedIRI="main:isAuthorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasAuthoritativeDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:isAuthoritativeDigitalRepositoryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasAward"/>
+        <ObjectProperty abbreviatedIRI="main:isAwardOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasChiefScientist"/>
+        <ObjectProperty abbreviatedIRI="main:isChiefScientistOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCoChiefScientist"/>
+        <ObjectProperty abbreviatedIRI="main:isCoChiefScientistOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCoPrincipalInvestigator"/>
+        <ObjectProperty abbreviatedIRI="main:isCoPrincipalInvestigatorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCollector"/>
+        <ObjectProperty abbreviatedIRI="main:isCollectorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasContact"/>
+        <ObjectProperty abbreviatedIRI="main:isContactOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasContributor"/>
+        <ObjectProperty abbreviatedIRI="main:isContributorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCreator"/>
+        <ObjectProperty abbreviatedIRI="main:isCreatorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCruise"/>
+        <ObjectProperty abbreviatedIRI="main:isCruiseOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCruiseType"/>
+        <ObjectProperty abbreviatedIRI="main:isCruiseTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasCurator"/>
+        <ObjectProperty abbreviatedIRI="main:isCuratorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasDataset"/>
+        <ObjectProperty abbreviatedIRI="main:isDatasetOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasDive"/>
+        <ObjectProperty abbreviatedIRI="main:isDiveOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasDocumentType"/>
+        <ObjectProperty abbreviatedIRI="main:isDocumentTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasEditor"/>
+        <ObjectProperty abbreviatedIRI="main:isEditorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasEducator"/>
+        <ObjectProperty abbreviatedIRI="main:isEducatorIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasEndPortCall"/>
+        <ObjectProperty abbreviatedIRI="main:isEndPortCallOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureOfInterest"/>
+        <ObjectProperty abbreviatedIRI="main:isFeatureOfInterestOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureType"/>
+        <ObjectProperty abbreviatedIRI="main:isFeatureTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasFirstAppearance"/>
+        <ObjectProperty abbreviatedIRI="main:isFirstAppearanceOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasFormat"/>
+        <ObjectProperty abbreviatedIRI="main:isFormatOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+        <ObjectProperty abbreviatedIRI="main:isGeoFeatureTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasGeologicAge"/>
+        <ObjectProperty abbreviatedIRI="main:isGeologicAgeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifier"/>
+        <ObjectProperty abbreviatedIRI="main:isIdentifierOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifierScheme"/>
+        <ObjectProperty abbreviatedIRI="main:isIdentifierSchemeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasInstrument"/>
+        <ObjectProperty abbreviatedIRI="main:isInstrumentOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasInstrumentType"/>
+        <ObjectProperty abbreviatedIRI="main:isInstrumentTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasLastAppearance"/>
+        <ObjectProperty abbreviatedIRI="main:isLastAppearanceOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasMeasurementType"/>
+        <ObjectProperty abbreviatedIRI="main:isMeasurementTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasMeetingParticipant"/>
+        <ObjectProperty abbreviatedIRI="main:isMeetingParticipantOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasMidPortCall"/>
+        <ObjectProperty abbreviatedIRI="main:isMidPortCallOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasObserver"/>
+        <ObjectProperty abbreviatedIRI="main:isObserverIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasOperationArea"/>
+        <ObjectProperty abbreviatedIRI="main:isOperationAreaOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasOperator"/>
+        <ObjectProperty abbreviatedIRI="main:isOperatorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasOriginDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:isOriginDigitalRepositoryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasOwner"/>
+        <ObjectProperty abbreviatedIRI="main:isOwnerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPart"/>
+        <ObjectProperty abbreviatedIRI="main:isPartOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasParticipant"/>
+        <ObjectProperty abbreviatedIRI="main:isParticipantOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPhysicalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:isPhysicalRepositoryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPilot"/>
+        <ObjectProperty abbreviatedIRI="main:isPilotOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPlace"/>
+        <ObjectProperty abbreviatedIRI="main:isPlaceOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPlaceType"/>
+        <ObjectProperty abbreviatedIRI="main:isPlaceTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPlatformType"/>
+        <ObjectProperty abbreviatedIRI="main:isPlatformTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPrincipalInvestigator"/>
+        <ObjectProperty abbreviatedIRI="main:isPrincipalInvestigatorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasProgram"/>
+        <ObjectProperty abbreviatedIRI="main:isProgramOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasProgramManager"/>
+        <ObjectProperty abbreviatedIRI="main:isProgramManagerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasPublisher"/>
+        <ObjectProperty abbreviatedIRI="main:isPublisherOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRegistrant"/>
+        <ObjectProperty abbreviatedIRI="main:isRegistrantOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasReplicaDigitalRepository"/>
+        <ObjectProperty abbreviatedIRI="main:isReplicaDigitalRepositoryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+        <ObjectProperty abbreviatedIRI="main:isRepositoryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRightsHolder"/>
+        <ObjectProperty abbreviatedIRI="main:isRightsHolderOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasRoleType"/>
+        <ObjectProperty abbreviatedIRI="main:isRoleTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasSampleType"/>
+        <ObjectProperty abbreviatedIRI="main:isSampleTypeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasScheduler"/>
+        <ObjectProperty abbreviatedIRI="main:isSchedulerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasScientist"/>
+        <ObjectProperty abbreviatedIRI="main:isScientistOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasSponsor"/>
+        <ObjectProperty abbreviatedIRI="main:isSponsorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasStartPortCall"/>
+        <ObjectProperty abbreviatedIRI="main:isStartPortCallOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasStratigraphicUnit"/>
+        <ObjectProperty abbreviatedIRI="main:isStratigraphicUnitOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasStudent"/>
+        <ObjectProperty abbreviatedIRI="main:isStudentIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasSubOrganization"/>
+        <ObjectProperty abbreviatedIRI="main:isSubOrganizationOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasSubmersible"/>
+        <ObjectProperty abbreviatedIRI="main:isSubmersibleOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasTechnician"/>
+        <ObjectProperty abbreviatedIRI="main:isTechnicianOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasVendor"/>
+        <ObjectProperty abbreviatedIRI="main:isVendorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:hasVessel"/>
+        <ObjectProperty abbreviatedIRI="main:isVesselOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:isOriginOf"/>
+        <ObjectProperty abbreviatedIRI="main:originatesFrom"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="main:isPerformedBy"/>
+        <ObjectProperty abbreviatedIRI="main:performs"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+    </SymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:atPort"/>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:containsDataset"/>
+        <Class abbreviatedIRI="main:Dataset"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:fromCountry"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Place"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasAffiliation"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Participant"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasAuthor"/>
+        <Class abbreviatedIRI="main:Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasAuthoritativeDigitalRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasAward"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasChiefScientist"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCoChiefScientist"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCoPrincipalInvestigator"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCollector"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasContact"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasContributor"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCreator"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCruise"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Dive"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCruiseType"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasCurator"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasDataset"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasDive"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasDocumentType"/>
+        <Class abbreviatedIRI="main:Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasEditor"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasEducator"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasEndPortCall"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureOfInterest"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureType"/>
+        <Class abbreviatedIRI="main:Feature"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasFirstAppearance"/>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasFormat"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+        <Class abbreviatedIRI="main:GeoFeature"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasGeologicAge"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifier"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Country"/>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:CruiseType"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Dive"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:DocumentType"/>
+            <Class abbreviatedIRI="main:Feature"/>
+            <Class abbreviatedIRI="main:FeatureType"/>
+            <Class abbreviatedIRI="main:Format"/>
+            <Class abbreviatedIRI="main:GeologicAge"/>
+            <Class abbreviatedIRI="main:Instrument"/>
+            <Class abbreviatedIRI="main:InstrumentType"/>
+            <Class abbreviatedIRI="main:MeasurementType"/>
+            <Class abbreviatedIRI="main:Meeting"/>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+            <Class abbreviatedIRI="main:PhysicalSampleType"/>
+            <Class abbreviatedIRI="main:Place"/>
+            <Class abbreviatedIRI="main:PlaceType"/>
+            <Class abbreviatedIRI="main:Platform"/>
+            <Class abbreviatedIRI="main:PlatformType"/>
+            <Class abbreviatedIRI="main:PortCall"/>
+            <Class abbreviatedIRI="main:Program"/>
+            <Class abbreviatedIRI="main:Repository"/>
+            <Class abbreviatedIRI="main:RoleType"/>
+            <Class abbreviatedIRI="main:StratigraphicUnit"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifierScheme"/>
+        <Class abbreviatedIRI="main:Identifier"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasInstrument"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasInstrumentType"/>
+        <Class abbreviatedIRI="main:Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasLastAppearance"/>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasMeasurementType"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasMeetingParticipant"/>
+        <Class abbreviatedIRI="main:Meeting"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasMidPortCall"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasObserver"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dive"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasOperationArea"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasOperator"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasOriginDigitalRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasOwner"/>
+        <Class abbreviatedIRI="main:Platform"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPart"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:Document"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasParticipant"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPhysicalRepository"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPilot"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPlace"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:Meeting"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPlaceType"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPlatformType"/>
+        <Class abbreviatedIRI="main:Platform"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPrincipalInvestigator"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasProgram"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Document"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasProgramManager"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasPublisher"/>
+        <Class abbreviatedIRI="main:Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRegistrant"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasReplicaDigitalRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRightsHolder"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasRoleType"/>
+        <Class abbreviatedIRI="main:Participant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasSampleType"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasScheduler"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dive"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasScientist"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasSponsor"/>
+        <Class abbreviatedIRI="main:Award"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasStartPortCall"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasStratigraphicUnit"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasStudent"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasSubOrganization"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasSubmersible"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasTechnician"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasVendor"/>
+        <Class abbreviatedIRI="main:Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:hasVessel"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Document"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:isPerformedBy"/>
+        <Class abbreviatedIRI="main:Participant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="main:originatesFrom"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:atPort"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:coReferentOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:containsDataset"/>
+        <Class abbreviatedIRI="main:Dataset"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:fromCountry"/>
+        <Class abbreviatedIRI="main:Country"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasAffiliation"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasAuthor"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasAuthoritativeDigitalRepository"/>
+        <Class abbreviatedIRI="main:Repository"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasAward"/>
+        <Class abbreviatedIRI="main:Award"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasChiefScientist"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCoChiefScientist"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCoPrincipalInvestigator"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCollector"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasContact"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasContributor"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCreator"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCruise"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCruiseType"/>
+        <Class abbreviatedIRI="main:CruiseType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasCurator"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasDataset"/>
+        <Class abbreviatedIRI="main:Dataset"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasDive"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasDocumentType"/>
+        <Class abbreviatedIRI="main:DocumentType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasEditor"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasEducator"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasEndPortCall"/>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureOfInterest"/>
+        <Class abbreviatedIRI="main:Feature"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasFeatureType"/>
+        <Class abbreviatedIRI="main:FeatureType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasFirstAppearance"/>
+        <Class abbreviatedIRI="main:GeologicAgeAppearance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasFormat"/>
+        <Class abbreviatedIRI="main:Format"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasGeoFeatureType"/>
+        <Class abbreviatedIRI="main:GeoFeatureType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasGeologicAge"/>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifier"/>
+        <Class abbreviatedIRI="main:Identifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasIdentifierScheme"/>
+        <Class abbreviatedIRI="main:IdentifierScheme"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasInstrument"/>
+        <Class abbreviatedIRI="main:Instrument"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasInstrumentType"/>
+        <Class abbreviatedIRI="main:InstrumentType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasLastAppearance"/>
+        <Class abbreviatedIRI="main:GeologicAgeAppearance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasMeasurementType"/>
+        <Class abbreviatedIRI="main:MeasurementType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasMeetingParticipant"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasMidPortCall"/>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasObserver"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasOperationArea"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasOperator"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasOriginDigitalRepository"/>
+        <Class abbreviatedIRI="main:Repository"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasOwner"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPart"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasParticipant"/>
+        <Class abbreviatedIRI="main:Participant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPhysicalRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Repository"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPilot"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPlace"/>
+        <Class abbreviatedIRI="main:Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPlaceType"/>
+        <Class abbreviatedIRI="main:PlaceType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPlatformType"/>
+        <Class abbreviatedIRI="main:PlatformType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPrincipalInvestigator"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasProgram"/>
+        <Class abbreviatedIRI="main:Program"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasProgramManager"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasPublisher"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRegistrant"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedCruise"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRelatedSample"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasReplicaDigitalRepository"/>
+        <Class abbreviatedIRI="main:Repository"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRepository"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Repository"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRightsHolder"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasRoleType"/>
+        <Class abbreviatedIRI="main:RoleType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasSampleType"/>
+        <Class abbreviatedIRI="main:PhysicalSampleType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasScheduler"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasScientist"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasSponsor"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasStartPortCall"/>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasStratigraphicUnit"/>
+        <Class abbreviatedIRI="main:StratigraphicUnit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasStudent"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasSubOrganization"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasSubmersible"/>
+        <Class abbreviatedIRI="main:Submersible"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasTechnician"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasVendor"/>
+        <Class abbreviatedIRI="main:Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:hasVessel"/>
+        <Class abbreviatedIRI="main:Vessel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:isPerformedBy"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="main:originatesFrom"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Feature"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:accordingTo"/>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasAbstract"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasAcronym"/>
+        <Class abbreviatedIRI="main:Program"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasByteLength"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasChecksum"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasChecksumAlgorithm"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasCitationText"/>
+        <Class abbreviatedIRI="main:Document"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasCollectionEndDate"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasCollectionStartDate"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasDescription"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasDuration"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasElevationDescription"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasEmailAddress"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasEndDate"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:Meeting"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasEndTime"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasFamilyName"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasFormatType"/>
+        <Class abbreviatedIRI="main:Format"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasFullName"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeUnit"/>
+        <Class abbreviatedIRI="main:GeologicAgeAppearance"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeValue"/>
+        <Class abbreviatedIRI="main:GeologicAgeAppearance"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasGeometryAsWktLiteral"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Dive"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:GeoFeature"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+            <Class abbreviatedIRI="main:Place"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasGivenName"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasIdentifierResolveURL"/>
+        <Class abbreviatedIRI="main:Identifier"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasIdentifierValue"/>
+        <Class abbreviatedIRI="main:Identifier"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasLandingPage"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasLastUpdateDate"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasMaterial"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasMaterialType"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasMaxDepth"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasMiddleName"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasModel"/>
+        <Class abbreviatedIRI="main:Instrument"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasNamePrefix"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasNameSuffix"/>
+        <Class abbreviatedIRI="main:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasParticipationEndTime"/>
+        <Class abbreviatedIRI="main:Participant"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasParticipationStartTime"/>
+        <Class abbreviatedIRI="main:Participant"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasPosition"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:GeoFeature"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasProject"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:Document"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasPublicationDate"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasRegistrationDate"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasSamplingMethod"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasSource"/>
+        <Class abbreviatedIRI="main:DigitalObject"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasStageName"/>
+        <Class abbreviatedIRI="main:GeologicAge"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasStartDate"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:Meeting"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasStartTime"/>
+        <Class abbreviatedIRI="main:Dive"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasTectonicSetting"/>
+        <Class abbreviatedIRI="main:PhysicalSample"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasTimeStamp"/>
+        <Class abbreviatedIRI="main:PortCall"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasTitle"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Award"/>
+            <Class abbreviatedIRI="main:Cruise"/>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+            <Class abbreviatedIRI="main:Dive"/>
+            <Class abbreviatedIRI="main:Document"/>
+            <Class abbreviatedIRI="main:Feature"/>
+            <Class abbreviatedIRI="main:Instrument"/>
+            <Class abbreviatedIRI="main:Organization"/>
+            <Class abbreviatedIRI="main:PhysicalSample"/>
+            <Class abbreviatedIRI="main:Place"/>
+            <Class abbreviatedIRI="main:Program"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasTrack"/>
+        <Class abbreviatedIRI="main:Cruise"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="main:hasUploadDate"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="main:Dataset"/>
+            <Class abbreviatedIRI="main:DigitalObject"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:accordingTo"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasAbstract"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasAcronym"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasByteLength"/>
+        <Datatype abbreviatedIRI="owl:real"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasChecksum"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasChecksumAlgorithm"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasCitationText"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasCollectionEndDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasCollectionStartDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasDescription"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="rdf:HTML"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasElevationDescription"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasEmailAddress"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasEndDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasEndTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasFamilyName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasFormatType"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasFullName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeUnit"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasGeologicAgeValue"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasGeometryAsWktLiteral"/>
+        <Datatype abbreviatedIRI="geosparql:wktLiteral"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasGivenName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasIdentifierResolveURL"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasIdentifierValue"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasLandingPage"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasLastUpdateDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasMaterial"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasMaterialType"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasMiddleName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasModel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasNamePrefix"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasNameSuffix"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasParticipationEndTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasParticipationStartTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasPosition"/>
+        <Datatype abbreviatedIRI="geosparql:wktLiteral"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasProject"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasPublicationDate"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:dateTime"/>
+            <Datatype abbreviatedIRI="xsd:gYear"/>
+            <Datatype abbreviatedIRI="xsd:gYearMonth"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasRegistrationDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasSamplingMethod"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasSource"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasStageName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasStartDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasStartTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasTectonicSetting"/>
+        <DataUnionOf>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataUnionOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasTimeStamp"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasTitle"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasTrack"/>
+        <Datatype abbreviatedIRI="geosparql:wktLiteral"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="main:hasUploadDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Award</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Funding provided by an Organization enabling Participation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Award</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Award</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Country</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A formally recognized, governed nation of Persons with a defined territory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Country</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Cruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An event occuring on a Vessel traversing a Trajectory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Cruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Cruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:CruiseType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The type of Cruise - operational, transit, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:CruiseType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CruiseType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Dataset</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A collection of Measurements.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Dataset</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:DigitalObject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A digital representation of a Thing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:DigitalObject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">DigitalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Dive</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Analogous to cruise being an expedition/event/deployment conducted aboard vessel, dive is an expedition/event/deployment conducted on/in a submersible platform.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Dive</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dive</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Document</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A textual, word-based, non-structured expression of information, such as a report, presentation, published article, or lecture.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Document</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:DocumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">DocumentType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Feature</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A significant locality where observations are made, samples are acquired, or measurements are done. Not necessarily geospatial in nature.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Feature</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:FeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Types of generic features.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:FeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">FeatureType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Format</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The type of data format for a DigitalObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Format</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:GeoFeature</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A significant geospatial locality where observations are made. GEBCO vocabulary terms are included as subclasses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:GeoFeature</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeoFeature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:GeoFeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The type of spatial feature - from gazetteer. GEBCO vocabulary terms are included as instances.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:GeoFeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeoFeatureType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:GeologicAge</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Captures geologic age, e.g., jurassic, pleistocene, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:GeologicAge</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeologicAge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:GeologicAgeAppearance</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This class essentially is intended to capture the relation exemplified by the sentence &quot;Pleistocene has first appearance of 1.6 million years before present&quot;. Here, Pleistocene is a geologic age, and &apos;hast first appearance&apos; points to an entity that has a value component and a unit component.
+Data providers can opt not to populate this class directly with explicit URI instances, but rather use blank nodes as instances of this class. An example set of triples would be as follows where the blank node that acts as the filler of the hasFirstAppearance property is an instance of this class:
+
+d:age1 a :GeologicAge .
+d:age1 :hasFirstAppearance 
+   [ :hasGeologicAgeValue &quot;1.6&quot;^^xsd:double ;
+     :hasGeologicAgeUnit iso31:Ma ] .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:GeologicAgeAppearance</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeologicAgeAppearance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Capturing various forms of identifiers, e.g., DOIs, ARKs, local strings, UUID strings, etc. Can be any URI that is understood as identifier of an entity, or a blank node, in which case, hasIdentifierScheme and hasIdentifierValue properties should be used to provide details.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:Identifier</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasIdentifier</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:Identifier</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasIdentifierScheme</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:Identifier</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasIdentifierValue</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:IdentifierScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents URIs of identifier schemes, e.g., http://purl.org/spar/datacite/ark for ARK, or
+http://purl.org/spar/datacite/doi for DOI.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:IdentifierScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">IdentifierScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Instrument</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A specific instance of an Instrument being used to make observations resulting in a Dataset.NERC&apos;s L05 and L22 vocabulary terms are included as subclasses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Instrument</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:InstrumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The type of Instrument being used to make observations - CTD, ADCP, microscope. NERC&apos;s L05 and L22 vocabulary terms are included as instances.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:InstrumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">InstrumentType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:MeasurementType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The type of Measurement being recorded - atmospheric emission, land surface temperature, depth, salinity of the water column. NERC&apos;s P02 and P03 vocabulary terms are included as instances.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:MeasurementType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">MeasurementType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Meeting</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">To represent, e.g., &quot;Person W attends Conference X at Place Y which occurred on Start/End Dates Z1-Z2&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Meeting</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Meeting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Organization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A physical or virtual collection of Agents in some formally recognized capacity of significance.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Organization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Participant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A reification of the n-ary (n &gt;= 3) relation representing a participation of a Person performing a certain RoleType in a Cruise/Award/Program/Dataset/PhysicalSample. To an instance of Participant, one can attach additional information using properties such as hasAffiliation. One can also adds temporal information through hasParticipationStartTime and hasParticipationEndTime.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Participant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Participant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Person</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A homo sapien Agent of some significance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Person</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:PhysicalSample</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An object of observation that may be preserved, catalogued, and/or preserved. Our modeling of physical sample metadata roughly corresponds to the International Geo Sample Number (IGSN) metadata schema (http://schema.igsn.org/).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:PhysicalSample</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PhysicalSample</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:PhysicalSampleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Types of physical samples.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:PhysicalSampleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PhysicalSampleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Place</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A location with at least some type of spatial extent.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Place</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Place</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:PlaceType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A common descriptor for a type of Place - ocean, shoreline, island, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:PlaceType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PlaceType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Platform</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A physical object of significance enabling observations resulting in a Dataset. NERC&apos;s L06 vocabulary terms (i.e., ICES platform codes) are included as subclasses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Platform</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:PlatformType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A type of Platform - vessel, glider, float, laboratory, etc. NERC&apos;s L06 vocabulary terms are included as instances.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:PlatformType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PlatformType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:PortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A designated, specific port visited by a Vessel for some significant reason - the start or end of a mission; transfer of passengers, goods, or equipment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:PortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PortCall</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Program</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A formally recognized scientific effort receiving significant funding, requiring large scale coordination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Program</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Program</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Repository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A recognized, formal entity responsible for curating a certain set of Datasets or DigitalObjects</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Repository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Repository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:RoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A specific type of role performed by an Agent - Principal Investigator, Chief Scientist, Publisher, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:RoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RoleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Station</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Station</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:StratigraphicUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Captures named instances (URIs have to be minted for them) from stratigraphic gazetteers such as the USGS National Geologic Map Database or controlled vocabulary from the International Stratigraphic Union. Examples of stratigraphic units include Bonneville Formation, Portland Formation, Gray Gulch Formation, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:StratigraphicUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">StratigraphicUnit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Submersible</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Submersible</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:Vessel</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The platform enabling a Cruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:Vessel</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Vessel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:accordingTo</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">accordingTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:aguAbstractScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">American Geophysical Union Abstract Identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:atPort</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The domain of this property is PortCall, which acts as the range of &apos;hasStartPortCall&apos;, &apos;hasMidPortCall&apos;, or &apos;hasEndPortCall&apos; properties.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:atPort</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">atPort</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:coReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This property is used to state that an object (instance) matches with another object. This can either be a result of manual matching or running some coreference resolution algorithm.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:coReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">coReferentOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:containsDataset</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">containsDataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:fromCountry</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">fromCountry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAbstract</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAbstract</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAcronym</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAcronym</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasAffiliation</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The domain of this property includes, besides persons, also instances of Participant class that act as the range of &apos;hasParticipant&apos; property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAffiliation</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAffiliation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAuthor</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAuthor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAuthoritativeDigitalRepository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAuthoritativeDigitalRepository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasAward</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasByteLength</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasByteLength</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasChecksum</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasChecksum</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasChecksumAlgorithm</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">For specifying the checksum algorithm&apos;s used to compute the checksum value of the digital objects. The value is provided in hasChecksum property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasChecksumAlgorithm</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasChecksumAlgorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasChecksumAlgorithm</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasChecksum</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasChiefScientist</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasChiefScientist</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCitationText</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCitationText</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCoChiefScientist</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCoChiefScientist</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCoPrincipalInvestigator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCoPrincipalInvestigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCollectionEndDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCollectionEndDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCollectionStartDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCollectionStartDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCollector</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCollector</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasContact</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasContact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasContributor</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasContributor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCreator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCreator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCruiseType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCruiseType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasCurator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCurator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasDataset</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasDescription</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDescription</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasDive</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDive</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasDocumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">E.g., article, book, book chapter, presentation, etc. 
+Should use vocabulary from BiBO or CrossRef</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasDocumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDocumentType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasDuration</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDuration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasEditor</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasEditor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasEducator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasEducator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasElevationDescription</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasElevationDescription</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasEmailAddress</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasEmailAddress</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasEndDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasEndDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasEndPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The range of this property is PortCall that acts as the domain of the &apos;atPort&apos; and &apos;hasTimeStamp&apos; property. Graph patterns for data using this property can be of the form:
+-   ?X :hasEndPortCall ?Y . ?Y a PortCall;  :atPort ?PL ; :hasTimeStamp ?T.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasEndPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasEndPortCall</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFamilyName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFeatureOfInterest</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFeatureOfInterest</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFeatureType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFirstAppearance</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFirstAppearance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFormat</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFormat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFormatType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFormatType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFullName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGeoFeatureType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGeoFeatureType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGeologicAge</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGeologicAge</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGeologicAgeUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGeologicAgeUnit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGeologicAgeValue</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGeologicAgeValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGeometryAsWktLiteral</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGeometryAsWktLiteral</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasGivenName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasIdentifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">May be used by itself or in conjunction with hasIdentifierScheme and hasIdentifierValue data properties.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasIdentifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasIdentifier</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasIdentifierValue</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasIdentifierResolveURL</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifierResolveURL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasIdentifierScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifierScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasIdentifierValue</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Points to the actual string value of identifier., e.g.: &quot;doi:10.5063/AA/ArchivalTag.4.1&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasIdentifierValue</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifierValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasInstrument</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasInstrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasInstrumentType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasInstrumentType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasLandingPage</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A URI pointing to a human-readable landing page for a Dataset or DigitalObject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasLandingPage</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasLandingPage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasLastAppearance</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasLastAppearance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasLastUpdateDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasLastUpdateDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasMaterial</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">values drawn from multiple vocabularies eg. mineral types, rock types</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMaterial</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMaterial</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMaterialType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMaterialType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMaxDepth</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMaxDepth</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMeasurementType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMeasurementType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMeetingParticipant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMeetingParticipant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasMidPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The range of this property is PortCall that acts as the domain of the &apos;atPort&apos; and &apos;hasTimeStamp&apos; property. Graph patterns for data using this property can be of the form:
+-   ?X :hasEndPortCall ?Y . ?Y a PortCall;  :atPort ?PL ; :hasTimeStamp ?T.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMidPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMidPortCall</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasMiddleName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasModel</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasModel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasNamePrefix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasNameSuffix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFamilyName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasFullName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasGivenName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasMiddleName</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>main:hasNameSuffix</AbbreviatedIRI>
+        <AbbreviatedIRI>main:hasNamePrefix</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasObserver</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasObserver</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasOperationArea</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasOperationArea</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasOperator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasOperator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasOriginDigitalRepository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasOriginDigitalRepository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasOwner</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasOwner</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPart</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasParticipant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The range of this property includes instances of Participant that act as the domain of the &apos;hasRoleType&apos;, &apos;isPerformedBy&apos;, &apos;hasAffiliation&apos; property. Graph patterns for data using this property can be of the form:
+?X :hasParticipant ?Y.  
+?Y a :Participant . 
+?Y :hasRoleType ?RT. 
+?Y :isPerformedBy ?P. 
+?Y :hasAffiliation ?O.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasParticipant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasParticipant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasParticipationEndTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasParticipationEndTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasParticipationStartTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasParticipationStartTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPhysicalRepository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPhysicalRepository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPilot</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPilot</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPlace</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPlace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPlaceType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPlaceType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPlatformType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPlatformType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPosition</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPosition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPrincipalInvestigator</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPrincipalInvestigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasProgram</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasProgram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasProgramManager</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasProgramManager</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasProject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasProject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPublicationDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPublicationDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasPublisher</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPublisher</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRegistrant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRegistrant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRegistrationDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRegistrationDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRelatedCruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRelatedCruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRelatedSample</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRelatedSample</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasReplicaDigitalRepository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasReplicaDigitalRepository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRepository</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRepository</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRightsHolder</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRightsHolder</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasRoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The domain of this property is Participant that acts as the range of &apos;hasParticipant&apos; property. Graph patterns for data using this property can be of the form:
+-   ?X :hasParticipation ?Y . ?Y a :Participant;  :hasRoleType ?RT ; :isPerformedBy ?P; :hasAffiliation ?O .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasRoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRoleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasSampleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSampleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasSamplingMethod</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSamplingMethod</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasScheduler</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasScheduler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasScientist</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasScientist</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasSource</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasSponsor</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSponsor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasStartDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasStartDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasStartPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The range of this property is PortCall that acts as the domain of the &apos;atPort&apos; and &apos;hasTimeStamp&apos; property. Graph patterns for data using this property can be of the form:
+-   ?X :hasEndPortCall ?Y . ?Y a PortCall;  :atPort ?PL ; :hasTimeStamp ?T.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasStartPortCall</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasStartPortCall</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasStratigraphicUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasStratigraphicUnit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasStudent</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasStudent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasSubOrganization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSubOrganization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasTechnician</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTechnician</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasTectonicSetting</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTectonicSetting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasTimeStamp</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The domain of this property is PortCall that acts as the range of &apos;hasStartPortCall&apos;, &apos;hasMidPortCall&apos;, or &apos;hasEndPortCall&apos; properties.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasTimeStamp</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTimeStamp</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasTitle</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTitle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasTrack</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTrack</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:hasUploadDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The range of this property is a dateTime indicating when the Dataset or DigitalObject was uploaded to its originDigitalRepository.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasUploadDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasUploadDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasVendor</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasVendor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:hasVessel</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasVessel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isAffiliationOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isAffiliationOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isAuthorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isAuthorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isAuthoritativeDigitalRepositoryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isAuthoritativeDigitalRepositoryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isAwardOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isAwardOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isChiefScientistOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isChiefScientistOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCoChiefScientistOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCoChiefScientistOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCoPrincipalInvestigatorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCoPrincipalInvestigatorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCollectorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCollectorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isContactOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isContactOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isContainedDatasetBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isContainedDatasetBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isContributorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isContributorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCountryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCountryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCreatorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCreatorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCruiseOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCruiseOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isCruiseTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isCruiseTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isDatasetOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDatasetOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isDiveOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDiveOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isDocumentTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDocumentTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isEditorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isEditorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isEducatorIn</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isEducatorIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isEndPortCallOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isEndPortCallOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isFeatureOfInterestOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isFeatureOfInterestOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isFeatureTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isFeatureTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isFormatOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isFormatOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isGeoFeatureTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isGeoFeatureTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isIdentifierSchemeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isIdentifierSchemeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isInstrumentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isInstrumentOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isInstrumentTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isInstrumentTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isMeasurementTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isMeasurementTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isMeetingParticipantOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isMeetingParticipantOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isMidPortCallOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isMidPortCallOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isObserverIn</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isObserverIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isOperatorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isOperatorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isOriginDigitalRepositoryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isOriginDigitalRepositoryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isOriginOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isOriginOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isOwnerOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isOwnerOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPartOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isParticipantOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isParticipantOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPerformedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPerformedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPhysicalRepositoryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPhysicalRepositoryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPlaceTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPlaceTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPlatformTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPlatformTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPortOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPortOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPrincipalInvestigatorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPrincipalInvestigatorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isProgramManagerOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isProgramManagerOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isProgramOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isProgramOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isPublisherOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isPublisherOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isRegistrantOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isRegistrantOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isReplicaDigitalRepositoryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isReplicaDigitalRepositoryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isRepositoryOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isRepositoryOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isRightsHolderOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isRightsHolderOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isRoleTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isRoleTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isSampleTypeOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isSampleTypeOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isSchedulerOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isSchedulerOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isScientistOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isScientistOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isSponsorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isSponsorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isStartPortCallOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isStartPortCallOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isStratigraphicUnitOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isStratigraphicUnitOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isStudentIn</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isStudentIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isSubOrganizationOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isSubOrganizationOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isTechnicianOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isTechnicianOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isVendorOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isVendorOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:isVesselOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isVesselOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:nsfAwardScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">National Science Foundation Award Number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:originatesFrom</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">originatesFrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:performs</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">performs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:strongCoReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Used to state that an instance matches with another based on a highly trusted machine-generated matching. The matching requires at least one additional corroborating piece of information that is trusted to differentiate individuals (e.g., surname and email match).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:strongCoReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">strongCoReferentOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>main:weakCoReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Used to state that an instance matches with another based on a totally loose, machine-generated matching. The matching only needs at least one important property matches.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>main:weakCoReferentOf</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">weakCoReferentOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>geosparql:wktLiteral</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Enables the use of Well Known Text strings</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>geosparql:wktLiteral</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">geosparql:wktLiteral</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>rdf:HTML</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Enables the use of HTML strings</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>rdf:HTML</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">rdf:HTML</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
