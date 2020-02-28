@@ -18,8 +18,13 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {		
 		
+<<<<<<< HEAD
 		File[] owlfiles = new File("OWL/").listFiles();
 		ArrayList<HashMap<String,Integer>> resultsList = new ArrayList<HashMap<String,Integer>>();		
+=======
+		ArrayList<HashMap<String,Integer>> resultsList = new ArrayList<HashMap<String,Integer>>();
+		List<String> owlpaths = Arrays.asList("OWL/enslavedv2.owl");
+>>>>>>> bc4caa800a1f3ebabdb8732c2de34be375bd02b8
 		
 		for (File owlfile : owlfiles) {
 			
@@ -31,6 +36,11 @@ public class Main {
 		}
 		
 		OWLAxEvaluation evaluation = new OWLAxEvaluation(resultsList);
+<<<<<<< HEAD
+=======
+		
+		System.out.println(evaluation.getAverageResult());
+>>>>>>> bc4caa800a1f3ebabdb8732c2de34be375bd02b8
 		
 		for (HashMap<String,Integer> result : evaluation.getAllResults()) {
 			System.out.println(result);
