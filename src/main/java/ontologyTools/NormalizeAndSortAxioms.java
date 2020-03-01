@@ -364,7 +364,7 @@ public class NormalizeAndSortAxioms  {
 	}
 	
 	/**
-	 * Returns a map that contains the numbers of each type of axiom in the ontology
+	 * Returns a map that contains the count of each type of axiom in the ontology
 	 * 
 	 * @return count of all types of axioms in ontology HashMap<String,Integer>
 	 */
@@ -391,7 +391,7 @@ public class NormalizeAndSortAxioms  {
 	}
 
 	/**
-	 * Gets the Role axioms (which includes data axioms)
+	 * Gets the Role axioms (includes data axioms)
 	 * 
 	 * @return axioms ArrayList<OWLPropertyAxiom>
 	 */
