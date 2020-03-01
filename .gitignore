@@ -172,4 +172,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 # End of https://www.gitignore.io/api/osx,java,eclipse,intellij,maven
-*go.owl
+*go-plus.owl
