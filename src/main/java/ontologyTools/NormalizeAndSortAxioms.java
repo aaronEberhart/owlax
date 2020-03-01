@@ -3,7 +3,7 @@ package ontologyTools;
 import java.util.*;
 import java.util.stream.*;
 
-import org.eclipse.rdf4j.model.vocabulary.OWL;
+import org.eclipse.rdf4j.model.vocabulary.*;
 import org.semanticweb.owlapi.model.*;
 
 import uk.ac.manchester.cs.owl.owlapi.*;
@@ -18,7 +18,9 @@ import uk.ac.manchester.cs.owl.owlapi.*;
  */
 public class NormalizeAndSortAxioms  {
 	
-	private static int i = -1;
+	private static int ontologyIndex = -1;
+	//hashmap keys
+	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","symmetric role","asymmetric role","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLPropertyAxiom> roleAxioms;
@@ -37,122 +39,179 @@ public class NormalizeAndSortAxioms  {
 		classAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		
-		//sort the axioms from the ontology
-		sortAxiomsByType(getAxioms(ontology));
+		//"simple class axioms","complex class axioms","role axioms"
 		
 		//save the quantities of these things for later
 		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
 			put("number of classes",(int)ontology.classesInSignature().count());
 			put("number of roles",(int)ontology.objectPropertiesInSignature().count());
 			put("number of data properties",(int)ontology.dataPropertiesInSignature().count());
-			put(ontology.getFormat().toString(),i);
-			put(ontology.getOntologyID().toString(),i--);
+			put(ontology.getFormat().toString(),ontologyIndex);
+			put(ontology.getOntologyID().toString(),ontologyIndex--);
+			for (String key : ontologyHashKeys) {
+				put(key,0);		
+			}
 		}};
+		
+		//sort the axioms from the ontology
+		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {e.printStackTrace();}});
+		
+		ontologyComposition.put("simple class axioms", classAxioms.size());
+		ontologyComposition.put("complex class axioms", complexClassAxioms.size());
+		ontologyComposition.put("role axioms", roleAxioms.size());
 	}	
 
 	/**
 	 * Gets all axioms from the ontology, ignoring annotations, class assertions, and declarations
 	 */
-	private ArrayList<OWLAxiom> getAxioms(OWLOntology ontology){
-		return ontology.axioms().filter(a -> correctType(a.getAxiomType().getName())).collect(Collectors.toCollection(ArrayList<OWLAxiom>::new));
+	private Stream<OWLAxiom> getAxioms(OWLOntology ontology){
+		return ontology.axioms().filter(a -> correctType(a.getAxiomType().getName()));
 	}
 	
 	/**
-	 * False if the type string of an axiom is Annotation, class assertion, or Declaration, True otherwise
+	 * False if the type string of an axiom is Annotation, class assertion, Different individuals, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
+		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
 	}
-		
+	
 	/**
-	 * Sorts all axioms in ontology into a TBox and RBox, also diverts complex complex class expressions.
+	 * Sorts one axiom by its type
 	 */
-	private void sortAxiomsByType(ArrayList<OWLAxiom> axioms) throws Exception {		
-				
-		//look through all the axioms
-		for (OWLAxiom axiom : axioms) {	
-			
-			axiom = axiom.getAxiomWithoutAnnotations();
-			
-			//check what type they are
-			String type = axiom.getAxiomType().getName();
-			
-			// Role chain
-			if (type.equals("SubPropertyChainOf")) {
-				roleAxioms.add((OWLSubPropertyChainOfAxiom)axiom);
-			// Role Inclusion
-			}else if (type.equals("SubObjectPropertyOf")) {
-				roleAxioms.add((OWLSubObjectPropertyOfAxiom)axiom);
-			// Role Inclusion
-			}else if (type.equals("SubDataPropertyOf")) {
-				roleAxioms.add((OWLSubDataPropertyOfAxiom)axiom);
-			// Inverse Role
-			}else if (type.equals("InverseObjectProperties")) {
-				roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty(),Collections.emptyList()));
-			}else if (type.equals("SymmetricObjectProperty")) {				
-				roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLSymmetricObjectPropertyAxiom)axiom).getProperty().getInverseProperty(),((OWLSymmetricObjectPropertyAxiom)axiom).getProperty(),Collections.emptyList()));
-			// Subclass
-			}else if (type.equals("SubClassOf")) {
-				//these are nested so parse them separately
-				parseSubClassOfAxiom((OWLSubClassOfAxiom)axiom);
-			// functional
-			}else if (type.equals("FunctionalObjectProperty")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(((OWLFunctionalObjectPropertyAxiom)axiom).getProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));
-			// equivalent
-			}else if (type.equals("EquivalentClasses")) {
+	private void sortAxiomByType(OWLAxiom axiom) throws Exception {
+		
+		String type = axiom.getAxiomType().getName();
+		
+		// Sub Class
+		if (type.equals("SubClassOf")) {
+			ontologyComposition.replace("subclass", ontologyComposition.get("subclass") + 1);
+			//these are nested so parse them separately
+			parseSubClassOfAxiom((OWLSubClassOfAxiom)axiom);
+		// equivalent classes
+		}else if (type.equals("EquivalentClasses")) {
+				ontologyComposition.replace("equivalent classes", ontologyComposition.get("equivalent classes") + 1);
 				((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
-			// transitive
-			}else if (type.equals("TransitiveObjectProperty")) {
-				ArrayList<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>();
-				list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
-				list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
-				roleAxioms.add(new OWLSubPropertyChainAxiomImpl(list,((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
-			// disjoint classes
-			}else if (type.equals("DisjointClasses")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectIntersectionOfImpl(axiom.nestedClassExpressions()), new OWLClassImpl(IRI.create(OWL.NOTHING.toString())), Collections.emptyList()));
-			//data range
-			}else if (type.equals("DataPropertyRange")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLDataAllValuesFromImpl(((OWLDataPropertyRangeAxiom)axiom).getProperty(), ((OWLDataPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));
-			//range
-			}else if (type.equals("ObjectPropertyRange")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectAllValuesFromImpl(((OWLObjectPropertyRangeAxiom)axiom).getProperty(), ((OWLObjectPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));	
-			// domain
-			}else if (type.equals("ObjectPropertyDomain")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(((OWLObjectPropertyDomainAxiom)axiom).getProperty(), new OWLClassImpl(IRI.create(OWL.THING.toString()))), ((OWLObjectPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
-			// data domain
-			}else if (type.equals("DataPropertyDomain")) {
-				classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(((OWLDataPropertyDomainAxiom)axiom).getProperty(), new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), ((OWLDataPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
-			// oops forgot one
-			}else {
-				throw new Exception("Axiom not handeled:\n\t"+axiom.toString());
-			}
+		// disjoint classes
+		}else if (type.equals("DisjointClasses")) {			
+			ontologyComposition.replace("disjoint classes", ontologyComposition.get("disjoint classes") + 1);
+			((OWLDisjointClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> {try {parseSubClassOfAxiom(a);} catch (Exception e) {e.printStackTrace();}});
+		// disjoint union
+		}else if (type.equals("DisjointUnion")) {
+			ontologyComposition.replace("disjoint union", ontologyComposition.get("disjoint union") + 1);
+			((OWLDisjointUnionAxiom)axiom).getOWLEquivalentClassesAxiom().asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
+			((OWLDisjointUnionAxiom)axiom).getOWLDisjointClassesAxiom().asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {e.printStackTrace();}});
+		// Sub Role
+		}else if (type.equals("SubObjectPropertyOf")) {
+			ontologyComposition.replace("subrole", ontologyComposition.get("subrole") + 1);
+			roleAxioms.add((OWLSubObjectPropertyOfAxiom)axiom);
+		// Sub Data
+		}else if (type.equals("SubDataPropertyOf")) {
+			ontologyComposition.replace("subdata", ontologyComposition.get("subdata") + 1);
+			roleAxioms.add((OWLSubDataPropertyOfAxiom)axiom);
+		// Equivalent Roles
+		}else if (type.equals("EquivalentObjectProperties")) {			
+			ontologyComposition.replace("equivalent roles", ontologyComposition.get("equivalent roles") + 1);
+			ontologyComposition.replace("subrole", ontologyComposition.get("subrole") - ((OWLEquivalentObjectPropertiesAxiom)axiom).asSubObjectPropertyOfAxioms().size());
+			((OWLEquivalentObjectPropertiesAxiom)axiom).asSubObjectPropertyOfAxioms().forEach(a -> {try {sortAxiomByType(a);} catch (Exception e) {e.printStackTrace();}});
+		// Equivalent Data
+		}else if (type.equals("EquivalentDataProperties")) {
+			ontologyComposition.replace("equivalent data", ontologyComposition.get("equivalent data") + 1);
+			ontologyComposition.replace("subdata", ontologyComposition.get("subdata") - ((OWLEquivalentDataPropertiesAxiom)axiom).asSubDataPropertyOfAxioms().size());
+			((OWLEquivalentDataPropertiesAxiom)axiom).asSubDataPropertyOfAxioms().forEach(a -> {try {sortAxiomByType(a);} catch (Exception e) {e.printStackTrace();}});
+		// Disjoint Roles
+		}else if (type.equals("DisjointObjectProperties")) {
+			ontologyComposition.replace("disjoint roles", ontologyComposition.get("disjoint roles") + 1);
+			throw new Exception("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+		// Disjoint Data
+		}else if(type.equals("DisjointDataProperties")) {
+			ontologyComposition.replace("disjoint data", ontologyComposition.get("disjoint data") + 1);
+			throw new Exception("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+		// Sub Role chain
+		}else if (type.equals("SubPropertyChainOf")) {
+			ontologyComposition.replace("subrole chain", ontologyComposition.get("subrole chain") + 1);
+			roleAxioms.add((OWLSubPropertyChainOfAxiom)axiom);				
+		// Inverse Role
+		}else if (type.equals("InverseObjectProperties")) {
+			ontologyComposition.replace("inverse role", ontologyComposition.get("inverse role") + 1);
+			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty(),Collections.emptyList()));
+		// symmetric role
+		}else if (type.equals("SymmetricObjectProperty")) {	
+			ontologyComposition.replace("symmetric role", ontologyComposition.get("symmetric role") + 1);
+			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLSymmetricObjectPropertyAxiom)axiom).getProperty().getInverseProperty(),((OWLSymmetricObjectPropertyAxiom)axiom).getProperty(),Collections.emptyList()));
+		// asymmetric role
+		}else if (type.equals("AsymmetricObjectProperty")) {
+			ontologyComposition.replace("asymmetric role", ontologyComposition.get("asymmetric role") + 1);
+			throw new Exception("Asymmetric Property Normalization Undefined For Axiom:\n\t"+axiom.toString());
+		// functional role
+		}else if (type.equals("FunctionalObjectProperty")) {
+			ontologyComposition.replace("functional role", ontologyComposition.get("functional role") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(((OWLFunctionalObjectPropertyAxiom)axiom).getProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));
+		// functional data
+		}else if (type.equals("FunctionalDataProperty")) {
+			ontologyComposition.replace("functional data", ontologyComposition.get("functional data") + 1);
+			classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLDataMaxCardinalityImpl(((OWLFunctionalDataPropertyAxiom)axiom).getProperty(), 1, new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), Collections.emptyList()));
+		// inverse functional role
+		}else if (type.equals("InverseFunctionalObjectProperty")) {
+			ontologyComposition.replace("inverse functional role", ontologyComposition.get("inverse functional role") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectMaxCardinalityImpl(((OWLInverseFunctionalObjectPropertyAxiom)axiom).getProperty().getInverseProperty(),1,new OWLClassImpl(IRI.create(OWL.THING.toString()))), Collections.emptyList()));		
+		// transitive role
+		}else if (type.equals("TransitiveObjectProperty")) {
+			ontologyComposition.replace("transitive role", ontologyComposition.get("transitive role") + 1);
+			ArrayList<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>();
+			list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
+			list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
+			roleAxioms.add(new OWLSubPropertyChainAxiomImpl(list,((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
+		// role range
+		}else if (type.equals("ObjectPropertyRange")) {
+			ontologyComposition.replace("role range", ontologyComposition.get("role range") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectAllValuesFromImpl(((OWLObjectPropertyRangeAxiom)axiom).getProperty(), ((OWLObjectPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));	
+		// data range
+		}else if (type.equals("DataPropertyRange")) {
+			ontologyComposition.replace("data range", ontologyComposition.get("data range") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLDataAllValuesFromImpl(((OWLDataPropertyRangeAxiom)axiom).getProperty(), ((OWLDataPropertyRangeAxiom)axiom).getRange()), Collections.emptyList()));
+		// role domain
+		}else if (type.equals("ObjectPropertyDomain")) {
+			ontologyComposition.replace("role domain", ontologyComposition.get("role domain") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(((OWLObjectPropertyDomainAxiom)axiom).getProperty(), new OWLClassImpl(IRI.create(OWL.THING.toString()))), ((OWLObjectPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
+		// data domain
+		}else if (type.equals("DataPropertyDomain")) {
+			ontologyComposition.replace("data domain", ontologyComposition.get("data domain") + 1);
+			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(((OWLDataPropertyDomainAxiom)axiom).getProperty(), new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), ((OWLDataPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
+		// oops forgot one
+		}else {
+			throw new Exception("Axiom not handeled:\n\t"+axiom.toString());
 		}
 	}
 	
 	/**
 	 * Sorts TBox statements based on their NNF
 	 */
-	private void parseSubClassOfAxiom(OWLSubClassOfAxiom axiom) throws Exception {
+	private void parseSubClassOfAxiom(OWLSubClassOfAxiom inAxiom) throws Exception {
+		
+		OWLSubClassOfAxiom axiom = (OWLSubClassOfAxiom)inAxiom.getNNF();
 		
 		//see how big it is
 		int size = getSubClassOfAxiomSize(axiom);
 			
+		// it was nnf and the right size! woohoo!
+		if(size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+			classAxioms.add(axiom);
 		//is it the right size, but not nnf?
-		if (!axiom.getNNF().equals(axiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+		}else if (!axiom.equals(inAxiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 
 			//get the antecedent and consequent
-			OWLClassExpression superClass = ((OWLSubClassOfAxiom)axiom).getSuperClass();
-			OWLClassExpression subClass = ((OWLSubClassOfAxiom)axiom).getSubClass();
+			OWLClassExpression superClass = ((OWLSubClassOfAxiom)inAxiom).getSuperClass();
+			OWLClassExpression subClass = ((OWLSubClassOfAxiom)inAxiom).getSubClass();
 			
 			//is it an object exact cardinality?
 			if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {				
-				parseObjectExactCardinality(axiom,subClass,superClass);				
+				parseObjectExactCardinality(inAxiom,subClass,superClass);				
 			//is it a data exact cardinality?
 			}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
-				parseDataExactCardinality(axiom,subClass,superClass);
+				parseDataExactCardinality(inAxiom,subClass,superClass);
 			//well the NNF was the right size at least
 			}else if(getSubClassOfAxiomSize((OWLSubClassOfAxiom)axiom.getNNF()) <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-				classAxioms.add((OWLSubClassOfAxiom)axiom.getNNF());
+				classAxioms.add(axiom);
 			//uh oh
 			}else{				
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
@@ -162,7 +221,7 @@ public class NormalizeAndSortAxioms  {
 		else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			complexClassAxioms.add(axiom);
 		}	
-		//it was nnf and the right size! woohoo!
+		
 		else {
 			classAxioms.add(axiom);
 		}
@@ -304,6 +363,11 @@ public class NormalizeAndSortAxioms  {
 		return Integer.MAX_VALUE;
 	}
 	
+	/**
+	 * Returns a map that contains the numbers of each type of axiom in the ontology
+	 * 
+	 * @return count of all types of axioms in ontology HashMap<String,Integer>
+	 */
 	public HashMap<String,Integer> getOntologyComposition(){
 		return ontologyComposition;
 	}
@@ -326,14 +390,29 @@ public class NormalizeAndSortAxioms  {
 		return sb.toString();
 	}
 
-	public ArrayList<OWLPropertyAxiom> getRBox() {
+	/**
+	 * Gets the Role axioms (which includes data axioms)
+	 * 
+	 * @return axioms ArrayList<OWLPropertyAxiom>
+	 */
+	public ArrayList<OWLPropertyAxiom> getRoleAxioms() {
 		return roleAxioms;
 	}
 	
-	public ArrayList<OWLSubClassOfAxiom> getTBox() {
+	/**
+	 * Gets all simple class Axioms that are shorter than 3 terms
+	 * 
+	 * @return axioms ArrayList<OWLSubClassOfAxiom>
+	 */
+	public ArrayList<OWLSubClassOfAxiom> getSimpleClassAxioms() {
 		return classAxioms;
 	}
 	
+	/**
+	 * Gets all complex class Axioms that are longer than 3 terms
+	 * 
+	 * @return axioms ArrayList<OWLSubClassOfAxiom>
+	 */
 	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms() {
 		return complexClassAxioms;
 	}

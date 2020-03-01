@@ -10,6 +10,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
  * Checks the normalized axioms in an ontology to see if they match 
  * the OWLAx axioms
  * 
+ * @author Aaron Eberhart
  * @author DaSe Lab
  */
 public class OWLAxMatcher {
@@ -53,22 +54,23 @@ public class OWLAxMatcher {
 	// max size of all the axioms (should be 3...)
 	private static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
 	//hashmap keys
-	private static final String[] axiomHashKeys = {"subclass","disjoint classes","domain","scoped domain","range","scoped range","existential","inverse existential","functional","qualified functional","scoped functional","qualified scoped functional","inverse functional","inverse qualified functional","inverse scoped functional","inverse qualified scoped functional","structural tautology","simple class axioms","complex class axioms","role axioms"};
+	private static final String[] axiomHashKeys = {"subclass","disjoint classes","role domain","scoped role domain","role range","scoped role range","existential","inverse existential","functional role","qualified functional role","scoped functional role","qualified scoped functional role","inverse functional role","inverse qualified functional role","inverse scoped functional role","inverse qualified scoped functional role","structural tautology"};
 	private NormalizeAndSortAxioms normalizedAxioms;
 	private HashMap<String,Integer> result;
+	private HashMap<String,Integer> ontology;
 	
 	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
 		normalizedAxioms = axioms;
 		
 		result = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
-			int numClassAx = normalizedAxioms.getTBox().size();
+			int numClassAx = normalizedAxioms.getSimpleClassAxioms().size() + normalizedAxioms.getComplexClassAxioms().size();
 			for (String key : axiomHashKeys) {
 				int ran = new Random().nextInt((int)(numClassAx/10));
 				put(key,ran);
 				numClassAx = ran > numClassAx ? 0 : numClassAx - ran;
 			}
 		}};
-		result.putAll(normalizedAxioms.getOntologyComposition());
+		ontology = normalizedAxioms.getOntologyComposition();
 	}
 	
 	public OWLAxMatcher(OWLOntology ontology) throws Exception {
@@ -83,16 +85,16 @@ public class OWLAxMatcher {
 		return OWLAxAxioms;
 	}
 	
-	public ArrayList<OWLSubClassOfAxiom> getTBox() {
-		return normalizedAxioms.getTBox();
+	public ArrayList<OWLSubClassOfAxiom> getSimpleClassAxioms() {
+		return normalizedAxioms.getSimpleClassAxioms();
 	}
 	
-	public ArrayList<OWLPropertyAxiom> getRBox() {
-		return normalizedAxioms.getRBox();
-	}
-	
-	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms(){
+	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms() {
 		return normalizedAxioms.getComplexClassAxioms();
+	}
+	
+	public ArrayList<OWLPropertyAxiom> getRoleAxioms() {
+		return normalizedAxioms.getRoleAxioms();
 	}
 	
 	public String getOWLAxAxiomsString() {
@@ -104,15 +106,15 @@ public class OWLAxMatcher {
 		return sb.toString();
 	}
 	
-	public HashMap<String,Integer> getMatches(){
-		return result;
+	public ArrayList<HashMap<String,Integer>> getMatches(){
+		return new ArrayList<HashMap<String,Integer>>(Arrays.asList(result,ontology));
 	}
 	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Class Axioms:\n");
-		for (OWLSubClassOfAxiom s : getTBox()) {
+		for (OWLSubClassOfAxiom s : getSimpleClassAxioms()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nComplex Class Axioms:\n");
@@ -120,7 +122,7 @@ public class OWLAxMatcher {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getSubClassOfAxiomSize(s)));
 		}
 		sb.append("\nRole Axioms:\n");
-		for (OWLPropertyAxiom s : getRBox()) {
+		for (OWLPropertyAxiom s : getRoleAxioms()) {
 			sb.append(String.format("\t%s\n\tAxiom Size: %d\n\n",s.toString(),NormalizeAndSortAxioms.getObjectPropertyAxiomSize(s)));
 		}
 		return sb.toString();
