@@ -39,8 +39,6 @@ public class NormalizeAndSortAxioms  {
 		classAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		
-		//"simple class axioms","complex class axioms","role axioms"
-		
 		//save the quantities of these things for later
 		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
 			put("number of classes",(int)ontology.classesInSignature().count());
@@ -48,9 +46,7 @@ public class NormalizeAndSortAxioms  {
 			put("number of data properties",(int)ontology.dataPropertiesInSignature().count());
 			put(ontology.getFormat().toString(),ontologyIndex);
 			put(ontology.getOntologyID().toString(),ontologyIndex--);
-			for (String key : ontologyHashKeys) {
-				put(key,0);		
-			}
+			for (String key : ontologyHashKeys){put(key,0);}
 		}};
 		
 		//sort the axioms from the ontology
@@ -302,8 +298,8 @@ public class NormalizeAndSortAxioms  {
 		//look at its type
 		String type = expression.getClassExpressionType().getName();
 		
-		// class = 1
-		if (type.equals("Class")) {
+		// class = 1 && nominal = 1
+		if (type.equals("Class") || type.equals("ObjectOneOf")) {
 			return 1;
 		// negation = 0
 		} else if (type.equals("ObjectComplementOf")) {
@@ -320,10 +316,10 @@ public class NormalizeAndSortAxioms  {
 		}else if (type.equals("ObjectExactCardinality")) {
 			return getClassExpressionSize(((OWLObjectExactCardinality)expression).getFiller()) + 1;
 		// data = same as quantifier just not nested
-		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
+		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality") || type.equals("ObjectHasValue")) {
 			return 2;
 		// self = always exactly one thing
-		}else if (type.equals("ObjectHasSelf")) {
+		}else if (type.equals("ObjectHasSelf") || type.equals("DataHasValue")) {
 			return 1;
 		// conjunction = sum of conjuncts
 		}else if (type.equals("ObjectIntersectionOf")) {
