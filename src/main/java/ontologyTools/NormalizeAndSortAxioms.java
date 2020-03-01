@@ -196,6 +196,7 @@ public class NormalizeAndSortAxioms  {
 		// it was nnf and the right size! woohoo!
 		if(size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			classAxioms.add(axiom);
+			
 		//is it the right size, but not nnf?
 		}else if (!axiom.equals(inAxiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 
@@ -205,13 +206,11 @@ public class NormalizeAndSortAxioms  {
 			
 			//is it an object exact cardinality?
 			if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {				
-				parseObjectExactCardinality(inAxiom,subClass,superClass);				
+				parseObjectExactCardinality(inAxiom,subClass,superClass);		
+				
 			//is it a data exact cardinality?
 			}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
 				parseDataExactCardinality(inAxiom,subClass,superClass);
-			//well the NNF was the right size at least
-			}else if(getSubClassOfAxiomSize((OWLSubClassOfAxiom)axiom.getNNF()) <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-				classAxioms.add(axiom);
 			//uh oh
 			}else{				
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
@@ -220,10 +219,8 @@ public class NormalizeAndSortAxioms  {
 		// is it too big for now?
 		else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			complexClassAxioms.add(axiom);
-		}	
-		
-		else {
-			classAxioms.add(axiom);
+		}else {
+			throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
 		}
 	}
 		
