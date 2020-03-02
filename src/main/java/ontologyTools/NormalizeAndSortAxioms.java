@@ -187,14 +187,15 @@ public class NormalizeAndSortAxioms  {
 		OWLSubClassOfAxiom axiom = (OWLSubClassOfAxiom)inAxiom.getNNF();
 		
 		//see how big it is
-		int size = getSubClassOfAxiomSize(axiom);
+		int size = getSubClassOfAxiomSize(inAxiom);
+		int nnfSize = getSubClassOfAxiomSize(axiom);
 			
 		// it was nnf and the right size! woohoo!
-		if(size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+		if(nnfSize == size && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			classAxioms.add(axiom);
 			
-		//is it the right size, but not nnf?
-		}else if (!axiom.equals(inAxiom) && size <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+		// is it the right size, but not nnf?
+		}else if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() || nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 
 			//get the antecedent and consequent
 			OWLClassExpression superClass = ((OWLSubClassOfAxiom)inAxiom).getSuperClass();
@@ -213,7 +214,7 @@ public class NormalizeAndSortAxioms  {
 			}
 		}
 		// is it too big for now?
-		else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+		else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 			complexClassAxioms.add(axiom);
 		}else {
 			throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
