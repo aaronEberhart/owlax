@@ -54,7 +54,7 @@ public class NormalizeAndSortAxioms  {
 		ontologyComposition.put("simple class axioms", classAxioms.size());
 		ontologyComposition.put("complex class axioms", complexClassAxioms.size());
 		ontologyComposition.put("role axioms", roleAxioms.size());
-	}	
+	}
 
 	/**
 	 * Gets all axioms from the ontology, ignoring annotations, class assertions, and declarations
@@ -384,7 +384,7 @@ public class NormalizeAndSortAxioms  {
 	}
 
 	/**
-	 * Gets the Role axioms (includes data axioms)
+	 * Gets the Role axioms (includes data property axioms)
 	 * 
 	 * @return axioms ArrayList<OWLPropertyAxiom>
 	 */

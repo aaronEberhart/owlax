@@ -53,7 +53,6 @@ public class OWLAxMatcher {
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()));
 	// max size of all the axioms (should be 3...)
 	private static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
-	//hashmap keys
 	private static final String[] axiomHashKeys = {"subclass","disjoint classes","role domain","scoped role domain","role range","scoped role range","existential","inverse existential","functional role","qualified functional role","scoped functional role","qualified scoped functional role","inverse functional role","inverse qualified functional role","inverse scoped functional role","inverse qualified scoped functional role","structural tautology","other"};
 	private NormalizeAndSortAxioms normalizedAxioms;
 	private HashMap<String,Integer> result;
@@ -239,7 +238,7 @@ public class OWLAxMatcher {
 	}
 	
 	/**
-	 * Returns a of result paired with its ontology
+	 * Returns a matching result paired with its ontology
 	 * 
 	 * @return matches,ontologies ArrayList<HashMap<String,Integer>>
 	 */
