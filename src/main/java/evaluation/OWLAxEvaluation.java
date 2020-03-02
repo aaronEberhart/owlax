@@ -12,17 +12,19 @@ public class OWLAxEvaluation {
 	private HashMap<String,Double> averageOntology;
 	
 	public OWLAxEvaluation(ArrayList<ArrayList<HashMap<String,Integer>>> resultsList) {
+		
 		// results are lists of 2 things: ontology stats and OWLAx evaluations
-		//
-		// there are 2 unique (key,value) pairs in each ontology that have the name or the format as a key and a unique negative number as value
-		// these are just so we can identify each result later if we need to, so don't worry about them
 		allResults = resultsList;
-		owlaxResults = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(0)));}private static final long serialVersionUID = 5L;};
-		ontologyCompositions = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(1)));}private static final long serialVersionUID = 4L;};
-		// lambda calculating the averages
+				
+		//split the results list into ontology and owlax data
+		owlaxResults = new ArrayList<HashMap<String,Integer>>();		
+		ontologyCompositions = new ArrayList<HashMap<String,Integer>>();
+		allResults.forEach(a -> {owlaxResults.add(a.get(0));ontologyCompositions.add(a.get(1));});
+		
+		// calculating the averages
 		averageResult = (HashMap<String,Double>)owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingInt(Map.Entry::getValue)));		
 		averageOntology = (HashMap<String,Double>)ontologyCompositions.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingInt(Map.Entry::getValue)));
-		//removes the labels
+		//removes the labels from the average ontology
 	    averageOntology.values().removeIf(a -> a < 0);
 	}
 	

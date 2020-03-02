@@ -97,74 +97,74 @@ public class OWLAxMatcher {
 			
 			//subclass
 			if (NormalizeAndSortAxioms.getSubClassOfAxiomSize(axiom) == 2) {
-				result.put("subclass", result.get("subclass") + 1);
+				result.replace("subclass", result.get("subclass") + 1);
 			//disjoint classes
 			}else if(axiom.getSuperClass().isBottomEntity()) {
-				result.put("disjoint classes", result.get("disjoint classes") + 1);
+				result.replace("disjoint classes", result.get("disjoint classes") + 1);
 			//domain
 			}else if(axiom.getSubClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && axiom.getSuperClass().isOWLClass()) {
 				//regular
 				if (((OWLObjectSomeValuesFrom)axiom.getSubClass()).getFiller().isTopEntity()) {
-					result.put("scoped role domain", result.get("scoped role domain") + 1);
+					result.replace("scoped role domain", result.get("scoped role domain") + 1);
 				//scoped
 				}else {
-					result.put("role domain", result.get("role domain") + 1);
+					result.replace("role domain", result.get("role domain") + 1);
 				}
 			//existential
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && axiom.getSubClass().isOWLClass()) {
 				//is is specifically NOT an inverse
 				if(!isInverse(((OWLObjectSomeValuesFrom)axiom.getSuperClass()).getProperty())) {
-					result.put("existential", result.get("existential") + 1);
+					result.replace("existential", result.get("existential") + 1);
 				//must be regular
 				}else {
-					result.put("inverse existential", result.get("inverse existential") + 1);
+					result.replace("inverse existential", result.get("inverse existential") + 1);
 				}
 			//range
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectAllValuesFrom") && axiom.getSubClass().isOWLClass()) {
 				//regular
 				if (axiom.getSubClass().isTopEntity()) {
-					result.put("role range", result.get("role range") + 1);
+					result.replace("role range", result.get("role range") + 1);
 				//scoped
 				}else {
-					result.put("scoped role range", result.get("scoped role range") + 1);
+					result.replace("scoped role range", result.get("scoped role range") + 1);
 				}
 			//functional
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectMaxCardinality") && ((OWLObjectMaxCardinality)axiom.getSuperClass()).getCardinality() == 1) {
 				if (!isInverse(((OWLObjectMaxCardinality)axiom.getSuperClass()).getProperty())) {
 					//regular
 					if(axiom.getSubClass().isTopEntity() && ((OWLObjectMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {
-						result.put("functional role", result.get("functional role") + 1);
+						result.replace("functional role", result.get("functional role") + 1);
 					//scoped
 					}else if(axiom.getSubClass().isTopEntity()) {
-						result.put("qualified functional role", result.get("qualified functional role") + 1);
+						result.replace("qualified functional role", result.get("qualified functional role") + 1);
 					//qualified
 					}else if(((OWLObjectMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {
-						result.put("scoped functional role", result.get("scoped functional role") + 1);
+						result.replace("scoped functional role", result.get("scoped functional role") + 1);
 					//scoped qualified
 					}else {
-						result.put("qualified scoped functional role", result.get("qualified scoped functional role") + 1);
+						result.replace("qualified scoped functional role", result.get("qualified scoped functional role") + 1);
 					}
 				//inverse functional
 				}else {
 					//regular
 					if(axiom.getSubClass().isTopEntity() && ((OWLObjectMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {				
-						result.put("inverse functional role", result.get("inverse functional role") + 1);
+						result.replace("inverse functional role", result.get("inverse functional role") + 1);
 					//scoped
 					}else if(axiom.getSubClass().isTopEntity()) {
-						result.put("inverse qualified functional role", result.get("inverse qualified functional role") + 1);
+						result.replace("inverse qualified functional role", result.get("inverse qualified functional role") + 1);
 					//qualified
 					}else if(((OWLObjectMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {
-						result.put("inverse scoped functional role", result.get("inverse scoped functional role") + 1);
+						result.replace("inverse scoped functional role", result.get("inverse scoped functional role") + 1);
 					//scoped qualified
 					}else {
-						result.put("inverse qualified scoped functional role", result.get("inverse qualified scoped functional role") + 1);
+						result.replace("inverse qualified scoped functional role", result.get("inverse qualified scoped functional role") + 1);
 					}
 				}
 			//tautology
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectMinCardinality") && ((OWLObjectMinCardinality)axiom.getSuperClass()).getCardinality() == 0) {
-				result.put("structural tautology", result.get("structural tautology") + 1);
+				result.replace("structural tautology", result.get("structural tautology") + 1);
 			}else {
-				result.put("other", result.get("other") + 1);
+				result.replace("other", result.get("other") + 1);
 			}
 		}
 		System.out.println();
