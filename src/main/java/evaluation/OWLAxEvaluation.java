@@ -17,8 +17,8 @@ public class OWLAxEvaluation {
 		// there are 2 unique (key,value) pairs in each ontology that have the name or the format as a key and a unique negative number as value
 		// these are just so we can identify each result later if we need to, so don't worry about them
 		allResults = resultsList;
-		owlaxResults = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(0)));}private static final long serialVersionUID = 1L;};
-		ontologyCompositions = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(1)));}private static final long serialVersionUID = 1L;};
+		owlaxResults = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(0)));}private static final long serialVersionUID = 5L;};
+		ontologyCompositions = new ArrayList<HashMap<String,Integer>>(){{allResults.forEach(a -> add(a.get(1)));}private static final long serialVersionUID = 4L;};
 		// lambda calculating the averages
 		averageResult = (HashMap<String,Double>)owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingInt(Map.Entry::getValue)));		
 		averageOntology = (HashMap<String,Double>)ontologyCompositions.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingInt(Map.Entry::getValue)));

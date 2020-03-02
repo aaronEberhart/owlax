@@ -19,7 +19,6 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class NormalizeAndSortAxioms  {
 	
 	private static int ontologyIndex = -1;
-	//hashmap keys
 	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","symmetric role","asymmetric role","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
@@ -40,7 +39,7 @@ public class NormalizeAndSortAxioms  {
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		
 		//save the quantities of these things for later
-		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{
+		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 3L;{
 			put("number of classes",(int)ontology.classesInSignature().count());
 			put("number of roles",(int)ontology.objectPropertiesInSignature().count());
 			put("number of data properties",(int)ontology.dataPropertiesInSignature().count());
