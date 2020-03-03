@@ -131,7 +131,7 @@ public class NormalizeAndSortAxioms  {
 		}else if (type.equals("InverseObjectProperties")) {
 			ontologyComposition.replace("inverse role", ontologyComposition.get("inverse role") + 1);
 			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty(),Collections.emptyList()));
-			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty().getInverseProperty(),Collections.emptyList()));
+			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty(),Collections.emptyList()));
 		// symmetric role
 		}else if (type.equals("SymmetricObjectProperty")) {	
 			ontologyComposition.replace("symmetric role", ontologyComposition.get("symmetric role") + 1);
