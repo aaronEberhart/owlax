@@ -106,13 +106,11 @@ public class NormalizeAndSortAxioms  {
 		// Equivalent Roles
 		}else if (type.equals("EquivalentObjectProperties")) {			
 			ontologyComposition.replace("equivalent roles", ontologyComposition.get("equivalent roles") + 1);
-			ontologyComposition.replace("subrole", ontologyComposition.get("subrole") - ((OWLEquivalentObjectPropertiesAxiom)axiom).asSubObjectPropertyOfAxioms().size());
-			((OWLEquivalentObjectPropertiesAxiom)axiom).asSubObjectPropertyOfAxioms().forEach(a -> {try {sortAxiomByType(a);} catch (Exception e) {e.printStackTrace();}});
+			((OWLEquivalentObjectPropertiesAxiom)axiom).asSubObjectPropertyOfAxioms().forEach(a -> roleAxioms.add(a));
 		// Equivalent Data
 		}else if (type.equals("EquivalentDataProperties")) {
 			ontologyComposition.replace("equivalent data", ontologyComposition.get("equivalent data") + 1);
-			ontologyComposition.replace("subdata", ontologyComposition.get("subdata") - ((OWLEquivalentDataPropertiesAxiom)axiom).asSubDataPropertyOfAxioms().size());
-			((OWLEquivalentDataPropertiesAxiom)axiom).asSubDataPropertyOfAxioms().forEach(a -> {try {sortAxiomByType(a);} catch (Exception e) {e.printStackTrace();}});
+			((OWLEquivalentDataPropertiesAxiom)axiom).asSubDataPropertyOfAxioms().forEach(a -> roleAxioms.add(a));
 		// Disjoint Roles
 		}else if (type.equals("DisjointObjectProperties")) {
 			ontologyComposition.replace("disjoint roles", ontologyComposition.get("disjoint roles") + 1);
@@ -156,10 +154,7 @@ public class NormalizeAndSortAxioms  {
 		// transitive role
 		}else if (type.equals("TransitiveObjectProperty")) {
 			ontologyComposition.replace("transitive role", ontologyComposition.get("transitive role") + 1);
-			ArrayList<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>();
-			list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
-			list.add(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty());
-			roleAxioms.add(new OWLSubPropertyChainAxiomImpl(list,((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
+			roleAxioms.add(new OWLSubPropertyChainAxiomImpl(Arrays.asList(((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(),((OWLTransitiveObjectPropertyAxiom)axiom).getProperty()),((OWLTransitiveObjectPropertyAxiom)axiom).getProperty(), Collections.emptyList()));
 		// role range
 		}else if (type.equals("ObjectPropertyRange")) {
 			ontologyComposition.replace("role range", ontologyComposition.get("role range") + 1);
