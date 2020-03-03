@@ -28,9 +28,12 @@ public class Main {
 		
 		for (File owlfile : owlfiles) {
 			
-			OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
-			
-			resultsList.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
+			try{
+				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
+				
+				resultsList.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
+				
+			}catch(Exception e) {System.out.println(e);}
 		}
 		
 		OWLAxEvaluation evaluation = new OWLAxEvaluation(resultsList);

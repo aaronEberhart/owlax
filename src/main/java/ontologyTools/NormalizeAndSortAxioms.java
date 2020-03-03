@@ -116,11 +116,13 @@ public class NormalizeAndSortAxioms  {
 		// Disjoint Roles
 		}else if (type.equals("DisjointObjectProperties")) {
 			ontologyComposition.replace("disjoint roles", ontologyComposition.get("disjoint roles") + 1);
-			throw new Exception("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+			roleAxioms.add((OWLDisjointObjectPropertiesAxiom)axiom);
+			System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 		// Disjoint Data
 		}else if(type.equals("DisjointDataProperties")) {
 			ontologyComposition.replace("disjoint data", ontologyComposition.get("disjoint data") + 1);
-			throw new Exception("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+			roleAxioms.add((OWLDisjointDataPropertiesAxiom)axiom);
+			System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 		// Sub Role chain
 		}else if (type.equals("SubPropertyChainOf")) {
 			ontologyComposition.replace("subrole chain", ontologyComposition.get("subrole chain") + 1);
@@ -137,7 +139,8 @@ public class NormalizeAndSortAxioms  {
 		// asymmetric role
 		}else if (type.equals("AsymmetricObjectProperty")) {
 			ontologyComposition.replace("asymmetric role", ontologyComposition.get("asymmetric role") + 1);
-			throw new Exception("Asymmetric Property Normalization Undefined For Axiom:\n\t"+axiom.toString());
+			roleAxioms.add((OWLAsymmetricObjectPropertyAxiom)axiom);
+			System.err.println("Asymmetric Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 		// functional role
 		}else if (type.equals("FunctionalObjectProperty")) {
 			ontologyComposition.replace("functional role", ontologyComposition.get("functional role") + 1);
@@ -175,7 +178,7 @@ public class NormalizeAndSortAxioms  {
 			parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(((OWLDataPropertyDomainAxiom)axiom).getProperty(), new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), ((OWLDataPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
 		// oops forgot one
 		}else {
-			throw new Exception("Axiom not handeled:\n\t"+axiom.toString());
+			throw new Exception("Axiom not handled:\n\t"+axiom.toString());
 		}
 	}
 	

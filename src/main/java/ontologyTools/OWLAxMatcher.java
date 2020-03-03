@@ -167,14 +167,13 @@ public class OWLAxMatcher {
 				result.replace("other", result.get("other") + 1);
 			}
 		}
-		System.out.println();
 	}
 	
 	/**
 	 * Tests to see whether a property is an inverse
 	 */
 	private boolean isInverse(OWLObjectPropertyExpression expression) {
-		return !expression.getNamedProperty().equals(expression.getSimplified());
+		return !expression.getNamedProperty().toString().equals(expression.getSimplified().toString());
 	}
 	
 	/**

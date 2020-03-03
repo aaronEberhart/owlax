@@ -10,6 +10,7 @@ public class OWLAxEvaluation {
 	private ArrayList<HashMap<String,Integer>> ontologyCompositions;
 	private HashMap<String,Double> averageResult;
 	private HashMap<String,Double> averageOntology;
+	double totalCoverage;
 	
 	public OWLAxEvaluation(ArrayList<ArrayList<HashMap<String,Integer>>> resultsList) {
 		
@@ -26,6 +27,9 @@ public class OWLAxEvaluation {
 		averageOntology = (HashMap<String,Double>)ontologyCompositions.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingInt(Map.Entry::getValue)));
 		//removes the labels from the average ontology
 	    averageOntology.values().removeIf(a -> a < 0);
+	    
+	    // average coverage for average result
+	    totalCoverage = averageResult.values().stream().reduce(0.0,(a,b) -> a+b) / allResults.size();
 	}
 	
 	public ArrayList<HashMap<String,Integer>> getOWLAxResults(){
