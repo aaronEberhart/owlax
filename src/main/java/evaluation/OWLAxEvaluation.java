@@ -28,8 +28,8 @@ public class OWLAxEvaluation {
 		//removes the labels from the average ontology
 	    averageOntology.values().removeIf(a -> a < 0);
 	    
-	    // average coverage for average result
-	    totalCoverage = averageResult.values().stream().reduce(0.0,(a,b) -> a+b) / allResults.size();
+	    // average coverage for average result ignoring other
+	    totalCoverage = averageResult.values().stream().reduce(0.0,(a,b) -> (averageResult.get("other") == a || averageResult.get("other") == b) ? 0 : a+b) / allResults.size();
 	}
 	
 	public ArrayList<HashMap<String,Integer>> getOWLAxResults(){
