@@ -23,23 +23,39 @@ public class Main {
 		// https://bioportal.bioontology.org/ontologies - GO GFO
 		// https://docs.enslaved.org/ontology/
 		// wherever GMO and GBO are from
-		File[] owlfiles = new File("OWL/ODP").listFiles(a -> a.isFile());
-		ArrayList<ArrayList<HashMap<String,Integer>>> resultsList = new ArrayList<ArrayList<HashMap<String,Integer>>>();
+		// ODP - I fogret the website cogan knows 
 		
-		for (File owlfile : owlfiles) {
+		OWLAxEvaluation miscEvaluation = runEvalOnDir(new File("OWL/"));
+		
+		System.out.println(miscEvaluation);
+		
+		OWLAxEvaluation odpEvaluation = runEvalOnDir(new File("OWL/ODP"));
+		
+		System.out.println(odpEvaluation);
+	}	
+	
+	/**
+	 * run Evaluation once on all files in a directory
+	 * 
+	 * @param dir File
+	 * @return OWLAxEvaluation
+	 * @throws Exception
+	 */
+	public static OWLAxEvaluation runEvalOnDir(File dir) throws Exception {
+		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
+		ArrayList<ArrayList<HashMap<String,Integer>>> results = new ArrayList<ArrayList<HashMap<String,Integer>>>();
+		
+		for (File owlfile : files) {
 
 			try{
 				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
 				
-				resultsList.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
+				results.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
 				
-			}catch(Exception e) {System.err.println(String.format("File: %s\n,Error:\n%s",owlfile,e.toString()));}
+			}catch(UnloadableImportException e) {System.err.println(String.format("Import Error for File: %s",owlfile));}
 		}
 		
-		OWLAxEvaluation evaluation = new OWLAxEvaluation(resultsList);
-		
-		System.out.println("\nAverage evaluation\n"+evaluation.getAverageOWLAxResult());
-		System.out.println("\nAverage ontology composition\n"+evaluation.getAverageOntology());
-	}	
+		return new OWLAxEvaluation(results);
+	}
 	
 }
