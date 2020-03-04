@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY void "http://vocab.deri.ie/void#" >
+    <!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.oclc.org/NET/lldr/ns#"
+     xml:base="http://purl.oclc.org/NET/lldr/ns"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:void="http://vocab.deri.ie/void#"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://purl.oclc.org/NET/lldr/ns#">
+        <rdfs:label xml:lang="en">License Linked Data Resources</rdfs:label>
+        <owl:versionInfo xml:lang="en">1.0 - 2013.07.18</owl:versionInfo>
+        <cpannotationschema:hasConsequences xml:lang="en">A more precise attribution of rights expression to Linked Data</cpannotationschema:hasConsequences>
+        <cpannotationschema:coversRequirements xml:lang="en">Adhere to the underlying structure present in other Rights Expression Languages</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Being able to represent existing known licenses (i.e. Creative Commons licenses etc.)</cpannotationschema:coversRequirements>
+        <cpannotationschema:scenarios xml:lang="en">Declaring rights on both Linked Open Data and Linked Closed Data</cpannotationschema:scenarios>
+        <dc:title xml:lang="en">License Linked Data Resources</dc:title>
+        <dc:creator>Ontology Engineering Group - Universidad Politecnica de Madrid</dc:creator>
+        <cpannotationschema:coversRequirements xml:lang="en">Support database rights: extraction and re-utilization</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Support privacy law (personal data handling) and the right to access</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Support the intellectual property law rights: reproduction, distribution, transformation</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Support these right declarations:
+- Unconditionally waiving rights
+- Restating that some rights are reserved
+- Licensing rights subject to conditions</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Supporting existing licensing practices for RDF resources</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements xml:lang="en">Supporting these business models:
+- Open data business models
+- Non open data business models</cpannotationschema:coversRequirements>
+        <rdfs:comment xml:lang="en">This ontology supports the research paper presented in the Ontology Design Pattern Workshop in the ISWC2013</rdfs:comment>
+        <cpannotationschema:hasIntent xml:lang="en">To provide a pattern for expressing rights on Linked Data Resources, understood as RDF triples, datasets or mappings.
+These rights include intellectual property rights, database rights and the right of access, which can be limited by personal data protection laws and others.
+Rights expressions may assert, waive and license the rights, either conditionally or inconditionally, either to the public or to agents in particular.
+</cpannotationschema:hasIntent>
+        <cpannotationschema:extractedFrom xml:lang="en">http://creativecommons.org/schema.rdf</cpannotationschema:extractedFrom>
+        <cpannotationschema:extractedFrom xml:lang="en">http://purl.org/dc/elements/1.1/</cpannotationschema:extractedFrom>
+        <cpannotationschema:extractedFrom xml:lang="en">http://purl.org/dc/terms/</cpannotationschema:extractedFrom>
+        <cpannotationschema:extractedFrom xml:lang="en">http://vocab.deri.ie/void.rdf</cpannotationschema:extractedFrom>
+        <cpannotationschema:hasComponent xml:lang="en">http://www.w3.org/TR/swbp-n-aryRelations/</cpannotationschema:hasComponent>
+        <cpannotationschema:extractedFrom xml:lang="en">http://xmlns.com/foaf/0.1/</cpannotationschema:extractedFrom>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#hasObject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/lldr#hasObject">
+        <rdfs:range rdf:resource="http://purl.oclc.org/LinkedDataResource"/>
+        <rdfs:domain rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/lldr#hasPart"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#hasRight -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/lldr#hasRight">
+        <rdfs:range rdf:resource="http://purl.oclc.org/NET/lldr#LinkedDataRight"/>
+        <rdfs:domain rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#hasSubject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.oclc.org/NET/lldr#hasSubject">
+        <rdfs:domain rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/ns#DerivativeWorks -->
+
+    <owl:Class rdf:about="&cc;DerivativeWorks">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#LinkedDataRight"/>
+    </owl:Class>
+    
+
+
+    <!-- http://creativecommons.org/ns#Distribution -->
+
+    <owl:Class rdf:about="&cc;Distribution">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#LinkedDataRight"/>
+    </owl:Class>
+    
+
+
+    <!-- http://creativecommons.org/ns#License -->
+
+    <owl:Class rdf:about="&cc;License">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/SimpleLicense"/>
+        <rdfs:comment xml:lang="en">Set of rights expressions offered to the public in general
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://creativecommons.org/ns#Permission -->
+
+    <owl:Class rdf:about="&cc;Permission">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://creativecommons.org/ns#Prohibition -->
+
+    <owl:Class rdf:about="&cc;Prohibition">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://creativecommons.org/ns#Reproduction -->
+
+    <owl:Class rdf:about="&cc;Reproduction">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#LinkedDataRight"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/Authorisation -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/Authorisation">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/SimpleLicense"/>
+        <rdfs:comment xml:lang="en">Set of rights expressions where the authorisation is addressed to an specific agent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/Contract -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/Contract">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/SimpleLicense"/>
+        <rdfs:comment xml:lang="en">Set of rights expressions binding two agents
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/License -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/License">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/LinkedDataResource -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/LinkedDataResource">
+        <rdfs:comment xml:lang="en">A Linked Data resource</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/Proposition -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/Proposition">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/SimpleLicense -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/SimpleLicense"/>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#Extraction -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/lldr#Extraction">
+        <rdfs:subClassOf rdf:resource="&cc;Reproduction"/>
+        <rdfs:comment xml:lang="en">Right to permanent or temporary transfer of all or a substantial part of the contents of a database to another medium by any means or in any form</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#LinkedDataRight -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/lldr#LinkedDataRight">
+        <rdfs:comment xml:lang="en">Right on a Linked Data Resource
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#Obligation -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/lldr#Obligation">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#RightsExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#Reutilization -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/lldr#Reutilization">
+        <rdfs:subClassOf rdf:resource="&cc;Distribution"/>
+        <rdfs:comment xml:lang="en">Right to make available to the public all or a substantial part of the contents of a database by the distribution of copies, by renting, by on-line or other forms of transmission</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.oclc.org/NET/lldr#RightsExpression -->
+
+    <owl:Class rdf:about="http://purl.oclc.org/NET/lldr#RightsExpression">
+        <rdfs:comment xml:lang="en">Deontic expression declaring what is permitted, prohibited or obligated to act
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.deri.ie/void#Dataset -->
+
+    <owl:Class rdf:about="&void;Dataset">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/LinkedDataResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.deri.ie/void#Linkset -->
+
+    <owl:Class rdf:about="&void;Linkset">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/LinkedDataResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement -->
+
+    <owl:Class rdf:about="&rdf;Statement">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/LinkedDataResource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/auth/acl#Access -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/auth/acl#Access">
+        <rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/lldr#LinkedDataRight"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/access -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/access">
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Access"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.oclc.org/derivativeWorks -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/derivativeWorks">
+        <rdf:type rdf:resource="&cc;DerivativeWorks"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.oclc.org/distribution -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/distribution">
+        <rdf:type rdf:resource="&cc;Distribution"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.oclc.org/extraction -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/extraction">
+        <rdf:type rdf:resource="http://purl.oclc.org/NET/lldr#Extraction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.oclc.org/reproduction -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/reproduction">
+        <rdf:type rdf:resource="&cc;Reproduction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.oclc.org/reutilization -->
+
+    <owl:NamedIndividual rdf:about="http://purl.oclc.org/reutilization">
+        <rdf:type rdf:resource="http://purl.oclc.org/NET/lldr#Reutilization"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

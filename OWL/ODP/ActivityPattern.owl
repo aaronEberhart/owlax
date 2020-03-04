@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY act "http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#" >
+    <!ENTITY cpa "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#"
+     xml:base="http://descartes-core.org/ontologies/activities/1.0/ActivityPattern"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:cpa="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:act="http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#">
+    <owl:Ontology rdf:about="http://descartes-core.org/ontologies/activities/1.0/ActivityPattern">
+        <rdfs:label>Activity Pattern</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string">1.0</owl:versionInfo>
+        <cpa:scenarios rdf:datatype="&xsd;string">Activity or task planning. Help find out which activities should be completed before other activities.
+Activity decomposition. Find out what are the sub-activities that constitute the super activity.
+Spatiotemporal queries. Find out the activities that happen at particular locations and time.</cpa:scenarios>
+        <cpa:hasConsequences rdf:datatype="&xsd;string">Only two perspectives for activities are included in this pattern. While these two perspectives are commonly observed in existing work, other views toward activities may also need to be supported in future work.</cpa:hasConsequences>
+        <cpa:relatedCPs rdf:datatype="&xsd;string">This pattern can be linked to point of interest (POI) pattern to add geospatial information to activities. It can also be chained with the FOAF ontology to describe the agents in the activities.</cpa:relatedCPs>
+        <cpa:hasIntent rdf:datatype="&xsd;string">To incorporate the general two perspectives of activities: a workflow perspective, which are often observed in planning-related applications, and a spatiotemporal perspective, which are often found in geographic activity analysis.</cpa:hasIntent>
+        <cpa:coversRequirements rdf:datatype="&xsd;string">What are the requirements to complete an activity?
+Which places are involved in the activity?
+Can other planned activities/tasks be combined with this activity?
+Which chained activities are necessary to achieve this activity?
+Which activities are afforded by specific places?
+Where and when to acquire an activity-relevant object?</cpa:coversRequirements>
+        <rdfs:comment rdf:datatype="&xsd;string">While this pattern so far focuses on human activities, the agents that are involved in this pattern may also be other autonomous agents, such as animals.</rdfs:comment>
+        <owl:versionInfo>Contributions are also provided by David Carral, Naicong Li, Krzysztof Janowicz</owl:versionInfo>
+        <owl:versionInfo>Created by Yingjie Hu and Amin Abdalla</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="&xsd;duration"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasDependent -->
+
+    <owl:ObjectProperty rdf:about="&act;hasDependent">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="&act;isDependentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasOutcome -->
+
+    <owl:ObjectProperty rdf:about="&act;hasOutcome"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasPart -->
+
+    <owl:ObjectProperty rdf:about="&act;hasPart">
+        <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&act;Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="&act;hasParticipant">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasRequirement -->
+
+    <owl:ObjectProperty rdf:about="&act;hasRequirement">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&act;Requirement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#isDependentOf -->
+
+    <owl:ObjectProperty rdf:about="&act;isDependentOf"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&act;isPartOf">
+        <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&act;Activity"/>
+        <owl:inverseOf rdf:resource="&act;hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#isPrecededBy -->
+
+    <owl:ObjectProperty rdf:about="&act;isPrecededBy">
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&act;hasDependent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#isRequirementOf -->
+
+    <owl:ObjectProperty rdf:about="&act;isRequirementOf">
+        <owl:inverseOf rdf:resource="&act;hasRequirement"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&act;produces"/>
+            <rdf:Description rdf:about="&act;isRequirementOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#precedes -->
+
+    <owl:ObjectProperty rdf:about="&act;precedes">
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&act;isDependentOf"/>
+        <owl:inverseOf rdf:resource="&act;isPrecededBy"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&act;hasOutcome"/>
+            <rdf:Description rdf:about="&act;isRequirementOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#produces -->
+
+    <owl:ObjectProperty rdf:about="&act;produces">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&act;Outcome"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#supports -->
+
+    <owl:ObjectProperty rdf:about="&act;supports">
+        <rdfs:range rdf:resource="&act;Activity"/>
+        <rdfs:domain rdf:resource="&act;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#takesPlaceAt -->
+
+    <owl:ObjectProperty rdf:about="&act;takesPlaceAt">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&act;Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasDuration -->
+
+    <owl:DatatypeProperty rdf:about="&act;hasDuration">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasEnd -->
+
+    <owl:DatatypeProperty rdf:about="&act;hasEnd">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#hasStart -->
+
+    <owl:DatatypeProperty rdf:about="&act;hasStart">
+        <rdfs:domain rdf:resource="&act;Activity"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#Activity -->
+
+    <owl:Class rdf:about="&act;Activity">
+        <owl:disjointWith rdf:resource="&act;Outcome"/>
+        <owl:disjointWith rdf:resource="&act;Place"/>
+        <owl:disjointWith rdf:resource="&act;Requirement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#FixedActivity -->
+
+    <owl:Class rdf:about="&act;FixedActivity">
+        <rdfs:subClassOf rdf:resource="&act;Activity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasDuration"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;duration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasEnd"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasEnd"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasStart"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasDuration"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;duration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasStart"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#FlexibleActivity -->
+
+    <owl:Class rdf:about="&act;FlexibleActivity">
+        <rdfs:subClassOf rdf:resource="&act;Activity"/>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasDuration"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;duration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasStart"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasEnd"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasStart"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasDuration"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;duration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&act;hasEnd"/>
+                        <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#Outcome -->
+
+    <owl:Class rdf:about="&act;Outcome"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#Place -->
+
+    <owl:Class rdf:about="&act;Place">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/activities/1.0/ActivityPattern#Requirement -->
+
+    <owl:Class rdf:about="&act;Requirement"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#"
+     xml:base="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent -->
+
+    <rdf:Description rdf:about="&cpannotationschema;hasIntent">
+        <cpannotationschema:hasIntent>To model hazardous situations and their associated hazardous events with events&apos; participating objects and the hazards the objects are exposed to with the exposure value.</cpannotationschema:hasIntent>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
+    <rdf:Description rdf:about="&owl;versionInfo">
+        <owl:versionInfo>v0.1</owl:versionInfo>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#causallyFollows -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#causallyFollows"/>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#employsMitigation -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#employsMitigation">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#exceeds -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#exceeds">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#exposedTo -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#exposedTo">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasAmount -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasAmount">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasDuration -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasDuration"/>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasParticipant">
+        <owl:inverseOf rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#participantIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasSusceptibility -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasSusceptibility">
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#involves -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#involves"/>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatedBy">
+        <owl:inverseOf rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesFrom">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesTo -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesTo">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#EffectiveExposure"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#participantIn -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#participantIn">
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#toExposure -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#toExposure">
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#toHazard -->
+
+    <owl:ObjectProperty rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#toHazard">
+        <rdfs:domain rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+        <rdfs:range rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatedBy"/>
+            <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#mitigatesFrom"/>
+            <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#toHazard"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount">
+        <rdfs:label>Amount</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>The amount of a hazard to which an object is exposed. This is deliberately vague and will vary based on the type of hazard involved. For example, an amount of radiation might be 100 rem, while an amount of nightmares might be terrifying.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause">
+        <rdfs:label>Cause</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence">
+        <rdfs:label>Consequence</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#causallyFollows"/>
+                <owl:someValuesFrom rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#EffectiveExposure -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#EffectiveExposure">
+        <rdfs:label>EffectiveExposure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+        <rdfs:comment>The level of exposure to a hazard taking into account any mitigations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event">
+        <rdfs:label>Event</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasDuration"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure">
+        <rdfs:label>Exposure</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>The subjection of an object to a particular amount of a hazard.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard">
+        <rdfs:label>Hazard</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>Any entity capable of producing a (negative) consequence. This does not have to be material, or even physical. Examples include earthquake, fire, or nightmares.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent">
+        <rdfs:label>HazardousEvent</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#hasParticipant"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#exposedTo"/>
+                                <owl:someValuesFrom rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#causallyFollows"/>
+                <owl:someValuesFrom rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation">
+        <rdfs:label>HazardousSituation</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#participantIn"/>
+                <owl:someValuesFrom rdf:resource="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation">
+        <rdfs:label>Mitigation</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>Anything that changes either an object&apos;s amount of exposure to a hazard or the exposure amount of an object&apos;s susceptibility to that hazard. Examples include wearing a mask while around sick people (to reduce the number of germs you are exposed to) or getting a vaccination (to increase the number of germs you can be exposed to without becoming ill).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object">
+        <rdfs:label>Object</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>Any physical entity. The object can be modeled at whatever level of granularity is necessary, e.g constituent parts of an overall object can be represented individual.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility -->
+
+    <owl:Class rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Susceptibility">
+        <rdfs:label>Susceptibility</rdfs:label>
+        <owl:disjointWith>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Amount"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Cause"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Consequence"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Event"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Exposure"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Hazard"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#HazardousSituation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Mitigation"/>
+                    <rdf:Description rdf:about="http://daselab.cs.wright.edu/ontologies/ModifiedHazardousSituation#Object"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:disjointWith>
+        <rdfs:comment>The level of exposure to a hazard at which an object may experience a consequence of the hazard.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

@@ -23,30 +23,21 @@ public class Main {
 		// https://bioportal.bioontology.org/ontologies - GO GFO
 		// https://docs.enslaved.org/ontology/
 		// wherever GMO and GBO are from
-		File[] owlfiles = new File("OWL/").listFiles();
+		File[] owlfiles = new File("OWL/ODP").listFiles(a -> a.isFile());
 		ArrayList<ArrayList<HashMap<String,Integer>>> resultsList = new ArrayList<ArrayList<HashMap<String,Integer>>>();
 		
 		for (File owlfile : owlfiles) {
-			
+
 			try{
 				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(owlfile);
 				
 				resultsList.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
 				
-			}catch(Exception e) {System.out.println(e);}
+			}catch(Exception e) {System.err.println(String.format("File: %s\n,Error:\n%s",owlfile,e.toString()));}
 		}
 		
 		OWLAxEvaluation evaluation = new OWLAxEvaluation(resultsList);
 		
-		System.out.println("OWLAx Results");
-		for (HashMap<String,Integer> result : evaluation.getOWLAxResults()) {
-			System.out.println(result);
-		}
-		System.out.println("\nOntology Compositions");
-		for (HashMap<String,Integer> result : evaluation.getOntologyCompositions()) {
-			System.out.println(result);
-		}
-
 		System.out.println("\nAverage evaluation\n"+evaluation.getAverageOWLAxResult());
 		System.out.println("\nAverage ontology composition\n"+evaluation.getAverageOntology());
 	}	

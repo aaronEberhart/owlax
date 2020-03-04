@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+
+ 
+
+ 
+
+<!DOCTYPE Ontology [
+
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+
+]>
+
+ 
+
+ 
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+
+     xml:base="http://www.semanticweb.org/malzyoud/ontologies/2014/11/untitled-ontology-6"
+
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+
+     ontologyIRI="http://www.semanticweb.org/malzyoud/ontologies/2014/11/untitled-ontology-6">
+
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+
+    <Declaration>
+
+        <Class IRI="#Course"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Grad-Course"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Grad-Student"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Instructor"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Person"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Student"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Under-Grad-Course"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <Class IRI="#Under-Grad-Student"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <ObjectProperty IRI="#hasCourseLevel"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <ObjectProperty IRI="#hasLevelStudent"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <ObjectProperty IRI="#takenBY"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <ObjectProperty IRI="#taughtBy"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <ObjectProperty IRI="#teaches"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <DataProperty IRI="#hasBirthOfDate"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <NamedIndividual IRI="#AdvAlgo"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <NamedIndividual IRI="#Aron"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <NamedIndividual IRI="#Cs-1"/>
+
+    </Declaration>
+
+    <Declaration>
+
+        <NamedIndividual IRI="#Cs-2"/>
+
+    </Declaration>
+
+    <SubClassOf>
+
+        <Class IRI="#Grad-Course"/>
+
+        <Class IRI="#Course"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class IRI="#Grad-Student"/>
+
+        <Class IRI="#Student"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class IRI="#Instructor"/>
+
+        <Class IRI="#Person"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class IRI="#Student"/>
+
+        <Class IRI="#Person"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class IRI="#Under-Grad-Course"/>
+
+        <Class IRI="#Course"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class IRI="#Under-Grad-Student"/>
+
+        <Class IRI="#Student"/>
+
+    </SubClassOf>
+
+    <SubClassOf>
+
+        <Class abbreviatedIRI="owl:Thing"/>
+
+        <ObjectUnionOf>
+
+            <Class IRI="#Course"/>
+
+            <Class IRI="#Person"/>
+
+        </ObjectUnionOf>
+
+    </SubClassOf>
+
+    <DisjointClasses>
+
+        <Class IRI="#Grad-Course"/>
+
+        <Class IRI="#Under-Grad-Course"/>
+
+    </DisjointClasses>
+
+    <DisjointClasses>
+
+        <Class IRI="#Grad-Student"/>
+
+        <Class IRI="#Under-Grad-Student"/>
+
+    </DisjointClasses>
+
+    <ClassAssertion>
+
+        <Class IRI="#Course"/>
+
+        <NamedIndividual IRI="#AdvAlgo"/>
+
+    </ClassAssertion>
+
+    <ClassAssertion>
+
+        <Class IRI="#Student"/>
+
+        <NamedIndividual IRI="#Aron"/>
+
+    </ClassAssertion>
+
+    <ClassAssertion>
+
+        <Class IRI="#Course"/>
+
+        <NamedIndividual IRI="#Cs-1"/>
+
+    </ClassAssertion>
+
+    <ClassAssertion>
+
+        <Class IRI="#Course"/>
+
+        <NamedIndividual IRI="#Cs-2"/>
+
+    </ClassAssertion>
+
+    <InverseObjectProperties>
+
+        <ObjectProperty IRI="#teaches"/>
+
+        <ObjectProperty IRI="#taughtBy"/>
+
+    </InverseObjectProperties>
+
+    <FunctionalObjectProperty>
+
+        <ObjectProperty IRI="#hasCourseLevel"/>
+
+    </FunctionalObjectProperty>
+
+    <ObjectPropertyDomain>
+
+        <ObjectProperty IRI="#hasCourseLevel"/>
+
+        <Class IRI="#Course"/>
+
+    </ObjectPropertyDomain>
+
+    <ObjectPropertyDomain>
+
+        <ObjectProperty IRI="#hasLevelStudent"/>
+
+        <Class IRI="#Student"/>
+
+    </ObjectPropertyDomain>
+
+    <ObjectPropertyDomain>
+
+        <ObjectProperty IRI="#taughtBy"/>
+
+        <Class IRI="#Course"/>
+
+    </ObjectPropertyDomain>
+
+    <ObjectPropertyDomain>
+
+        <ObjectProperty IRI="#teaches"/>
+
+        <Class IRI="#Instructor"/>
+
+    </ObjectPropertyDomain>
+
+    <ObjectPropertyRange>
+
+        <ObjectProperty IRI="#hasCourseLevel"/>
+
+        <Class IRI="#Grad-Course"/>
+
+    </ObjectPropertyRange>
+
+    <ObjectPropertyRange>
+
+        <ObjectProperty IRI="#hasCourseLevel"/>
+
+        <Class IRI="#Under-Grad-Course"/>
+
+    </ObjectPropertyRange>
+
+    <ObjectPropertyRange>
+
+        <ObjectProperty IRI="#hasLevelStudent"/>
+
+        <Class IRI="#Student"/>
+
+    </ObjectPropertyRange>
+
+    <ObjectPropertyRange>
+
+        <ObjectProperty IRI="#taughtBy"/>
+
+        <Class IRI="#Instructor"/>
+
+    </ObjectPropertyRange>
+
+    <ObjectPropertyRange>
+
+        <ObjectProperty IRI="#teaches"/>
+
+        <Class IRI="#Course"/>
+
+    </ObjectPropertyRange>
+
+    <DataPropertyDomain>
+
+        <DataProperty IRI="#hasBirthOfDate"/>
+
+        <Class IRI="#Person"/>
+
+    </DataPropertyDomain>
+
+    <DataPropertyRange>
+
+        <DataProperty IRI="#hasBirthOfDate"/>
+
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+
+    </DataPropertyRange>
+
+</Ontology>
+
+ 
+
+ 
+
+ 
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
+ 

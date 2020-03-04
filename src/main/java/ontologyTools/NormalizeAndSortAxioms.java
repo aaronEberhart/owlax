@@ -19,7 +19,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class NormalizeAndSortAxioms  {
 	
 	private static int ontologyIndex = -1;
-	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","symmetric role","asymmetric role","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
+	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","reflexive role","irreflexive role","symmetric role","asymmetric role","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLPropertyAxiom> roleAxioms;
@@ -67,7 +67,7 @@ public class NormalizeAndSortAxioms  {
 	 * False if the type string of an axiom is Annotation, class assertion, Different individuals, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
+		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
 	}
 	
 	/**
@@ -130,6 +130,14 @@ public class NormalizeAndSortAxioms  {
 			ontologyComposition.replace("inverse role", ontologyComposition.get("inverse role") + 1);
 			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty(),Collections.emptyList()));
 			roleAxioms.add(new OWLSubObjectPropertyOfAxiomImpl(((OWLInverseObjectPropertiesAxiom)axiom).getSecondProperty().getInverseProperty(),((OWLInverseObjectPropertiesAxiom)axiom).getFirstProperty(),Collections.emptyList()));
+		// reflexive role
+		}else if (type.equals("ReflexiveObjectProperty")) {	
+			ontologyComposition.replace("reflexive role", ontologyComposition.get("reflexive role") + 1);
+			classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create(OWL.THING.toString())), new OWLObjectHasSelfImpl(((OWLReflexiveObjectPropertyAxiom)axiom).getProperty()), Collections.emptyList()));
+		// irreflexive role
+		}else if (type.equals("IrrefexiveObjectProperty")) {	
+			ontologyComposition.replace("irreflexive role", ontologyComposition.get("irreflexive role") + 1);
+			classAxioms.add(new OWLSubClassOfAxiomImpl(new OWLObjectHasSelfImpl(((OWLIrreflexiveObjectPropertyAxiom)axiom).getProperty()),new OWLClassImpl(IRI.create(OWL.NOTHING.toString())), Collections.emptyList()));
 		// symmetric role
 		}else if (type.equals("SymmetricObjectProperty")) {	
 			ontologyComposition.replace("symmetric role", ontologyComposition.get("symmetric role") + 1);
@@ -201,11 +209,14 @@ public class NormalizeAndSortAxioms  {
 			
 			//is it an object exact cardinality?
 			if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {				
-				parseObjectExactCardinality(inAxiom,subClass,superClass);		
-				
+				parseObjectExactCardinality(inAxiom,subClass,(OWLObjectExactCardinality)superClass);		
+			}else if (subClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
+				parseObjectExactCardinality(inAxiom,(OWLObjectExactCardinality)subClass,superClass);
 			//is it a data exact cardinality?
 			}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
-				parseDataExactCardinality(inAxiom,subClass,superClass);
+				parseDataExactCardinality(inAxiom,subClass,(OWLDataExactCardinality)superClass);
+			}else if (subClass.getClassExpressionType().getName().equals("DataExactCardinality")) {
+				parseDataExactCardinality(inAxiom,(OWLDataExactCardinality)subClass,superClass);
 			//uh oh
 			}else{				
 				throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
@@ -222,10 +233,61 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 */
-	private void parseObjectExactCardinality(OWLSubClassOfAxiom axiom,OWLClassExpression subClass,OWLClassExpression superClass) throws Exception {
+	private void parseObjectExactCardinality(OWLSubClassOfAxiom axiom,OWLObjectExactCardinality subClass,OWLClassExpression superClass) throws Exception {
 		
-		//get stuff from old axiom
-		superClass = ((OWLObjectExactCardinalityImpl)superClass);		
+		//get stuff from old axiom		
+		List<OWLObjectProperty> properties = subClass.objectPropertiesInSignature().collect(Collectors.toList());
+		List<OWLClass> classes = subClass.classesInSignature().collect(Collectors.toList());
+		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
+		
+		//check if axiom is the right size
+		if(properties.size() > 1) {
+			throw new Exception("Too many properties in consequent of \n"+axiom.toString());
+		}else if(classes.size() > 1) {
+			throw new Exception("Too many classes in consequent of \n"+axiom.toString());
+		}
+		
+		//split into new axioms
+		axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(properties.get(0), 1, classes.get(0)),superClass,annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(properties.get(0), classes.get(0)),superClass,annotations);
+		
+		//add to tbox
+		classAxioms.add(axiom);
+		classAxioms.add(axiom2);		
+	}
+	
+	/**
+	 * Splits an exact cardinality axiom into two axioms that are equivalent
+	 */
+	private void parseDataExactCardinality(OWLSubClassOfAxiom axiom,OWLDataExactCardinality subClass,OWLClassExpression superClass) throws Exception {
+		
+		//get stuff from old axiom	
+		List<OWLDataProperty> properties = subClass.dataPropertiesInSignature().collect(Collectors.toList());
+		List<OWLDatatype> datatypes = subClass.datatypesInSignature().collect(Collectors.toList());
+		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
+		
+		//check if axiom is the right size
+		if(properties.size() > 1) {
+			throw new Exception("Too many properties in consequent of \n"+axiom.toString());
+		}else if(datatypes.size() > 1) {
+			throw new Exception("Too many datatypes in consequent of \n"+axiom.toString());
+		}
+		
+		//split into new axioms
+		axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(properties.get(0), 1, datatypes.get(0)),superClass,annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(properties.get(0), datatypes.get(0)),superClass, annotations);
+		
+		//add to tbox
+		classAxioms.add(axiom);
+		classAxioms.add(axiom2);		
+	}
+	
+	/**
+	 * Splits an exact cardinality axiom into two axioms that are equivalent
+	 */
+	private void parseObjectExactCardinality(OWLSubClassOfAxiom axiom,OWLClassExpression subClass,OWLObjectExactCardinality superClass) throws Exception {
+		
+		//get stuff from old axiom		
 		List<OWLObjectProperty> properties = superClass.objectPropertiesInSignature().collect(Collectors.toList());
 		List<OWLClass> classes = superClass.classesInSignature().collect(Collectors.toList());
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
@@ -249,10 +311,9 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Splits an exact cardinality axiom into two axioms that are equivalent
 	 */
-	private void parseDataExactCardinality(OWLSubClassOfAxiom axiom,OWLClassExpression subClass,OWLClassExpression superClass) throws Exception {
+	private void parseDataExactCardinality(OWLSubClassOfAxiom axiom,OWLClassExpression subClass,OWLDataExactCardinality superClass) throws Exception {
 		
-		//get stuff from old axiom
-		superClass = ((OWLDataExactCardinalityImpl)superClass);		
+		//get stuff from old axiom	
 		List<OWLDataProperty> properties = superClass.dataPropertiesInSignature().collect(Collectors.toList());
 		List<OWLDatatype> datatypes = superClass.datatypesInSignature().collect(Collectors.toList());
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
@@ -298,8 +359,11 @@ public class NormalizeAndSortAxioms  {
 		String type = expression.getClassExpressionType().getName();
 		
 		// class = 1 && nominal = 1
-		if (type.equals("Class") || type.equals("ObjectOneOf")) {
+		if (type.equals("Class")) {
 			return 1;
+		// nominal
+		} else if (type.equals("ObjectOneOf")) {
+			return (int)((OWLObjectOneOf)expression).individuals().count();
 		// negation = 0
 		} else if (type.equals("ObjectComplementOf")) {
 			return getClassExpressionSize(expression.getComplementNNF());

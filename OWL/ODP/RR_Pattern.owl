@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/rr/RelativeRelationshipPattern#"
+     xml:base="http://purl.org/net/rr/RelativeRelationshipPattern"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#determinedBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#determinedBy">
+        <rdfs:label>determinedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasAttribute -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasAttribute">
+        <rdfs:label>hasAttribute</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasBound -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasBound">
+        <rdfs:label>hasLabel</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasDomain -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasDomain">
+        <rdfs:label>hasDomain</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin">
+        <rdfs:label>hasOrigin</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#involves"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasProperty">
+        <rdfs:label>hasProperty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasScope -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasScope">
+        <rdfs:label>hasScope</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget">
+        <rdfs:label>hasTarget</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#involves"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#hasUsage -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasUsage">
+        <rdfs:label>hasUsage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#involves -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#involves">
+        <rdfs:label>involves</rdfs:label>
+        <rdfs:comment>RelationshipDescription involves (&gt;= 2) RelativeExistence</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#propOriginTarget -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#propOriginTarget">
+        <rdfs:comment>This property is introduced solely to simulate origin-target pair,hence SHOULD NOT be populated directly. That is, x is connected to y via this property if for some z, z is a RelationshipDescription, z hasOrigin x, and z hasTarget y.</rdfs:comment>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#propRelationshipDescription"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#propRelationshipDescription -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#propRelationshipDescription">
+        <rdfs:comment>This is a property introduced solely to simulate RelationshipDescription class as a property, hence SHOULD NOT be populated directly. That is, x is a RelationshipDescription if and only if (x,x) are related via propRelationshipDescription. See the Self restriction defined for RelationshipDescription</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#relativeExistenceOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#relativeExistenceOf">
+        <rdfs:label>relativeExistenceOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Attribute -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Attribute">
+        <rdfs:label>Attribute</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+        <rdfs:comment>Attribute (includes representation states, dependency states, translation types, judgement/preference base information, etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Domain -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Domain">
+        <rdfs:label>Domain</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Entity -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Entity">
+        <rdfs:label>Entity</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasProperty"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail">
+        <rdfs:label>LevelOfDetail</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Property -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Property">
+        <rdfs:label>Property</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription">
+        <rdfs:label>RelationshipDescription</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#propRelationshipDescription"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasAttribute"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Attribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasScope"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasScope"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#involves"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#involves"/>
+                <owl:onClass rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence">
+        <rdfs:label>RelativeExistence</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#relativeExistenceOf"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#determinedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasDomain"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Domain"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasUsage"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasDomain"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Domain"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#determinedBy"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasUsage"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#relativeExistenceOf"/>
+                <owl:onClass rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Entity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Scope -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Scope">
+        <rdfs:label>Scope</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasBound"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasBound"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/rr/RelativeRelationshipPattern#Usage -->
+
+    <owl:Class rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Usage">
+        <rdfs:label>Usage</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasProperty"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="&owl;Thing">
+        <owl:disjointWith>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#propOriginTarget"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:disjointWith>
+    </rdf:Description>
+    <owl:Axiom>
+        <rdfs:comment>This axiom implies that propOriginTarget is not reflexive</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&owl;Thing"/>
+        <owl:annotatedProperty rdf:resource="&owl;disjointWith"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#propOriginTarget"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+    </owl:Axiom>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasAttribute"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Attribute"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#involves"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#determinedBy"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasUsage"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+    </owl:Restriction>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Attribute"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Domain"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Entity"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+            <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+        </owl:members>
+    </rdf:Description>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Entity"/>
+                    <rdf:Description rdf:about="http://purl.org/net/rr/RelativeRelationshipPattern#Usage"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasProperty"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Property"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasTarget"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasDomain"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Domain"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasOrigin"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasBound"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#LevelOfDetail"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelationshipDescription"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#hasScope"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Scope"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#RelativeExistence"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#relativeExistenceOf"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/rr/RelativeRelationshipPattern#Entity"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

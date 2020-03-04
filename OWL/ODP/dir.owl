@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/food/ontology/dir/"
+     xml:base="https://w3id.org/food/ontology/dir/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:description="http://www.ontologydesignpatterns.org/cp/owl/description.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dir="https://w3id.org/food/ontology/dir/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owlapi="http://www.semanticweb.org/owlapi#">
+    <owl:Ontology rdf:about="https://w3id.org/food/ontology/dir">
+        <owl:versionIRI rdf:resource="https://w3id.org/food/ontology/dir/1.0.0"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/description.owl"/>
+        <cpannotationschema:scenarios rdf:datatype="http://www.w3.org/2001/XMLSchema#string"># Scenario 1
+In order to obtain the registered quality scheme PDO, the wine &quot;Amarone della Valpolicella&quot; has to comply with a set of rules including grape composition rules. In particular, it has to be made with a specific ampelographic composition that indicates the different types of grapes that contribute to form the wine, together with their percentage ranges. In this case, the &quot;Amarone della Valpolicella&quot; must be composed (among the others) by Corvina and Corvinone grapes from 45% to 95%.
+
+# Scenario 2
+The policy document of &quot;Parmigiano Reggiano&quot; indicates that, for consumers, it presents a set of characteristics among which the &quot;diameter of the plain faces&quot;, which must be within the range &quot;35-45 cm&quot;, and the &quot;external aspect&quot; that should be &quot;natural straw-coloured rind&quot;.</cpannotationschema:scenarios>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silvio Peroni</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giorgia Lodi</dc:creator>
+        <dc:date>2016-07-08</dc:date>
+        <cpannotationschema:hasComponent rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ontologydesignpatterns.org/cp/owl/description.owl</cpannotationschema:hasComponent>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aldo Gangemi</dc:creator>
+        <cpannotationschema:isSpecializationOf rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ontologydesignpatterns.org/cp/owl/description.owl</cpannotationschema:isSpecializationOf>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Description In Range (DIR) ontology design patterns is a specialization of the Description ODP, that allows one to range the conceptualization of a descriptive context within specific borders defined by means of literal values. 
+
+The specialization emerged within an e-government Linked Open Data (LOD) project named FOOD (http://w3id.org/food), where it was required to model in OWL descriptions of raw material and physical, chemical, organoleptic characteristics of European Union (EU) quality schemes for agricultural and food products – i.e., PDO (Protected Designation of Origin), PGI (Protected Geographical Indication) and TSG (Traditional Speciality Guaranteed).</dc:description>
+        <cpannotationschema:hasUnitTest rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SPARQL Query as unit test (returns the errors if any)</cpannotationschema:hasUnitTest>
+        <cpannotationschema:relatedCPs rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ontologydesignpatterns.org/cp/owl/description.owl</cpannotationschema:relatedCPs>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description In Range</dc:title>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Description In Range (DIR) ontology design patterns is a specialization of the Description ODP, that allows one to range the conceptualization of a descriptive context within specific borders defined by means of literal values.</rdfs:comment>
+        <cpannotationschema:coversRequirements rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1. What are the descriptions related to a particular entity?
+
+2. What entities are described in terms of a particular concept?
+
+3. How the concepts involved in the description of a certain entity have been restricted within particular bounds?</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasIntent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This pattern allows one to range the conceptualization of a descriptive context within specific borders defined by means of literal values.</cpannotationschema:hasIntent>
+        <dc:description rdf:resource="https://w3id.org/food/img/dir.png"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasUnitTest -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasUnitTest"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#isSpecializationOf"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#relatedCPs"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios"/>
+    
+
+
+    <!-- http://www.semanticweb.org/owlapi#nodeID -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/owlapi#nodeID"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/inclusive_upper_bound_value -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/food/ontology/dir/inclusive_upper_bound_value">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/description.owl#usesConcept -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/cp/owl/description.owl#usesConcept"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#describes">
+        <owl:equivalentProperty rdf:resource="https://w3id.org/food/ontology/dir/describes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isDescribedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isDescribedBy">
+        <owl:equivalentProperty rdf:resource="https://w3id.org/food/ontology/dir/isDescribedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/describes -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/food/ontology/dir/describes">
+        <owl:inverseOf rdf:resource="https://w3id.org/food/ontology/dir/isDescribedBy"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">The link between a description and the entity that is described.</rdfs:label>
+        <rdfs:label xml:lang="en">describes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/isDescribedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/food/ontology/dir/isDescribedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/food/ontology/dir/Entity"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">The link between an entity and a (partial or full) description of it.</rdfs:label>
+        <rdfs:label xml:lang="en">is described by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/hasInclusiveLowerBoundValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/food/ontology/dir/hasInclusiveLowerBoundValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/food/ontology/dir/isRangedByValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/food/ontology/dir/hasNonInclusiveLowerBoundValue"/>
+        <rdfs:comment xml:lang="en">Any value that specifies an inclusive lower bound for a certain amount of a concept as conceived in a particular description (e.g. &quot;at least 25cm&quot;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">has inclusive lower bound value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/hasInclusiveUpperBoundValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/food/ontology/dir/hasInclusiveUpperBoundValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/food/ontology/dir/isRangedByValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/food/ontology/dir/hasNonInclusiveUpperBoundValue"/>
+        <rdfs:comment xml:lang="en">Any value that specifies an inclusive upper bound for a certain amount of a concept as conceived in a particular description (e.g. &quot;at most 25cm&quot;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">has inclusive upper bound value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/hasNonInclusiveLowerBoundValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/food/ontology/dir/hasNonInclusiveLowerBoundValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/food/ontology/dir/isRangedByValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Any value that specifies a non-inclusive lower bound for a certain amount of a concept as conceived in a particular description (e.g. &quot;greater than 25cm&quot;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">has non-inclusive lower bound value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/hasNonInclusiveUpperBoundValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/food/ontology/dir/hasNonInclusiveUpperBoundValue">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/food/ontology/dir/isRangedByValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Any value that specifies a non-inclusive upper bound for a certain amount of a concept as conceived in a particular description (e.g. &quot;less than 25cm&quot;).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">has non-inclusive upper bound value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/isRangedByValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/food/ontology/dir/isRangedByValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+        <rdfs:domain rdf:resource="https://w3id.org/food/ontology/dir/DescriptionInRange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">Any value that specifies a certain amount of a concept as conceived in a particular description (e.g. &quot;100%&quot; and &quot;25cm&quot;). 
+
+The value is defined as a free-text literal, instead of specifying more complex structure, so as to be easily populated with data of different natures, such as those coming from heterogeneous (and even multilingual) documents.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">is ranged by value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/description.owl#Concept -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/description.owl#Concept"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">
+        <owl:equivalentClass rdf:resource="https://w3id.org/food/ontology/dir/Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/DescriptionInRange -->
+
+    <owl:Class rdf:about="https://w3id.org/food/ontology/dir/DescriptionInRange">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/description.owl#usesConcept"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/description.owl#Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/food/ontology/dir/isRangedByValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/food/ontology/dir/hasInclusiveLowerBoundValue"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/food/ontology/dir/hasInclusiveUpperBoundValue"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/food/ontology/dir/hasNonInclusiveLowerBoundValue"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/food/ontology/dir/hasNonInclusiveUpperBoundValue"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This class allows one to identify descriptions involving a specific concept (i.e. description:usesConcept) relating to a literal value that can be defined within a particular a range. For instance:
+
+* 100% of sheep milk;
+* at least 25cm of diameter (circular shape).
+
+Individuals of this class cannot exist without the entity they (partially or fully) describe - see the class [Entity](#https://w3id.org/food/ontology/dir/Entity).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">description in range</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/food/ontology/dir/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/food/ontology/dir/Entity">
+        <rdfs:comment xml:lang="en">This class allows the specification of entities that that are (partially or fully) described by means of descriptions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/food/ontology/dir"/>
+        <rdfs:label xml:lang="en">entity</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi -->
+
+

@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl/"
+     xml:base="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl/"
+     xmlns:aff="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl"/>
+        <cpannotationschema:coversRequirements xml:lang="en">Which is the strength of an Affordance?</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasIntent xml:lang="en">To represent the model for supporting the action selection mechanism.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements xml:lang="en">Which tasks are afforded in a certain situation?</cpannotationschema:coversRequirements>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#BehaviorParameter"/>
+        <rdfs:comment xml:lang="en">It associates the Task with its parameters.</rdfs:comment>
+        <rdfs:label xml:lang="en">has parameter</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasTask">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+        <rdfs:comment xml:lang="en">It associates an Affordance to the Task it refers to.</rdfs:comment>
+        <rdfs:label xml:lang="en">has task</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#holds -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#holds">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#isHeldBy"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame"/>
+        <rdfs:comment xml:lang="en">It associates an Affordance with the Frame in which it holds.</rdfs:comment>
+        <rdfs:label xml:lang="en">holds</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#isHeldBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#isHeldBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance"/>
+        <rdfs:comment xml:lang="en">It associates a Frame with the Affordance it enables.</rdfs:comment>
+        <rdfs:label xml:lang="en">is held by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#affordanceStrength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#affordanceStrength">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:comment xml:lang="en">It encodes the strength of the Affordance.</rdfs:comment>
+        <rdfs:label xml:lang="en">affordance strength</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/framester/framester.owl#Frame -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/framester/framester.owl#Frame"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task -->
+
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#BehaviorParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#hasTask"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/action.owl#Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#holds"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#affordanceStrength"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An affordance is modelled in DnS fashion and is an n-ary that relates state of the world (i.e., situations) to tasks according to specific weights or affordance strengths.</rdfs:comment>
+        <rdfs:label xml:lang="en">Affordance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#BehaviorParameter -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#BehaviorParameter">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/generic.owl#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A parameter of a behavior.</rdfs:comment>
+        <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/framester/framester.owl#Frame"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#isHeldBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Affordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Situation -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Situation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/affordance.owl#Frame"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#atTime"/>
+                <owl:allValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/mario/time.owl#TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A state of the world.</rdfs:comment>
+        <rdfs:label xml:lang="en">Situation</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

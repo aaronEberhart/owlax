@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#"
+     xml:base="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">Contributions are from Krzysztof Janowicz, Adila A. Krisnadhi, Sangwon Suh, Bo Pedersen, Weidema, Beatriz Rivela, Johan Tivander, David E. Meyer, Gary Berg-Cross, Pascal Hitzler, Yingjie Hu, Wesley Ingwersen, Brandon
+Kuczenski, Charles Vardeman, and Yiting Yu</owl:versionInfo>
+        <cpannotationschema:hasIntent rdf:datatype="&xsd;string">Life Cycle Assessment (LCA) studies the environmental impact of products taking into account their entire life-span and production chain. This ontology design pattern specifies key aspects of LCA/LCI data models, namely the notions of flows, activities, agents, and products, as well as their properties.</cpannotationschema:hasIntent>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasCompartment -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasCompartment"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasLocation"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasProperty"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasTemporalExtent -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#hasTemporalExtent"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#isInputOf -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#isInputOf">
+        <rdfs:range rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Activity"/>
+        <rdfs:domain rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Flow"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#isOutputOf -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#isOutputOf">
+        <rdfs:range rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Activity"/>
+        <rdfs:domain rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Flow"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#performs -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#performs">
+        <rdfs:range rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Activity"/>
+        <rdfs:domain rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#playsRoleOf -->
+
+    <owl:ObjectProperty rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#playsRoleOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Activity -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Activity">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Flow"/>
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property"/>
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Agent -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Agent">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Compartment -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Compartment"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#ElementaryFlow -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#ElementaryFlow">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#IntermediateFlow"/>
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#ReferencedProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Flow -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Flow">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#IntermediateFlow -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#IntermediateFlow"/>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Location -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Location">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property"/>
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Product -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Product">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Property">
+        <owl:disjointWith rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#ReferencedProduct -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#ReferencedProduct">
+        <rdfs:subClassOf rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Time -->
+
+    <owl:Class rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#air -->
+
+    <owl:NamedIndividual rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#air">
+        <rdf:type rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Compartment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#soil -->
+
+    <owl:NamedIndividual rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#soil">
+        <rdf:type rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Compartment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#water -->
+
+    <owl:NamedIndividual rdf:about="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#water">
+        <rdf:type rdf:resource="http://descartes-core.org/ontologies/lca/1.0/LCAPattern.owl#Compartment"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

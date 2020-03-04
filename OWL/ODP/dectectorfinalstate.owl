@@ -1,0 +1,546 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/detectorfinalstate/"
+     xml:base="http://purl.org/net/detectorfinalstate/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://purl.org/net/detectorfinalstate/">
+        <cpannotationschema:coversRequirements>Retrieve all analyses that veto extra leptons.</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements>Retrieve all analyses that used jets in the final state.</cpannotationschema:coversRequirements>
+        <cpannotationschema:scenarios>Representing detection of final state of a high-energy physics experiment.</cpannotationschema:scenarios>
+        <cpannotationschema:coversRequirements>Retrieve all analyses requiring large missing energy.</cpannotationschema:coversRequirements>
+        <cpannotationschema:coversRequirements>Retrieve all analyses requireing particles to have an invariant mass near the Z pole.</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasIntent>This pattern represent schematic model for data obtained from results of high-energy physics experiments, such as ones ran in the CERN&apos;s Large Hadron Collider. Specifically, this pattern models the notion of Detector Final State, a composition obatined by a selection of some target characteristics concerning physics measurements and parameters of experiments.</cpannotationschema:hasIntent>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasBaseDefinition -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasBaseDefinition">
+        <rdfs:label>hasBaseDefinition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasFirstArgument -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasFirstArgument">
+        <rdfs:label>hasFirstArgument</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasNumber -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasNumber">
+        <rdfs:label>hasNumber</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasNumericalValue -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasNumericalValue">
+        <rdfs:label>hasNumericalValue</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasOperand -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasOperand">
+        <rdfs:label>hasOperand</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasSecondArgument -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasSecondArgument">
+        <rdfs:label>hasSecondArgument</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasSelectionCriteria -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasSelectionCriteria">
+        <rdfs:label>hasSelectionCriteria</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/hasUnit">
+        <rdfs:label>hasUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/refersToObject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/refersToObject">
+        <rdfs:label>refersToObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/usesBinaryRelation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/usesBinaryRelation">
+        <rdfs:label>usesBinaryRelation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/vetoesSelectionCriteria -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/detectorfinalstate/vetoesSelectionCriteria">
+        <rdfs:label>vetoesSelectionCriteria</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/And -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/And">
+        <rdfs:label>And</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasOperand"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasOperand"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/BaseDefinition -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/BaseDefinition">
+        <rdfs:label>BaseDefinition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/BinaryRelation -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/BinaryRelation">
+        <rdfs:label>BaseRelation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/DetectorFinalState -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/DetectorFinalState">
+        <rdfs:label>DetectorFinalState</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasSelectionCriteria"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/refersToObject"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/refersToObject"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/vetoesSelectionCriteria"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasSelectionCriteria"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/EventLevelQuantity -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/EventLevelQuantity">
+        <rdfs:label>EventLevelQuantity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/detectorfinalstate/PhysicsObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/FinalStateObject -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/FinalStateObject">
+        <rdfs:label>FinalStateObject</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasBaseDefinition"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/BaseDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/EventLevelQuantity"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/PhysicsObject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/Number -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/Number">
+        <rdfs:label>Number</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/NumericalValue -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/NumericalValue">
+        <rdfs:label>NumericalValue</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasNumber"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/Number"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasUnit"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/Or -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/Or">
+        <rdfs:label>Or</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasOperand"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasOperand"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/PhysicalQuantity -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/PhysicalQuantity">
+        <rdfs:label>PhysicalQuantity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/PhysicalValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/refersToObject"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/PhysicalValue -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/PhysicalValue">
+        <rdfs:label>PhysicalValue</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasNumericalValue"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/NumericalValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/PhysicsObject -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/PhysicsObject">
+        <rdfs:label>PhysicsObject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/SelectionCriteria -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria">
+        <rdfs:label>SelectionCriteria</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasSecondArgument"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/PhysicalQuantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/usesBinaryRelation"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/BinaryRelation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasFirstArgument"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/detectorfinalstate/Unit -->
+
+    <owl:Class rdf:about="http://purl.org/net/detectorfinalstate/Unit">
+        <rdfs:label>Unit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/DetectorFinalState"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/vetoesSelectionCriteria"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/NumericalValue"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasUnit"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/Unit"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasOperand"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/DetectorFinalState"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasSelectionCriteria"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/PhysicalValue"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasNumericalValue"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/NumericalValue"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasSecondArgument"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/PhysicalQuantity"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasFirstArgument"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/PhysicalValue"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/usesBinaryRelation"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/BinaryRelation"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/NumericalValue"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasNumber"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/Number"/>
+    </owl:Restriction>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/And"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/BaseDefinition"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/BinaryRelation"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/DetectorFinalState"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Number"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/NumericalValue"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Or"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/PhysicalValue"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/SelectionCriteria"/>
+            <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/Unit"/>
+        </owl:members>
+    </rdf:Description>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/hasBaseDefinition"/>
+        <owl:allValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/BaseDefinition"/>
+    </owl:Restriction>
+    <owl:Restriction>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/DetectorFinalState"/>
+                    <rdf:Description rdf:about="http://purl.org/net/detectorfinalstate/PhysicalQuantity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:onProperty rdf:resource="http://purl.org/net/detectorfinalstate/refersToObject"/>
+        <owl:someValuesFrom rdf:resource="http://purl.org/net/detectorfinalstate/FinalStateObject"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

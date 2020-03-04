@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owlapi "http://www.semanticweb.org/owlapi#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY litre "http://www.essepuntato.it/2010/06/literalreification/" >
+    <!ENTITY region "http://www.ontologydesignpatterns.org/cp/owl/region.owl#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.essepuntato.it/2010/06/literalreification#"
+     xml:base="http://www.essepuntato.it/2010/06/literalreification"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:region="http://www.ontologydesignpatterns.org/cp/owl/region.owl#"
+     xmlns:litre="http://www.essepuntato.it/2010/06/literalreification/"
+     xmlns:owlapi="http://www.semanticweb.org/owlapi#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.essepuntato.it/2010/06/literalreification">
+        <dc:creator rdf:datatype="&xsd;string">Aldo Gangemi</dc:creator>
+        <dc:creator rdf:datatype="&xsd;string">Fabio Vitali</dc:creator>
+        <dc:creator rdf:datatype="&xsd;string">Silvio Peroni</dc:creator>
+        <cpannotationschema:hasComponent rdf:datatype="&xsd;anyURI">http://www.ontologydesignpatterns.org/cp/owl/region.owl</cpannotationschema:hasComponent>
+        <cpannotationschema:isSpecializationOf rdf:datatype="&xsd;anyURI">http://www.ontologydesignpatterns.org/cp/owl/region.owl</cpannotationschema:isSpecializationOf>
+        <cpannotationschema:relatedCPs rdf:datatype="&xsd;anyURI">http://www.ontologydesignpatterns.org/cp/owl/region.owl</cpannotationschema:relatedCPs>
+        <dc:date>2011-03-23</dc:date>
+        <cpannotationschema:scenarios xml:lang="en">Modelling domains concerning descriptive tags, in which each tag may have more than one meaning depending on the context in which it is used.
+Extending quickly the capabilities of a model by adding the possibility to make assertions on values, previously referred through data properties, without modifying it.</cpannotationschema:scenarios>
+        <dc:description xml:lang="en">Recently within the Semantic Web community a new topic has been actively discussed: whether and how to allow literals to be subjects of RDF statements (http://www.w3.org/2001/sw/wiki/Literals as Subjects). This discussions failed to provide a unique and clear indication of how to proceed in that regard.
+
+Although one of the suggestions coming out of the discussion was to explicitly include the proposal in a (future) specification of RDF, this topic is not actually new, particularly in ontology modelling. The needs to describe “typical” literals (specially strings) as individuals of a particular class has been addressed by a lot of models in past, such as Common Tag (through the class Tag), SIOC (through the classes Category and Tag), SKOS-XL (through the class Label), and LMM (through the class Expression). 
+
+After considering the above-mentioned models and other related and inspiring ones, we have developed a pattern called literal reification to address this issue. It allows to express literal values as proper ontological individuals so as to use them as subject/object of any assertion within OWL models.</dc:description>
+        <cpannotationschema:hasUnitTest xml:lang="en">SELECT DISTINCT ?entity ?property
+WHERE {
+	?literal a litre:Literal .
+	{ ?literal ?property ?entity } UNION { ?entity ?property ?literal }
+}</cpannotationschema:hasUnitTest>
+        <rdfs:comment xml:lang="en">The pattern literal reification is a modelling technique to address scenarios in which we need to bless particular literals, usually when applying data properties, in order to use them as subjects and/or full-fledged objects of semantic assertions.</rdfs:comment>
+        <cpannotationschema:hasIntent xml:lang="en">This pattern promotes any literal as “first class object” in OWL by reifying it as a proper individual of the class litre:Literal.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements xml:lang="en">What is the context in which entities refer to a particular literal value?
+What is the meaning of a particular value considering the context in which it is used?</cpannotationschema:coversRequirements>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/region.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <dc:description rdf:resource="http://dwellonit.svn.sourceforge.net/svnroot/dwellonit/LiteralReification/literalreification_new.png" />
+        <dc:title>Literal Reification pattern</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;scenarios"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasUnitTest"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasComponent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;coversRequirements"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasIntent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;isSpecializationOf"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;relatedCPs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.essepuntato.it/2010/06/literalreification/hasLiteral -->
+
+    <owl:ObjectProperty rdf:about="&litre;hasLiteral">
+        <rdfs:label xml:lang="en">has literal</rdfs:label>
+        <rdfs:comment xml:lang="en">It connects individuals of any class to a reified literal.</rdfs:comment>
+        <rdfs:range rdf:resource="&litre;Literal"/>
+        <owl:inverseOf rdf:resource="&litre;isLiteralOf"/>
+        <rdfs:subPropertyOf rdf:resource="&region;hasRegion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.essepuntato.it/2010/06/literalreification/hasSameLiteralValueAs -->
+
+    <owl:ObjectProperty rdf:about="&litre;hasSameLiteralValueAs">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">has same literal value as</rdfs:label>
+        <rdfs:comment xml:lang="en">It relates the reified literal to another one that has the same literal value.</rdfs:comment>
+        <rdfs:range rdf:resource="&litre;Literal"/>
+        <rdfs:domain rdf:resource="&litre;Literal"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.essepuntato.it/2010/06/literalreification/isLiteralOf -->
+
+    <owl:ObjectProperty rdf:about="&litre;isLiteralOf">
+        <rdfs:label xml:lang="en">is literal of</rdfs:label>
+        <rdfs:comment xml:lang="en">It connects the reified literal to the individuals that are using it.</rdfs:comment>
+        <rdfs:domain rdf:resource="&litre;Literal"/>
+        <rdfs:subPropertyOf rdf:resource="&region;isRegionFor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/region.owl#hasRegion -->
+
+    <owl:ObjectProperty rdf:about="&region;hasRegion"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/region.owl#isRegionFor -->
+
+    <owl:ObjectProperty rdf:about="&region;isRegionFor"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue -->
+
+    <owl:DatatypeProperty rdf:about="&litre;hasLiteralValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">has literal value</rdfs:label>
+        <rdfs:comment xml:lang="en">It is used to specify the literal value that an individual of litre:Literal represents.</rdfs:comment>
+        <rdfs:domain rdf:resource="&litre;Literal"/>
+        <rdfs:subPropertyOf rdf:resource="&region;hasRegionDataValue"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/region.owl#hasRegionDataValue -->
+
+    <owl:DatatypeProperty rdf:about="&region;hasRegionDataValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.essepuntato.it/2010/06/literalreification/Literal -->
+
+    <owl:Class rdf:about="&litre;Literal">
+        <rdfs:label xml:lang="en">literal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&litre;hasLiteralValue"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&region;Region"/>
+        <rdfs:comment xml:lang="en">It describes reified literals, where the literal value they represent is speficied through the property litre:hasLiteralValue. Each individual of this class must always have a specified value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/region.owl#Region -->
+
+    <owl:Class rdf:about="&region;Region"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <swrl:Variable rdf:about="urn:swrl#x"/>
+    <swrl:Variable rdf:about="urn:swrl#y"/>
+    <swrl:Variable rdf:about="urn:swrl#v"/>
+    <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:DatavaluedPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="&litre;hasLiteralValue"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#v"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                    </swrl:DatavaluedPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="&litre;hasSameLiteralValueAs"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                    </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                        <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="&litre;hasLiteralValue"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#v"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                            </swrl:DatavaluedPropertyAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+            </swrl:AtomList>
+        </swrl:body>
+    </swrl:Imp>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1782) http://owlapi.sourceforge.net -->
+
+
