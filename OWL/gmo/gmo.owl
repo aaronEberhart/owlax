@@ -1,0 +1,2923 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://gmo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://gmo">
+    <Prefix name="" IRI="http://gmo"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="glpv" IRI="http://gmo#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
+    <Prefix name="terms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="agentrole" IRI="http://gmo#"/>
+    <Prefix name="geosparql" IRI="http://www.opengis.net/ont/geosparql#"/>
+    <Import>http://www.opengis.net/ont/geosparql</Import>
+    <Import>http://www.w3.org/2006/time</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeoLink Modular Ontology</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:realizedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:atTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:performsAgentRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:atPort"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:StartingFix"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSite"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasCurrencyCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasCanonicalName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:realizationAbout"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasInputFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:RegistrantRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasTemporalExtent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:RightsHolderRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Source"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPrimaryIdentifier"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Person"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:PrincipalInvestigatorRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:PropertyUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPosition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:ProgramManagerRole"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasDescription"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:traveledBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasName"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:familyOrSurname"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:fullName"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:InformationRealization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:DataManagerRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:SponsorRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:EndingFix"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:VesselDraft"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasAlternativeIdentifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasDataSource"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:ContributorRole"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasCurrencyValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasAgentRoleType"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="agentrole:AffiliationRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasWebpage"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:firstOrGivenName"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasTrajectory"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasRelatedCruise"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasIdentifierValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Place"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:fundedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:alsoKnownAs"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:MovingObject"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasLiteralValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:CollectorRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="agentrole:DASE_RULE"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasAttribute"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:AgencyProgramManagerRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPersonName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="agentrole:hasIdentifierScheme"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Attribute"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Agent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:CoPrincipalInvestigatorRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:ContactRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:performedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:VesselLength"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Geometry"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:CurrencyCode"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:AgentRoleType"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:EditorRole"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:VesselOwnerRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:associatedWithProgram"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPersonalInfoItem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Platform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:undertakenBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:endsAtFix"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Port"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Position"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:CuratorRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:r_Port"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:AffiliationRole"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:occursAtPlace"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSubOrganization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSpatialFootprint"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:VesselBeam"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="agentrole:VesselDisplacement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="agentrole:hasAwardAmount"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="agentrole:EndingFix"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+                    <Class abbreviatedIRI="agentrole:Fix"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="agentrole:Geometry"/>
+        <Class abbreviatedIRI="geosparql:Geometry"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="agentrole:StartingFix"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectInverseOf>
+                        <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+                    </ObjectInverseOf>
+                    <Class abbreviatedIRI="agentrole:Fix"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AffiliationRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AffiliationRole"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+            <Class abbreviatedIRI="agentrole:Organization"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgencyProgramManagerRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAgentRoleType"/>
+            <Class abbreviatedIRI="agentrole:AgentRoleType"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasTemporalExtent"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Guarded range for performedBy (range: Agent, guard: AgentRole)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:performedBy"/>
+            <Class abbreviatedIRI="agentrole:Agent"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:hasTemporalExtent"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:performedBy"/>
+            <Class abbreviatedIRI="agentrole:Agent"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasCurrencyCode"/>
+            <Class abbreviatedIRI="agentrole:CurrencyCode"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:hasCurrencyCode"/>
+            <Class abbreviatedIRI="agentrole:CurrencyCode"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasCurrencyValue"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:hasCurrencyValue"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CoPrincipalInvestigatorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CollectorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:ContactRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:ContributorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:associatedWithProgram"/>
+            <Class abbreviatedIRI="agentrole:Program"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:fundedBy"/>
+            <Class abbreviatedIRI="agentrole:FundingAward"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasRelatedCruise"/>
+            <Class abbreviatedIRI="agentrole:Cruise"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasTrajectory"/>
+            <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:undertakenBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:hasTrajectory"/>
+            <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:undertakenBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <ObjectIntersectionOf>
+                <Class abbreviatedIRI="agentrole:StartingFix"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+                    <Class abbreviatedIRI="agentrole:Fix"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:traveledBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:CuratorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:DataManagerRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:EditorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtPlace"/>
+            <Class abbreviatedIRI="agentrole:Place"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtPlace"/>
+            <Class abbreviatedIRI="agentrole:Place"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Event"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:atTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPosition"/>
+            <Class abbreviatedIRI="agentrole:Position"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectSomeValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:Trajectory"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:atTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAttribute"/>
+            <Class abbreviatedIRI="agentrole:Attribute"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasDataSource"/>
+            <Class abbreviatedIRI="agentrole:Source"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPosition"/>
+            <Class abbreviatedIRI="agentrole:Position"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:PrincipalInvestigatorRole"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:SponsorRole"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAwardAmount"/>
+            <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:hasAwardAmount"/>
+            <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+        <ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+                <Class abbreviatedIRI="agentrole:InformationObject"/>
+            </ObjectSomeValuesFrom>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasIdentifierScheme"/>
+            <DataUnionOf>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataUnionOf>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasIdentifierValue"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:hasIdentifierValue"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:hasIdentifierScheme"/>
+            <DataUnionOf>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataUnionOf>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+                <Class abbreviatedIRI="agentrole:InformationObject"/>
+            </ObjectSomeValuesFrom>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAlternativeIdentifier"/>
+            <Class abbreviatedIRI="agentrole:Identifier"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPrimaryIdentifier"/>
+            <Class abbreviatedIRI="agentrole:Identifier"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range of realizedBy is InformationRealization  (guard: InformationObject)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:realizedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationRealization"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            </ObjectInverseOf>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range of alsoKnownAs is xsd:string  (guard: InformationObject)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:alsoKnownAs"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range of hasCanonicalName is xsd:string  (guard: InformationObject)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasCanonicalName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range of hasDescription is xsd:string  (guard: InformationObject)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range of hasWebpage is xsd:anyURI  (guard: InformationObject)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasWebpage"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:InformationRealization"/>
+        <ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+                <Class abbreviatedIRI="agentrole:InformationObject"/>
+            </ObjectSomeValuesFrom>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <Class abbreviatedIRI="agentrole:Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSite"/>
+            <Class abbreviatedIRI="agentrole:Place"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSubOrganization"/>
+            <Class abbreviatedIRI="agentrole:Organization"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Person"/>
+        <Class abbreviatedIRI="agentrole:Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Person"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPersonName"/>
+            <Class abbreviatedIRI="agentrole:PersonName"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Person"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPersonName"/>
+            <Class abbreviatedIRI="agentrole:PersonName"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Person"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPersonalInfoItem"/>
+            <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:familyOrSurname"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:firstOrGivenName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:fullName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:fullName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:familyOrSurname"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="agentrole:firstOrGivenName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasPersonalInfoItem"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:Person"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+        <Class abbreviatedIRI="agentrole:Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+            <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:Property"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+            <Class abbreviatedIRI="agentrole:Feature"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Place"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Place"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSpatialFootprint"/>
+            <Class abbreviatedIRI="agentrole:Geometry"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Place"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Platform"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Platform"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Port"/>
+        <Class abbreviatedIRI="agentrole:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Port"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSpatialFootprint"/>
+            <Class abbreviatedIRI="agentrole:Position"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="agentrole:DASE_RULE"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">R2___trajectory:hasPosition(?x,?y) ^ place:hasSpatialFootprint(?z,?y) ^ :Port(?z) -&gt; :atPort(?x,?z)___If position of a fix corresponds to a (spatial footprint of a) port, then that fix is at that port.___http://gmo#freshObjectProperty1</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="agentrole:Port"/>
+        <ObjectHasSelf>
+            <ObjectProperty abbreviatedIRI="agentrole:r_Port"/>
+        </ObjectHasSelf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Position"/>
+        <Class IRI="http://www.opengis.net/ont/gml#Point"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:PrincipalInvestigatorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Program"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:ProgramManagerRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Property"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasUnit"/>
+            <Class abbreviatedIRI="agentrole:PropertyUnit"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:RegistrantRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:RightsHolderRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasInputFeature"/>
+            <Class abbreviatedIRI="agentrole:Feature"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:hasInputFeature"/>
+            <Class abbreviatedIRI="agentrole:Feature"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectSomeValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:Trajectory"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAttribute"/>
+            <Class abbreviatedIRI="agentrole:Attribute"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+            <Class abbreviatedIRI="agentrole:MovingObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:SponsorRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <Class abbreviatedIRI="agentrole:StartingFix"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <Class abbreviatedIRI="agentrole:MovingObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <Class abbreviatedIRI="agentrole:Platform"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselBeam"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselDisplacement"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselDraft"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselLength"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:Property"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AgentRole"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:VesselBeam"/>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:VesselDisplacement"/>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:VesselDraft"/>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:VesselLength"/>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="agentrole:VesselOwnerRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationObject"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="agentrole:atPort"/>
+                <Class abbreviatedIRI="agentrole:Port"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <ObjectAllValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Scoped range of atPort is Port where the scope is (inverse hasFix some CruiseTrajectory)</Literal>
+        </Annotation>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+            <ObjectSomeValuesFrom>
+                <ObjectInverseOf>
+                    <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+                </ObjectInverseOf>
+                <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:atPort"/>
+            <Class abbreviatedIRI="agentrole:Port"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+                <Class abbreviatedIRI="agentrole:Vessel"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <ObjectAllValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Cruise trajectory&apos;s segments are traversed by a vessel</Literal>
+        </Annotation>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+            <ObjectSomeValuesFrom>
+                <ObjectInverseOf>
+                    <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+                </ObjectInverseOf>
+                <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+            <Class abbreviatedIRI="owl:Thing"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:atPort"/>
+            <Class abbreviatedIRI="agentrole:Port"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:atTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+            <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:endsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAgentRoleType"/>
+            <Class abbreviatedIRI="agentrole:AgentRoleType"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAgentRoleType"/>
+            <ObjectOneOf>
+                <NamedIndividual abbreviatedIRI="agentrole:AffiliationRole"/>
+            </ObjectOneOf>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AffiliationRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAlternativeIdentifier"/>
+            <Class abbreviatedIRI="agentrole:Identifier"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAttribute"/>
+            <Class abbreviatedIRI="agentrole:Attribute"/>
+        </ObjectSomeValuesFrom>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasAwardAmount"/>
+            <Class abbreviatedIRI="agentrole:AwardAmount"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasCurrencyCode"/>
+            <Class abbreviatedIRI="agentrole:CurrencyCode"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasDataSource"/>
+            <Class abbreviatedIRI="agentrole:Source"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasInputFeature"/>
+            <Class abbreviatedIRI="agentrole:Feature"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+        <ObjectSomeValuesFrom>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            </ObjectInverseOf>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPersonName"/>
+            <Class abbreviatedIRI="agentrole:PersonName"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPersonalInfoItem"/>
+            <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPosition"/>
+            <Class abbreviatedIRI="agentrole:Position"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Fix"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPrimaryIdentifier"/>
+            <Class abbreviatedIRI="agentrole:Identifier"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselBeam"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselDisplacement"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselDraft"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+            <Class abbreviatedIRI="agentrole:VesselLength"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasRelatedCruise"/>
+            <Class abbreviatedIRI="agentrole:Cruise"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+            <Class abbreviatedIRI="agentrole:Segment"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Trajectory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSite"/>
+            <Class abbreviatedIRI="agentrole:Place"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSpatialFootprint"/>
+            <Class abbreviatedIRI="agentrole:Geometry"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasSubOrganization"/>
+            <Class abbreviatedIRI="agentrole:Organization"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasTemporalExtent"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasTrajectory"/>
+            <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:hasUnit"/>
+            <Class abbreviatedIRI="agentrole:PropertyUnit"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtPlace"/>
+            <Class abbreviatedIRI="agentrole:Place"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+            <Class abbreviatedIRI="agentrole:Feature"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:performedBy"/>
+            <Class abbreviatedIRI="agentrole:Agent"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:AffiliationRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:CoPrincipalInvestigatorRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:CoPrincipalInvestigatorRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:DataManagerRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:PrincipalInvestigatorRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:PrincipalInvestigatorRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:ProgramManagerRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:SponsorRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+            <Class abbreviatedIRI="agentrole:VesselOwnerRole"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Vessel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:realizedBy"/>
+            <Class abbreviatedIRI="agentrole:InformationRealization"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            <Class abbreviatedIRI="agentrole:Fix"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:startsOnDate"/>
+            <Class IRI="http://www.w3.org/2006/time#Instant"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:traveledBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:CruiseTrajectory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+            <Class abbreviatedIRI="agentrole:MovingObject"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Segment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="agentrole:undertakenBy"/>
+            <Class abbreviatedIRI="agentrole:Vessel"/>
+        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Cruise"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:alsoKnownAs"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:familyOrSurname"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:firstOrGivenName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:fullName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasCanonicalName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasCurrencyValue"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:AwardAmount"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasDescription"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasIdentifierScheme"/>
+            <DataUnionOf>
+                <Datatype abbreviatedIRI="xsd:anyURI"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataUnionOf>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:Identifier"/>
+    </SubClassOf>
+    <SubClassOf>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="agentrole:hasWebpage"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI="agentrole:Person"/>
+        <Class abbreviatedIRI="agentrole:PersonName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Annotation>
+            <Annotation>
+                <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi on 1/5/18 10:54 PM</Literal>
+            </Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">DisjointClasses(&lt;http://www.w3.org/2006/time#TemporalEntity&gt;) replaced by DisjointClasses(&lt;http://www.w3.org/2006/time#TemporalEntity&gt; owl:Thing)</Literal>
+        </Annotation>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <Class IRI="http://www.w3.org/2006/time#TemporalEntity"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="agentrole:endsAtTime"/>
+        <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPersonName"/>
+        <ObjectProperty abbreviatedIRI="agentrole:hasPersonalInfoItem"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="agentrole:startsAtTime"/>
+        <ObjectProperty abbreviatedIRI="agentrole:occursAtTime"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+        <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="agentrole:performedBy"/>
+        <ObjectProperty abbreviatedIRI="agentrole:performsAgentRole"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+    </FunctionalObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSubOrganization"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="agentrole:agentRoleIn"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="agentrole:hasValue"/>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+        <Class abbreviatedIRI="agentrole:PhysicalSample"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="agentrole:realizationAbout"/>
+        <Class abbreviatedIRI="agentrole:InformationRealization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:associatedWithProgram"/>
+        <Class abbreviatedIRI="agentrole:Program"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+        <Class abbreviatedIRI="agentrole:SamplingProcess"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+        <Class abbreviatedIRI="agentrole:InformationObject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:fundedBy"/>
+        <Class abbreviatedIRI="agentrole:FundingAward"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:hasProperty"/>
+        <Class abbreviatedIRI="agentrole:Property"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+        <Class abbreviatedIRI="agentrole:Feature"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="agentrole:providesAgentRole"/>
+        <Class abbreviatedIRI="agentrole:AgentRole"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="agentrole:derivedUsing"/>
+            <ObjectProperty abbreviatedIRI="agentrole:hasInputFeature"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:originatesFrom"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="agentrole:hasFix"/>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            </ObjectInverseOf>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="agentrole:DASE_RULE"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">R2___trajectory:hasPosition(?x,?y) ^ place:hasSpatialFootprint(?z,?y) ^ :Port(?z) -&gt; :atPort(?x,?z)___If position of a fix corresponds to a (spatial footprint of a) port, then that fix is at that port.___http://gmo#freshObjectProperty1</Literal>
+        </Annotation>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="agentrole:hasPosition"/>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasSpatialFootprint"/>
+            </ObjectInverseOf>
+            <ObjectProperty abbreviatedIRI="agentrole:r_Port"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:atPort"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty abbreviatedIRI="agentrole:startsFromFix"/>
+            <ObjectProperty abbreviatedIRI="agentrole:hasNextFix"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:endsAtFix"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This axiom is equivalent to the rule: 
+:traveledBy(?x,?y) ^ trajectory:hasSegment(?x,?z) -&gt; trajectory:traversedBy(?z,?y)</Literal>
+        </Annotation>
+        <ObjectPropertyChain>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasSegment"/>
+            </ObjectInverseOf>
+            <ObjectProperty abbreviatedIRI="agentrole:traveledBy"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:traversedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:hasTrajectory"/>
+            </ObjectInverseOf>
+            <ObjectProperty abbreviatedIRI="agentrole:undertakenBy"/>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:traveledBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:realizedBy"/>
+            </ObjectInverseOf>
+            <ObjectInverseOf>
+                <ObjectProperty abbreviatedIRI="agentrole:describedBy"/>
+            </ObjectInverseOf>
+        </ObjectPropertyChain>
+        <ObjectProperty abbreviatedIRI="agentrole:realizationAbout"/>
+    </SubObjectPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="agentrole:fullName"/>
+        <DataProperty abbreviatedIRI="agentrole:hasLiteralValue"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="agentrole:hasLiteralValue"/>
+        <Class abbreviatedIRI="agentrole:PersonalInfoItem"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="agentrole:hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:AgencyProgramManagerRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">AgencyProgramManagerRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Agent</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents agents, e.g., persons, organizations, etc.
+Can be used as a hook of a more detailed model of agent.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Agent</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:AgentRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An instance of AgentRole represents a role performed by an agent, which is temporally restricted by a starting and ending time.  Every agent role is performed by exactly one agent. One can create a subclass of AgentRole to model a particular kind of roles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:AgentRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">AgentRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:AgentRoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Class that contains types of agent roles. Allows one to put types of agent roles (which can be seen as subclasses of AgentRole) as named individuals, and the axiomatization could infer anonymous subclasses of AgentRole from those individuals.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:AgentRoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">AgentRoleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Attribute</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents all kinds of attributes of a fix or a segment in a trajectory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Attribute</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Attribute</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:AwardAmount</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">AwardAmount</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:CoPrincipalInvestigatorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CoPrincipalInvestigatorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:CollectorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CollectorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:ContactRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ContactRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:ContributorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ContributorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Cruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A cruise is an event through the alignment with Event pattern. A cruise has exactly one trajectory, is undertaken by exactly one vessel, and is described by exactly one information object. Additionally, this information object describes exactly only the cruise. If a cruise is undertaken by a vessel, then the trajectory of the cruise has to be traveled by the vessel. Note that since isTraveledBy is implied by a property chain, OWL 2 specification forbids us to express a cardinality restriction using this peroperty. Consequently, we cannot axiomatize that the trajectory of a cruise can only be traveled by one vessel.
+
+Involvements of agents in a cruise is modeled via the AgentRole, which is aligned to the Agent Role pattern. A cruise may be funded by some funding award, associated with some program, and related to some other cruise. These information are attached to the information object associated with a cruise.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Cruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Cruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:CruiseTrajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A trajectory is given by a collection of fixes, representing time-stamped locations. Non-spatiotemporal information specific to a fix can be included by assigning it some attributes, for example, to indicate that the fix is the arrival to some port stop. The ordering of the fixes is based on their temporal information, although such an ordering is not axiomatized in this pattern. Between two consecutive fixes, we can define a segment, which is traversed by some moving object. There is no requirement forcing that all segments in the trajectory can only be traversed by the same moving object.
+
+In the context of GeoLink project, the data typically already contains ordering of fixes, i.e., the nextFix relation is explicit in the data, and thus, segments are auto-instantiated from it. This is motivated by real scenarios whereby indeed only properties of fixes will often be known, in particular their locations, and temporal extension, whether they are at ports, whether they are arrival or departure fixes from ports, and in which sequence the fixes occurred. The traversing vessel will usually also be known. However, trajectory segments to which the trajectory pattern attaches information about the vessel are usually not explicitly represented in the data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:CruiseTrajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Trajectory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:CuratorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CuratorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:CurrencyCode</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CurrencyCode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:DataManagerRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">DataManagerRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:EditorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">EditorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:EndingFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An instance of EndingFix represents the final fix in the specification of a trajectory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:EndingFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">EndingFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Event</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Fix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A fix represents a spatiotemporal point in the specification of a trajectory.  A fix has a location and a time stamp, and always belongs to one particular trajectory. Also, a fix cannot be followed by more than one other fix, and cannot follow itself. This gives a linear structure in the ordering of the fixes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Fix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Fix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:FundingAward</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">FundingAward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Geometry</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents geometry objects. Corresponds to GeoSPARQL&apos;s Geometry.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Geometry</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geometry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents identifiers, each has exactly one identifier value and may have an identifier scheme.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:InformationObject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An InformationObject describes informational aspect of the described object, which are not definitional in nature, e.g., alternative identifiers, webpages, textual description, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:InformationObject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">InformationObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:InformationRealization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Some InformationObjects may be realized in some concrete manifestation, e.g., different digital copies of a publication. InformationRealization captures such manifestations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:InformationRealization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">InformationRealization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:MovingObject</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">MovingObject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Organization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Person</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:PersonalInfoItem</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents a personal information item such as names, addresses, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:PersonalInfoItem</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PersonalInfoItem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Place</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents a generic place, e.g., a port, a city, etc. May have a geometry information.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Place</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Place</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Platform</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Port</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents ports that may be relevant for a cruise.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Port</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Port</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Position</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Represents a geospatial location associated with a fix in the trajectory of a cruise. A position is understood as a point in either 2D or 3D space.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Position</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Position</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:PrincipalInvestigatorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PrincipalInvestigatorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Program</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Program</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:ProgramManagerRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ProgramManagerRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Property</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:PropertyUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">PropertyUnit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:RegistrantRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RegistrantRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:RightsHolderRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RightsHolderRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Segment</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A segment starts from exactly one fix, and for every fix with a successor fix, there is a segment that starts from it. If a fix belongs to a trajectory and there is a segment that starts from this fix, then the segment belongs to the trajectory. Furthermore, if a segment starts from a fix, then it ends at the successor of the fix.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Segment</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Segment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Source</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:SponsorRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SponsorRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:StartingFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An instance of StartingFix represents the first fix in a specification of a trajectory.  A trajectory is linked to at least two consecutive fixes where the first fix is the starting fix.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:StartingFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">StartingFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:Trajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This class serves as the main access point of the pattern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Trajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Trajectory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:Vessel</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Vessel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:VesselBeam</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The beam of a vessel is the vessel&apos;s width at the widest point when measured at the vessel&apos;s nonimal waterline.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:VesselBeam</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">VesselBeam</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:VesselDisplacement</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Displacement is the term used to indicate the vessel&apos;s weight</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:VesselDisplacement</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">VesselDisplacement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:VesselDraft</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The draft of a vessel&apos;s hull is the vertical distance between the bottom of the hull and the waterline.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:VesselDraft</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">VesselDraft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:VesselLength</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The maximum length of the vessel&apos;s hull measured parallel to the waterline.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:VesselLength</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">VesselLength</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:VesselOwnerRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">VesselOwnerRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:agentRoleIn</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">agentRoleIn connects a role to the thing thing in which the role is performed by the agent.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:agentRoleIn</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">agentRoleIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:alsoKnownAs</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the name alias of the object/entity described by this information object.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:alsoKnownAs</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">alsoKnownAs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:associatedWithProgram</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">associatedWithProgram</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:atPort</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">atPort connects a fix to an instance of Port. It is used when the fix corresponds to a port stop in the beginning, middle, or end of a cruise.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:atPort</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">atPort</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:atTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides temporal information of a fix.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:atTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">atTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:describedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">describedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:endsAtFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the fix where the segment ends.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:endsAtFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">endsAtFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:endsAtTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">endsAtTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:endsOnDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">endsOnDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:familyOrSurname</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">familyOrSurname</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:firstOrGivenName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">firstOrGivenName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:fullName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">fullName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasAgentRoleType</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAgentRoleType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasAlternativeIdentifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAlternativeIdentifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasAttribute</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides an attribute of a fix or a segment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasAttribute</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasAttribute</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasCanonicalName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasCanonicalName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasDataSource</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the source (e.g., a sensor, a device, etc.) from which information about the fix was obtained.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasDataSource</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDataSource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasDescription</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasDescription</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides a fix for the trajectory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasIdentifierScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the scheme of the identifier (as a string or URI), e.g., doi, orcid, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasIdentifierScheme</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifierScheme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasIdentifierValue</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the value of the identifier (of type xsd:string or xsd:anyURI)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasIdentifierValue</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasIdentifierValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasNextFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the next fix after this fix in the sequence.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasNextFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasNextFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasPersonName</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPersonName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasPersonalInfoItem</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPersonalInfoItem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasPosition</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides a geographical location of a fix.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasPosition</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPosition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasPrimaryIdentifier</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasPrimaryIdentifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasProperty</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasProperty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasRelatedCruise</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasRelatedCruise</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasSegment</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides a segment of the trajectory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasSegment</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSegment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasSite</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasSpatialFootprint</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides to a spatial footprint of the place, which is specified as a geometry.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasSpatialFootprint</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSpatialFootprint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasSubOrganization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasSubOrganization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasTemporalExtent</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTemporalExtent points to information about the temporal extent of the agent role, e.g., the duration in which the role is valid for the agent in concern.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasTemporalExtent</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTemporalExtent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:hasTrajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The hasTrajectory connects a cruise to its trajectory.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasTrajectory</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasTrajectory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasUnit</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasUnit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:hasWebpage</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hasWebpage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:occursAtPlace</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">occursAtPlace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:occursAtTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">occursAtTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:performedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">performedBy connects  a role to the agent that performs it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:performedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">performedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:performsAgentRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">performsAgentRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:providesAgentRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">providesAgentRole is the inverse of isAgentRoleIn.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:providesAgentRole</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">providesAgentRole</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:r_Port</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The class Port typecasted as an object property. Logically, r_Port(x,x) &lt;-&gt; Port(x)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:r_Port</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">r_Port</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:realizationAbout</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">realizationAbout</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:realizedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">realizedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:startsAtTime</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">startsAtTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:startsFromFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides the fix from which the segment starts.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:startsFromFix</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">startsFromFix</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:startsOnDate</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">startsOnDate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:traveledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">If a cruise is undertaken by a vessel, then its trajectory is traveled by the vessel.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:traveledBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">traveledBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:traversedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides a moving object that traverses the segment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:traversedBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">traversedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>agentrole:undertakenBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This connects a cruise to the vessel on which the cruise is conducted.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>agentrole:undertakenBy</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">undertakenBy</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

@@ -25,13 +25,43 @@ public class Main {
 		// wherever GMO and GBO are from
 		// ODP - I fogret the website cogan knows 
 		
-		OWLAxEvaluation miscEvaluation = runEvalOnDir(new File("OWL/"));
+		OWLAxEvaluation miscEvaluation = runEvalOnDir(new File("OWL/en"));
 		
-		System.out.println(miscEvaluation);
+		System.out.println("Owl name:- Enslaved\n" + miscEvaluation + "\n");
 		
-		OWLAxEvaluation odpEvaluation = runEvalOnDir(new File("OWL/ODP"));
+        OWLAxEvaluation gboEvaluation = runEvalOnDir(new File("OWL/gbo"));
 		
-		System.out.println(odpEvaluation);
+		System.out.println("Owl Name:-GBO \n"+gboEvaluation + "\n");
+		
+        OWLAxEvaluation gmoEvaluation = runEvalOnDir(new File("OWL/gmo"));
+		
+		System.out.println("Owl name:- GMO\n" + gmoEvaluation +"\n");
+		
+        OWLAxEvaluation goplusEvaluation = runEvalOnDir(new File("OWL/go_plus"));
+		
+		System.out.println("Owl name:- Go_plus\n" + goplusEvaluation +"\n");
+		
+		
+		OWLAxEvaluation gfoEvaluation = runEvalOnDir(new File("OWL/gfo"));
+		
+		System.out.println("Owl name:- GFO\n" + gfoEvaluation+ "\n");
+		
+        //OWLAxEvaluation owlxmlEvaluation = runEvalOnDir(new File("OWL/owlxml"));
+		
+		//System.out.println("Owl name:- GFO\n" + owlxmlEvaluation+ "\n");
+		
+		
+       // OWLAxEvaluation lovEvaluation = runEvalOnDir(new File("OWL/lov"));
+		
+		//System.out.println("Owl name:- LOV\n" + gfoEvaluation+ "\n");
+		
+        OWLAxEvaluation odpEvaluation = runEvalOnDir(new File("OWL/ODP"));
+		
+		System.out.println("Owl name:- ODP\n" + odpEvaluation+ "\n");
+		
+        
+		
+		
 	}	
 	
 	/**
