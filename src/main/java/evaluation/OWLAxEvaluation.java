@@ -110,7 +110,7 @@ public class OWLAxEvaluation {
 			//add matches with sorting
 			Collections.sort(maps, (HashMap<String, Integer> one, HashMap<String, Integer> two) -> one.get(key).compareTo(two.get(key)));
 			if(maps.size()%2 == 0) {
-				median.put(key, (maps.get(maps.size()/2).get(key) + maps.get((maps.size()/2) + 1).get(key)) / 2.0);
+				median.put(key, (maps.get(maps.size()/2).get(key) + maps.get((maps.size()/2) - 1).get(key)) / 2.0);
 			}else {
 				median.put(key, (double)maps.get((maps.size()/2)).get(key));
 			}			
