@@ -19,7 +19,7 @@ import uk.ac.manchester.cs.owl.owlapi.*;
 public class NormalizeAndSortAxioms  {
 	
 	private static int ontologyIndex = -1;
-	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","reflexive role","irreflexive role","symmetric role","asymmetric role","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
+	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","reflexive role","irreflexive role","symmetric role","asymmetric role","role cardinality","data cardinality","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLPropertyAxiom> roleAxioms;
@@ -215,14 +215,18 @@ public class NormalizeAndSortAxioms  {
 				OWLClassExpression subClass = ((OWLSubClassOfAxiom)inAxiom).getSubClass();
 				
 				//is it an object exact cardinality?
-				if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {				
+				if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
+					ontologyComposition.replace("role cardinality", ontologyComposition.get("role cardinality") + 1);
 					parseObjectExactCardinality(inAxiom,subClass,(OWLObjectExactCardinality)superClass);		
 				}else if (subClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
+					ontologyComposition.replace("role cardinality", ontologyComposition.get("role cardinality") + 1);
 					parseObjectExactCardinality(inAxiom,(OWLObjectExactCardinality)subClass,superClass);
 				//is it a data exact cardinality?
 				}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
+					ontologyComposition.replace("data cardinality", ontologyComposition.get("data cardinality") + 1);
 					parseDataExactCardinality(inAxiom,subClass,(OWLDataExactCardinality)superClass);
 				}else if (subClass.getClassExpressionType().getName().equals("DataExactCardinality")) {
+					ontologyComposition.replace("data cardinality", ontologyComposition.get("data cardinality") + 1);
 					parseDataExactCardinality(inAxiom,(OWLDataExactCardinality)subClass,superClass);
 				//uh oh
 				}else{				

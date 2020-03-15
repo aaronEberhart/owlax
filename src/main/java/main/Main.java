@@ -1,6 +1,8 @@
 package main;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 import org.semanticweb.owlapi.apibinding.*;
@@ -24,7 +26,7 @@ public class Main {
 		// https://docs.enslaved.org/ontology/
 		// wherever GMO and GBO are from
 		// ODP - I fogret the website cogan knows 
-		
+		/*
 		OWLAxEvaluation miscEvaluation = runEvalOnDir(new File("OWL/en"));
 		
 		System.out.println("Owl name:- Enslaved\n" + miscEvaluation + "\n");
@@ -45,7 +47,7 @@ public class Main {
 		OWLAxEvaluation gfoEvaluation = runEvalOnDir(new File("OWL/gfo"));
 		
 		System.out.println("Owl name:- GFO\n" + gfoEvaluation+ "\n");
-		
+		*/
         //OWLAxEvaluation owlxmlEvaluation = runEvalOnDir(new File("OWL/owlxml"));
 		
 		//System.out.println("Owl name:- GFO\n" + owlxmlEvaluation+ "\n");
@@ -55,9 +57,15 @@ public class Main {
 		
 		//System.out.println("Owl name:- LOV\n" + gfoEvaluation+ "\n");
 		
-        OWLAxEvaluation odpEvaluation = runEvalOnDir(new File("OWL/ODP"));
+        
 		
-		System.out.println("Owl name:- ODP\n" + odpEvaluation+ "\n");
+		try{
+			OWLAxEvaluation odpEvaluation = runEvalOnDir(new File("OWL/ODP"));
+			Files.writeString(Paths.get("ODPresult.txt"),odpEvaluation.toString());}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		
         
 		
