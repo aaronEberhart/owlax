@@ -18,6 +18,7 @@ import ontologyTools.OWLAxMatcher;
 /**
  * Test Class for OWLAx evaluation program
  * 
+ * @author Sulogna Chowdhury, Aaron Eberhart
  * @author DaSe Lab
  */
 public class Main {
@@ -30,7 +31,8 @@ public class Main {
 		// https://docs.enslaved.org/ontology/
 		// wherever GMO and GBO are from
 		// ODP - I fogret the website cogan knows 
-		//misc files by themselves
+		
+		//misc files by themselves (sizes very different)
 		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
 			runEval(file);
 		}
@@ -45,12 +47,11 @@ public class Main {
 	}	
 	
 	/**
-	 * run Evaluation once on all files in a directory or a single file
-	 * will write results to text file
+	 * run Evaluation once on all files in a directory or a single file.
+	 * Will write results to text file
 	 * 
 	 * @param dir File
 	 * @return OWLAxEvaluation
-	 * @throws Exception
 	 */
 	public static OWLAxEvaluation runEval(File dir) {
 		//check if it's a file of a dir of files
@@ -67,7 +68,7 @@ public class Main {
 				results.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
 				
 			}catch(UnloadableImportException e) {System.err.println(String.format("Import Error for File: %s",owlfile));}
-			catch(Exception e) {e.printStackTrace();}
+			catch(Exception e) {System.err.println(e);}
 		}
 		
 		//do the evaluation
@@ -76,7 +77,7 @@ public class Main {
 		//write to file
 		try {
 			Files.writeString(Paths.get(String.format("%s.txt",dir.getName())),eval.toString());
-		}catch (IOException e) {e.printStackTrace();}
+		}catch (IOException e) {System.err.println(e);}
 		
 		return eval;
 	}
