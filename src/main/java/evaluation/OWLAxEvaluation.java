@@ -28,14 +28,14 @@ public class OWLAxEvaluation {
 	private HashMap<String,Integer> modeOntology;
 	private HashMap<String,Double> stdDevResult;
 	private HashMap<String,Double> stdDevOntology;
-	double totalCoverage;
-	double totalCoverageIgnoringSubclass;
-	double allHitOnlyOWLAx;
-	double meanCoverage;
-	double meanCoverageIgnoringSubclass;
-	double meanStdDev;
-	double meanMode;
-	double meanMedian;
+	private double totalCoverage;
+	private double totalCoverageIgnoringSubclass;
+	private double allHitOnlyOWLAx;
+	private double meanCoverage;
+	private double meanCoverageIgnoringSubclass;
+	private double meanStdDev;
+	private double meanMode;
+	private double meanMedian;
 	
 	/**
 	 * Constructor that performs a simple evaluation on a list of ontology data and
@@ -55,12 +55,12 @@ public class OWLAxEvaluation {
 		
 		//precalc numerator and denominator
 		int all = owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
-	    int hits = all - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("other"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
+		int hits = all - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("other"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
 	    
-	    //find percents covered
-	    allHitOnlyOWLAx = (double)(owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("scoped role domain") || a.getKey().equals("scoped role range")  || a.getKey().equals("existential")|| a.getKey().equals("inverse existential")  || a.getKey().equals("qualified functional role")  || a.getKey().equals("scoped functional role")  || a.getKey().equals("qualified scoped functional role") || a.getKey().equals("inverse qualified functional role")  || a.getKey().equals("inverse scoped functional role")  || a.getKey().equals("inverse qualified scoped functional role")  || a.getKey().equals("structural tautology"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
-	    totalCoverage = (double)hits / all;
-	    totalCoverageIgnoringSubclass  = (double)(hits - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("subclass"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
+		//find percents covered
+		allHitOnlyOWLAx = (double)(owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("scoped role domain") || a.getKey().equals("scoped role range")  || a.getKey().equals("existential")|| a.getKey().equals("inverse existential")  || a.getKey().equals("qualified functional role")  || a.getKey().equals("scoped functional role")  || a.getKey().equals("qualified scoped functional role") || a.getKey().equals("inverse qualified functional role")  || a.getKey().equals("inverse scoped functional role")  || a.getKey().equals("inverse qualified scoped functional role")  || a.getKey().equals("structural tautology"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
+		totalCoverage = (double)hits / all;
+		totalCoverageIgnoringSubclass  = (double)(hits - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("subclass"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
 	    
 		// calculating the means
 		meanResult = (HashMap<String,Double>)owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingDouble(Map.Entry::getValue)));		
@@ -71,15 +71,15 @@ public class OWLAxEvaluation {
 		unusedOntologyAxioms = findUnused(ontologyCompositions);
 		
 		// average coverage for average result ignoring other
-	    meanCoverage = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("other")) / meanResult.size();
-	    meanCoverageIgnoringSubclass = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("other") - meanResult.get("subclass")) / meanResult.size();
+		meanCoverage = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("other")) / meanResult.size();
+		meanCoverageIgnoringSubclass = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("other") - meanResult.get("subclass")) / meanResult.size();
 		
-	    // calculating the modes
+		// calculating the modes
 		modeResult = owlaxResults.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElseThrow(IllegalArgumentException::new);
 		modeOntology = ontologyCompositions.stream().collect(Collectors.groupingBy(a -> a, Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElseThrow(IllegalArgumentException::new);
-	    modeOntology.values().removeIf(a -> a < 0);
+		modeOntology.values().removeIf(a -> a < 0);
 		
-	    // get average mode
+		// get average mode
 		meanMode = modeResult.values().stream().collect(Collectors.summingInt(a -> a)) / modeResult.size();
 		
 		// calculating the medians
