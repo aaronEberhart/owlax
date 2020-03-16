@@ -9,6 +9,9 @@ import java.util.List;
 import org.eclipse.rdf4j.model.vocabulary.OWL;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataMaxCardinality;
+import org.semanticweb.owlapi.model.OWLDataMinCardinality;
+import org.semanticweb.owlapi.model.OWLDataSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
 import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
@@ -120,10 +123,10 @@ public class OWLAxMatcher {
 			if (NormalizeAndSortAxioms.getSubClassOfAxiomSize(axiom) == 2) {
 				result.replace("subclass", result.get("subclass") + 1);
 			//disjoint classes
-			}else if(axiom.getSuperClass().isBottomEntity()) {
+			}else if(axiom.getSuperClass().isBottomEntity() && ((OWLClassExpression)axiom.getSubClass()).getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
 				result.replace("disjoint classes", result.get("disjoint classes") + 1);
 			//domain
-			}else if(axiom.getSubClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && axiom.getSuperClass().isOWLClass()) {
+			}else if(axiom.getSubClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && isClass(axiom.getSuperClass())) {
 				//regular
 				if (((OWLObjectSomeValuesFrom)axiom.getSubClass()).getFiller().isTopEntity()) {
 					result.replace("scoped role domain", result.get("scoped role domain") + 1);
@@ -131,8 +134,17 @@ public class OWLAxMatcher {
 				}else {
 					result.replace("role domain", result.get("role domain") + 1);
 				}
+			//data domain
+			}else if(axiom.getSubClass().getClassExpressionType().getName().equals("DataSomeValuesFrom") && isClass(axiom.getSuperClass())) {
+				//regular
+				if (((OWLDataSomeValuesFrom)axiom.getSubClass()).getFiller().isTopEntity()) {
+					result.replace("scoped role domain", result.get("scoped role domain") + 1);
+				//scoped
+				}else {
+					result.replace("role domain", result.get("role domain") + 1);
+				}
 			//existential
-			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && axiom.getSubClass().isOWLClass()) {
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectSomeValuesFrom") && isClass(axiom.getSubClass())) {
 				//is is specifically NOT an inverse
 				if(!isInverse(((OWLObjectSomeValuesFrom)axiom.getSuperClass()).getProperty())) {
 					result.replace("existential", result.get("existential") + 1);
@@ -140,8 +152,21 @@ public class OWLAxMatcher {
 				}else {
 					result.replace("inverse existential", result.get("inverse existential") + 1);
 				}
+			// data existential
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("DataSomeValuesFrom") && isClass(axiom.getSubClass())) {
+				//existential data can't be inverse
+				result.replace("existential", result.get("existential") + 1);
 			//range
-			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectAllValuesFrom") && axiom.getSubClass().isOWLClass()) {
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectAllValuesFrom") && isClass(axiom.getSubClass())) {
+				//regular
+				if (axiom.getSubClass().isTopEntity()) {
+					result.replace("role range", result.get("role range") + 1);
+				//scoped
+				}else {
+					result.replace("scoped role range", result.get("scoped role range") + 1);
+				}
+			//data range
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("DataAllValuesFrom") && isClass(axiom.getSubClass())) {
 				//regular
 				if (axiom.getSubClass().isTopEntity()) {
 					result.replace("role range", result.get("role range") + 1);
@@ -181,13 +206,38 @@ public class OWLAxMatcher {
 						result.replace("inverse qualified scoped functional role", result.get("inverse qualified scoped functional role") + 1);
 					}
 				}
+			//functional data
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("DataMaxCardinality") && ((OWLDataMaxCardinality)axiom.getSuperClass()).getCardinality() == 1) {
+					//regular
+					if(axiom.getSubClass().isTopEntity() && ((OWLDataMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {
+						result.replace("functional role", result.get("functional role") + 1);
+					//scoped
+					}else if(axiom.getSubClass().isTopEntity()) {
+						result.replace("qualified functional role", result.get("qualified functional role") + 1);
+					//qualified
+					}else if(((OWLDataMaxCardinality)axiom.getSuperClass()).getFiller().isTopEntity()) {
+						result.replace("scoped functional role", result.get("scoped functional role") + 1);
+					//scoped qualified
+					}else {
+						result.replace("qualified scoped functional role", result.get("qualified scoped functional role") + 1);
+					}
 			//tautology
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectMinCardinality") && ((OWLObjectMinCardinality)axiom.getSuperClass()).getCardinality() == 0) {
+				result.replace("structural tautology", result.get("structural tautology") + 1);
+			//data tautology
+			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("DataMinCardinality") && ((OWLDataMinCardinality)axiom.getSuperClass()).getCardinality() == 0) {
 				result.replace("structural tautology", result.get("structural tautology") + 1);
 			}else {
 				result.replace("other", result.get("other") + 1);
 			}
 		}
+	}
+	
+	/**
+	 * 
+	 */
+	private boolean isClass(OWLClassExpression expression) {
+		return expression.isOWLClass() || expression.getComplementNNF().isOWLClass();
 	}
 	
 	/**
