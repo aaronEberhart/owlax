@@ -107,7 +107,8 @@ public class NormalizeAndSortAxioms  {
 		}};
 		
 		//sort the axioms from the ontology
-		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {System.err.println(e);}});
+		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {
+			System.err.println(e);}});
 		
 		ontologyComposition.put("simple class axioms", classAxioms.size());
 		ontologyComposition.put("complex class axioms", complexClassAxioms.size());
@@ -122,10 +123,10 @@ public class NormalizeAndSortAxioms  {
 	}
 	
 	/**
-	 * False if the type string of an axiom is Annotation, class assertion, Different individuals, or Declaration, True otherwise
+	 * False if the type string of an axiom is Annotation, class assertion, role assertion, Different individuals, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion"));
+		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion") || type.equals("ObjectPropertyAssertion"));
 	}
 	
 	/**

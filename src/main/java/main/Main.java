@@ -2,11 +2,23 @@ package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Writer;
+import java.net.URI;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.apache.jena.query.Dataset;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.tdb.TDBFactory;
+import org.apache.jena.util.FileManager;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.UnloadableImportException;
@@ -30,7 +42,16 @@ public class Main {
 		// https://bioportal.bioontology.org/ontologies - GO GFO
 		// https://docs.enslaved.org/ontology/
 		// wherever GMO and GBO are from
-		// ODP - I fogret the website cogan knows 
+		// ODP - I forget the website cogan knows 
+		
+		//hydrography benchmarks
+		runEval(new File("OWL/hydrographyBenchmarks"));
+		
+		//anatomy benchmarks
+		runEval(new File("OWL/anatomyBenchmarks"));
+				
+		//conference benchmarks
+		runEval(new File("OWL/conferenceBenchmarks"));
 		
 		//misc files by themselves (sizes very different)
 		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
@@ -41,8 +62,8 @@ public class Main {
 		runEval(new File("OWL/"));
 		
 		//ODPs
-		runEval(new File("OWL/ODP"));
-		
+		runEval(new File("OWL/ODPs"));
+			
 		System.out.println("DONE");
 	}	
 	
