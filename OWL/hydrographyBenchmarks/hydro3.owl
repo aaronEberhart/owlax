@@ -1,0 +1,1101 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://spatial.maine.edu/semgaz/HydroOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://spatial.maine.edu/semgaz/HydroOntology">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Created with TopBraid Composer</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Boundary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Coastline"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DamWeir"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Falls"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FreshWater_Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FreshwaterBay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GagingStation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrographic_Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrographic_Structure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lake"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Levee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ocean"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rapids"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reservoir"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#River"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SaltWaterBay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SaltWater_Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spring"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Watershed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wetlands"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#flowsfrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#flowsinto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#flowsthrough"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDam"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGagingStation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInflow"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMainStem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMouth"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOutflow"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRapids"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTributary"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDamOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMainStemOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMouthOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isRapidsOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSaltWaterBayOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSourceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isTributaryOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Boundary"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Coastline"/>
+        <Class IRI="#Boundary"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DamWeir"/>
+        <Class IRI="#Hydrographic_Structure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Falls"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FreshWater_Feature"/>
+        <Class IRI="#Hydrographic_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FreshwaterBay"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GagingStation"/>
+        <Class IRI="#Hydrographic_Structure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrographic_Feature"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrographic_Structure"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lake"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Levee"/>
+        <Class IRI="#Hydrographic_Structure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ocean"/>
+        <Class IRI="#SaltWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rapids"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reservoir"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#River"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SaltWaterBay"/>
+        <Class IRI="#SaltWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SaltWater_Feature"/>
+        <Class IRI="#Hydrographic_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spring"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Watershed"/>
+        <Class IRI="#Boundary"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wetlands"/>
+        <Class IRI="#FreshWater_Feature"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#flowsinto"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDam"/>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGagingStation"/>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+        <ObjectProperty IRI="#hasPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasInflow"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMainStem"/>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMouth"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasOutflow"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRapids"/>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSource"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTributary"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isDamOf"/>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+        <ObjectProperty IRI="#isPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMainStemOf"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isRapidsOf"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isSaltWaterBayOf"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isTributaryOf"/>
+        <ObjectProperty IRI="#isHydrologicallyConnectedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <ObjectProperty IRI="#hasHydrographicRelation"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <ObjectProperty IRI="#hasOutflow"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#flowsinto"/>
+        <ObjectProperty IRI="#hasInflow"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isDamOf"/>
+        <ObjectProperty IRI="#hasDam"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+        <ObjectProperty IRI="#hasGagingStation"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasHydrographicStructure"/>
+        <ObjectProperty IRI="#isDamOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+        <ObjectProperty IRI="#isHydrologicPartOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMainStemOf"/>
+        <ObjectProperty IRI="#hasMainStem"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <ObjectProperty IRI="#hasMouth"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectProperty IRI="#hasPart"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasRapids"/>
+        <ObjectProperty IRI="#isRapidsOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isSaltWaterBayOf"/>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasSource"/>
+        <ObjectProperty IRI="#isSourceOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasTributary"/>
+        <ObjectProperty IRI="#isTributaryOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+    </InverseObjectProperties>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#isDamOf"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+    </InverseFunctionalObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#hasTributary"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isTributaryOf"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#Falls"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#Rapids"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDam"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDam"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+        <Class IRI="#FreshwaterBay"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGagingStation"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasHydrologicPart"/>
+        <Class abbreviatedIRI="owl:ObjectProperty"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInflow"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInflow"/>
+        <Class IRI="#Wetlands"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMainStem"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMouth"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMouth"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutflow"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutflow"/>
+        <Class IRI="#Wetlands"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPart"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRapids"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+        <Class IRI="#Coastline"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+        <Class IRI="#Ocean"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTributary"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDamOf"/>
+        <Class IRI="#DamWeir"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+        <Class IRI="#FreshwaterBay"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+        <Class IRI="#GagingStation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMainStemOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#Ocean"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Falls"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#Rapids"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSaltWaterBayOf"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <Class IRI="#Spring"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isTributaryOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#Spring"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsfrom"/>
+        <Class IRI="#Wetlands"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#Ocean"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsinto"/>
+        <Class IRI="#Wetlands"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <Class IRI="#Reservoir"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <Class IRI="#Spring"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#flowsthrough"/>
+        <Class IRI="#Wetlands"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDam"/>
+        <Class IRI="#DamWeir"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFreshWaterBay"/>
+        <Class IRI="#FreshwaterBay"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGagingStation"/>
+        <Class IRI="#GagingStation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInflow"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMainStem"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMouth"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMouth"/>
+        <Class IRI="#Ocean"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMouth"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOutflow"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPart"/>
+        <Class IRI="#Falls"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPart"/>
+        <Class IRI="#Rapids"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRapids"/>
+        <Class IRI="#Rapids"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSaltWaterBay"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#Spring"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSubWatershed"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTributary"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDamOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDamOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isDownstreamTo"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+        <Class IRI="#FreshwaterBay"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isFreshWaterBayOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isGagingStationOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMainStemOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMouthOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSaltWaterBayOf"/>
+        <Class IRI="#SaltWaterBay"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <Class IRI="#Lake"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSourceOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSubWatershedOf"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isTributaryOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <Class IRI="#River"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isUpstreamOf"/>
+        <Class IRI="#Watershed"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Boundary</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Boundary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Coastline</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Coastline</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#DamWeir</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Dam weir</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Falls</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Falls</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FreshWater_Feature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Fresh water Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FreshwaterBay</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Freshwater Bay</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GagingStation</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Gaging stations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hydrographic_Feature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Hydrographic Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Hydrographic_Structure</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Hydrographic structure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lake</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Lake</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Levee</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Levee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ocean</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ocean</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rapids</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Rapids</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#River</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">River</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SaltWaterBay</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Bay</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SaltWater_Feature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Salt water Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Spring</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Spring</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Watershed</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Watershed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Wetlands</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Wetlands</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#flowsfrom</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">flowsfrom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#flowsinto</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">flowsinto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#flowsthrough</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">flowsthrough</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDam</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has dam</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasFreshWaterBay</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has fresh water bay</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasGagingStation</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has gaging station</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasHydrographicRelation</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has hydrographic relation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasHydrographicStructure</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has hydrographic structure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasHydrologicPart</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has hydrographic part</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasInflow</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has inflow</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMainStem</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has main stem</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMouth</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has mouth</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasOutflow</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has outflow</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSaltWaterBay</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has bay</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSource</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasSubWatershed</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has sub watershed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasTributary</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has tributary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isDamOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is dam of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isDownstreamTo</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is downstream to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isFreshWaterBayOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is fresh water bay of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isGagingStationOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is gaging station of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isMainStemOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is main stem of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isMouthOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is mouth of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isPartOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is part of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isSaltWaterBayOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is salt water bay of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isSourceOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is source of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isSubWatershedOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is sub watershed of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isTributaryOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is tributary of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isUpstreamOf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">is upstream of</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1502) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,1520 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://cegis.usgs.gov/SWO"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://cegis.usgs.gov/SWO">
+    <Prefix name="" IRI="http://cegis.usgs.gov/SWO"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="swo" IRI="http://cegis.usgs.gov/SWO#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Aquaculture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ApproximateHydrographicMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FiltrationPond"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WithdrawingConvergence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InundationArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rapids"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Waterbody"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#adjoins"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Coastline"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HydrographicQuality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SettlingPond"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Waterfall"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Flume"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Estuary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wash"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AverageWaterStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Impoundment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#measuresHydrographicQuality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDirection"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Perennial"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Abandoned"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tunnel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFlow"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Intermittent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UndergroundFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Flow"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isContainedBy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FloodWaterStage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#startsFrom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Depth"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Playa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SwampOrMarsh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DroughtWaterStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CanalOrDitch"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialThing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Disposal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Operational"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BoundingFeature"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTemporality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spillway"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IceMass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EarthenConstructionMaterial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contains"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LockChamber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BayOrInlet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aqueduct"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Gaging"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AggregateHydrographicFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Direction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Well"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Length"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SurfaceFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#endsAt"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConstructionMaterial"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Regulated"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isConstructedFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WaterStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Levee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Channel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MeasurementUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeasurementOfFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#overlaps"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ElevatedFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Shore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bridge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Temporality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HydrographicFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UnderwaterFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Evaporator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SurfaceWaterNetwork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonearthenConstructionMaterial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SewageTreatmentPond"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pipeline"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OperationalStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpringOrSeep"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#takenAtStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Discharge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Diversion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BlockingFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ContributingDivergence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Treatment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#producedMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SquareMeter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ephemeral"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StreamOrRiver"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AreaToBeSubmerged"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SinkOrRise"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Active"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TransportingFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HydrographicMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDivergence"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDistributedBy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wall"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialMeasurementUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WaterStorage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ManmadeFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SwimmingPool"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Foreshore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#UnderConstruction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOperationalStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Weir"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CoolingPond"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubmergedStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SeaOrOcean"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reservoir"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Divergence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LakeOrPond"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DecorativePool"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CubicMetersPerSecond"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#OperationalStatus"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#Active"/>
+            <NamedIndividual IRI="#Operational"/>
+            <NamedIndividual IRI="#Abandoned"/>
+            <NamedIndividual IRI="#UnderConstruction"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Temporality"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#Ephemeral"/>
+            <NamedIndividual IRI="#Perennial"/>
+            <NamedIndividual IRI="#Regulated"/>
+            <NamedIndividual IRI="#Intermittent"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#WaterStage"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#FloodWaterStage"/>
+            <NamedIndividual IRI="#DroughtWaterStage"/>
+            <NamedIndividual IRI="#AverageWaterStage"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AggregateHydrographicFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AggregateHydrographicFeature"/>
+        <ObjectMinCardinality cardinality="2">
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#HydrographicFeature"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ApproximateHydrographicMeasurement"/>
+        <Class IRI="#HydrographicMeasurement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aquaculture"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aqueduct"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aqueduct"/>
+        <Class IRI="#TransportingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaToBeSubmerged"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaToBeSubmerged"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <ObjectIntersectionOf>
+                <Class IRI="#Dam"/>
+                <ObjectHasValue>
+                    <ObjectProperty IRI="#hasOperationalStatus"/>
+                    <NamedIndividual IRI="#UnderConstruction"/>
+                </ObjectHasValue>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BayOrInlet"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BayOrInlet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#Shore"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BayOrInlet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#overlaps"/>
+            <ObjectUnionOf>
+                <Class IRI="#Estuary"/>
+                <Class IRI="#LakeOrPond"/>
+                <Class IRI="#SeaOrOcean"/>
+                <Class IRI="#StreamOrRiver"/>
+            </ObjectUnionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BlockingFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoundingFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BoundingFeature"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#Waterbody"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bridge"/>
+        <Class IRI="#ElevatedFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bridge"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bridge"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bridge"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#TransportingFeature"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CanalOrDitch"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CanalOrDitch"/>
+        <Class IRI="#TransportingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CanalOrDitch"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Channel"/>
+            <Class IRI="#ManmadeFeature"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isConstructedFrom"/>
+                <Class IRI="#EarthenConstructionMaterial"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Channel"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Coastline"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Coastline"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#SeaOrOcean"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ContributingDivergence"/>
+        <Class IRI="#Divergence"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CoolingPond"/>
+        <Class IRI="#Treatment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CubicMetersPerSecond"/>
+        <Class IRI="#MeasurementUnit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dam"/>
+        <Class IRI="#BlockingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dam"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dam"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dam"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DecorativePool"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Depth"/>
+        <Class IRI="#HydrographicQuality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Discharge"/>
+        <Class IRI="#HydrographicQuality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disposal"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diversion"/>
+        <Class IRI="#Channel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diversion"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diversion"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diversion"/>
+        <Class IRI="#SurfaceFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diversion"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#startsFrom"/>
+            <Class IRI="#StreamOrRiver"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EarthenConstructionMaterial"/>
+        <Class IRI="#ConstructionMaterial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ElevatedFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estuary"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estuary"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#SeaOrOcean"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Estuary"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#Shore"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Evaporator"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FiltrationPond"/>
+        <Class IRI="#Treatment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flow"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flow"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDirection"/>
+            <Class IRI="#Direction"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flume"/>
+        <Class IRI="#Channel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flume"/>
+        <Class IRI="#ElevatedFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flume"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flume"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Flume"/>
+        <Class IRI="#TransportingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Foreshore"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Foreshore"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isContainedBy"/>
+            <Class IRI="#Shore"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gaging"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gate"/>
+        <Class IRI="#BlockingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Gate"/>
+        <Class IRI="#SpatialThing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicFeature"/>
+        <Class IRI="#SpatialThing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasUnit"/>
+            <Class IRI="#MeasurementUnit"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isMeasurementOfFeature"/>
+            <Class IRI="#SpatialThing"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#measuresHydrographicQuality"/>
+            <Class IRI="#HydrographicQuality"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#takenAtStage"/>
+            <Class IRI="#WaterStage"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HydrographicMeasurement"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasValue"/>
+            <Datatype abbreviatedIRI="xsd:float"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IceMass"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Impoundment"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Waterbody"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#adjoins"/>
+                <Class IRI="#BlockingFeature"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InundationArea"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InundationArea"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <NamedIndividual IRI="#Intermittent"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LakeOrPond"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Waterbody"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isContainedBy"/>
+                <Class IRI="#Shore"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Length"/>
+        <Class IRI="#HydrographicQuality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Levee"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Levee"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Levee"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LockChamber"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LockChamber"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#adjoins"/>
+                <Class IRI="#Gate"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isContainedBy"/>
+                <ObjectUnionOf>
+                    <Class IRI="#CanalOrDitch"/>
+                    <Class IRI="#StreamOrRiver"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ManmadeFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ManmadeFeature"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasOperationalStatus"/>
+            <Class IRI="#OperationalStatus"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ManmadeFeature"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isConstructedFrom"/>
+            <Class IRI="#ConstructionMaterial"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meter"/>
+        <Class IRI="#MeasurementUnit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonearthenConstructionMaterial"/>
+        <Class IRI="#ConstructionMaterial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pipeline"/>
+        <Class IRI="#TransportingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Playa"/>
+        <Class IRI="#LakeOrPond"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Playa"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <NamedIndividual IRI="#Ephemeral"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rapids"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rapids"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#isContainedBy"/>
+            <Class IRI="#StreamOrRiver"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reservoir"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reservoir"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reservoir"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <NamedIndividual IRI="#Regulated"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SeaOrOcean"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SeaOrOcean"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <NamedIndividual IRI="#Perennial"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SettlingPond"/>
+        <Class IRI="#Treatment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SewageTreatmentPond"/>
+        <Class IRI="#Treatment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Shore"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Shore"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SinkOrRise"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SinkOrRise"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#endsAt"/>
+                    <Class IRI="#SurfaceFeature"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#startsFrom"/>
+                    <Class IRI="#UndergroundFeature"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#endsAt"/>
+                    <Class IRI="#UndergroundFeature"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#startsFrom"/>
+                    <Class IRI="#SurfaceFeature"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SinkOrRise"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isContainedBy"/>
+            <Class IRI="#StreamOrRiver"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spillway"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spillway"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spillway"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#adjoins"/>
+            <Class IRI="#Dam"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpringOrSeep"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpringOrSeep"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#endsAt"/>
+            <Class IRI="#SurfaceFeature"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpringOrSeep"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#startsFrom"/>
+            <Class IRI="#UndergroundFeature"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SquareMeter"/>
+        <Class IRI="#MeasurementUnit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StreamOrRiver"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmergedStream"/>
+        <Class IRI="#StreamOrRiver"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubmergedStream"/>
+        <Class IRI="#UnderwaterFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SurfaceFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SurfaceWaterNetwork"/>
+        <Class IRI="#SpatialThing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SurfaceWaterNetwork"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#contains"/>
+            <ObjectUnionOf>
+                <Class IRI="#AggregateHydrographicFeature"/>
+                <Class IRI="#HydrographicFeature"/>
+            </ObjectUnionOf>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwampOrMarsh"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingPool"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TransportingFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TransportingFeature"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Treatment"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tunnel"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tunnel"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tunnel"/>
+        <ObjectUnionOf>
+            <Class IRI="#UndergroundFeature"/>
+            <Class IRI="#UnderwaterFeature"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tunnel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#contains"/>
+            <Class IRI="#TransportingFeature"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UndergroundFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UnderwaterFeature"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wall"/>
+        <Class IRI="#BlockingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wall"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wall"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wall"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wash"/>
+        <Class IRI="#StreamOrRiver"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wash"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <NamedIndividual IRI="#Ephemeral"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WaterStorage"/>
+        <Class IRI="#Reservoir"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Waterbody"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Waterbody"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasFlow"/>
+            <Class IRI="#Flow"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Waterbody"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasTemporality"/>
+            <Class IRI="#Temporality"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Waterfall"/>
+        <Class IRI="#Waterbody"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Waterfall"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isContainedBy"/>
+            <Class IRI="#StreamOrRiver"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weir"/>
+        <Class IRI="#BlockingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weir"/>
+        <Class IRI="#BoundingFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weir"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Weir"/>
+        <Class IRI="#ManmadeFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Well"/>
+        <Class IRI="#HydrographicFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Well"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#TransportingFeature"/>
+            <Class IRI="#UndergroundFeature"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isConstructedFrom"/>
+                <Class IRI="#NonearthenConstructionMaterial"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WithdrawingConvergence"/>
+        <Class IRI="#Divergence"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Channel"/>
+        <Class IRI="#Pipeline"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#EarthenConstructionMaterial"/>
+        <Class IRI="#NonearthenConstructionMaterial"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#OperationalStatus"/>
+        <NamedIndividual IRI="#Abandoned"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperationalStatus"/>
+        <NamedIndividual IRI="#Active"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WaterStage"/>
+        <NamedIndividual IRI="#AverageWaterStage"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WaterStage"/>
+        <NamedIndividual IRI="#DroughtWaterStage"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Temporality"/>
+        <NamedIndividual IRI="#Ephemeral"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#WaterStage"/>
+        <NamedIndividual IRI="#FloodWaterStage"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Temporality"/>
+        <NamedIndividual IRI="#Intermittent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperationalStatus"/>
+        <NamedIndividual IRI="#Operational"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Temporality"/>
+        <NamedIndividual IRI="#Perennial"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Temporality"/>
+        <NamedIndividual IRI="#Regulated"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OperationalStatus"/>
+        <NamedIndividual IRI="#UnderConstruction"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Abandoned"/>
+        <NamedIndividual IRI="#Active"/>
+        <NamedIndividual IRI="#Operational"/>
+        <NamedIndividual IRI="#UnderConstruction"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#AverageWaterStage"/>
+        <NamedIndividual IRI="#DroughtWaterStage"/>
+        <NamedIndividual IRI="#FloodWaterStage"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Ephemeral"/>
+        <NamedIndividual IRI="#Intermittent"/>
+        <NamedIndividual IRI="#Perennial"/>
+        <NamedIndividual IRI="#Regulated"/>
+    </DifferentIndividuals>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#startsFrom"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#contains"/>
+        <ObjectProperty IRI="#isContainedBy"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#adjoins"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isConnectedTo"/>
+    </SymmetricObjectProperty>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Abandoned</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">intact but not maintained or intended for use</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ApproximateHydrographicMeasurement</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">conditions permit the feature to be confidently positioned between 0.02 inches and 0.1 inches, at map scale, of its true ground position</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Aquaculture</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for rearing of finfish, shellfish, or aquatic plants</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Aqueduct</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a structure designed to transport domestic or industrial water from a supply source to a distribution point, often by gravity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AreaToBeSubmerged</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the known extent of the intended lake that will be created behind a dam under construction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AverageWaterStage</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the stage of a natural water body that prevails for the greater part of the year</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BayOrInlet</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a water area that is an opening of the sea or ocean into the land, or of an estuary, lake, or river into its shore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bridge</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a structure spanning and providing passage of a waterway over another waterway, railroad, or other obstacle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CanalOrDitch</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an artificial open waterway constructed to transport water, to irrigate or drain land, to connect two or more bodies of water, or to serve as a waterway for watercraft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Coastline</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a line of contact between the open sea and the land, including imaginary lines separating inland water bodies from the open sea</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ConstructionMaterial</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the primary material from which a feature is constructed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ContributingDivergence</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a point on the surface water network where water is added to the network, typically through a conveyance such as a canal, ditch or pipeline</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dam</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a barrier constructed to control the flow or raise the level of water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#DecorativePool</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for improving the aesthetic appearance of the landscape</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Disposal</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for disposal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Divergence</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a point on the surface water network where water is either removed or added to the network, typically through a conveyance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Diversion</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a stream channel within the hydrologic unit that was altered to divert surface water from one location to another;alters natural boundary location</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ElevatedFeature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">supported above the earth</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ephemeral</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">contains water only during or after a local rainstorm or heavy snowmelt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Estuary</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a semi-enclosed coastal body of water that has a free connection with the open sea and within which seawater is measurably diluted with fresh water derived from land drainage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Evaporator</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for the natural evaporation of water to allow harvesting of mineral concentrates</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FloodWaterStage</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the stage that prevails when a natural water body beyond capacity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Flow</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">surface water supported by a physical feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Flume</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an open, inclined, artificial channel constructed of wood, metal, or concrete; generally elevated</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Foreshore</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the area of shore that lies between the limits of the mean highwater (MHW) and mean low low water (MLLW) tidal marks and is exposed during low tides</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gaging</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a measurement of the characteristics of a hydrographic feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gate</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a structure that may be swung, drawn, or lowered to block an entrance or passageway</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IceMass</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a field of ice usually formed in regions of perennial frost; primarily consists of glaciers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Impoundment</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a body of water formed by impounding (i.e. due to a dam)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Intermittent</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">occuring at irregular intervals but lasting longer than ephemeral</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#InundationArea</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an area of land subject to flooding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LakeOrPond</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A standing body of water with a predominantly natural shoreline surrounded by land</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Levee</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an embankment built to prevent flooding or to control or confine the flow of liquids</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LockChamber</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an enclosure on a waterway used to raise and lower vessels as they pass from one level to another</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NonearthenConstructionMaterial</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the predominant material used in construction is concrete, brick, or stone</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Operational</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">useable and inteded for use</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Perennial</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">exists continously over a period of years</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Playa</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the flat area at the lowest part of an undrained desert basin, generally devoid of vegetation (Wikipedia refers to this as an ephemeral lake)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Rapids</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an area of swift current in a stream or river, characterized by standing waves or by boulders and rocks</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Regulated</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">controlled through artificial means</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Reservoir</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a constructed basin formed to contain water or other liquids</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SeaOrOcean</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">the great body of salt water that covers much of the earth</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Shore</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Sloping area where a waterbody meets the land</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SinkOrRise</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the place at which a stream disappears underground or reappears at the surface in a karst area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Spillway</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a constructed passage for surplus water to run over or around a dam</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SpringOrSeep</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a place where water issues from the ground naturally</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#StreamOrRiver</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a flowing body of water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SubmergedStream</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the original river course inundated by an impounded water body</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SwampOrMarsh</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an uncultivated, vegetated area that is inundated or saturated for a significant part of the year</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Treatment</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for water treatment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Tunnel</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an underground or underwater passage that carries water-bearing features such as CanalOrDitch or Pipeline</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UndergroundFeature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">buried</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UnderwaterFeature</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">always submerged</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wall</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">an upright structure of masonry, wood, plaster, or other building material serving to separate land from water with no additional structures present</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wash</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">the usually dry portion of a stream bed that contains water only during or after a local rainstorm or heavy snowmelt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WaterStorage</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">for short- or long-term storage of water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Waterfall</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a vertical or near-vertical descent of water over a step or ledge in the bed of a river</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Weir</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a barrier constructed to control the flow or raise the level of water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Well</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a pit or hole dug or bored into the earth for the extraction of oil, water, other fluids, or gases</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WithdrawingConvergence</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">a point on the surface water network where water is removed from the network, typically through a conveyance such as a canal, ditch or pipeline</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
