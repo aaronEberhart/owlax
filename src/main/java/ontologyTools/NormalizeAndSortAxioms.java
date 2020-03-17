@@ -267,12 +267,22 @@ public class NormalizeAndSortAxioms  {
 				
 			// nnf was the right size! woohoo!
 			if(nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-				classAxioms.add(axiom);
+				
+				//can we normalize a conjunction?
+				if (axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
+					((OWLObjectIntersectionOf)axiom.getSuperClass()).conjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(axiom.getSubClass(), a, Collections.emptyList())));
+				//can we normalize a disjunction?
+				}else if (axiom.getSubClass().getClassExpressionType().getName().equals("ObjectUnionOf")) {
+					((OWLObjectUnionOf)axiom.getSubClass()).disjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(a, axiom.getSuperClass(), Collections.emptyList())));
+				//oh well couldn't normalize but still works
+				}else {
+					classAxioms.add(axiom);
+				}
 				
 			// is it the right size, but not nnf?
-				// cardinality _should_ be the only axiom type that grows in NNF
-			}else if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-	
+			// cardinality _should_ be the only axiom type that grows in NNF
+			}else if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {				
+				
 				//get the antecedent and consequent
 				OWLClassExpression superClass = ((OWLSubClassOfAxiom)inAxiom).getSuperClass();
 				OWLClassExpression subClass = ((OWLSubClassOfAxiom)inAxiom).getSubClass();
