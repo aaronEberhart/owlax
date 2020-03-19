@@ -173,4 +173,3 @@ Temporary Items
 .apdisk
 # End of https://www.gitignore.io/api/osx,java,eclipse,intellij,maven
 *go-plus.owl
-*.txt

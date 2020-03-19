@@ -1,0 +1,107 @@
+Evaluation Results:
+
+All Axioms Combined:
+Total Percent Coverage: 0.991890
+Total Percent Coverage Ignoring Subclass: 0.352393
+Total Percent Axioms OWLAx Unique: 0.180860
+Total Percent Missed: 0.008110
+Average Axiom-Type Count: 19.412698
+Average Axiom-Type Count Ignoring Subclass: 6.896825
+Average Miss Count: 0.158730
+Average Axiom-Type Standard Deviation: 21.055776
+Average Axiom-Type Mode: 6.000000
+Average Axiom-Type Median: 11.722222
+
+Mean OWLAx Result:
+	{inverse scoped functional role=0.0, qualified scoped functional role=0.0, other=2.857142857142857, functional role=3.4285714285714284, scoped role domain=28.142857142857142, disjoint classes=0.0, structural tautology=0.14285714285714285, inverse qualified functional role=0.0, inverse existential=0.0, inverse functional role=3.0, role domain=14.142857142857142, scoped functional role=3.5714285714285716, existential=25.428571428571427, scoped role range=1.1428571428571428, role range=39.857142857142854, subclass=225.28571428571428, qualified functional role=5.285714285714286, inverse qualified scoped functional role=0.0}
+
+Mode OWLAx Result:
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=0, functional role=0, disjoint classes=0, scoped role domain=16, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=18, scoped functional role=0, scoped role range=0, existential=15, role range=27, subclass=41, qualified functional role=0, inverse qualified scoped functional role=0}
+
+Median OWLAx Result:
+	{qualified scoped functional role=0.0, inverse scoped functional role=0.0, other=2.0, functional role=1.0, disjoint classes=0.0, scoped role domain=26.0, structural tautology=0.0, inverse existential=0.0, inverse qualified functional role=0.0, inverse functional role=0.0, role domain=17.0, scoped functional role=1.0, scoped role range=0.0, existential=7.0, role range=36.0, subclass=119.0, qualified functional role=2.0, inverse qualified scoped functional role=0.0}
+
+Standard Deviation OWLAx Result:
+	{qualified scoped functional role=0.0, inverse scoped functional role=0.0, other=2.9965967090575756, functional role=4.531071864901058, disjoint classes=0.0, scoped role domain=12.822174669895357, structural tautology=0.3499271061118826, inverse existential=0.0, inverse qualified functional role=0.0, inverse functional role=4.810702354423639, role domain=6.874976808866266, scoped functional role=3.81190401832181, scoped role range=2.415933503612538, existential=40.19899480924205, role range=14.85576916726362, subclass=279.4631150135224, qualified functional role=5.872801368884133, inverse qualified scoped functional role=0.0}
+
+
+Mean Ontology Composition:
+	{data cardinality=1.8571428571428572, data domain=12.142857142857142, transitive role=0.5714285714285714, functional role=3.4285714285714284, disjoint classes=80.85714285714286, disjoint data=0.0, inverse functional role=3.0, number of roles=32.285714285714285, complex class axioms=12.857142857142858, subdata=0.0, role domain=30.857142857142858, irreflexive role=0.0, role axioms=28.285714285714285, role cardinality=0.8571428571428571, symmetric role=0.14285714285714285, number of classes=71.14285714285714, role range=30.857142857142858, functional data=5.285714285714286, subrole=3.0, equivalent data=0.0, subrole chain=0.0, inverse role=12.285714285714286, equivalent classes=6.285714285714286, disjoint roles=0.0, number of data properties=12.142857142857142, simple class axioms=352.2857142857143, asymmetric role=0.0, data range=12.142857142857142, equivalent roles=0.0, disjoint union=0.0, reflexive role=0.0, subclass=89.71428571428571}
+
+Mode Ontology Composition:
+	{data cardinality=0, data domain=18, functional role=11, transitive role=0, disjoint classes=14, disjoint data=0, number of roles=46, inverse functional role=12, complex class axioms=16, subdata=0, role domain=46, irreflexive role=0, role axioms=55, symmetric role=0, role cardinality=0, number of classes=60, functional data=15, role range=46, subrole=13, equivalent data=0, subrole chain=0, equivalent classes=13, inverse role=21, disjoint roles=0, number of data properties=18, asymmetric role=0, simple class axioms=267, data range=18, disjoint union=0, equivalent roles=0, subclass=58, reflexive role=0}
+
+Median Ontology Composition:
+	{data cardinality=0.0, data domain=11.0, functional role=1.0, transitive role=0.0, disjoint classes=27.0, disjoint data=0.0, number of roles=33.0, inverse functional role=0.0, complex class axioms=13.0, subdata=0.0, role domain=30.0, irreflexive role=0.0, role axioms=28.0, symmetric role=0.0, role cardinality=1.0, number of classes=60.0, functional data=2.0, role range=30.0, subrole=0.0, equivalent data=0.0, subrole chain=0.0, equivalent classes=7.0, inverse role=14.0, disjoint roles=0.0, number of data properties=11.0, asymmetric role=0.0, simple class axioms=267.0, data range=11.0, disjoint union=0.0, equivalent roles=0.0, subclass=64.0, reflexive role=0.0}
+
+Standard Deviation Ontology Composition:
+	{data cardinality=3.3986792152486625, data domain=8.025469660107508, functional role=4.531071864901058, transitive role=1.049781318335648, disjoint classes=135.29589643384136, disjoint data=0.0, number of roles=12.600615469257113, inverse functional role=4.810702354423639, complex class axioms=8.2015429110899, subdata=0.0, role domain=13.075916481713039, irreflexive role=0.0, role axioms=16.584969836867234, symmetric role=0.3499271061118826, role cardinality=0.8329931278350428, number of classes=36.38064073663578, functional data=5.872801368884133, role range=13.075916481713039, subrole=4.928053803045811, equivalent data=0.0, subrole chain=0.0, equivalent classes=5.94532915619566, inverse role=6.6486150161257696, disjoint roles=0.0, number of data properties=8.025469660107508, asymmetric role=0.0, simple class axioms=273.9351926933054, data range=8.025469660107508, disjoint union=0.0, equivalent roles=0.0, subclass=66.8766760232472, reflexive role=0.0}
+
+Unused OWLAx Axioms:
+
+	qualified scoped functional role
+
+	inverse scoped functional role
+
+	disjoint classes
+
+	inverse existential
+
+	inverse qualified functional role
+
+	inverse qualified scoped functional role
+
+Unused Ontology Axioms:
+
+	disjoint data
+
+	subdata
+
+	irreflexive role
+
+	equivalent data
+
+	subrole chain
+
+	disjoint roles
+
+	asymmetric role
+
+	disjoint union
+
+	equivalent roles
+
+	reflexive role
+
+Raw OWLAx Results:
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=0, functional role=0, disjoint classes=0, scoped role domain=16, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=18, scoped functional role=0, scoped role range=0, existential=15, role range=27, subclass=41, qualified functional role=0, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=1, functional role=0, disjoint classes=0, scoped role domain=33, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=17, scoped functional role=1, scoped role range=0, existential=123, role range=31, subclass=134, qualified functional role=0, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=3, functional role=0, disjoint classes=0, scoped role domain=20, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=0, scoped functional role=1, scoped role range=0, existential=7, role range=19, subclass=219, qualified functional role=0, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=0, functional role=2, disjoint classes=0, scoped role domain=26, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=20, scoped functional role=8, scoped role range=0, existential=4, role range=46, subclass=898, qualified functional role=2, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=2, functional role=10, disjoint classes=0, scoped role domain=48, structural tautology=1, inverse existential=0, inverse qualified functional role=0, inverse functional role=9, role domain=9, scoped functional role=5, scoped role range=0, existential=3, role range=59, subclass=79, qualified functional role=8, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=5, functional role=1, disjoint classes=0, scoped role domain=11, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=14, scoped functional role=10, scoped role range=7, existential=19, role range=36, subclass=119, qualified functional role=12, inverse qualified scoped functional role=0}
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=9, functional role=11, disjoint classes=0, scoped role domain=43, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=12, role domain=21, scoped functional role=0, scoped role range=1, existential=7, role range=61, subclass=87, qualified functional role=15, inverse qualified scoped functional role=0}
+
+Raw Ontology Compositions:
+
+	{data cardinality=2, OntologyID(OntologyIRI(<http://cmt>) VersionIRI(<null>))=-9, data domain=10, functional role=10, transitive role=0, disjoint classes=27, disjoint data=0, number of roles=49, inverse functional role=9, complex class axioms=4, subdata=0, role domain=49, irreflexive role=0, role axioms=40, symmetric role=0, role cardinality=1, number of classes=30, functional data=8, role range=49, subrole=0, equivalent data=0, subrole chain=0, equivalent classes=1, inverse role=20, disjoint roles=0, number of data properties=10, asymmetric role=0, simple class axioms=233, data range=10, disjoint union=0, equivalent roles=0, subclass=33, reflexive role=0, RDF/XML Syntax=-9}
+
+	{data cardinality=0, data domain=11, functional role=0, transitive role=0, disjoint classes=0, disjoint data=0, number of roles=17, inverse functional role=0, complex class axioms=0, subdata=0, role domain=16, irreflexive role=0, role axioms=12, symmetric role=0, role cardinality=0, number of classes=50, functional data=0, role range=16, subrole=0, equivalent data=0, subrole chain=0, OntologyID(OntologyIRI(<http://sigkdd>) VersionIRI(<null>))=-12, equivalent classes=7, inverse role=6, disjoint roles=0, number of data properties=11, asymmetric role=0, simple class axioms=117, data range=11, disjoint union=0, equivalent roles=0, subclass=49, reflexive role=0, RDF/XML Syntax=-12}
+
+	{data cardinality=0, data domain=18, functional role=11, transitive role=0, disjoint classes=14, disjoint data=0, number of roles=46, inverse functional role=12, complex class axioms=16, subdata=0, role domain=46, irreflexive role=0, role axioms=55, symmetric role=0, role cardinality=0, number of classes=60, functional data=15, role range=46, subrole=13, equivalent data=0, subrole chain=0, equivalent classes=13, inverse role=21, disjoint roles=0, number of data properties=18, asymmetric role=0, simple class axioms=267, data range=18, disjoint union=0, equivalent roles=0, subclass=58, reflexive role=0}
+
+	{data cardinality=10, OntologyID(OntologyIRI(<http://confOf>) VersionIRI(<null>))=-10, data domain=23, functional role=1, transitive role=1, disjoint classes=43, disjoint data=0, number of roles=13, inverse functional role=0, complex class axioms=11, subdata=0, role domain=13, irreflexive role=0, role axioms=6, symmetric role=1, role cardinality=0, number of classes=39, functional data=12, role range=13, subrole=0, equivalent data=0, subrole chain=0, equivalent classes=0, inverse role=2, disjoint roles=0, number of data properties=23, asymmetric role=0, simple class axioms=234, data range=23, disjoint union=0, equivalent roles=0, subclass=64, reflexive role=0, RDF/XML Syntax=-10}
+
+	{data cardinality=0, data domain=0, functional role=0, transitive role=3, disjoint classes=74, disjoint data=0, number of roles=33, inverse functional role=0, complex class axioms=13, subdata=0, role domain=24, irreflexive role=0, role axioms=41, symmetric role=0, role cardinality=1, number of classes=74, functional data=0, role range=24, subrole=8, equivalent data=0, subrole chain=0, equivalent classes=0, inverse role=15, disjoint roles=0, number of data properties=0, asymmetric role=0, simple class axioms=269, data range=0, disjoint union=0, equivalent roles=0, subclass=85, reflexive role=0, OntologyID(OntologyIRI(<http://ekaw>) VersionIRI(<null>))=-14, RDF/XML Syntax=-14}
+
+	{data cardinality=1, data domain=20, functional role=2, transitive role=0, disjoint classes=407, disjoint data=0, number of roles=30, inverse functional role=0, complex class axioms=21, subdata=0, role domain=30, irreflexive role=0, role axioms=28, symmetric role=0, role cardinality=2, number of classes=104, functional data=2, role range=30, subrole=0, equivalent data=0, subrole chain=0, OntologyID(OntologyIRI(<http://edas>) VersionIRI(<null>))=-8, equivalent classes=7, inverse role=14, disjoint roles=0, number of data properties=20, asymmetric role=0, simple class axioms=1006, data range=20, disjoint union=0, equivalent roles=0, subclass=92, reflexive role=0, RDF/XML Syntax=-8}
+
+	{data cardinality=0, data domain=3, functional role=0, transitive role=0, disjoint classes=1, disjoint data=0, number of roles=38, inverse functional role=0, complex class axioms=25, subdata=0, role domain=38, irreflexive role=0, role axioms=16, symmetric role=0, role cardinality=2, number of classes=141, functional data=0, role range=38, subrole=0, equivalent data=0, subrole chain=0, OntologyID(OntologyIRI(<http://iasted>) VersionIRI(<null>))=-11, equivalent classes=16, inverse role=8, disjoint roles=0, number of data properties=3, asymmetric role=0, simple class axioms=340, data range=3, disjoint union=0, equivalent roles=0, subclass=247, reflexive role=0, RDF/XML Syntax=-11}
+

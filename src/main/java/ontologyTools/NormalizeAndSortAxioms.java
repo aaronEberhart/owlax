@@ -13,13 +13,12 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAsymmetricObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataExactCardinality;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
 import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLDatatype;
+import org.semanticweb.owlapi.model.OWLDataRange;
 import org.semanticweb.owlapi.model.OWLDisjointDataPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLDisjointObjectPropertiesAxiom;
 import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
@@ -123,10 +122,13 @@ public class NormalizeAndSortAxioms  {
 	}
 	
 	/**
-	 * False if the type string of an axiom is Annotation, class assertion, role assertion, Different individuals, or Declaration, True otherwise
+	 * False if the type string of an axiom is Annotation, class assertion, role/data assertion, Different individuals, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") || type.equals("ClassAssertion") || type.equals("ObjectPropertyAssertion"));
+		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") 
+				|| type.equals("AnnotationPropertyDomainOf") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") 
+				|| type.equals("AnnotationPropertyDomain") || type.equals("AnnotationPropertyRange") || type.contentEquals("SubAnnotationProperty") 
+				|| type.equals("ClassAssertion") || type.equals("ObjectPropertyAssertion") || type.equals("DataPropertyAssertion") || type.equals("DatatypeDefinition"));
 	}
 	
 	/**
@@ -265,23 +267,9 @@ public class NormalizeAndSortAxioms  {
 			OWLSubClassOfAxiom axiom = (OWLSubClassOfAxiom)inAxiom.getNNF();
 			int nnfSize = getSubClassOfAxiomSize(axiom);
 				
-			// nnf was the right size! woohoo!
-			if(nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-				
-				//can we normalize a conjunction?
-				if (axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
-					((OWLObjectIntersectionOf)axiom.getSuperClass()).conjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(axiom.getSubClass(), a, Collections.emptyList())));
-				//can we normalize a disjunction?
-				}else if (axiom.getSubClass().getClassExpressionType().getName().equals("ObjectUnionOf")) {
-					((OWLObjectUnionOf)axiom.getSubClass()).disjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(a, axiom.getSuperClass(), Collections.emptyList())));
-				//oh well couldn't normalize but still works
-				}else {
-					classAxioms.add(axiom);
-				}
-				
 			// is it the right size, but not nnf?
 			// cardinality _should_ be the only axiom type that grows in NNF
-			}else if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {				
+			if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {				
 				
 				//get the antecedent and consequent
 				OWLClassExpression superClass = ((OWLSubClassOfAxiom)inAxiom).getSuperClass();
@@ -303,15 +291,27 @@ public class NormalizeAndSortAxioms  {
 						ontologyComposition.replace("data cardinality", ontologyComposition.get("data cardinality") + 1);
 						parseDataExactCardinality(inAxiom,(OWLDataExactCardinality)subClass,superClass);
 					}else {
-						throw new Exception(String.format("\nUNHANDLED AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
+						complexClassAxioms.add(axiom);	
 					}
-				//uh oh
-				}catch(Exception e){				
-					System.err.println(e);	
-				}
-			}
+					//uh oh
+					}catch(Exception e){				
+						System.err.println(e);	
+					}
+				// nnf was the right size! woohoo!
+				}else if(nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+					
+					//can we normalize a conjunction?
+					if (axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
+						((OWLObjectIntersectionOf)axiom.getSuperClass()).conjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(axiom.getSubClass(), a, Collections.emptyList())));
+					//can we normalize a disjunction?
+					}else if (axiom.getSubClass().getClassExpressionType().getName().equals("ObjectUnionOf")) {
+						((OWLObjectUnionOf)axiom.getSubClass()).disjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(a, axiom.getSuperClass(), Collections.emptyList())));
+					//oh well couldn't normalize but still works
+					}else {
+						classAxioms.add(axiom);
+					}
 			// is it too big for now?
-			else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+			}else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 				complexClassAxioms.add(axiom);
 			}else {
 				throw new Exception(String.format("\nIMPOSSIBLE AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
@@ -326,17 +326,12 @@ public class NormalizeAndSortAxioms  {
 		
 		//get stuff from old axiom		
 		OWLObjectPropertyExpression property = subClass.getProperty();
-		List<OWLClass> classes = subClass.classesInSignature().collect(Collectors.toList());
+		OWLClassExpression classexpression = subClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
 		
-		//check if axiom is the right size
-		if(classes.size() > 1) {
-			throw new Exception("Too many classes in consequent of \n"+axiom.toString());
-		}
-		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, 1, classes.get(0)),superClass,annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(property, classes.get(0)),superClass,annotations);
+		axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, 1, classexpression),superClass,annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(property, classexpression),superClass,annotations);
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -350,17 +345,12 @@ public class NormalizeAndSortAxioms  {
 		
 		//get stuff from old axiom	
 		OWLDataPropertyExpression property = subClass.getProperty();
-		List<OWLDatatype> datatypes = subClass.datatypesInSignature().collect(Collectors.toList());
+		OWLDataRange datarange = subClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
 		
-		//check if axiom is the right size
-		if(datatypes.size() > 1) {
-			throw new Exception("Too many datatypes in consequent of \n"+axiom.toString());
-		}
-		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, 1, datatypes.get(0)),superClass,annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(property, datatypes.get(0)),superClass, annotations);
+		axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, 1, datarange),superClass,annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(property, datarange),superClass, annotations);
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -374,17 +364,12 @@ public class NormalizeAndSortAxioms  {
 		
 		//get stuff from old axiom		
 		OWLObjectPropertyExpression property = superClass.getProperty();
-		List<OWLClass> classes = superClass.classesInSignature().collect(Collectors.toList());
+		OWLClassExpression classexpression = superClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
 		
-		//check if axiom is the right size
-		if(classes.size() > 1) {
-			throw new Exception("Too many classes in consequent of \n"+axiom.toString());
-		}
-		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMaxCardinalityImpl(property, 1, classes.get(0)), annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectSomeValuesFromImpl(property, classes.get(0)), annotations);
+		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMaxCardinalityImpl(property, 1, classexpression), annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectSomeValuesFromImpl(property, classexpression), annotations);
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -398,17 +383,12 @@ public class NormalizeAndSortAxioms  {
 		
 		//get stuff from old axiom	
 		OWLDataPropertyExpression property = superClass.getProperty();
-		List<OWLDatatype> datatypes = superClass.datatypesInSignature().collect(Collectors.toList());
+		OWLDataRange datarange = superClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
-		
-		//check if axiom is the right size
-		if(datatypes.size() > 1) {
-			throw new Exception("Too many datatypes in consequent of \n"+axiom.toString());
-		}
-		
+				
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMaxCardinalityImpl(property, 1, datatypes.get(0)), annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLDataSomeValuesFromImpl(property, datatypes.get(0)), annotations);
+		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMaxCardinalityImpl(property, 1, datarange), annotations);
+		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLDataSomeValuesFromImpl(property, datarange), annotations);
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -432,7 +412,7 @@ public class NormalizeAndSortAxioms  {
 	}
 	
 	/**
-	 * Gets the size of an owl expression
+	 * Gets the size of an owl class expression
 	 */
 	private static int getClassExpressionSize(OWLClassExpression expression) {
 		
@@ -459,8 +439,11 @@ public class NormalizeAndSortAxioms  {
 			return getClassExpressionSize(((OWLObjectMinCardinality)expression).getFiller()) + 1;
 		}else if (type.equals("ObjectExactCardinality")) {
 			return getClassExpressionSize(((OWLObjectExactCardinality)expression).getFiller()) + 1;
-		// data = same as quantifier just not nested
-		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality") || type.equals("ObjectHasValue")) {
+		// data = same as class but not nested
+		}else if (type.equals("DataSomeValuesFrom") || type.equals("DataAllValuesFrom") || type.equals("DataMaxCardinality") || type.equals("DataMinCardinality") || type.equals("DataExactCardinality")) {
+			return  2;
+		// \exists R.{a}
+		}else if (type.equals("ObjectHasValue")){
 			return 2;
 		// self = always exactly one thing
 		}else if (type.equals("ObjectHasSelf") || type.equals("DataHasValue")) {

@@ -1,0 +1,115 @@
+Evaluation Results:
+
+All Axioms Combined:
+Total Percent Coverage: 1.000000
+Total Percent Coverage Ignoring Subclass: 0.966346
+Total Percent Axioms OWLAx Unique: 0.235577
+Total Percent Missed: 0.000000
+Average Axiom-Type Count: 11.555556
+Average Axiom-Type Count Ignoring Subclass: 11.166667
+Average Miss Count: 0.000000
+Average Axiom-Type Standard Deviation: 0.000000
+Average Axiom-Type Mode: 11.000000
+Average Axiom-Type Median: 11.555556
+
+Mean OWLAx Result:
+	{inverse scoped functional role=0.0, qualified scoped functional role=0.0, other=0.0, functional role=0.0, scoped role domain=49.0, disjoint classes=0.0, structural tautology=0.0, inverse qualified functional role=0.0, inverse existential=0.0, inverse functional role=0.0, role domain=39.0, scoped functional role=0.0, existential=0.0, scoped role range=0.0, role range=113.0, subclass=7.0, qualified functional role=0.0, inverse qualified scoped functional role=0.0}
+
+Mode OWLAx Result:
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=0, functional role=0, disjoint classes=0, scoped role domain=49, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=39, scoped functional role=0, scoped role range=0, existential=0, role range=113, subclass=7, qualified functional role=0, inverse qualified scoped functional role=0}
+
+Median OWLAx Result:
+	{qualified scoped functional role=0.0, inverse scoped functional role=0.0, other=0.0, functional role=0.0, disjoint classes=0.0, scoped role domain=49.0, structural tautology=0.0, inverse existential=0.0, inverse qualified functional role=0.0, inverse functional role=0.0, role domain=39.0, scoped functional role=0.0, scoped role range=0.0, existential=0.0, role range=113.0, subclass=7.0, qualified functional role=0.0, inverse qualified scoped functional role=0.0}
+
+Standard Deviation OWLAx Result:
+	{qualified scoped functional role=0.0, inverse scoped functional role=0.0, other=0.0, functional role=0.0, disjoint classes=0.0, scoped role domain=0.0, structural tautology=0.0, inverse existential=0.0, inverse qualified functional role=0.0, inverse functional role=0.0, role domain=0.0, scoped functional role=0.0, scoped role range=0.0, existential=0.0, role range=0.0, subclass=0.0, qualified functional role=0.0, inverse qualified scoped functional role=0.0}
+
+
+Mean Ontology Composition:
+	{data cardinality=0.0, data domain=49.0, transitive role=0.0, functional role=0.0, disjoint classes=0.0, disjoint data=0.0, inverse functional role=0.0, number of roles=149.0, complex class axioms=45.0, subdata=0.0, role domain=75.0, irreflexive role=0.0, role axioms=161.0, role cardinality=0.0, symmetric role=3.0, number of classes=40.0, role range=75.0, functional data=0.0, subrole=8.0, equivalent data=0.0, subrole chain=0.0, inverse role=75.0, equivalent classes=0.0, disjoint roles=0.0, number of data properties=49.0, simple class axioms=208.0, asymmetric role=0.0, data range=47.0, equivalent roles=0.0, disjoint union=0.0, reflexive role=0.0, subclass=7.0}
+
+Mode Ontology Composition:
+	{data cardinality=0, data domain=49, functional role=0, transitive role=0, disjoint classes=0, disjoint data=0, number of roles=149, inverse functional role=0, complex class axioms=45, subdata=0, role domain=75, irreflexive role=0, role axioms=161, symmetric role=3, role cardinality=0, number of classes=40, functional data=0, role range=75, subrole=8, equivalent data=0, subrole chain=0, equivalent classes=0, inverse role=75, disjoint roles=0, number of data properties=49, asymmetric role=0, simple class axioms=208, data range=47, disjoint union=0, equivalent roles=0, subclass=7, reflexive role=0}
+
+Median Ontology Composition:
+	{data cardinality=0.0, data domain=49.0, functional role=0.0, transitive role=0.0, disjoint classes=0.0, disjoint data=0.0, number of roles=149.0, inverse functional role=0.0, complex class axioms=45.0, subdata=0.0, role domain=75.0, irreflexive role=0.0, role axioms=161.0, symmetric role=3.0, role cardinality=0.0, number of classes=40.0, functional data=0.0, role range=75.0, subrole=8.0, equivalent data=0.0, subrole chain=0.0, equivalent classes=0.0, inverse role=75.0, disjoint roles=0.0, number of data properties=49.0, asymmetric role=0.0, simple class axioms=208.0, data range=47.0, disjoint union=0.0, equivalent roles=0.0, subclass=7.0, reflexive role=0.0}
+
+Standard Deviation Ontology Composition:
+	{data cardinality=0.0, data domain=0.0, functional role=0.0, transitive role=0.0, disjoint classes=0.0, disjoint data=0.0, number of roles=0.0, inverse functional role=0.0, complex class axioms=0.0, subdata=0.0, role domain=0.0, irreflexive role=0.0, role axioms=0.0, symmetric role=0.0, role cardinality=0.0, number of classes=0.0, functional data=0.0, role range=0.0, subrole=0.0, equivalent data=0.0, subrole chain=0.0, equivalent classes=0.0, inverse role=0.0, disjoint roles=0.0, number of data properties=0.0, asymmetric role=0.0, simple class axioms=0.0, data range=0.0, disjoint union=0.0, equivalent roles=0.0, subclass=0.0, reflexive role=0.0}
+
+Unused OWLAx Axioms:
+
+	qualified scoped functional role
+
+	inverse scoped functional role
+
+	other
+
+	functional role
+
+	disjoint classes
+
+	structural tautology
+
+	inverse existential
+
+	inverse qualified functional role
+
+	inverse functional role
+
+	scoped functional role
+
+	scoped role range
+
+	existential
+
+	qualified functional role
+
+	inverse qualified scoped functional role
+
+Unused Ontology Axioms:
+
+	data cardinality
+
+	functional role
+
+	transitive role
+
+	disjoint classes
+
+	disjoint data
+
+	inverse functional role
+
+	subdata
+
+	irreflexive role
+
+	role cardinality
+
+	functional data
+
+	equivalent data
+
+	subrole chain
+
+	equivalent classes
+
+	disjoint roles
+
+	asymmetric role
+
+	disjoint union
+
+	equivalent roles
+
+	reflexive role
+
+Raw OWLAx Results:
+
+	{qualified scoped functional role=0, inverse scoped functional role=0, other=0, functional role=0, disjoint classes=0, scoped role domain=49, structural tautology=0, inverse existential=0, inverse qualified functional role=0, inverse functional role=0, role domain=39, scoped functional role=0, scoped role range=0, existential=0, role range=113, subclass=7, qualified functional role=0, inverse qualified scoped functional role=0}
+
+Raw Ontology Compositions:
+
+	{data cardinality=0, data domain=49, functional role=0, transitive role=0, disjoint classes=0, disjoint data=0, number of roles=149, inverse functional role=0, complex class axioms=45, subdata=0, role domain=75, irreflexive role=0, role axioms=161, symmetric role=3, role cardinality=0, number of classes=40, functional data=0, role range=75, subrole=8, equivalent data=0, subrole chain=0, equivalent classes=0, inverse role=75, disjoint roles=0, number of data properties=49, asymmetric role=0, simple class axioms=208, data range=47, disjoint union=0, equivalent roles=0, subclass=7, reflexive role=0}
+

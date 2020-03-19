@@ -32,6 +32,10 @@ public class Main {
 		// wherever GMO and GBO are from
 		// ODP - I forget the website cogan knows 
 		
+		File out = new File("output/");
+		
+		if (!out.exists()) {out.mkdir();}
+		
 		//hydrography benchmarks
 		runEval(new File("OWL/hydrographyBenchmarks"));
 		
@@ -43,6 +47,9 @@ public class Main {
 
 		//ODPs
 		runEval(new File("OWL/ODPs"));
+		
+		//ontobee
+		runEval(new File("OWL/Ontobee"));
 		
 		//misc files by themselves (sizes very different)
 		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
@@ -85,7 +92,7 @@ public class Main {
 		
 		//write to file
 		try {
-			Files.writeString(Paths.get(String.format("%s.txt",dir.getName())),eval.toString());
+			Files.writeString(Paths.get(String.format("output/%s.txt",dir.getName())),eval.toString());
 		}catch (IOException e) {System.err.println(e);}
 		
 		return eval;
