@@ -23,8 +23,8 @@ import ontologyTools.OWLAxMatcher;
  */
 public class Main {
 	
-	public static void main(String[] args) throws Exception {		
-		
+	public static void main(String[] args) throws Exception {	
+
 		// OWL File Sources
 		//
 		// https://bioportal.bioontology.org/ontologies - GO GFO
@@ -55,7 +55,6 @@ public class Main {
 		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
 			runEval(file);
 		}
-		
 		// misc files together
 		runEval(new File("OWL/"));
 			
@@ -87,15 +86,19 @@ public class Main {
 			catch(Exception e) {System.err.println(e);}
 		}
 		
-		//do the evaluation
-		OWLAxEvaluation eval = new OWLAxEvaluation(results);
-		
-		//write to file
-		try {
-			Files.writeString(Paths.get(String.format("output/%s.txt",dir.getName())),eval.toString());
-		}catch (IOException e) {System.err.println(e);}
-		
-		return eval;
+		if (!results.isEmpty()) {
+			
+			//do the evaluation
+			OWLAxEvaluation eval = new OWLAxEvaluation(results);
+			
+			//write to file
+			try {
+				Files.writeString(Paths.get(String.format("output/%s.txt",dir.getName())),eval.toString());
+			}catch (IOException e) {System.err.println(e);}
+			
+			return eval;
+		}
+		else { return null; }
 	}
 	
 }

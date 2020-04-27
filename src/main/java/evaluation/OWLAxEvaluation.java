@@ -51,7 +51,8 @@ public class OWLAxEvaluation {
 		//split the results list into ontology and owlax data
 		owlaxResults = new ArrayList<HashMap<String,Integer>>();		
 		ontologyCompositions = new ArrayList<HashMap<String,Integer>>();
-		allResults.forEach(a -> {owlaxResults.add(a.get(0));ontologyCompositions.add(a.get(1));});
+		allResults.forEach(a -> {owlaxResults.add(a.get(0));
+		ontologyCompositions.add(a.get(1));});
 		
 		//precalc numerator and denominator
 		int all = owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
