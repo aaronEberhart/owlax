@@ -25,6 +25,8 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {	
 
+		ArrayList<ArrayList<HashMap<String,Integer>>> allResults = new ArrayList<ArrayList<HashMap<String,Integer>>>();
+		
 		// OWL File Sources
 		//
 		// https://bioportal.bioontology.org/ontologies - GO GFO
@@ -37,27 +39,35 @@ public class Main {
 		if (!out.exists()) {out.mkdir();}
 		
 		//hydrography benchmarks
-		runEval(new File("OWL/hydrographyBenchmarks"));
+		allResults.addAll(runEval(new File("OWL/hydrographyBenchmarks")));
 		
 		//anatomy benchmarks
-		runEval(new File("OWL/anatomyBenchmarks"));
+		allResults.addAll(runEval(new File("OWL/anatomyBenchmarks")));
 				
 		//conference benchmarks
-		runEval(new File("OWL/conferenceBenchmarks"));
+		allResults.addAll(runEval(new File("OWL/conferenceBenchmarks")));
 
 		//ODPs
-		runEval(new File("OWL/ODPs"));
+		allResults.addAll(runEval(new File("OWL/ODPs")));
 		
 		//ontobee
-		runEval(new File("OWL/Ontobee"));
+		allResults.addAll(runEval(new File("OWL/Ontobee")));
 		
 		//misc files by themselves (sizes very different)
 		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
 			runEval(file);
 		}
+		
 		// misc files together
-		runEval(new File("OWL/"));
-			
+		allResults.addAll(runEval(new File("OWL/")));
+		
+		OWLAxEvaluation eval = new OWLAxEvaluation(allResults);
+		
+		//write to file
+		try {
+			Files.writeString(Paths.get("output/allResults.csv"),eval.toCSV());
+		}catch (IOException e) {System.err.println(e);}
+		
 		System.out.println("DONE");
 	}	
 	
@@ -68,7 +78,7 @@ public class Main {
 	 * @param dir File
 	 * @return OWLAxEvaluation
 	 */
-	public static OWLAxEvaluation runEval(File dir) {
+	public static ArrayList<ArrayList<HashMap<String,Integer>>> runEval(File dir) {
 		//check if it's a file of a dir of files
 		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
 		ArrayList<ArrayList<HashMap<String,Integer>>> results = new ArrayList<ArrayList<HashMap<String,Integer>>>();
@@ -93,12 +103,12 @@ public class Main {
 			
 			//write to file
 			try {
-				Files.writeString(Paths.get(String.format("output/%s.txt",dir.getName())),eval.toString());
+				Files.writeString(Paths.get(String.format("output/%s.csv",dir.getName())),eval.toCSV());
 			}catch (IOException e) {System.err.println(e);}
 			
-			return eval;
+			return results;
 		}
-		else { return null; }
+		else { return results; }
 	}
 	
 }

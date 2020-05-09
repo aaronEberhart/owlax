@@ -54,14 +54,15 @@ public class OWLAxEvaluation {
 		allResults.forEach(a -> {owlaxResults.add(a.get(0));
 		ontologyCompositions.add(a.get(1));});
 		
-		//precalc numerator and denominator
+		//precalc numerators and denominators
 		int all = owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
 		int hits = all - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("other"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
-	    
+		int totalSubclass = owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("subclass"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a));
+		
 		//find percents covered
 		allHitOnlyOWLAx = (double)(owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("scoped role domain") || a.getKey().equals("scoped role range")  || a.getKey().equals("existential")|| a.getKey().equals("inverse existential")  || a.getKey().equals("qualified functional role")  || a.getKey().equals("scoped functional role")  || a.getKey().equals("qualified scoped functional role") || a.getKey().equals("inverse qualified functional role")  || a.getKey().equals("inverse scoped functional role")  || a.getKey().equals("inverse qualified scoped functional role")  || a.getKey().equals("structural tautology"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
-		totalCoverage = (double)hits / all;
-		totalCoverageIgnoringSubclass  = (double)(hits - owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream().filter(a -> a.getKey().equals("subclass"))).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingInt(Map.Entry::getValue))).values().stream().collect(Collectors.summingInt(a -> a))) / all;
+		totalCoverage = (double)hits / all;		
+		totalCoverageIgnoringSubclass  = (double)(hits - totalSubclass) / (all - totalSubclass);
 	    
 		// calculating the means
 		meanResult = (HashMap<String,Double>)owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingDouble(Map.Entry::getValue)));		
@@ -300,6 +301,50 @@ public class OWLAxEvaluation {
 		sb.append(String.format("Raw Ontology Compositions:\n\n"));
 		for (HashMap<String,Integer> result : getOntologyCompositions()) {
 			sb.append(String.format("\t%s\n\n",result.toString()));
+		}
+		return sb.toString();
+	}
+	
+	public String toCSV() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(String.format("All Axioms Combined\nTotal Percent Coverage,%f\nTotal Percent Missed,%f\nTotal Percent Coverage Ignoring Subclass,%f\nTotal Percent Missed Ignoring Subclass,%f\nTotal Percent Axioms OWLAx Unique,%f\nAverage Axiom-Type Count,%f\nAverage Axiom-Type Count Ignoring Subclass,%f\nAverage Miss Count,%f\nAverage Axiom-Type Count Standard Deviation,%f\nAverage Axiom-Type Count Mode,%f\nAverage Axiom-Type Count Median,%f",totalCoverage,1.0-totalCoverage,totalCoverageIgnoringSubclass,1.0-totalCoverageIgnoringSubclass,allHitOnlyOWLAx,meanCoverage,meanCoverageIgnoringSubclass,meanResult.get("other")/meanResult.size(),meanStdDev,meanMode,meanMedian));
+		sb.append("\n\nMean OWLAx Result");
+		getMeanOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\nMode OWLAx Result");
+		getModeOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+		sb.append("\n\nMedian OWLAx Result");
+		getMedianOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\nStandard Deviation OWLAx Result");
+		getStdDevOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\n\nMean Ontology Composition");
+		getMeanOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\nMode Ontology Composition");
+		getModeOntology().forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+		sb.append("\n\nMedian Ontology Composition");
+		getMedianOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\nStandard Deviation Ontology Composition");
+		getStdDevOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append(String.format("\n\nUnused OWLAx Axioms"));
+		for (String result : getUnusedOWLAxAxioms()) {
+			sb.append(String.format(",%s",result));
+		}
+		sb.append(String.format("\n\nUnused OWLAPI Axioms"));
+		for (String result : getUnusedOntologyAxioms()) {
+			sb.append(String.format(",%s",result));
+		}
+		sb.append(String.format("\n\nRaw OWLAx Results\n"));
+		int i = 0;
+		for (HashMap<String,Integer> result : getOWLAxResults()) {
+			sb.append(String.format("Ontology %d",i++));
+			result.forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+			sb.append("\n");
+		}
+		i = 0;
+		sb.append(String.format("\n\nRaw Ontology Compositions\n"));
+		for (HashMap<String,Integer> result : getOntologyCompositions()) {
+			sb.append(String.format("Ontology %d",i++));
+			result.forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+			sb.append("\n");
 		}
 		return sb.toString();
 	}
