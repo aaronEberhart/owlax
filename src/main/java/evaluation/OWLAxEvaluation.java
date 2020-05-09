@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -308,42 +310,73 @@ public class OWLAxEvaluation {
 	public String toCSV() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(String.format("All Axioms Combined\nTotal Percent Coverage,%f\nTotal Percent Missed,%f\nTotal Percent Coverage Ignoring Subclass,%f\nTotal Percent Missed Ignoring Subclass,%f\nTotal Percent Axioms OWLAx Unique,%f\nAverage Axiom-Type Count,%f\nAverage Axiom-Type Count Ignoring Subclass,%f\nAverage Miss Count,%f\nAverage Axiom-Type Count Standard Deviation,%f\nAverage Axiom-Type Count Mode,%f\nAverage Axiom-Type Count Median,%f",totalCoverage,1.0-totalCoverage,totalCoverageIgnoringSubclass,1.0-totalCoverageIgnoringSubclass,allHitOnlyOWLAx,meanCoverage,meanCoverageIgnoringSubclass,meanResult.get("other")/meanResult.size(),meanStdDev,meanMode,meanMedian));
-		sb.append("\n\nMean OWLAx Result");
-		getMeanOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
-		sb.append("\n\nMode OWLAx Result");
-		getModeOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
-		sb.append("\n\nMedian OWLAx Result");
-		getMedianOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
-		sb.append("\n\nStandard Deviation OWLAx Result");
-		getStdDevOWLAxResult().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
-		sb.append("\n\n\nMean Ontology Composition");
-		getMeanOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
-		sb.append("\n\nMode Ontology Composition");
-		getModeOntology().forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
-		sb.append("\n\nMedian Ontology Composition");
-		getMedianOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
-		sb.append("\n\nStandard Deviation Ontology Composition");
-		getStdDevOntology().forEach((k,v) -> sb.append(String.format(",%s,%f",k,v)));
+		sb.append("\n\nMean OWLAx Count");
+		SortedSet<String> keys = new TreeSet<>(getMeanOWLAxResult().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getMeanOWLAxResult().get(key)));
+		}
+		sb.append("\nMode OWLAx Count");
+		keys = new TreeSet<>(getModeOWLAxResult().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%d",key,getModeOWLAxResult().get(key)));
+		}
+		sb.append("\nMedian OWLAx Count");
+		keys = new TreeSet<>(getMedianOWLAxResult().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getMedianOWLAxResult().get(key)));
+		}
+		sb.append("\nStandard Deviation OWLAx Count");
+		keys = new TreeSet<>(getStdDevOWLAxResult().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getStdDevOWLAxResult().get(key)));
+		}
+		sb.append("\n\nMean OWLAPI Count");
+		keys = new TreeSet<>(getMeanOntology().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getMeanOntology().get(key)));
+		}
+		sb.append("\nMode OWLAPI Count");
+		keys = new TreeSet<>(getModeOntology().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%d",key,getModeOntology().get(key)));
+		}
+		sb.append("\nMedian OWLAPI Count");
+		keys = new TreeSet<>(getMedianOntology().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getMedianOntology().get(key)));
+		}
+		sb.append("\nStandard Deviation OWLAPI Count");
+		keys = new TreeSet<>(getStdDevOntology().keySet());
+		for(String key : keys) {
+			sb.append(String.format(",%s,%f",key,getStdDevOntology().get(key)));
+		}
 		sb.append(String.format("\n\nUnused OWLAx Axioms"));
 		for (String result : getUnusedOWLAxAxioms()) {
 			sb.append(String.format(",%s",result));
 		}
-		sb.append(String.format("\n\nUnused OWLAPI Axioms"));
+		sb.append(String.format("\nUnused OWLAPI Axioms"));
 		for (String result : getUnusedOntologyAxioms()) {
 			sb.append(String.format(",%s",result));
 		}
-		sb.append(String.format("\n\nRaw OWLAx Results\n"));
+		sb.append(String.format("\n\nRaw OWLAx Counts\n"));
 		int i = 0;
 		for (HashMap<String,Integer> result : getOWLAxResults()) {
 			sb.append(String.format("Ontology %d",i++));
-			result.forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+			keys = new TreeSet<>(result.keySet());
+			for(String key : keys) {
+				sb.append(String.format(",%s,%d",key,result.get(key)));
+			}
 			sb.append("\n");
 		}
 		i = 0;
-		sb.append(String.format("\n\nRaw Ontology Compositions\n"));
+		sb.append(String.format("\nRaw OWLAPI Counts\n"));
 		for (HashMap<String,Integer> result : getOntologyCompositions()) {
+			result.values().removeIf(a -> a < 0);
 			sb.append(String.format("Ontology %d",i++));
-			result.forEach((k,v) -> sb.append(String.format(",%s,%d",k,v)));
+			keys = new TreeSet<>(result.keySet());
+			for(String key : keys) {
+				sb.append(String.format(",%s,%d",key,result.get(key)));
+			}
 			sb.append("\n");
 		}
 		return sb.toString();
