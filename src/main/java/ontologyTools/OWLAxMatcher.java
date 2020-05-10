@@ -77,10 +77,11 @@ public class OWLAxMatcher {
 			new OWLSubClassOfAxiomImpl(new OWLClassImpl(IRI.create("A")), new OWLObjectMinCardinalityImpl(new OWLObjectPropertyImpl(IRI.create("R")),0,new OWLClassImpl(IRI.create("B"))), Collections.emptyList()));
 	// max size of all the axioms (should be 3...)
 	private static final int maxSize = OWLAxAxioms.stream().mapToInt(a -> NormalizeAndSortAxioms.getSubClassOfAxiomSize(a)).max().getAsInt();
-	private static final String[] axiomHashKeys = {"subclass","disjoint classes","role domain","scoped role domain","role range","scoped role range","existential","inverse existential","functional role","qualified functional role","scoped functional role","qualified scoped functional role","inverse functional role","inverse qualified functional role","inverse scoped functional role","inverse qualified scoped functional role","structural tautology","other"};
+	private static final String[] axiomHashKeys = {"subclass","disjoint classes","role domain","scoped role domain","role range","scoped role range","existential","inverse existential","functional role","qualified functional role","scoped functional role","qualified scoped functional role","inverse functional role","inverse qualified functional role","inverse scoped functional role","inverse qualified scoped functional role","structural tautology","miss"};
 	private NormalizeAndSortAxioms normalizedAxioms;
-	private HashMap<String,Integer> result;
-	private HashMap<String,Integer> ontology;
+	private HashMap<String,Double> result;
+	private HashMap<String,Double> result2;
+	private HashMap<String,Double> ontology;
 	
 	/**
 	 * Checks appropriate class axioms from the normalized to see if they match OWLAx axioms
@@ -90,11 +91,24 @@ public class OWLAxMatcher {
 	public OWLAxMatcher(NormalizeAndSortAxioms axioms) {
 		normalizedAxioms = axioms;
 		
-		result = new HashMap<String,Integer>(){private static final long serialVersionUID = 2L;{for (String key : axiomHashKeys) {put(key,0);}}};
+		result = new HashMap<String,Double>(){private static final long serialVersionUID = 2L;{for (String key : axiomHashKeys) {put(key,0.0);}}};
+		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 5L;};
+		
+		result2.put("simple class axioms", (double)normalizedAxioms.getOntologyComposition().get("simple class axioms"));
+		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
+		result2.put("total class axioms", (double)result2.get("simple class axioms") + result2.get("complex class axioms"));
+		result2.put("role axioms", (double)normalizedAxioms.getOntologyComposition().get("role axioms"));
+		result2.put("total overall axioms", (double)result2.get("total class axioms") + result2.get("role axioms"));
 		
 		ontology = normalizedAxioms.getOntologyComposition();
 		
 		matchAxioms(normalizedAxioms.getSimpleClassAxioms());
+		
+		
+		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
+		result2.put("percent coverage all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("coverage count") / result2.get("total overall axioms"));
+		result2.put("percent coverage only simple class axioms",result2.get("simple class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("simple class axioms"));
+		result2.put("percent coverage all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("total class axioms"));
 	}
 
 	/**
@@ -105,11 +119,24 @@ public class OWLAxMatcher {
 	public OWLAxMatcher(OWLOntology inputOntology) {
 		normalizedAxioms = new NormalizeAndSortAxioms(inputOntology);
 		
-		result = new HashMap<String,Integer>(){private static final long serialVersionUID = 1L;{for (String key : axiomHashKeys) {put(key,0);}}};
+		result = new HashMap<String,Double>(){private static final long serialVersionUID = 1L;{for (String key : axiomHashKeys) {put(key,0.0);}}};
+		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 5L;};
+
+		result2.put("simple class axioms", (double)normalizedAxioms.getOntologyComposition().get("simple class axioms"));
+		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
+		result2.put("total class axioms", (double)result2.get("simple class axioms") + result2.get("complex class axioms"));
+		result2.put("role axioms", (double)normalizedAxioms.getOntologyComposition().get("role axioms"));
+		result2.put("total overall axioms", (double)result2.get("total class axioms") + result2.get("role axioms"));
 		
 		ontology = normalizedAxioms.getOntologyComposition();
 		
 		matchAxioms(normalizedAxioms.getSimpleClassAxioms());
+		
+		
+		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
+		result2.put("percent coverage all axioms",result2.get("coverage count") / (result2.get("total overall axioms") - result2.get("simple class axioms")));
+		result2.put("percent coverage only simple class axioms",result2.get("coverage count") / result2.get("simple class axioms"));
+		result2.put("percent coverage all class axioms",result2.get("coverage count") / (result2.get("total class axioms") - result2.get("simple class axioms")));
 	}
 	
 	/**
@@ -228,7 +255,7 @@ public class OWLAxMatcher {
 			}else if(axiom.getSuperClass().getClassExpressionType().getName().equals("DataMinCardinality") && ((OWLDataMinCardinality)axiom.getSuperClass()).getCardinality() == 0) {
 				result.replace("structural tautology", result.get("structural tautology") + 1);
 			}else {
-				result.replace("other", result.get("other") + 1);
+				result.replace("miss", result.get("miss") + 1);
 			}
 		}
 	}
@@ -312,8 +339,8 @@ public class OWLAxMatcher {
 	 * 
 	 * @return ArrayList&lt;HashMap&lt;String,Integer>>
 	 */
-	public ArrayList<HashMap<String,Integer>> getMatches(){
-		return new ArrayList<HashMap<String,Integer>>(Arrays.asList(result,ontology));
+	public ArrayList<HashMap<String,Double>> getMatches(){
+		return new ArrayList<HashMap<String,Double>>(Arrays.asList(result,ontology,result2));
 	}
 	
 	@Override

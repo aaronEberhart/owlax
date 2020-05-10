@@ -25,7 +25,7 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {	
 
-		ArrayList<ArrayList<HashMap<String,Integer>>> allResults = new ArrayList<ArrayList<HashMap<String,Integer>>>();
+		ArrayList<ArrayList<HashMap<String,Double>>> allResults = new ArrayList<ArrayList<HashMap<String,Double>>>();
 		
 		// OWL File Sources
 		//
@@ -78,10 +78,10 @@ public class Main {
 	 * @param dir File
 	 * @return OWLAxEvaluation
 	 */
-	public static ArrayList<ArrayList<HashMap<String,Integer>>> runEval(File dir) {
+	public static ArrayList<ArrayList<HashMap<String,Double>>> runEval(File dir) {
 		//check if it's a file of a dir of files
 		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
-		ArrayList<ArrayList<HashMap<String,Integer>>> results = new ArrayList<ArrayList<HashMap<String,Integer>>>();
+		ArrayList<ArrayList<HashMap<String,Double>>> results = new ArrayList<ArrayList<HashMap<String,Double>>>();
 		
 		System.out.println("Starting evaluation of "+dir.getName());
 		

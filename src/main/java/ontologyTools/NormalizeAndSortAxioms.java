@@ -81,7 +81,7 @@ public class NormalizeAndSortAxioms  {
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLPropertyAxiom> roleAxioms;
-	private HashMap<String,Integer> ontologyComposition;
+	private HashMap<String,Double> ontologyComposition;
 	
 	/**
 	 * Gets axioms from the ontology and then sorts them
@@ -96,22 +96,22 @@ public class NormalizeAndSortAxioms  {
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		
 		//save the quantities of these things for later
-		ontologyComposition = new HashMap<String,Integer>(){private static final long serialVersionUID = 3L;{
-			put("number of classes",(int)ontology.classesInSignature().count());
-			put("number of roles",(int)ontology.objectPropertiesInSignature().count());
-			put("number of data properties",(int)ontology.dataPropertiesInSignature().count());
-			put(ontology.getFormat().toString(),ontologyIndex);
-			put(ontology.getOntologyID().toString(),ontologyIndex--);
-			for (String key : ontologyHashKeys){put(key,0);}
+		ontologyComposition = new HashMap<String,Double>(){private static final long serialVersionUID = 3L;{
+			put("number of classes",(double)ontology.classesInSignature().count());
+			put("number of roles",(double)ontology.objectPropertiesInSignature().count());
+			put("number of data properties",(double)ontology.dataPropertiesInSignature().count());
+			put(ontology.getFormat().toString(),(double)ontologyIndex);
+			put(ontology.getOntologyID().toString(),(double)ontologyIndex--);
+			for (String key : ontologyHashKeys){put(key,0.0);}
 		}};
 		
 		//sort the axioms from the ontology
 		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {
 			System.err.println(e);}});
 		
-		ontologyComposition.put("simple class axioms", classAxioms.size());
-		ontologyComposition.put("complex class axioms", complexClassAxioms.size());
-		ontologyComposition.put("role axioms", roleAxioms.size());
+		ontologyComposition.put("simple class axioms", (double)classAxioms.size());
+		ontologyComposition.put("complex class axioms", (double)complexClassAxioms.size());
+		ontologyComposition.put("role axioms", (double)roleAxioms.size());
 	}
 
 	/**
@@ -488,7 +488,7 @@ public class NormalizeAndSortAxioms  {
 	 * 
 	 * @return HashMap&lt;String,Integer>
 	 */
-	public HashMap<String,Integer> getOntologyComposition(){
+	public HashMap<String,Double> getOntologyComposition(){
 		return ontologyComposition;
 	}
 	
