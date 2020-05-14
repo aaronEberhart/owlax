@@ -10,6 +10,12 @@ import java.nio.file.Paths;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.UnloadableImportException;
+import org.semanticweb.owlapi.profiles.OWL2DLProfile;
+import org.semanticweb.owlapi.profiles.OWL2ELProfile;
+import org.semanticweb.owlapi.profiles.OWL2Profile;
+import org.semanticweb.owlapi.profiles.OWL2QLProfile;
+import org.semanticweb.owlapi.profiles.OWL2RLProfile;
+import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
 import evaluation.OWLAxEvaluation;
 import ontologyTools.NormalizeAndSortAxioms;
@@ -54,9 +60,9 @@ public class Main {
 		allResults.addAll(runEval(new File("OWL/Ontobee")));
 		
 		//misc files by themselves (sizes very different)
-		for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
-			runEval(file);
-		}
+		//for (File file : new File("OWL/").listFiles(a -> a.isFile())) {
+			//runEval(file);
+		//}
 		
 		// misc files together
 		allResults.addAll(runEval(new File("OWL/")));
@@ -82,8 +88,7 @@ public class Main {
 		//check if it's a file of a dir of files
 		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
 		ArrayList<ArrayList<HashMap<String,Double>>> results = new ArrayList<ArrayList<HashMap<String,Double>>>();
-		
-		System.out.println("Starting evaluation of "+dir.getName());
+		//System.out.println("Starting evaluation of "+dir.getName());
 		
 		//look at all the ontology files
 		for (File owlfile : files) {
@@ -92,8 +97,26 @@ public class Main {
 				
 				results.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
 				
-			}catch(UnloadableImportException e) {System.err.println(String.format("Import Error for File: %s",owlfile));}
-			catch(Exception e) {System.err.println(e);}
+				// Available profiles: DL, EL, QL, RL, OWL2 (Full)
+				boolean[] profiles = {new OWL2DLProfile().checkOntology(ontology).isInProfile(),new OWL2ELProfile().checkOntology(ontology).isInProfile(),new OWL2QLProfile().checkOntology(ontology).isInProfile(),new OWL2RLProfile().checkOntology(ontology).isInProfile(),new OWL2Profile().checkOntology(ontology).isInProfile()};
+				String[] profileNames = {"DL","EL","QL","RL","OWL2 (Full)"};
+				
+				String out = "";
+				
+				for (int i = 0; i < profiles.length; i++) {
+					if (profiles[i]) {
+						out += ",X";
+					}else {
+						out+= ",";
+					}
+				}
+				
+				System.out.println(owlfile.getName() + out);
+				
+				
+				
+			}catch(UnloadableImportException e) {}//System.err.println(String.format("Import Error for File: %s",owlfile));}
+			catch(Exception e) {System.err.println(owlfile.getName() + ",,,,,");}
 		}
 		
 		if (!results.isEmpty()) {

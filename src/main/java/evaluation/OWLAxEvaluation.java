@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -97,11 +99,11 @@ public class OWLAxEvaluation {
 		meanMode = modeResult.values().stream().collect(Collectors.summingDouble(a -> a)) / modeResult.size();
 		
 		// calculating the medians
-		medianResult = medians(owlaxResults);	
-		medianOntology = medians(ontologyCompositions);
+		//medianResult = medians(owlaxResults);	
+		//medianOntology = medians(ontologyCompositions);
 		
 		// get average median
-		meanMedian = medianResult.values().stream().collect(Collectors.summingDouble(a -> a)) / medianResult.size();
+		//meanMedian = medianResult.values().stream().collect(Collectors.summingDouble(a -> a)) / medianResult.size();
 		
 		// calculating std devs
 		stdDevResult = stdDevs(owlaxResults,meanResult);	
@@ -132,9 +134,6 @@ public class OWLAxEvaluation {
 		return median;
 	}
 	
-	private boolean checker(Map.Entry<String,Double> a) {
-		return !(a.getKey().equals("percent coverage all class axioms") ||a.getKey().equals("percent coverage only simple class axioms") ||a.getKey().equals("percent coverage all axioms") || a.getKey().equals("coverage count") || a.getKey().equals("total overall axioms") || a.getKey().equals("role axioms") || a.getKey().equals("total class axioms") || a.getKey().equals("complex class axioms") || a.getKey().equals("simple class axioms"));
-	}
 	
 	/**
 	 * calculate the Standard Deviations of the list of hashmaps
@@ -331,7 +330,7 @@ public class OWLAxEvaluation {
 				meanResult.get("miss")/meanResult.size(),meanStdDev,meanMode,meanMedian));
 		sb.append("\n\n");
 		
-		SortedSet<String> keys = new TreeSet<>(getMeanOWLAxResult().keySet());
+		Set<String> keys = new TreeSet<>(getMeanOWLAxResult().keySet());
 		for(String key : keys) {
 			sb.append(String.format(",%s",key));
 		}
@@ -348,7 +347,7 @@ public class OWLAxEvaluation {
 		for(String key : keys) {
 			sb.append(String.format(",%f",getModeOWLAxResult().get(key)));
 		}
-		
+		/*
 		sb.append("\n\n");
 		keys = new TreeSet<>(getMedianOWLAxResult().keySet());
 		for(String key : keys) {
@@ -358,7 +357,7 @@ public class OWLAxEvaluation {
 		for(String key : keys) {
 			sb.append(String.format(",%f",getMedianOWLAxResult().get(key)));
 		}
-		
+		*/
 		sb.append("\n\n");
 		keys = new TreeSet<>(getStdDevOWLAxResult().keySet());
 		for(String key : keys) {
@@ -388,7 +387,8 @@ public class OWLAxEvaluation {
 		for(String key : keys) {
 			sb.append(String.format(",%f",getModeOntology().get(key)));
 		}
-
+		
+		/*
 		sb.append("\n\n");
 		keys = new TreeSet<>(getMedianOntology().keySet());
 		for(String key : keys) {
@@ -398,6 +398,8 @@ public class OWLAxEvaluation {
 		for(String key : keys) {
 			sb.append(String.format(",%f",getMedianOntology().get(key)));
 		}
+		*/
+		
 		sb.append("\n\n");
 		keys = new TreeSet<>(getStdDevOntology().keySet());
 		for(String key : keys) {
@@ -407,6 +409,7 @@ public class OWLAxEvaluation {
 		for(String key : keys) {
 			sb.append(String.format(",%f",getStdDevOntology().get(key)));
 		}
+		
 		
 		sb.append(String.format("\n\nUnused OWLAx Axioms"));
 		for (String result : getUnusedOWLAxAxioms()) {
@@ -420,12 +423,12 @@ public class OWLAxEvaluation {
 		
 		sb.append(String.format("\n\nRaw OWLAx Counts"));
 		int i = 0;
-		keys = new TreeSet<>(getOWLAxResults().get(0).keySet());
-		for(String key : keys) {
+		List<String> keys1 = new ArrayList<>(getOWLAxResults().get(0).keySet());
+		for(String key : keys1) {
 			sb.append(String.format(",%s",key));
 		}
-		keys = new TreeSet<>(owlaxCoverage.get(0).keySet());
-		for(String key : keys) {
+		List<String> keys2 = new ArrayList<>(owlaxCoverage.get(0).keySet());
+		for(String key : keys2) {
 			sb.append(String.format(",%s",key));
 		}
 		sb.append("\n");
@@ -433,12 +436,10 @@ public class OWLAxEvaluation {
 			HashMap<String,Double> result = getOWLAxResults().get(j);
 			HashMap<String,Double> result2 = owlaxCoverage.get(j);
 			sb.append(String.format("Ontology %d",i++));
-			keys = new TreeSet<>(result.keySet());
-			for(String key : keys) {
+			for(String key : keys1) {
 				sb.append(String.format(",%f",result.get(key)));
 			}
-			keys = new TreeSet<>(result2.keySet());
-			for(String key : keys) {
+			for(String key : keys2) {
 				sb.append(String.format(",%f",result2.get(key)));
 			}
 			sb.append("\n");
@@ -447,8 +448,8 @@ public class OWLAxEvaluation {
 		sb.append(String.format("\nRaw OWLAPI Counts"));
 		HashMap<String,Double> first = getOntologyCompositions().get(0);
 		first.values().removeIf(a -> a < 0);
-		keys = new TreeSet<>(first.keySet());
-		for(String key : keys) {
+		keys1 = new ArrayList<>(first.keySet());
+		for(String key : keys1) {
 			sb.append(String.format(",%s",key));
 		}
 		sb.append("\n");
@@ -456,8 +457,7 @@ public class OWLAxEvaluation {
 			HashMap<String,Double> result = getOntologyCompositions().get(j);
 			result.values().removeIf(a -> a < 0);
 			sb.append(String.format("Ontology %d",i++));
-			keys = new TreeSet<>(result.keySet());
-			for(String key : keys) {
+			for(String key : keys1) {
 				sb.append(String.format(",%f",result.get(key)));
 			}
 			sb.append("\n");

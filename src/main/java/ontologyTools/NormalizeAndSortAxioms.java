@@ -56,11 +56,13 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLDataAllValuesFromImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLDataMaxCardinalityImpl;
+import uk.ac.manchester.cs.owl.owlapi.OWLDataMinCardinalityImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLDataSomeValuesFromImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLDatatypeImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLObjectAllValuesFromImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLObjectHasSelfImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLObjectMaxCardinalityImpl;
+import uk.ac.manchester.cs.owl.owlapi.OWLObjectMinCardinalityImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLObjectSomeValuesFromImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLSubClassOfAxiomImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLSubObjectPropertyOfAxiomImpl;
@@ -177,12 +179,12 @@ public class NormalizeAndSortAxioms  {
 			}else if (type.equals("DisjointObjectProperties")) {
 				ontologyComposition.replace("disjoint roles", ontologyComposition.get("disjoint roles") + 1);
 				roleAxioms.add((OWLDisjointObjectPropertiesAxiom)axiom);
-				System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+				//System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 			// Disjoint Data
 			}else if(type.equals("DisjointDataProperties")) {
 				ontologyComposition.replace("disjoint data", ontologyComposition.get("disjoint data") + 1);
 				roleAxioms.add((OWLDisjointDataPropertiesAxiom)axiom);
-				System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+				//System.err.println("Disjoint Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 			// Sub Role chain
 			}else if (type.equals("SubPropertyChainOf")) {
 				ontologyComposition.replace("subrole chain", ontologyComposition.get("subrole chain") + 1);
@@ -208,7 +210,7 @@ public class NormalizeAndSortAxioms  {
 			}else if (type.equals("AsymmetricObjectProperty")) {
 				ontologyComposition.replace("asymmetric role", ontologyComposition.get("asymmetric role") + 1);
 				roleAxioms.add((OWLAsymmetricObjectPropertyAxiom)axiom);
-				System.err.println("Asymmetric Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
+				//System.err.println("Asymmetric Properties Normalization Undefined For Axiom:\n\t"+axiom.toString());
 			// functional role
 			}else if (type.equals("FunctionalObjectProperty")) {
 				ontologyComposition.replace("functional role", ontologyComposition.get("functional role") + 1);
@@ -328,10 +330,17 @@ public class NormalizeAndSortAxioms  {
 		OWLObjectPropertyExpression property = subClass.getProperty();
 		OWLClassExpression classexpression = subClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
+		int card = subClass.getCardinality();
+		OWLSubClassOfAxiom axiom2;
 		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, 1, classexpression),superClass,annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(property, classexpression),superClass,annotations);
+		if(card == 1) {			
+			axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, 1, classexpression), superClass, annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(property, classexpression), superClass, annotations);
+		}else {
+			axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, card, classexpression), superClass, annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectMinCardinalityImpl(property, card, classexpression), superClass, annotations);
+		}
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -347,11 +356,17 @@ public class NormalizeAndSortAxioms  {
 		OWLDataPropertyExpression property = subClass.getProperty();
 		OWLDataRange datarange = subClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
+		int card = subClass.getCardinality();
+		OWLSubClassOfAxiom axiom2;
 		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, 1, datarange),superClass,annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(property, datarange),superClass, annotations);
-		
+		if(card == 1) {			
+			axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, 1, datarange), superClass, annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(property, datarange), superClass, annotations);
+		}else {
+			axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, card, datarange),superClass, annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataMinCardinalityImpl(property, card, datarange), superClass,annotations);
+		}
 		//add to tbox
 		classAxioms.add(axiom);
 		classAxioms.add(axiom2);		
@@ -366,10 +381,17 @@ public class NormalizeAndSortAxioms  {
 		OWLObjectPropertyExpression property = superClass.getProperty();
 		OWLClassExpression classexpression = superClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
+		int card = superClass.getCardinality();
+		OWLSubClassOfAxiom axiom2;
 		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMaxCardinalityImpl(property, 1, classexpression), annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectSomeValuesFromImpl(property, classexpression), annotations);
+		if(card == 1) {			
+			axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMaxCardinalityImpl(property, 1, classexpression), annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectSomeValuesFromImpl(property, classexpression), annotations);
+		}else {
+			axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMaxCardinalityImpl(property, card, classexpression), annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLObjectMinCardinalityImpl(property, card, classexpression), annotations);
+		}
 		
 		//add to tbox
 		classAxioms.add(axiom);
@@ -385,10 +407,17 @@ public class NormalizeAndSortAxioms  {
 		OWLDataPropertyExpression property = superClass.getProperty();
 		OWLDataRange datarange = superClass.getFiller();
 		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
-				
+		int card = superClass.getCardinality();
+		OWLSubClassOfAxiom axiom2;
+		
 		//split into new axioms
-		axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMaxCardinalityImpl(property, 1, datarange), annotations);
-		OWLSubClassOfAxiom axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLDataSomeValuesFromImpl(property, datarange), annotations);
+		if(card == 1) {			
+			axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMaxCardinalityImpl(property, 1, datarange), annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLDataSomeValuesFromImpl(property, datarange), annotations);
+		}else {
+			axiom = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMaxCardinalityImpl(property, card, datarange), annotations);
+			axiom2 = new OWLSubClassOfAxiomImpl(subClass,new OWLDataMinCardinalityImpl(property, card, datarange), annotations);
+		}
 		
 		//add to tbox
 		classAxioms.add(axiom);

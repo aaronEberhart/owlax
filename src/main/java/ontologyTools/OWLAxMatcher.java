@@ -92,7 +92,7 @@ public class OWLAxMatcher {
 		normalizedAxioms = axioms;
 		
 		result = new HashMap<String,Double>(){private static final long serialVersionUID = 2L;{for (String key : axiomHashKeys) {put(key,0.0);}}};
-		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 5L;};
+		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 99L;};
 		
 		result2.put("simple class axioms", (double)normalizedAxioms.getOntologyComposition().get("simple class axioms"));
 		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
@@ -103,7 +103,6 @@ public class OWLAxMatcher {
 		ontology = normalizedAxioms.getOntologyComposition();
 		
 		matchAxioms(normalizedAxioms.getSimpleClassAxioms());
-		
 		
 		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
 		result2.put("percent coverage all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("coverage count") / result2.get("total overall axioms"));
@@ -120,7 +119,7 @@ public class OWLAxMatcher {
 		normalizedAxioms = new NormalizeAndSortAxioms(inputOntology);
 		
 		result = new HashMap<String,Double>(){private static final long serialVersionUID = 1L;{for (String key : axiomHashKeys) {put(key,0.0);}}};
-		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 5L;};
+		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 99L;};
 
 		result2.put("simple class axioms", (double)normalizedAxioms.getOntologyComposition().get("simple class axioms"));
 		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
@@ -130,13 +129,12 @@ public class OWLAxMatcher {
 		
 		ontology = normalizedAxioms.getOntologyComposition();
 		
-		matchAxioms(normalizedAxioms.getSimpleClassAxioms());
-		
+		matchAxioms(normalizedAxioms.getSimpleClassAxioms());		
 		
 		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
-		result2.put("percent coverage all axioms",result2.get("coverage count") / (result2.get("total overall axioms") - result2.get("simple class axioms")));
-		result2.put("percent coverage only simple class axioms",result2.get("coverage count") / result2.get("simple class axioms"));
-		result2.put("percent coverage all class axioms",result2.get("coverage count") / (result2.get("total class axioms") - result2.get("simple class axioms")));
+		result2.put("percent coverage all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("coverage count") / result2.get("total overall axioms"));
+		result2.put("percent coverage only simple class axioms",result2.get("simple class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("simple class axioms"));
+		result2.put("percent coverage all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("total class axioms"));
 	}
 	
 	/**
@@ -340,7 +338,11 @@ public class OWLAxMatcher {
 	 * @return ArrayList&lt;HashMap&lt;String,Integer>>
 	 */
 	public ArrayList<HashMap<String,Double>> getMatches(){
-		return new ArrayList<HashMap<String,Double>>(Arrays.asList(result,ontology,result2));
+		ArrayList<HashMap<String,Double>> list = new ArrayList<HashMap<String,Double>>();
+		list.add(result);
+		list.add(ontology);
+		list.add(result2);
+		return list;
 	}
 	
 	@Override
