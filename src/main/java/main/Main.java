@@ -15,7 +15,6 @@ import org.semanticweb.owlapi.profiles.OWL2ELProfile;
 import org.semanticweb.owlapi.profiles.OWL2Profile;
 import org.semanticweb.owlapi.profiles.OWL2QLProfile;
 import org.semanticweb.owlapi.profiles.OWL2RLProfile;
-import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
 import evaluation.OWLAxEvaluation;
 import ontologyTools.NormalizeAndSortAxioms;
@@ -99,9 +98,8 @@ public class Main {
 				
 				// Available profiles: DL, EL, QL, RL, OWL2 (Full)
 				boolean[] profiles = {new OWL2DLProfile().checkOntology(ontology).isInProfile(),new OWL2ELProfile().checkOntology(ontology).isInProfile(),new OWL2QLProfile().checkOntology(ontology).isInProfile(),new OWL2RLProfile().checkOntology(ontology).isInProfile(),new OWL2Profile().checkOntology(ontology).isInProfile()};
-				String[] profileNames = {"DL","EL","QL","RL","OWL2 (Full)"};
 				
-				String out = "";
+				String out = ",DL,EL,QL,RL,OWL2 (Full)\n";
 				
 				for (int i = 0; i < profiles.length; i++) {
 					if (profiles[i]) {

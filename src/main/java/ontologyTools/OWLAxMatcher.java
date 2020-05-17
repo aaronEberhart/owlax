@@ -16,7 +16,6 @@ import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
 import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
@@ -110,32 +109,6 @@ public class OWLAxMatcher {
 		result2.put("percent coverage all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("total class axioms"));
 	}
 
-	/**
-	 * Checks the ontology to see if any of its axioms match OWLAx axioms
-	 * 
-	 * @param inputOntology - OWLOntology
-	 */
-	public OWLAxMatcher(OWLOntology inputOntology) {
-		normalizedAxioms = new NormalizeAndSortAxioms(inputOntology);
-		
-		result = new HashMap<String,Double>(){private static final long serialVersionUID = 1L;{for (String key : axiomHashKeys) {put(key,0.0);}}};
-		result2 = new HashMap<String,Double>(){private static final long serialVersionUID = 99L;};
-
-		result2.put("simple class axioms", (double)normalizedAxioms.getOntologyComposition().get("simple class axioms"));
-		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
-		result2.put("total class axioms", (double)result2.get("simple class axioms") + result2.get("complex class axioms"));
-		result2.put("role axioms", (double)normalizedAxioms.getOntologyComposition().get("role axioms"));
-		result2.put("total overall axioms", (double)result2.get("total class axioms") + result2.get("role axioms"));
-		
-		ontology = normalizedAxioms.getOntologyComposition();
-		
-		matchAxioms(normalizedAxioms.getSimpleClassAxioms());		
-		
-		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
-		result2.put("percent coverage all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("coverage count") / result2.get("total overall axioms"));
-		result2.put("percent coverage only simple class axioms",result2.get("simple class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("simple class axioms"));
-		result2.put("percent coverage all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("total class axioms"));
-	}
 	
 	/**
 	 * Matches simple class axioms axioms to OWLAx axioms 

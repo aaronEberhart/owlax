@@ -148,8 +148,8 @@ public class NormalizeAndSortAxioms  {
 				parseSubClassOfAxiom((OWLSubClassOfAxiom)axiom);
 			// equivalent classes
 			}else if (type.equals("EquivalentClasses")) {
-					ontologyComposition.replace("equivalent classes", ontologyComposition.get("equivalent classes") + 1);
-					((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {System.err.println(e);}});
+				ontologyComposition.replace("equivalent classes", ontologyComposition.get("equivalent classes") + 1);
+				((OWLEquivalentClassesAxiom)axiom).asOWLSubClassOfAxioms().forEach(a -> { try { parseSubClassOfAxiom((OWLSubClassOfAxiom)a); } catch (Exception e) {System.err.println(e);}});
 			// disjoint classes
 			}else if (type.equals("DisjointClasses")) {			
 				ontologyComposition.replace("disjoint classes", ontologyComposition.get("disjoint classes") + 1);
@@ -270,7 +270,7 @@ public class NormalizeAndSortAxioms  {
 			int nnfSize = getSubClassOfAxiomSize(axiom);
 				
 			// is it the right size, but not nnf?
-			// cardinality _should_ be the only axiom type that grows in NNF
+			// exact cardinality _should_ be the only axiom type that grows in NNF afaik
 			if (size <= OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {				
 				
 				//get the antecedent and consequent
@@ -281,17 +281,11 @@ public class NormalizeAndSortAxioms  {
 					//is it an object exact cardinality?
 					if (superClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
 						ontologyComposition.replace("role cardinality", ontologyComposition.get("role cardinality") + 1);
-						parseObjectExactCardinality(inAxiom,subClass,(OWLObjectExactCardinality)superClass);		
-					}else if (subClass.getClassExpressionType().getName().equals("ObjectExactCardinality")) {
-						ontologyComposition.replace("role cardinality", ontologyComposition.get("role cardinality") + 1);
-						parseObjectExactCardinality(inAxiom,(OWLObjectExactCardinality)subClass,superClass);
+						parseObjectExactCardinality(inAxiom,subClass,(OWLObjectExactCardinality)superClass);	
 					//is it a data exact cardinality?
 					}else if (superClass.getClassExpressionType().getName().equals("DataExactCardinality")) {				
 						ontologyComposition.replace("data cardinality", ontologyComposition.get("data cardinality") + 1);
 						parseDataExactCardinality(inAxiom,subClass,(OWLDataExactCardinality)superClass);
-					}else if (subClass.getClassExpressionType().getName().equals("DataExactCardinality")) {
-						ontologyComposition.replace("data cardinality", ontologyComposition.get("data cardinality") + 1);
-						parseDataExactCardinality(inAxiom,(OWLDataExactCardinality)subClass,superClass);
 					}else {
 						complexClassAxioms.add(axiom);	
 					}
@@ -299,19 +293,15 @@ public class NormalizeAndSortAxioms  {
 					}catch(Exception e){				
 						System.err.println(e);	
 					}
-				// nnf was the right size! woohoo!
-				}else if(nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
-					
-					//can we normalize a conjunction?
-					if (axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
-						((OWLObjectIntersectionOf)axiom.getSuperClass()).conjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(axiom.getSubClass(), a, Collections.emptyList())));
-					//can we normalize a disjunction?
-					}else if (axiom.getSubClass().getClassExpressionType().getName().equals("ObjectUnionOf")) {
-						((OWLObjectUnionOf)axiom.getSubClass()).disjunctSet().forEach(a -> classAxioms.add(new OWLSubClassOfAxiomImpl(a, axiom.getSuperClass(), Collections.emptyList())));
-					//oh well couldn't normalize but still works
-					}else {
-						classAxioms.add(axiom);
-					}
+			//can we normalize a conjunction?
+			}else if (axiom.getSuperClass().getClassExpressionType().getName().equals("ObjectIntersectionOf")) {
+				((OWLObjectIntersectionOf)axiom.getSuperClass()).conjunctSet().forEach(a -> {try {parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(axiom.getSubClass(), a, Collections.emptyList()));} catch (Exception e) {e.printStackTrace();}});
+			//can we normalize a disjunction?
+			}else if (axiom.getSubClass().getClassExpressionType().getName().equals("ObjectUnionOf")) {
+				((OWLObjectUnionOf)axiom.getSubClass()).disjunctSet().forEach(a -> {try {parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(a, axiom.getSuperClass(), Collections.emptyList()));} catch (Exception e) {e.printStackTrace();}});
+			// //oh well couldn't normalize but still works
+			}else if(nnfSize <= OWLAxMatcher.getMaxOWLAxAxiomSize()) {
+				classAxioms.add(axiom);
 			// is it too big for now?
 			}else if (size > OWLAxMatcher.getMaxOWLAxAxiomSize() && nnfSize > OWLAxMatcher.getMaxOWLAxAxiomSize()) {
 				complexClassAxioms.add(axiom);
@@ -319,57 +309,6 @@ public class NormalizeAndSortAxioms  {
 				throw new Exception(String.format("\nIMPOSSIBLE AXIOM:\n%s\nNNF:\n%s\n",axiom.toString(),axiom.getNNF().toString()));	
 			}
 		}
-	}
-		
-	/**
-	 * Splits an exact cardinality axiom into two axioms that are equivalent
-	 */
-	private void parseObjectExactCardinality(OWLSubClassOfAxiom axiom,OWLObjectExactCardinality subClass,OWLClassExpression superClass) throws Exception {
-		
-		//get stuff from old axiom		
-		OWLObjectPropertyExpression property = subClass.getProperty();
-		OWLClassExpression classexpression = subClass.getFiller();
-		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
-		int card = subClass.getCardinality();
-		OWLSubClassOfAxiom axiom2;
-		
-		//split into new axioms
-		if(card == 1) {			
-			axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, 1, classexpression), superClass, annotations);
-			axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectSomeValuesFromImpl(property, classexpression), superClass, annotations);
-		}else {
-			axiom = new OWLSubClassOfAxiomImpl(new OWLObjectMaxCardinalityImpl(property, card, classexpression), superClass, annotations);
-			axiom2 = new OWLSubClassOfAxiomImpl(new OWLObjectMinCardinalityImpl(property, card, classexpression), superClass, annotations);
-		}
-		
-		//add to tbox
-		classAxioms.add(axiom);
-		classAxioms.add(axiom2);		
-	}
-	
-	/**
-	 * Splits an exact cardinality axiom into two axioms that are equivalent
-	 */
-	private void parseDataExactCardinality(OWLSubClassOfAxiom axiom,OWLDataExactCardinality subClass,OWLClassExpression superClass) throws Exception {
-		
-		//get stuff from old axiom	
-		OWLDataPropertyExpression property = subClass.getProperty();
-		OWLDataRange datarange = subClass.getFiller();
-		List<OWLAnnotation> annotations = axiom.annotations().collect(Collectors.toCollection(ArrayList::new));
-		int card = subClass.getCardinality();
-		OWLSubClassOfAxiom axiom2;
-		
-		//split into new axioms
-		if(card == 1) {			
-			axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, 1, datarange), superClass, annotations);
-			axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(property, datarange), superClass, annotations);
-		}else {
-			axiom = new OWLSubClassOfAxiomImpl(new OWLDataMaxCardinalityImpl(property, card, datarange),superClass, annotations);
-			axiom2 = new OWLSubClassOfAxiomImpl(new OWLDataMinCardinalityImpl(property, card, datarange), superClass,annotations);
-		}
-		//add to tbox
-		classAxioms.add(axiom);
-		classAxioms.add(axiom2);		
 	}
 	
 	/**
