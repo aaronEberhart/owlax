@@ -1,0 +1,86 @@
+@prefix otl: <https://w3id.org/opentrafficlights#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix otl: <https://w3id.org/opentrafficlights#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+<https://w3id.org/opentrafficlights> a foaf:Document ;
+                                              foaf:primaryTopic otl:Ontology ;
+                                              dct:issued "2018-06-20"^^xsd:date ;
+                                              dct:modified "2018-10-31"^^xsd:date ;
+                                              dct:license <http://creativecommons.org/licenses/by/3.0/> .
+
+otl:Ontology a owl:Ontology ;
+            rdfs:label "The Open Traffic Lights ontology"@en ;
+            rdfs:comment "This ontology provides the terms necessary to describe the status of traffic lights. Created by IDLab (Ghent University - imec)."@en ;
+            vann:preferredNamespacePrefix "otl" ;
+            vann:preferredNamespaceUri "https://w3id.org/opentrafficlights#" ;
+            dct:creator <https://w3id.org/people/brechtvdv/#me> .
+            
+otl:Lane a rdfs:Class ;
+              rdfs:label "Lane"@en ;
+              rdfs:comment "Describes a part of the road where a passenger departs or arrives from."@en .
+
+otl:width a rdf:Property ;
+               rdfs:label "Width"@en ;
+               rdfs:comment "The width of a lane expressed in centimeters."@en ;
+               rdfs:domain otl:Lane;
+               rdfs:range xsd:Integer .
+
+otl:Connection a rdfs:Class ;
+              rdfs:label "Connection"@en ;
+              rdfs:comment "Describes a departure at a certain lane and an arrival at a different lane"@en .
+
+otl:departureLane a rdf:Property ;
+               rdfs:label "Departure lane"@en ;
+               rdfs:comment "A road user will depart from here"@en ;
+               rdfs:domain otl:Connection .
+               
+otl:arrivalLane a rdf:Property ;
+               rdfs:label "Arrival lane"@en ;
+               rdfs:comment "A road user will arrive here"@en ;
+               rdfs:domain otl:Connection .
+
+otl:signalGroup a rdf:Property ;
+               rdfs:label "signal group"@en ;
+               rdfs:comment "The signal group to which the connection belongs."@en ;
+               rdfs:domain otl:Connection .
+               rdfs:range otl:SignalGroup .
+
+otl:SignalGroup a rdfs:Class ;
+              rdfs:label "Signal group"@en ;
+              rdfs:comment "Describes a group of connections that share the same signal state."@en .
+              
+otl:SignalState a rdfs:Class ;
+              rdfs:label "Signal state"@en ;
+              rdfs:comment "Describes the state of a signal group."@en .
+              
+otl:signalState a rdf:Property ;
+               rdfs:label "Signal state"@en ;
+               rdfs:comment "Signal state of a signal group."@en ;
+               rdfs:domain otl:SignalGroup ;
+               rdfs:range otl:SignalState .
+
+otl:signalPhase a rdf:Property ;
+               rdfs:label "Phase of a Signal state"@en ;
+               rdfs:comment "Represents green, red etc. Adviced to use concept scheme https://w3id.org/opentrafficlights/thesauri/signalphase"@en ;
+               rdfs:domain otl:SignalState ;
+               rdfs:range skos:Concept .
+
+otl:minEndTime a rdf:Property ;
+               rdfs:label "Minimum end time"@en ;
+               rdfs:comment "The earliest time possible at which the event state could change, except when unpredictable events relating to a pre-emption or priority call disrupt a currently active timing plan."@en ;
+               rdfs:domain otl:SignalState ;
+               rdfs:range xsd:dateTime .
+               
+otl:maxEndTime a rdf:Property ;
+               rdfs:label "Maximum end time"@en ;
+               rdfs:comment "The latest time possible at which the event state could change, except when unpredictable events relating to a pre-emption or priority call disrupt a currently active timing plan."@en ;
+               rdfs:domain otl:SignalState ;
+               rdfs:range xsd:dateTime .

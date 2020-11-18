@@ -1,0 +1,141 @@
+@prefix : <http://cookingbigdata.com/linkeddata/ccpricing#> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix dc: 	<http://purl.org/dc/terms/> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: 	<http://schema.org> .
+@prefix gr:			<http://purl.org/goodrelations/v1> .
+@prefix ccregion: 	<http://cookingbigdata.com/linkeddata/ccregions#> .
+@prefix ccinstance: 	<http://cookingbigdata.com/linkeddata/ccinstances#> .
+
+
+<http://cookingbigdata.com/linkeddata/ccpricing#>
+	rdf:type owl:Ontology ;
+	rdfs:label "Pricing Plan for Cloud Computing Services"@en ;
+	dc:title "Vocabulary for prices options in Cloud Computing Services"@en ;
+	dc:description "Simple and direct pricing ontology for Cloud Computing Services. This ontology allows to define model of prices used in large cloud computing providers such as Amazon, Azure, etc., including options for regions, type of instances, prices specification, etc. "@en ;
+	dc:created "2018-03-06"^^xsd:date ;	
+	dc:modified "2018-04-03"^^xsd:date ;
+	dc:issued "2018-04-20"^^xsd:date ;
+    dc:creator :manuelparra ;
+	dc:publisher :cookingbigdata ;
+	owl:versionInfo "1.0"^^xsd:decimal ; 
+	dc:rights "Copyright © 2018 Manuel Parra-Royón";
+	.
+	
+:manuelparra a foaf:Person;
+	foaf:name "Manuel Parra-Royon";
+	foaf:homepage <https://twitter.com/manugrapevine> ;
+	foaf:mbox "manuparra@gmail.com" ;
+	rdfs:seeAlso <https://twitter.com/manugrapevine>;	
+	.
+:cookingbigdata a foaf:Organization;
+	foaf:name "CookingBigData";
+	foaf:homepage <http://cookingbigdata.com> ;
+	rdfs:seeAlso <http://cookingbigdata.com/about>;
+	.
+
+# Classes
+
+:PricingPlan a owl:Class, rdfs:Class ;
+	rdfs:label "Prcing Plan"@en;
+	rdfs:comment "PricingPlan"@en;
+	dc:description "."@en ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:PriceCompound a owl:Class, rdfs:Class ;
+	rdfs:label "Compound"@en;
+	rdfs:comment "Compound"@en;
+	dc:description "."@en ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:hasPricingPlan a rdf:Property;
+	rdfs:label "Has pricing"@en;
+	rdfs:comment "Has pricing plans"@en;
+	rdfs:domain :ServicePricing;
+	rdfs:range :PricingPlan;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:withMinPrice a rdf:Property;
+	rdfs:label "Min price"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PricingPlan;
+	rdfs:range gr:PriceSpecification;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:withMaxPrice a rdf:Property;
+	rdfs:label "Max price"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PricingPlan;
+	rdfs:range gr:PriceSpecification;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:withMaxCompound a rdf:Property;
+	rdfs:label "Max compound"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PriceCompound;
+	rdfs:range gr:PriceSpecification;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:withMinCompound a rdf:Property;
+	rdfs:label "Min compound"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PriceCompound;
+	rdfs:range gr:PriceSpecification;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:hasPrice a rdf:Property;
+	rdfs:label "Component price"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PriceCompound;
+	rdfs:range gr:PriceSpecification;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:hasPriceCompound a rdf:Property;
+	rdfs:label "has Component price"@en;
+	rdfs:comment ""@en;
+	rdfs:domain :PricingPlan;
+	rdfs:range :PriceCompound;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+
+# Fine Properties
+
+:plan_name a rdf:Property;
+	rdfs:label "Plan Name"@en;
+	rdfs:comment "Example Free"@en;
+	rdfs:domain :PricingPlan;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+:region a rdf:Property;
+	rdfs:label "Region"@en;
+	rdfs:comment "Region"@en;
+	rdfs:domain :PriceCompound;
+	rdfs:range ccregion:region;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+	
+:instance a rdf:Property;
+	rdfs:label "Instance"@en;
+	rdfs:comment "Instance"@en;
+	rdfs:domain :PriceCompound;
+	rdfs:range ccinstance:instance;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccpricing#>;
+	.
+
+
+
+

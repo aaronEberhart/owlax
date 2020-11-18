@@ -1,0 +1,1732 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY cc "http://creativecommons.org/ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY geometry "http://data.ordnancesurvey.co.uk/ontology/geometry/" >
+    <!ENTITY spatialrelations "http://data.ordnancesurvey.co.uk/ontology/spatialrelations/" >
+    <!ENTITY core "http://data.ordnancesurvey.co.uk/ontology/admingeo/http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdf-schema "http://data.ordnancesurvey.co.uk/ontology/admingeo/http://www.w3.org/2000/01/rdf-schema#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.ordnancesurvey.co.uk/ontology/admingeo/"
+     xml:base="http://data.ordnancesurvey.co.uk/ontology/admingeo/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf-schema="http://data.ordnancesurvey.co.uk/ontology/admingeo/&rdfs;"
+     xmlns:spatialrelations="http://data.ordnancesurvey.co.uk/ontology/spatialrelations/"
+     xmlns:geometry="http://data.ordnancesurvey.co.uk/ontology/geometry/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:core="http://data.ordnancesurvey.co.uk/ontology/admingeo/&skos;"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:cc="http://creativecommons.org/ns#">
+    <owl:Ontology rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/">
+        <rdfs:label xml:lang="en">The administrative geography and civil voting area ontology</rdfs:label>
+        <rdfs:comment xml:lang="en">An ontology describing the administrative and voting area geography of Great Britain</rdfs:comment>
+        <dc:creator xml:lang="en">Ordnance Survey</dc:creator>
+        <owl:imports rdf:resource="http://data.ordnancesurvey.co.uk/ontology/geometry/"/>
+        <owl:imports rdf:resource="http://data.ordnancesurvey.co.uk/ontology/spatialrelations/"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/ns#license -->
+
+    <owl:AnnotationProperty rdf:about="&cc;license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:AnnotationProperty rdf:about="&dc;publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#isDefinedBy -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency">
+        <rdfs:label>constituency</rdfs:label>
+        <rdfs:comment>this relates European regions, Scottish Parliament Electoral Regions and Welsh Assembly Electoral Regions to their consistuencies.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/county -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/county">
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/district -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/district">
+        <rdfs:label>district</rdfs:label>
+        <rdfs:comment>this relates counties and european regions to the districts, unitary authorites, metropolitan districts and London boroughs they contain.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/county"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/district"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>in county</rdfs:label>
+        <rdfs:comment>this relates districts, parish, county electoral divisions and wards to their containing counties</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;within"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>in district</rdfs:label>
+        <rdfs:comment>this relates parishes, wards and unitary electoral divisions to their containing districts</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;within"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilParish"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Community"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/inEuropeanRegion -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/inEuropeanRegion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>in European region</rdfs:label>
+        <rdfs:comment>this relates various administrative and civil voting areas to their containing European region</rdfs:comment>
+        <rdfs:range rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;within"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/inRegion -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/inRegion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>in region</rdfs:label>
+        <rdfs:comment>this relates Greater London Authority Assembly Constituencies, Scottish Parliament Constituenices and Welsh AssemblyConstituencies to their containing regions.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency"/>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;within"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/parish -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/parish">
+        <rdfs:label>parish</rdfs:label>
+        <rdfs:comment>this relates various administrative areas to the parishes they contain</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilParish"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Community"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/scottishParliamentElectoralRegion -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/scottishParliamentElectoralRegion">
+        <rdfs:domain rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+        <rdfs:range rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion"/>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/ward -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward">
+        <rdfs:label>ward</rdfs:label>
+        <rdfs:comment>this relates an administrative regions to the wards and unitary electoral divisions contained within that region</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision"/>
+                    <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/district"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/welshAssemblyElectoralRegion -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/welshAssemblyElectoralRegion">
+        <rdfs:domain rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+        <rdfs:range rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion"/>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/westminsterConstituency -->
+
+    <owl:ObjectProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/westminsterConstituency">
+        <rdfs:label>westminster constituency</rdfs:label>
+        <rdfs:comment>this relates European regions to the Westminster constituencies contains within those regions</rdfs:comment>
+        <rdfs:domain rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+        <rdfs:range rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency"/>
+        <rdfs:subPropertyOf rdf:resource="&spatialrelations;contains"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/geometry/extent -->
+
+    <owl:ObjectProperty rdf:about="&geometry;extent"/>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/spatialrelations/contains -->
+
+    <owl:ObjectProperty rdf:about="&spatialrelations;contains"/>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/spatialrelations/within -->
+
+    <owl:ObjectProperty rdf:about="&spatialrelations;within"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/gssCode -->
+
+    <owl:DatatypeProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/gssCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">GSS</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Office for National Statistics (ONS) have reconfigured their GSS coding structure 
+(providing a unique system of referencing for administrative units) to a new 9 character
+alpha numeric format,replacing the current alpha numeric format (up to 6 characters).This
+change has now been implemented in this October 2010 release of Boundary-Line. 
+
+However,the new GSS Coding and Naming policy for some statistical geographies will be implemented 
+on 1 January 2011. From this date, where new codes have been allocated they should be used in all
+exchanges of statistics and published outputs that normally include codes.
+
+The following types of unit are coded where they have been made available by ONS: 
+Counties, Districts, Wards/Electoral Divisions, London Boroughs, Unitary Authorities, GLA&apos;s,
+Parish/Communities, Euro Regions, Welsh Assembly Const and Electoral Regions, 
+Scottish Parliamentary Const and Electoral Regions, Westminster Const.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode -->
+
+    <owl:DatatypeProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>has area code</rdfs:label>
+        <rdfs:comment>This code describing the area type</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode -->
+
+    <owl:DatatypeProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>has census code</rdfs:label>
+        <rdfs:comment>These code area unique system of referencing for administrative units. These codes are allocated by the Office of National Statistics (ONS) for England and Wales, and by the General Register Office for Scotland (GROS) for Scottish Areas.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/hasOfficialName -->
+
+    <owl:DatatypeProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasOfficialName">
+        <rdfs:label>has official name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID -->
+
+    <owl:DatatypeProperty rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>has unit ID</rdfs:label>
+        <rdfs:comment>A unique ID for the region</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:DatatypeProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="&skos;notation"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/Borough -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Borough">
+        <rdfs:comment xml:lang="en">Borough</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea">
+        <rdfs:label rdf:datatype="&xsd;string">Civil Administrative Area</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geometry;extent"/>
+                <owl:someValuesFrom rdf:resource="&geometry;AbstractGeometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inEuropeanRegion"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilParish -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilParish">
+        <rdfs:label xml:lang="en">Civil Parish</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Parishes are subdivisions of local authorities in many parts of England, and their councils are the most local level of government. Unlike electoral wards/divisions however, parishes are not found in all parts of England. The Welsh equivalents are communities. Note that the full term for administrative parishes is &amp;apos;civil parishes&amp;apos;, to distinguish them from the ecclesiastical parishes which are found in all parts of the UK.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea">
+        <rdfs:label>Civil Voting Area</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inEuropeanRegion"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geometry;extent"/>
+                <owl:someValuesFrom rdf:resource="&geometry;AbstractGeometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/Community -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Community">
+        <rdfs:label xml:lang="en">Community</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Welsh equivalent of Civil Parish.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency">
+        <rdfs:label>Constituency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:comment>Constituencies are used to elect members to legislatures.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/County -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/County">
+        <rdfs:label xml:lang="en">County</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/district"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Counties were formerly administrative units across the whole UK. Due to various administrative restructurings however then the only administrative areas still referred to as counties are the non-metropolitan (shire) counties of England. The English metropolitan counties, although no longer administrative units, are also used for statistical purposes.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/CountyElectoralDivision -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CountyElectoralDivision">
+        <rdfs:label xml:lang="en">County Electoral Division</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Apart from the special cases of the Isles of Scilly and the Greater London Authority (GLA), the English county councils are the only type of local authority in the UK which does not use standard electoral wards/divisions for electing councillors. Instead they use their own larger units, which are confusingly also termed electoral divisions. These county electoral divisions must be confined within district boundaries, but need not be based on whole electoral wards. Like electoral wards/divisions, county electoral divisions are defined by the Boundary Committee for England (BCFE).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/District -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District">
+        <rdfs:label xml:lang="en">District</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rdfs;label"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/DistrictWard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Districts are local administrative units and have at various times been used in all four countries of the UK. The only current references to districts however are found in metropolitan and non-metropolitan districts in England, and district council areas in Northern Ireland.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/DistrictWard -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/DistrictWard">
+        <rdfs:label xml:lang="en">District Ward</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:allValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/EuropeanRegion">
+        <rdfs:label>European Region</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geometry;extent"/>
+                <owl:someValuesFrom rdf:resource="&geometry;AbstractGeometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/westminsterConstituency"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>European Regions correspond to Scotland, Wales and the nine Government Office Regions of England. The nine Government Office Regions (GORs) are the primary statistical subdivisions of England and also the areas in which the Government Offices for the Regions fulfil their role. Each GOR covers a number of local authorities.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority">
+        <rdfs:label xml:lang="en">Greater London Authority</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/district"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The area covered by the Greater London Authority (GLA). The GLA is the body responsible for strategic citywide government for London, and consists of the Mayor of London and the London Assembly. The remit of the GLA covers the Greater London area.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency">
+        <rdfs:label xml:lang="en">Greater London Authority Assembly Constituency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inRegion"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Greater London Authority (GLA) Assembly constituencies are used to elect members to the London Assembly, which is part of the GLA.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough">
+        <rdfs:label xml:lang="en">London Borough</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBoroughWard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The London boroughs are the local government areas within Greater London. The borough councils are unitary administrations with a status similar to metropolitan districts, but will also be affected by any policies implemented by the Greater London Authority (GLA).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBoroughWard -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBoroughWard">
+        <rdfs:label xml:lang="en">London Borough Ward</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inCounty"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:allValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict">
+        <rdfs:label xml:lang="en">Metropolitan District</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrictWard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Metropolitan districts are subdivisions of the 6 metropolitan county areas of England. Since the abolition of the metropolitan county councils in 1986 the metropolitan district councils have been unitary administrations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrictWard -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrictWard">
+        <rdfs:label xml:lang="en">Metropolitan District Ward</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:allValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency">
+        <rdfs:label xml:lang="en">Scottish Parliament Constituency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inRegion"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Scottish parliamentary constituencies are used to elect members to the Scottish Parliament.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion">
+        <rdfs:label xml:lang="en">Scottish Parliament Electoral Region</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Scottish parliamentary electoral regions are used for the proportional component of the elections to the Scottish Parliament. They are made up of groups of Scottish parliamentary constituencies.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority">
+        <rdfs:label>Unitary Authority</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilAdministrativeArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;altLabel"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/ward"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityWard"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Unitary authorities (UAs) are areas with a single tier of local government (as opposed to the two-tier county:district structure).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision">
+        <rdfs:label>Unitary Authority Electoral Division</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Electoral wards/divisions are the base unit of UK administrative geography such that all higher units are built up from them. They are also used as a base unit for many other geographies such as parliamentary constituencies and Primary Care Trusts (PCTs). Electoral wards are found across Scotland, Northern Ireland and most of England, whereas the equivalents in Wales and the Isle of Wight are known as electoral divisions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityWard -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityWard">
+        <rdfs:label xml:lang="en">Unitary Authority Ward</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasCensusCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:allValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;notation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward">
+        <rdfs:label xml:lang="en">Ward</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inDistrict"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+                            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Electoral wards/divisions are the base unit of UK administrative geography such that all higher units are built up from them. They are also used as a base unit for many other geographies such as parliamentary constituencies and Primary Care Trusts (PCTs). Electoral wards are found across Scotland, Northern Ireland and most of England, whereas the equivalents in Wales and the Isle of Wight are known as electoral divisions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency">
+        <rdfs:label xml:lang="en">Welsh Assembly Constituency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/inRegion"/>
+                <owl:onClass rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The  Welsh Assembly constituencies are used to elect members to the National Assembly for Wales (NAW).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion">
+        <rdfs:label xml:lang="en">Welsh Assembly Electoral Region</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilVotingArea"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/constituency"/>
+                <owl:someValuesFrom rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Welsh Assembly electoral regions are used for the proportional component of the elections to the National Assembly for Wales (NAW). They are made up of groups of Welsh Assembly constituencies.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency -->
+
+    <owl:Class rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency">
+        <rdfs:label xml:lang="en">Westminster Constituency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&skos;prefLabel"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasUnitID"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.ordnancesurvey.co.uk/ontology/admingeo/hasAreaCode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Westminster parliamentary constituencies are used to elect members to the UK Parliament in Westminster, London.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ordnancesurvey.co.uk/ontology/admingeo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/geometry/AbstractGeometry -->
+
+    <owl:Class rdf:about="&geometry;AbstractGeometry"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.ordnancesurvey.co.uk/ontology/admingeo/ -->
+
+    <owl:Thing rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/DistrictWard"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBoroughWard"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrictWard"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityWard"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthorityAssemblyConstituency"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentConstituency"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyConstituency"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CivilParish"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Community"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/County"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/District"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/GreaterLondonAuthority"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/LondonBorough"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/MetropolitanDistrict"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthority"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Constituency"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/CountyElectoralDivision"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/ScottishParliamentElectoralRegion"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/UnitaryAuthorityElectoralDivision"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/Ward"/>
+            <rdf:Description rdf:about="http://data.ordnancesurvey.co.uk/ontology/admingeo/WelshAssemblyElectoralRegion"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

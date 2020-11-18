@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/imbi/ru-meta.owl#"
+     xml:base="http://purl.org/imbi/ru-meta.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This is the dirst draft for a recommendation for metadata on Representational Units (RU) which appear in ontologies. It is so far harmonized for implementation through owl annotation properties.
+Comments to: OBI discussion list, metadata wiki or to  schober at ebi.ac.uk</rdfs:comment>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >RU_metadata_ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;float">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Class: http://purl.org/imbi/ru-meta.owl#_deleted -->
+
+    <owl:Class rdf:about="#_deleted">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This residual category holds deleted classes</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="&owl;Thing"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://purl.org/imbi/ru-meta.owl#_inclusion_list -->
+
+    <owl:Class rdf:about="#_inclusion_list">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This residual category holds yet to be classified (mass-)imported terms as a simple list.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="&owl;Thing"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- Class: http://purl.org/imbi/ru-meta.owl#_temp_orphan -->
+
+    <owl:Class rdf:about="#_temp_orphan">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A temporal store for classes that are being worked on.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="&owl;Thing"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    //   OWL Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="#scope_note">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Any general formless remark or note about the scope of the RU (was: rem, note).</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#cls_expl">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A prototypical example subclass for the class.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#prpty_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A name of the property, analogously as a cls_name.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#cls_prov">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The class name provenance. It can be a source publication, a database or ontology entry, a group,  person name or a URL (dbxref in obo)
+A database cross reference. ???</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#unresolved_issue">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An important problematic issue that has to be tackled by the editors.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#del_date">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The date a RU was deleted.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#old_cls_state">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >State wheather a class was defined or primitive when deleted.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#pref_cls_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The preferred name for a class, usually the one used to display in the Hierarchy-browser. As now captured in the rdf:label ???</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#prpty_prov">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The property name provenance. It can be a source publication, a database or ontology entry, a group,  person name or a URL (dbxref in obo)
+A database cross reference. ???</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#cls_del">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Allows to state the reason why a RU has been deleted.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#prpty_expl">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A prototypic example od a sub-property of this property )when property hierarchies are allowed.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#UMLS_connect">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A link to a UMLS semantic Type CUI.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#pref_propty_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The preferred name for a class, usually the one used to display in the Hierarchy-browser.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#action_item">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A description of a task / action for the RU editor to solve an issue related to the RU.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#temp_def">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Indicates definitions which need to be refined.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#curation_status">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The status (stability level) of the class. Specifies tracking information. E.g. unstable, experimental, stable.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#editor">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The name of a specific editior/curator who is responsible for and edits this RU.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#prpty_del">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >State the reason why a property was deleted, analogously as for cla_del.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#def">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The arestotelian, formalized and normalized class definition layed out according to IFOMIS-best practice, explanaining the meaning of a class.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#formal_cls_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A name for the class that is formaly controlled through linguistical rules and axioms. E.G. OBOL normalized ones that adhere to defined principles of word/morpheme/affix order and form. ???</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#cls_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Any name of the class. ??? Will change according to Synonym implementation...</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#short_cls_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A short class name suitable for graph visualisations etc.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#axiom">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >General axioms to be fulfilled by instances of the class can be captured in an informal way in natural language here.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#acronym">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A common accepted acronyn for the RU-name.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#short_prpty_name">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A shortproperty name suitable for graph visualisations etc.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#def_prov">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The definition provenance (was: Defsource). It can be a source publication, a database or ontology entry, a group or person name or a URL (dbxref in obo)</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#editor_note">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A note related to the RU intended for its editor.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#creation_date">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The date when a RU was first created. (Will be provided automatically by Protege 4).</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#alt_def">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An alternative definition. Usually the non-aristotelian natural language definition initially provided by domain specialists.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#context_keyword">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The main usage contexts can be stated, e.g. for text mining purposes or translation purposes.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#inst_expl">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An example  value or instance for the class or Database entry which will be annotated through this RU.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#synonym">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An alternative name for the RU used as synonym (can be used in the same manner as the name in different contexts).</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#replace">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >When a new RU-name replaces an old one, state here which one was replaced. ???</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#refact">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >When a class has been refactored into more atomic classes, then the original compound class is made obsolete and this deleted source class which gave birth to the new atomic child classes is mentioned here for all new atomic classes.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#rights">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Indicate access rights for a RU. The security policy should be compliant with the rule-based access control standards,INCITS, InterNational Committee for Information Technology Standards (formerly NCITS). (2003). Role Based Access Control. INCITS 359 DRAF, 4/4/2003. http://csrc.nist.gov/rbac/ Those offer, in at the same time, a consistent layered approach for security policy definition and management and for compliance with a growing set of supporting tools.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#old_sub_cls">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >For deleted classes state their last position within the ontology, state the old subclasses.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#change_note">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A note that indicates what was modified or changed concerning the RU. 
+Might become RU specific, i.e. cls_change_note AND prpty_change_note</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#cls_id">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A unique Identifyer for the class, consisting of a groups prefix, underscore and unique number.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#abbrev">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A common accepted abbreviation for the RU-name. A word formed from the initials of one or more words describing the name, that is pronounceable like a normal word.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#alt_spr_cls">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An alternative superclass assertion. Used to capture multiple parenthood.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#modif_date">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The date on which the RU was last modified.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#ont_imp">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >To mark from where on in the Class-hierarchy we want to import / refer to a complete subclass hierarchy from an other ontology (was: refer to) ??? Maybe better: cls_imp</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#source">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >??? rel to ont_imp
+??? rel to def_prov or cls_prov ?
+Do we need this separately for diff RUs? Eg. cls_src, prprty_src,&#8230;?</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#old_spr_cls">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >For deleted classes state their last position within the ontology, state the old superclasses.</rdfs:comment>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="#prpty_id">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A unique formal identifyer for the property, analogously to the cls_id.</rdfs:comment>
+    </owl:AnnotationProperty>
+</rdf:RDF>

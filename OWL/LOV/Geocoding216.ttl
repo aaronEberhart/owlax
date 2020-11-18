@@ -1,0 +1,230 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix gleif-base: <https://www.gleif.org/ontology/Base/> .
+@prefix gleif-geo: <https://www.gleif.org/ontology/Geocoding/> .
+@prefix lcc-cr: <https://www.omg.org/spec/LCC/Countries/CountryRepresentation/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+gleif-geo: a voaf:Vocabulary,
+        owl:Ontology ;
+    rdfs:label "GLEIF Geocoding Ontology" ;
+    dct:abstract "Ontology defining concepts for Geocoding of addresses. It is based on the geocoding  used in the Global Legal Entity Identifier Foundation (GLEIF) Golden Copy Data, but is more broadly applicable." ;
+    dct:contributor <http://purl.org/bryon>,
+        <http://www.workingontologist.com>,
+        <https://www.linkedin.com/in/peterivett/> ;
+    dct:creator gleif-base:GLEIF ;
+    dct:issued "2019-02-01T00:00:00+00:00"^^xsd:dateTime ;
+    dct:license "https://www.gleif.org/en/meta/lei-data-terms-of-use/"^^xsd:anyURI ;
+    dct:rights "Copyright (c) 2019 Global Legal Entity Identifier Foundation (GLEIF)" ;
+    dct:rightsHolder gleif-base:GLEIF ;
+    dct:source "https://developer.here.com/documentation/geocoder/topics/reading-geocoding-response.html"^^xsd:anyURI,
+        "https://www.gleif.org/en/lei-data/gleif-golden-copy"^^xsd:anyURI ;
+    dct:title "Global Legal Entity Identifier Foundation Geocoding Ontology"@en ;
+    vann:preferredNamespacePrefix "gleif-geo" ;
+    vann:preferredNamespaceUri "https://www.gleif.org/ontology/Geocoding/" ;
+    owl:imports gleif-base:,
+        lcc-cr: ;
+    owl:versionIRI <https://www.gleif.org/ontology/Geocoding-v1.0/Geocoding/> .
+
+gleif-geo:hasGeocodedAddress a owl:ObjectProperty ;
+    rdfs:label "has geocoded address" ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range gleif-geo:GeocodedAddress ;
+    rdfs:subPropertyOf gleif-base:hasAddress ;
+    skos:definition "A geocoded address for the legal entity." .
+
+gleif-geo:matchLevel a owl:AnnotationProperty ;
+    rdfs:label "match level" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range owl:DatatypeProperty ;
+    skos:definition "The most detailed address field that the geocoding was able to provide." .
+
+gleif-geo:bottomRight a owl:ObjectProperty ;
+    rdfs:label "bottom right" ;
+    rdfs:domain gleif-geo:BoundingBox ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range wgs:Point ;
+    skos:definition "The bottom right point of a bounding box." .
+
+gleif-geo:formattedAddressText a owl:DatatypeProperty ;
+    rdfs:label "formatted address text" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "An aggregated textual representation of the the fields produced by the geocoding as a comma-separated list of fields." .
+
+gleif-geo:hasBoundingBox a owl:ObjectProperty ;
+    rdfs:label "has bounding box" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range gleif-geo:BoundingBox ;
+    skos:definition "The geographic area represented by the address." .
+
+gleif-geo:hasDistrict a owl:DatatypeProperty ;
+    rdfs:label "has district" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "A textual representation of the district." .
+
+gleif-geo:hasRegionText a owl:DatatypeProperty ;
+    rdfs:label "has region text" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:altLabel "has state text" ;
+    skos:definition "A textual representation of the state or region." ;
+    skos:prefLabel "has region text" .
+
+gleif-geo:hasStreet a owl:DatatypeProperty ;
+    rdfs:label "has street" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "The name of a street, as opposed to a house within it." .
+
+gleif-geo:locationId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "location ID" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:subPropertyOf gleif-base:hasTag ;
+    skos:definition "A unique identifier representing a hash of the location." .
+
+gleif-geo:matchDate a owl:DatatypeProperty ;
+    rdfs:label "has end"@en ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "The date of the geocoding from the original address." .
+
+gleif-geo:matchType a owl:ObjectProperty ;
+    rdfs:label "match type" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range gleif-geo:MatchType ;
+    skos:definition "Quality of the location match, either pointAddress or interpolated." .
+
+gleif-geo:originalAddress a owl:ObjectProperty ;
+    rdfs:label "original address" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range gleif-base:PhysicalAddress ;
+    skos:definition "The original address(es) from which the geocoding was derived." .
+
+gleif-geo:originalAddressText a owl:DatatypeProperty ;
+    rdfs:label "original address text" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "An aggregated textual representation of the original address(es) from which the geocoding was derived, as a comma-separated list of fields with null where the field did not have a value." .
+
+gleif-geo:relevance a owl:DatatypeProperty ;
+    rdfs:label "bottom right" ;
+    rdfs:domain gleif-geo:GeocodedAddress ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range xsd:decimal ;
+    skos:definition "A value from 0 to 1 representing the percentage of the input that matched the returned address. 1 means that all input tokens were matched." .
+
+gleif-geo:topLeft a owl:ObjectProperty ;
+    rdfs:label "top left" ;
+    rdfs:domain gleif-geo:BoundingBox ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:range wgs:Point ;
+    skos:definition "The top left point of a bounding box." .
+
+gleif-geo:MatchTypeInterpolated a gleif-geo:MatchType ;
+    rdfs:label "match type interpolated" ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "The location was interpolated from known locations of adjacent addresses." ;
+    gleif-base:hasTag "interpolated" .
+
+gleif-geo:MatchTypePointAddress a gleif-geo:MatchType ;
+    rdfs:label "match type point address" ;
+    rdfs:isDefinedBy gleif-geo: ;
+    skos:definition "The location matches the specific address." ;
+    gleif-base:hasTag "pointAddress" .
+
+gleif-geo:BoundingBox a owl:Class ;
+    rdfs:label "bounding box" ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass wgs:Point ;
+            owl:onProperty gleif-geo:bottomRight ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass wgs:Point ;
+            owl:onProperty gleif-geo:topLeft ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        wgs:SpatialThing ;
+    skos:definition "A geographic rectangular area bounded by its top left and bottom right points." .
+
+gleif-geo:MatchType a owl:Class ;
+    rdfs:label "match type" ;
+    rdfs:isDefinedBy gleif-geo: ;
+    owl:oneOf ( gleif-geo:MatchTypePointAddress gleif-geo:MatchTypeInterpolated ) ;
+    skos:definition "Quality of the location match, either pointAddress or interpolated." .
+
+gleif-geo:GeocodedAddress a owl:Class ;
+    rdfs:label "geocoded address"@en ;
+    rdfs:isDefinedBy gleif-geo: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-geo:hasDistrict ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-geo:hasRegionText ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-geo:hasStreet ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0" ;
+            owl:onProperty gleif-geo:originalAddressText ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0" ;
+            owl:onClass gleif-base:PhysicalAddress ;
+            owl:onProperty gleif-geo:originalAddress ],
+        [ a owl:Restriction ;
+            owl:onClass gleif-geo:BoundingBox ;
+            owl:onProperty gleif-geo:hasBoundingBox ;
+            owl:qualifiedCardinality "1" ],
+        [ a owl:Restriction ;
+            owl:onClass gleif-geo:MatchType ;
+            owl:onProperty gleif-geo:matchType ;
+            owl:qualifiedCardinality "1" ],
+        [ a owl:Restriction ;
+            owl:onClass lcc-cr:Country ;
+            owl:onProperty gleif-base:hasCountry ;
+            owl:qualifiedCardinality "1" ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty gleif-geo:matchDate ;
+            owl:qualifiedCardinality "1" ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty gleif-geo:relevance ;
+            owl:qualifiedCardinality "1" ],
+        [ a owl:Restriction ;
+            owl:cardinality "1" ;
+            owl:onProperty gleif-base:hasCity ],
+        [ a owl:Restriction ;
+            owl:cardinality "1" ;
+            owl:onProperty gleif-geo:locationId ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-base:hasAddressNumber ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-base:hasPostalCode ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1" ;
+            owl:onProperty gleif-geo:formattedAddressText ],
+        gleif-base:PhysicalAddress ;
+    skos:definition "A geocoded address, derived from a physical address, with latitude and longitude information." .
+
+[] a owl:AllDifferent ;
+    owl:members ( gleif-geo:MatchTypePointAddress gleif-geo:MatchTypeInterpolated ) .
+

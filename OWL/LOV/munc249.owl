@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:dc="http://purl.org/dc/terms/"
+         xmlns:vann="http://purl.org/vocab/vann/"
+         xmlns:voaf="http://purl.org/vocommons/voaf#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <owl:Ontology rdf:about="http://ns.inria.fr/munc#">
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    <rdfs:isDefinedby rdf:resource="http://ns.inria.fr/munc"/>
+    <dc:creator rdf:resource="http://i3s.unice.fr/~djebri/foaf.html#me"/>
+    <dc:creator>Ahmed El Amine DJEBRI</dc:creator>
+    <dc:contributor>Ahmed El Amine DJEBRI</dc:contributor>
+    <dc:contributor>Fabien Gandon</dc:contributor>
+    <dc:contributor>Andrea G.B. Tettamanzi</dc:contributor>
+    <dc:description xml:lang="en">An OWL vocabulary for describing uncertainty metadata.</dc:description>
+    <dc:title xml:lang="en">Meta-Uncertainty</dc:title>
+    <vann:preferredNamespacePrefix>munc</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>http://ns.inria.fr/munc#</vann:preferredNamespaceUri>
+    <rdfs:comment xml:lang="en">This file specifies the set of OWL classes and properties to represent multi-level uncertainty metadata.</rdfs:comment>
+    <foaf:homepage rdf:resource="http://ns.inria.fr/munc"/>
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-12-23</dc:created>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-01-07</dc:modified>
+    <dc:publisher>Inria</dc:publisher>
+    <dc:type rdf:resource="http://purl.org/adms/assettype/Ontology"/>
+    <dc:status rdf:resource="http://purl.org/adms/status/UnderDevelopment"/>
+    <rdfs:seeAlso rdf:resource="http://ns.inria.fr/munc/"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#UncertaintyOperation">
+    <rdfs:label xml:lang="en">Uncertainty Operation</rdfs:label>
+    <rdfs:comment xml:lang="en">The Calculus to apply on the Values of a defined Uncertainty Feature.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#UncertaintyValue">
+    <rdfs:label xml:lang="en">Uncertainty Value</rdfs:label>
+    <rdfs:comment xml:lang="en">For each Uncertainty Feature, exists (when declared) a corresponding value.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#Meta">
+    <rdfs:label xml:lang="en">Meta</rdfs:label>
+    <rdfs:comment xml:lang="en">The metadata associated to a Sentence in a certain World (Context).</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#Sentence">
+    <rdfs:label xml:lang="en">Sentence</rdfs:label>
+    <rdfs:comment xml:lang="en">The Sentence (Triple, Graph, Graph Pattern) to which Meta is associated in a specific World.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#Uncertainty">
+    <rdfs:label xml:lang="en">Uncertainty</rdfs:label>
+    <rdfs:comment xml:lang="en">A subclass of Meta, it enables annotating the Sentence associated to the metadata with uncertainty information.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ns.inria.fr/munc#Meta"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#World">
+    <rdfs:label xml:lang="en">World</rdfs:label>
+    <rdfs:comment xml:lang="en">The context (Graph, Default Graph, etc.) in which the Sentence is associated to Meta. This is used generally by datastores which are unable to represent named graphs.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://ns.inria.fr/munc#UncertaintyApproach">
+    <rdfs:label xml:lang="en">Uncertainty Approach</rdfs:label>
+    <rdfs:comment xml:lang="en">Individuals of this class represent uncertainty approaches, which are detailed in the appendix A.</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#uncertaintyOperator">
+    <rdfs:label xml:lang="en">uncertaintyOperator</rdfs:label>
+    <rdfs:comment xml:lang="en">Each Uncertainty approach has its own logic to reason over metadata, This class defines the methods that can be applied over Uncertainty Values. Such logic is the same used in reasoners and inference engines.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#uncertaintyFeature"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyOperation"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#uncertaintyFeature">
+    <rdfs:label xml:lang="en">uncertaintyFeature</rdfs:label>
+    <rdfs:comment xml:lang="en">Each Uncertainty approach has some features, which can be metrics or measures to compare, infer or reason over to have a decision about knowledge.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#Uncertainty"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyValue"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasMeta">
+    <rdfs:label xml:lang="en">hasMeta</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#Sentence"/>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#World"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#Meta"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasUncertaintyApproach">
+    <rdfs:label xml:lang="en">hasUncertaintyApproach</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#Uncertainty"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasUncertaintyFeature">
+    <rdfs:label xml:lang="en">hasUncertaintyFeature</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#uncertaintyFeature"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasUncertaintyOperator">
+    <rdfs:label xml:lang="en">hasUncertaintyOperator</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#uncertaintyOperator"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#statedIn">
+    <rdfs:label xml:lang="en">statedIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#Sentence"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#World"/>
+  </owl:ObjectProperty>
+
+
+  <!-- New in mUnc V.2 : translation -->
+  <owl:Class rdf:about="http://ns.inria.fr/munc#TranslationFunction">
+    <rdfs:label xml:lang="en">Translation Function</rdfs:label>
+    <rdfs:comment xml:lang="en">Individuals of this class are LDScript functions enabling translating uncertainty information from one approach to another.</rdfs:comment>
+  </owl:Class>
+
+<owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#translateFrom">
+    <rdfs:label xml:lang="en">translateFrom</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#TranslationFunction"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#translateTo">
+    <rdfs:label xml:lang="en">translateFrom</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#TranslationFunction"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasTranslation">
+    <rdfs:label xml:lang="en">hasTranslation</rdfs:label>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://ns.inria.fr/munc#hasIdealTranslation">
+    <rdfs:label xml:lang="en">hasIdealTranslation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/munc#hasTranslation"/>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:ObjectProperty>
+
+  <owl:SymmetricProperty rdf:about="http://ns.inria.fr/munc#hasFullTranslation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    <rdfs:label xml:lang="en">hasFullTranslation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/munc#hasIdealTranslation"/>
+    <rdfs:domain rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+    <rdfs:range rdf:resource="http://ns.inria.fr/munc#UncertaintyApproach"/>
+  </owl:SymmetricProperty>
+
+</rdf:RDF>

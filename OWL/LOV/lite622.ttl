@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+        <title>IoT-Lite Ontology</title>
+        <link rel="stylesheet" type="text/css" href="./iot-lite/css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="./iot-lite/css/ezweb.css"/>        
+        <style type="text/css"></style>
+    </head>
+
+    <body class=" hasGoogleVoiceExt">
+        <div class="head">
+            <h1 id="title">IoT-Lite Ontology</h1>
+            <h2 id="subtitle">Working Draft </h2>
+            <dl>
+                <dt>Latest version:</dt>
+                <dd><a href="http://purl.oclc.org/NET/UNIS/fiware/iot-lite#">http://purl.oclc.org/NET/UNIS/fiware/iot-lite#</a> (<a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite/iot-lite.rdf">RDF/XML</a>, <a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite/iot-lite.ttl">Turtle</a>, <a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite/iot-lite.jsonld">JSON-LD</a>)</dd>
+                <dt>Last Update:</dt>
+                <dd>2017-06-04</dd>                
+                <dt>Authors:</dt>
+                <dd><a href="http://www.ugr.es/~mbe/M._Bermudez-Edo/" 
+                       title="Software Engineering Department, University of Granada, Granada, Spain">Maria Bermudez-Edo</a>, 
+                       <a href="http://www.ugr.es/" 
+                          title="Software Engineering Department, University of Granada, Granada, Spain">
+                           Software Engineering Department</a>, University of Granada</dd>
+                <dd><a href="http://www.surrey.ac.uk/ics/people/tarek_elsaleh/" 
+                       title="Institute for Communication Systems, University of Surrey, Guildford, United Kingdom">Tarek Elsaleh</a>, 
+                       <a href="http://www.surrey.ac.uk/ics/" title="Institute for Communication Systems, University of Surrey, Guildford, United Kingdom">
+                           Institute for Communication Systems</a>, University of Surrey</dd>
+                <dd><a href="http://www.surrey.ac.uk/ics/people/payam_barnaghi/index.htm" 
+                       title="Institute for Communication Systems, University of Surrey, Guildford, United Kingdom">Payam Barnaghi</a>, 
+                       <a href="http://www.surrey.ac.uk/ics/" title="Institute for Communication Systems, University of Surrey, Guildford, United Kingdom">
+                           Institute for Communication Systems</a>, University of Surrey</dd>                
+                <dt>Contributors:</dt>
+                <dd>This work is part of the <a href="http://www.fiware.org/">EU FP7 FIWARE project</a> and the <a href="http://www.fiesta-iot.eu/">EU H2020 FIESTA-IoT project</a> at the <a href="http://www.surrey.ac.uk/ics/">Institute for Communication Systems</a>, University of Surrey.</dd>
+                <dt>Publications:</dt>
+                <dd>Maria Bermudez-Edo, Tarek Elsaleh, Payam Barnaghi and Kerry Taylor, 
+                    <a href="https://doi.org/10.1109/UIC-ATC-ScalCom-CBDCom-IoP-SmartWorld.2016.0035">"IoT-Lite: A Lightweight Semantic Model for the Internet of Things"</a>, 
+                    in Proc. of the IEEE Conferences on Ubiquitous Intelligence and Computing, July 2016, Toulouse, France.
+                </dd>
+                <dd>Maria Bermudez-Edo, Tarek Elsaleh, Payam Barnaghi and Kerry Taylor, 
+                    <a href="https://doi.org/10.1007/s00779-017-1010-8">"IoT-Lite: a lightweight semantic model for the internet of things and its use with dynamic semantics"</a>, 
+                    Personal and Ubiquitous Computing (2017).
+                </dd>
+            </dl>
+            <hr/>
+            <p class="copyright">You are granted a license to use, reproduce
+                and create derivative works of this document under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.  This copyright applies to the
+                <span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">iot-lite ontology</span> specification and RDF.
+                <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="./iot-lite/figures/80x15.png"/></a>
+            </p>
+            <!-- ===================================================================== -->
+            <hr/>
+            <h2 id="abstract">Abstract</h2>
+            <p>
+                IoT-Lite ontology is a lightweight ontology to represent Internet of Things (IoT) resources, entities and services. IoT-Lite is an instantiation of the <a href="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn">SSN ontology</a>. The lightweight allow the representation and use of IoT platforms without consuming excessive processing time when querying the ontology. However it is also a meta ontology that can be extended in order to represent IoT concepts in a more detailed way in different domains. It also can be combined with ontologies representing IoT data streams such as <a href="http://purl.oclc.org/NET/UNIS/sao/sao#">SAO ontology</a>.
+                Following best practices in ontology engineering IoT-Lite is meant to be used with a quantity taxonomy, such as <a href="http://purl.oclc.org/NET/UNIS/fiware/iot-lite/qu-taxo#">qu-taxo</a> or <a href="http://purl.org/iot/vocab/m3-lite#">m3-lite</a>, that allows the discovery and interoperability of IoT resources in heterogeneous platforms using a common vocabulary.
+            </p>
+            <h2 id="status">Status of this Document</h2>
+            <p> <strong>This is a work in progress and as such is subject to change.</strong> Comments are very welcome, please send them to <a href="mailto:mbe@ugr.es">First Author</a>.</p>
+            <!-- ===================================================================== -->
+            <ol id="toc">
+                <li><a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#intro">Introduction</a>
+                </li>
+                <li><a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#sec-examples">Example</a></li>
+                <li><a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#sec-glance">IoT-Lite Ontology at Glance</a></li>
+                <li><a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#class-reference">Cross-reference for IoT-Lite classes and Object Properties</a></li>
+            </ol>
+            <h3>Appendices</h3>
+            <ol id="appendix">
+                <li><a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#sec-references">References</a></li>
+            </ol>
+            <hr/>
+            <div class="body">
+                <div class="div1">
+                    <h2 id="intro">1. Introduction</h2>
+                    <p>The Internet of Things (IoT) is machine-to-machine communications and interactions between objects, devices and people. In the near future the communications and information processing will be ubiqutious and performed by IoT systems.   </p>
+                <p>Over the past few years the semantics community has developed ontologies to describe concepts and relationship between different entities in various domains. The Internet of Things (IoT) domain have similar approaches to apply semantics. A key problem is that most of the IoT related semantic descriptions are not as widely adopted as expected. One of the main concerns users and developers have is that semantics increase the complexity and processing time and therefore they are unsuitable for dynamic and responsive environments such as the IoT.</p>
+                <p>Complex models, although can be applied for querying almost anything about objects, are often difficult to implement and use. They need high processing and therefore they are not suitable for constrained environments. IoT models should consider the constrains and dynamicity of the IoT environments. At the same time, they need to model the relationships and concepts that represent and allow interoperability between IoT entities. Therefore, expressiveness versus complexity is a challenge. 
+                </p>
+                <p>We propose IoT-Lite, a lightweight instantiation of the <a href="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn">semantic sensor network (SSN) ontology </a> <a href="#ref1"> <sup>1</sup> </a> to describe the key IoT concepts that allows interoperability and discovery of sensory data in heterogeneous IoT platforms. IoT-lite reduces the complexity of other IoT models describing only the main concepts of the IoT domain. IoT-Lite can be extended by different models to increment it expressiveness. 
+                </p>
+                <p>IoT-Lite describes IoT concepts in three classes. <a href="#term_Object">Objects</a>, <a href="http://purl.oclc.org/NET/ssnx/ssn#System">system or resources</a> and <a href="#term_Service">services</a>. IoT devices are classified into, although not restricted to, three classes: <a href="http://purl.oclc.org/NET/ssnx/ssn#SensingDevice">sensing devices</a> <a href="#term_ActuatingDevice">actuating devices</a> and <a href="#term_TagDevice">tag devices</a>.
+                IoT-Lite is focused on sensing, although it has a high level concept on actuation that allows any future extension on this area.
+                Services are described with a <a href="#term_Coverage">coverage</a>. This coverage represents the 2D-spatial covered by the IoT device.
+                </p>
+                <p>The figure below depicts the concepts of the ontology and the main relationships between them.</p>
+                    <br />
+                    <center><img src="https://www.dropbox.com/s/8oeous3nmc8f9te/iot-lite_v11_model.png?dl=1" align="middle" alt="IoT lite Ontology" style="width:850px"/></center>
+                    <br /><br />
+                    IoT Lite Ontology is created to be used with a common <a href="http://purl.oclc.org/NET/UNIS/fiware/iot-lite/iot-taxo#">taxonomy </a> to describe the <a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#term_Units">Units </a> and <a href="http://iot.ee.surrey.ac.uk/fiware/ontologies/iot-lite#term_QuantityUnits">QuantityKind </a>  that IoT devices can meassure. This taxonomy represent individuals in the ontology and is based in well-known taxonomies as: <a href="http://www.w3.org/2005/Incubator/ssn/wiki/QU_Ontology"> qu </a> and <a href="http://www.qudt.org/"> qudt</a>.
+                    <div class="Exemplification">
+                        <h2 id="sec-examples">2. Example</h2>
+                        <p>As an example of a sensor device, let's take the SmartICS IoT Egg.</p>
+                        <center><img src="https://www.dropbox.com/s/maiy6kup4uy832i/iot-egg.png?dl=1"
+                                     align="middle" alt="Example IoT lite Ontology" style="width:700px"/></center>
+                        <br /><br />
+                        <p>The following is an exemplification of the annotated sensor device.</p>
+                        <br /><br />
+                        <center><img src="https://www.dropbox.com/s/uf1gnt0wqll7h9t/iot-lite-instance.png?dl=1" align="middle" alt="Example IoT lite Ontology" style="width:950px"/></center>
+                        <br /><br />
+                        <p>The example in turtle is:</p>
+                        <div class="example"><div class="example-title"><span>Example</span></div><pre class="example">
+<!--<span>-->
+<textarea readonly disabled rows="50" cols="150">   
+@prefix :      <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> .
+@prefix iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> .
+@prefix qu:    <http://purl.org/NET/ssnx/qu/qu#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix fiesta-res: <http://platform.fiesta-iot.eu/srd/registry/v1/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix m3-lite: <http://purl.org/iot/vocab/m3-lite#> .
+@prefix ssn:   <http://purl.oclc.org/NET/ssnx/ssn#> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix sc:    <http://smartcampus.iot.ee.surrey.ac.uk/smart-ics#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix qu-rec20: <http://purl.org/NET/ssnx/qu/qu-rec20#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+sc:smart-ics  a                 ssn:System ;
+        iot-lite:isSubSystemOf  sc:SmartCampus .
+
+fiesta-res:IoT-Node1TEMPERATURE
+        a                         ssn:SensingDevice ;
+        iot-lite:hasQuantityKind  m3-lite:Temperature ;
+        iot-lite:isExposedBy      sc:service#iot-egg-001 ;
+        iot-lite:isSubSystemOf    sc:smart-ics ;
+        ssn:onPlatform            sc:ICS-Desk1 .
+
+sc:service#iot-egg-001
+        a                  iot-lite:Service ;
+        iot-lite:endpoint  "http://smart-ics.surrey.ac.uk/fiesta-iot/service/iot-egg-001-temp" .
+
+sc:CII-UNIS-GU2-UK-ICS-Desk1
+        a                          geo:Point ;
+        iot-lite:RelativeLocation  "ICS-Desk1" ;
+        geo:lat                    "51.4" ;
+        geo:long                   "-0.51" .
+
+sc:SmartCampus  a  ssn:System .
+
+sc:ICS-Desk1  a       ssn:Platform ;
+        geo:location  sc:CII-UNIS-GU2-UK-ICS-Desk1 .
+
+fiesta-res:IoT-Node1  a   ssn:Device ;
+        ssn:hasSubSystem  fiesta-res:iot-egg-001-temp .
+        </textarea>
+<!--</span>-->
+                            </pre>
+                        </div>
+
+
+
+                    </div>
+                    <!-- End of the terms list -->
+                </div>
+
+                <div class="glance">
+                    <h2 id="sec-glance">3. IoT Lite Ontology at Glance</h2>
+                    <p>An alphabetical index of IoT Lite terms, by class (concepts) and properties are given below. All the terms are hyperlinked to their detailed description for quick reference.</p>
+
+                    <!-- The list of classes and properties goes here 
+                   <div style="padding: 1em; border: dotted; background-color: #F5E6FA;">
+
+
+                    <!-- The list of classes and properties goes here -->
+                    <div style="padding: 1em; border: dotted; background-color: #F5E6FA;">
+                        <p>Classes:  
+                            <a href="#term_ActuatingDevice">ActuatingDevice</a>,
+                            <a href="#term_Tag">TagDevice</a>, 
+                            <a href="#term_Object">Object</a>, 
+                            <a href="#term_Attribute">Attribute</a>,  
+                            <!--<a href="#term_Availability">Availability</a>,-->  
+                            <a href="#term_Circle">Circle</a>,  
+                            <!--<a href="#term_Command">Command</a>,-->  
+                            <a href="#term_Coverage">Coverage</a>,  
+                            <a href="#term_Device">Device</a>,  
+                            <a href="#term_Metadata">Metadata</a>,
+                            <a href="#term_Polygon">Polygon</a>,  
+                            <a href="#term_Rectangle">Rectangle</a>,  
+                            <a href="#term_Service">Service</a>,                              
+                        </p>
+                        <p>Properties:  
+                            <a href="#term_relativeLocation">relativeLocation</a>,  
+                            <a href="#term_altRelative">altRelative</a>,  
+                            <a href="#term_interfaceDescription">interfaceDescription</a>,  
+                            <a href="#term_endpoint">endpoint</a>,  
+                            <a href="#term_exposedBy">exposedBy</a>,  
+                            <a href="#term_hasAttribute">hasAttribute</a>,  
+                            <!--<a href="#term_hasAvailability">hasAvailability</a>,-->  
+                            <!--<a href="#term_hasCommand">hasCommand</a>,-->  
+                            <a href="#term_hasCoverage">hasCoverage</a>,  
+                            <a href="#term_hasMetadata">hasMetadata</a>,  
+                            <a href="#term_hasPoint">hasPoint</a>,  
+                            <a href="#term_hasQuantityKind">hasQuantityKind</a>,  
+                            <a href="#term_hasUnit">hasUnit</a>,  
+                            <a href="#term_id">id</a>,                              
+                            <a href="#term_radius">radius</a>,  
+                            <a href="#term_interfaceType">interfaceType</a>,  
+                            <a href="#term_isOnline">isOnline</a>,
+                            <a href="#term_isMobile">isMobile</a>,
+                        </p>
+                    </div>
+                    <!-- End of the terms list -->
+                </div>
+                <h2 id="class-reference">4. Cross-reference for IoT-Lite classes and Object Properties</h2>
+                <!-- The following is the script-generated list of classes and properties -->
+                <div class="specterm" id="term_ActuatingDevice">
+                    <h3>Class: iot-lite:ActuatingDevice</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#ActuatingDevice">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#ActuatingDevice</a></p>
+                    <p><em>An IoT device that provides actuation (i.e. a device that can open and close a window).</em></p>
+                    <dl><dt>sub-class-of:</dt><dd><a href="#term_Device" style="font-family: monospace;">ssn:Device</a></dd>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Attribute">
+                    <h3>Class: iot-lite:Attribute</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Attribute">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Attribute</a></p>
+                    <p><em>An attribute of an IoT object that can be exposed by an IoT service (i.e. a room (IoT Object) has a temperature (attribute), that can be exposed by a temperature sensor (IoT device).</em></p>
+                    <dl><dt>in-domain-of:</dt><dd><a href="#term_exposedBy" style="font-family: monospace;">iot-lite:exposedBy</a></dd><dt>in-range-of:</dt>
+                        <dd><a href="#term_hasAttribute" style="font-family: monospace;">iot-lite:hasAttribute</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Circle">
+                    <h3>Class: iot-lite:Circle</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Circle">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Circle</a></p><p><em></em> -  </p>
+                    <dl><dt>sub-class-of:</dt><dd><a href="#term_Coverage" style="font-family: monospace;">iot-lite:Coverage</a></dd>
+                        <dt>in-domain-of:</dt><dd><a href="#term_radius" style="font-family: monospace;">iot-lite:radius</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Coverage">
+                    <h3>Class: iot-lite:Coverage</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Coverage">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Coverage</a></p>
+                    <p><em> The coverage of an IoT device (i.e. a temperature sensor inside a room has a coverage of that room).</em>  </p>
+                    <dl><dt>in-domain-of:</dt><dd><a href="#term_hasPoint" style="font-family: monospace;">iot-lite:hasPoint</a></dd>
+                        <dt>in-range-of:</dt><dd><a href="#term_hasCoverage" style="font-family: monospace;">iot-lite:hasCoverage</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Device">
+                    <h3>Class: ssn:Device</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Device">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Device</a></p>
+                    <p><em>An IoT element that have sensing or actuating capabilities including redirection to information such as Tags.</em>  </p>
+                    <dl>                        
+                        <dd><a href="#term_id" style="font-family: monospace;">iot-lite:id</a></dd>
+                        <dt>in-range-of:</dt><dd><a href="#term_exposedBy" style="font-family: monospace;">iot-lite:exposedBy</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Metadata">
+                    <h3>Class: iot-lite:Metadata</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Metadata">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Metadata</a></p>
+                    <p><em>Any metadata that a sensor can provide not include in the classes qu:Units or qu:QuantityKind. </em>  </p>
+                    <dl><dt>in-range-of:</dt><dd><a href="#term_hasMetadata" style="font-family: monospace;">iot-lite:hasMetadata</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Object">
+                    <h3>Class: iot-lite:Object</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Object">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Object</a></p>
+                    <p><em>An Object or IoT entity (i.e. room, car, table)</em> </p>
+                    <dl><dt>in-domain-of:</dt><dd><a href="#term_hasAttribute" style="font-family: monospace;">iot-lite:hasAttribute</a></dd>
+                        <dd><a href="#term_interfaceDescription" style="font-family: monospace;">iot-lite:interfaceDescription</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Polygon">
+                    <h3>Class: iot-lite:Polygon</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Polygon">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Polygon</a></p><p><em></em> -  </p>
+                    <dl><dt>sub-class-of:</dt><dd><a href="#term_Coverage" style="font-family: monospace;">iot-lite:Coverage</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Rectangle">
+                    <h3>Class: iot-lite:Rectangle</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Rectangle">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Rectangle</a></p><p><em></em> -  </p>
+                    <dl><dt>sub-class-of:</dt><dd><a href="#term_Coverage" style="font-family: monospace;">iot-lite:Coverage</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Service">
+                    <h3>Class: iot-lite:Service</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Service">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#Service</a></p>
+                    <p><em>IoT service provided by an IoT device.</em>  </p>
+                    <dl><dt>in-domain-of:</dt><dd><a href="#term_hasAvailability" style="font-family: monospace;">iot-lite:hasAvailability</a></dd>
+                        <dd><a href="#term_hasCoverage" style="font-family: monospace;">iot-lite:hasCoverage</a></dd>
+                        <dd><a href="#term_endpoint" style="font-family: monospace;">iot-lite:endpoint</a></dd>
+                        <dd><a href="#term_interfaceDescription" style="font-family: monospace;">iot-lite:interfaceDescription</a>
+                        </dd><dt>in-range-of:</dt><dd><a href="#term_isRepresentedBy" style="font-family: monospace;">iot-lite:isRepresentedBy</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_Tag">
+                    <h3>Class: iot-lite:TagDevice</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#TagDevice">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#TagDevice</a></p>
+                    <p><em>Device that can redirect to a resource with information (i.e. RFID, NFC, QR-codes, bar-codes). </em> </p>
+                    <dl><dt>sub-class-of:</dt><dd><a href="#term_Device" style="font-family: monospace;">ssn:Device</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_relativeLocation">
+                    <h3>Property: iot-lite:relativeLocation</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#relativeLocation">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#relativeLocation</a></p>
+                    <p><em>A location not provided by geo-coordinates (i.e. building A, city of Aarhus).</em> </p>
+                    <dl><dt>OWL Type:</dt><dd>AnnotationProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="http://www.w3.org/2003/01/geo/wgs84_pos#Point" style="font-family: monospace;">geo:Point</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_altRelative">
+                    <h3>Property: iot-lite:altRelative</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#altRelative">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#altRelative</a></p>
+                    <p><em>Altitude not provide by the coordinate altitude, useful for indoors locations (i.e. floor 2)</em> </p>
+                    <dl><dt>OWL Type:</dt><dd>AnnotationProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="http://www.w3.org/2003/01/geo/wgs84_pos#Point" style="font-family: monospace;">geo:Point</a></dd>
+                        <dt>Range:</dt> <dd><a href="http://www.w3.org/2001/XMLSchema#string" style="font-family: monospace;">xsd:string</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_interfaceDescription">
+                    <h3>Property: iot-lite:interfaceDescription</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#interfaceDescription">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#interfaceDescription</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Object" style="font-family: monospace;">iot-lite:Object</a></dd>
+                        <dd><a href="#term_Service" style="font-family: monospace;">iot-lite:Service</a></dd><dt>Range:</dt>
+                        <dd><a href="http://www.w3.org/2001/XMLSchema#anyURI" style="font-family: monospace;">xsd:anyURI</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>                
+                <div class="specterm" id="term_isOnline">
+                    <h3>Property: iot-lite:endpoint</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#isOnline">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#isOnline</a></p>
+                    <p><em>Is the service online/reachable?</em>  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Service" style="font-family: monospace;">iot-lite:Service</a></dd><dt>Range:</dt>
+                        <dd><a href="http://www.w3.org/2001/XMLSchema#boolean" style="font-family: monospace;">xsd:boolean</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_isMobile">
+                    <h3>Property: iot-lite:endpoint</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#isMobile">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#isMobile</a></p>
+                    <p><em>Is the platform that the Resource is fixed to mobile?</em>  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Platform" style="font-family: monospace;">iot-lite:Service</a></dd><dt>Range:</dt>
+                        <dd><a href="http://www.w3.org/2001/XMLSchema#boolean" style="font-family: monospace;">xsd:boolean</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_exposedBy">
+                    <h3>Property: iot-lite:exposedBy</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#exposedBy">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#exposedBy</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Device" style="font-family: monospace;">ssn:Device</a></dd><dt>Range:</dt>
+                        <dd><a href="#term_Service" style="font-family: monospace;">iot-lite:Service</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasAttribute">
+                    <h3>Property: iot-lite:hasAttribute</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasAttribute">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasAttribute</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Object" style="font-family: monospace;">iot-lite:Object</a></dd><dt>Range:</dt>
+                        <dd><a href="#term_Attribute" style="font-family: monospace;">iot-lite:Attribute</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasCoverage">
+                    <h3>Property: iot-lite:hasCoverage</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasCoverage">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasCoverage</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Service" style="font-family: monospace;">iot-lite:Service</a></dd>
+                        <dt>Range:</dt> <dd><a href="#term_Coverage" style="font-family: monospace;">iot-lite:Coverage</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasMetadata">
+                    <h3>Property: iot-lite:hasMetadata</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasMetadata">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasMetadata</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Range:</dt> <dd><a href="#term_Metadata" style="font-family: monospace;">iot-lite:Metadata</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasPoint">
+                    <h3>Property: iot-lite:hasPoint</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasPoint">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasPoint</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Coverage" style="font-family: monospace;">iot-lite:Coverage</a></dd><dt>Range: </dt>
+                        <dd><a href="http://www.w3.org/2003/01/geo/wgs84_pos#Point" style="font-family: monospace;">geo:Point</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasQuantityKind">
+                    <h3>Property: iot-lite:hasQuantityKind</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasQuantityKind">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasQuantityKind</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="http://purl.oclc.org/NET/ssnx/ssn#Sensor" style="font-family: monospace;">http://purl.oclc.org/NET/ssnx/ssn#Sensor</a></dd>
+                        <dt>Range:</dt> <dd><a href="http://purl.org/NET/ssnx/qu/qu#QuantityKind" style="font-family: monospace;">http://purl.org/NET/ssnx/qu/qu#QuantityKind</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_hasUnit">
+                    <h3>Property: iot-lite:hasUnit</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasUnit">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#hasUnit</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Range:</dt> <dd><a href="http://purl.org/NET/ssnx/qu/qu#Unit" style="font-family: monospace;">http://purl.org/NET/ssnx/qu/qu#Unit</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_id">
+                    <h3>Property: iot-lite:id</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#id">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#id</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Device" style="font-family: monospace;">ssn:Device</a></dd><dt>Range:</dt>
+                        <dd><a href="http://www.w3.org/2001/XMLSchema#string" style="font-family: monospace;">xsd:string</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_exposes">
+                    <h3>Property: iot-lite:exposes</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#exposes">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#exposes</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>ObjectProperty</dd>
+                        <dt>Domain:</dt><dd><a href="#term_Service" style="font-family: monospace;">iot-lite:Service</a></dd>
+                        <dt>Range:</dt><dd><a href="#term_Device" style="font-family: monospace;">ssn:Device</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_radius">
+                    <h3>Property: iot-lite:radius</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#radius">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#radius</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Domain:</dt> <dd><a href="#term_Circle" style="font-family: monospace;">iot-lite:Circle</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                <div class="specterm" id="term_type">
+                    <h3>Property: iot-lite:interfaceType</h3>
+                    <p style="font-family:monospace; font-size:0.em;">URI: 
+                        <a href="http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#interfaceType">http://purl.oclc.org/NET/UNIS/iot-lite/iot-lite#interfaceType</a></p><p><em></em> -  </p>
+                    <dl><dt>OWL Type:</dt><dd>DatatypeProperty</dd>
+                        <dt>Range:</dt> <dd><a href="http://www.w3.org/2001/XMLSchema#string" style="font-family: monospace;">xsd:string</a></dd></dl>
+                    <p style="float: right; font-size: small;">[<a href="#sec-glance">back to top</a>]</p>
+                </div>
+                
+                <!-- End of the terms list -->
+            </div>
+            <div class="back">
+            </div>
+<!--            <div class="acknowledgements">
+                <h2 id="sec-acknowledgements">Acknowledgements</h2>
+                <p>This work is part of <a href="http://www.fiware.org/"> the EU FP7 FIWARE project</a> and 
+                    <a href="http://www.fiesta-iot.eu/"> the EU H2020 FIESTA-IoT project</a> at the 
+                    <a href="http://www.surrey.ac.uk/ics/">Institution for Communication Systems</a> University of Surrey.
+                </p>
+            </div>-->
+        </div>
+    </body></html>
+<!-- specification regenerated by SpecGen5 at 19:57:06 06/01/15 CEST -->
+

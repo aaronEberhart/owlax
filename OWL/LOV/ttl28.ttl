@@ -1,0 +1,162 @@
+@prefix dave: <http://theme-e.adaptcentre.ie/dave#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+
+# VOCABULARY
+dave:
+	a owl:Ontology, voaf:Vocabulary ;
+  dct:title """Data Value Vocabulary (DaVe)"""@en ;
+  dc:description """The Data Value Vocabulary (DaVe) is an extensible core vocabulary that allows user to use custom data value dimensions and metrics to characterise data value in a specific context. This flexibility allows for the comprehensive modelling of data value. As a data value model, DaVe allows users to monitor data value as it occurs within a data exploitation or value creation process (data value chain)"""@en ;
+  dct:creator [
+    foaf:name "Judie Attard";
+    foaf:mbox <mailto:attardj@scss.tcd.ie>
+  ] ;
+	dct:contributor [
+    foaf:name "Rob Brennan";
+    foaf:homepage <https://www.tcd.ie/research/profiles/?profile=rbrenna>
+  ] ;
+  dct:modified "2017-11-30"^^xsd:date ;
+  dct:language "en"^^xsd:language ;
+  vann:preferredNamespaceUri "http://theme-e.adaptcentre.ie/dave#";
+  vann:preferredNamespacePrefix "dave";
+  foaf:homepage <http://theme-e.adaptcentre.ie/dave/> .
+
+# CLASSES
+dave:DataValue
+	a	rdfs:Class, owl:Class  ;
+	rdfs:comment	"""Defines an aggregation of data value dimensions that characterise data value for a specific context of data use."""@en ;
+	rdfs:label """Data Value Characterisation"""@en .
+
+dave:Toolset
+	a	rdfs:Class, owl:Class  ;
+	rdfs:comment	"""Identifies a specific framework or toolset that implements data value metrics"""@en ;
+	rdfs:label """Framework or Toolset"""@en .
+
+dave:Description
+	a	rdfs:Class, owl:Class  ;
+	rdfs:comment	"""Describes a data value metric, including the context of use, the expected result, and the approach taken within the Metric to assess data value"""@en ;
+	rdfs:label """Metric Description"""@en .
+
+dave:ValueMeasurement
+	a	rdfs:Class, owl:Class  ;
+	rdfs:subClassOf qb:Observation ,
+		[ 	rdf:type owl:Restriction ;
+			owl:onProperty sdmx-dimension:timePeriod ;
+			owl:cardinality "1"^^xsd:nonNegativeInteger
+		] ,
+		[ 	rdf:type owl:Restriction ;
+			owl:onProperty dave:computedOn ;
+			owl:cardinality "1"^^xsd:nonNegativeInteger
+		]  ,
+		[ 	rdf:type owl:Restriction ;
+			owl:onProperty dave:hasValue ;
+			owl:cardinality "1"^^xsd:nonNegativeInteger
+		]  ;
+	rdfs:comment	"""Contains the measurement (quantification) of a data value metric for assessing a data resource or dataset, as well as details about the assessment execution."""@en ;
+	rdfs:label """Value Measurement"""@en .
+
+#ABSTRACT CLASSES
+
+dave:Dimension
+	a	rdfs:Class, owl:Class ;
+	rdfs:subClassOf qb:DataSet ;
+	rdfs:comment	"""This represents the highest level of the characterisation of data value. A Dimension contains a number of data value Metric Groups. Dimensions are provided as subclasses of this abstract class, which is not intended for direct usage."""@en ;
+	rdfs:label	"""Dimension"""@en .
+
+dave:MetricGroup
+	a	rdfs:Class, owl:Class ;
+	rdfs:comment	"""A metric group is the second level of characterisation of data value, and represents a group of metrics that are related to each other, e.g. by being a recognised set of independent proxies for a given data value dimension. Each Metric Group is a part of a larger group called dimension (See dave:Dimension). MetricGroups are provided as subclasses of this abstract class, which is not intended for direct usage."""@en ;
+	rdfs:label	"""Metric Groups"""@en .
+
+dave:Metric
+	a	rdfs:Class, owl:Class ;
+	rdfs:subClassOf
+		[ 	rdf:type owl:Restriction ;
+			owl:onProperty dave:ValueMeasurement ;
+			owl:minCardinality "1"^^xsd:nonNegativeInteger
+		]  ;
+	rdfs:comment	"""This is the smallest unit of characterisation of data value. It is part of a larger group called Metric Group (See dave:MetricGroup). This concept represents metrics that are heuristics designed to fit a specific assessment situation. Metrics are provided as subclasses of this abstract class, which is not intended for direct usage."""@en ;
+	rdfs:label	"Metric"@en .
+
+# PROPERTIES
+
+dave:relevantToDataset
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"Relevant to Dataset"@en ;
+	rdfs:comment	"""This property indicates the data resource or dataset that the data value metadata describes."""@en ;
+	rdfs:domain	dave:DataValue ;
+	rdfs:range	dcat:Dataset .
+
+dave:computedOn
+	a	rdf:Property, owl:ObjectProperty, qb:DimensionProperty ;
+	rdfs:label	"computed on"@en ;
+	rdfs:comment	"""This property indicates the data resource or dataset that is being analysed using a Data Value metric."""@en ;
+	rdfs:domain	dave:ValueMeasurement ;
+	rdfs:range	dcat:Dataset .
+
+dave:hasValueDimension
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has Value Dimension"@en ;
+	rdfs:comment	"""This property will link a Data Value object (dave:DataValue) to any data value dimensions it contains. """@en ;
+	rdfs:domain dave:DataValue ;
+	rdfs:range dave:Dimension .
+
+dave:hasValueGroup
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has Value Group"@en ;
+	rdfs:comment	"""This property will link a Dimension (dave:Dimension) to data metric groups (dave:MetricGroup)."""@en ;
+	rdfs:range dave:MetricGroup ;
+	rdfs:domain dave:Dimension .
+
+dave:hasValueMetric
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has Value Metric"@en ;
+	rdfs:comment	"""This property will link a data metric group (dave:MetricGroup) to the related metrics (dave:Metric)."""@en ;
+	rdfs:domain dave:MetricGroup ;
+	rdfs:range dave:Metric .
+
+dave:implementsMetric
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"Implements Metric"@en ;
+	rdfs:comment	"""This property will link a toolset to any metrics it implements."""@en ;
+	rdfs:domain	dave:Toolset ;
+	rdfs:range dave:Metric .
+
+dave:hasDescription
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has Description"@en ;
+	rdfs:comment	"""This property will link a metric with its relevant description."""@en ;
+	rdfs:domain	dave:Metric ;
+	rdfs:range dave:Description .
+
+dave:hasValueMeasurement
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has Value Measurement"@en ;
+	rdfs:comment	"""This property provides a link between a metric, and any number of measurements for the implementation of this metric."""@en ;
+	rdfs:domain	dave:Metric ;
+	rdfs:range	 dave:ValueMeasurement .
+
+dave:hasValue
+	a	rdf:Property, owl:DatatypeProperty, qb:MeasureProperty ;
+	rdfs:label	"has Value"@en ;
+	rdfs:comment	"""Each metric will return a quantification of value. Since there will be different return types for different metrics, this property will link a metric with a value object, including boolean, double, literal, etc."""@en ;
+	rdfs:domain	dave:ValueMeasurement .
+
+sdmx-dimension:timePeriod
+	a	qb:DimensionProperty ;
+	rdfs:domain	dave:ValueMeasurement ;
+	rdfs:range xsd:dateTime .
+

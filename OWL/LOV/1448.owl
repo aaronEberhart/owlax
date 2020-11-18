@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:ibis="https://privatealpha.com/ontology/ibis/1#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://danny.ayers.name/index.rdf#me">
+    <foaf:name xml:lang="en">Danny Ayers</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hyperdata.org/xmlns/ibis/">
+    <dct:creator rdf:resource="http://danny.ayers.name/index.rdf#me"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf">
+    <dct:creator xml:lang="en">Horst Rittel</dct:creator>
+    <dct:creator xml:lang="en">Werner Kunz</dct:creator>
+    <dct:date xml:lang="en">1970</dct:date>
+    <dct:title xml:lang="en">Issues as Elements of Information Systems</dct:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf">
+    <dct:creator xml:lang="en">Jeff Conklin</dct:creator>
+    <dct:creator xml:lang="en">Michael L. Begeman</dct:creator>
+    <dct:date xml:lang="en">1988</dct:date>
+    <dct:title xml:lang="en">gIBIS: a hypertext tool for exploratory policy discussion</dct:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://doriantaylor.com/person/dorian-taylor#me">
+    <foaf:name xml:lang="en">Dorian Taylor</foaf:name>
+  </rdf:Description>
+  <bibo:Webpage rdf:about="https://privatealpha.com/ontology/ibis/1"/>
+  <owl:Ontology rdf:about="https://privatealpha.com/ontology/ibis/1#">
+    <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-12-11T22:22:53-08:00</dct:created>
+    <dct:creator rdf:resource="http://doriantaylor.com/person/dorian-taylor#me"/>
+    <dct:creator rdf:resource="https://doriantaylor.com/person/dorian-taylor#me"/>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-12-12T16:04:50-08:00</dct:modified>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2014-02-24T21:14:13Z</dct:modified>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-02-22T03:39:14Z</dct:modified>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-03-24T22:37:22Z</dct:modified>
+    <dct:title xml:lang="en">IBIS (bis) Vocabulary</dct:title>
+    <bibo:uri rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <vann:preferredNamespacePrefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ibis</vann:preferredNamespacePrefix>
+    <rdfs:comment xml:lang="en">This document specifies a vocabulary for describing an IBIS (issue-based information system).</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">IBIS</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://dublincore.org/documents/dcmi-terms/"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Issue-Based_Information_System"/>
+    <rdfs:seeAlso rdf:resource="http://hyperdata.org/xmlns/ibis/"/>
+    <rdfs:seeAlso rdf:resource="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"/>
+    <rdfs:seeAlso rdf:resource="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"/>
+    <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/prov-o/"/>
+    <rdfs:seeAlso rdf:resource="https://privatealpha.com/ontology/ibis/1.n3"/>
+    <rdfs:seeAlso rdf:resource="https://privatealpha.com/ontology/ibis/1.rdf"/>
+    <rdfs:seeAlso rdf:resource="https://privatealpha.com/ontology/process-model/1#"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.4</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://privatealpha.com/ontology/ibis/1#Argument">
+    <rdfs:comment xml:lang="en">An Argument is a type of Issue that explicitly supports or refutes a Position.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">Argument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaces"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaced-by"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <skos:usageNote xml:lang="en">An Argument need not only relate in scope to another Argument, but it must only be replaced by another argument.</skos:usageNote>
+  </owl:Class>
+  <owl:Class rdf:about="https://privatealpha.com/ontology/ibis/1#Invariant">
+    <rdfs:comment xml:lang="en">An Issue or Position can be marked Invariant to denote that it has been deemed outside of the influence of the Agents in the system, i.e., something to be steered around.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">Invariant</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://privatealpha.com/ontology/ibis/1#Issue">
+    <rdfs:comment xml:lang="en">An Issue is a state of affairs, claimed by one or more Agents to either be a misfit itself, or affecting some other Issue or Position.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">Issue</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+        <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+        <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaces"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaced-by"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://privatealpha.com/ontology/ibis/1#Network">
+    <rdfs:comment xml:lang="en">A network of issues, positions, and arguments.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">Network</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://privatealpha.com/ontology/ibis/1#Position">
+    <rdfs:comment xml:lang="en">A Position asserts a moral, ethical, pragmatic, or similar kind of assertion, typically identifying what, if anything, should be done about an Issue.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">Position</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+        <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaces"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+        <owl:onProperty rdf:resource="https://privatealpha.com/ontology/ibis/1#replaced-by"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+        <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+    <owl:disjointWith rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#concern-of">
+    <rdfs:comment xml:lang="en">The subject is an issue concerning the object, which can be any resource.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">concern-of</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#concerns"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#concerns">
+    <rdfs:comment xml:lang="en">The subject is an issue concerning the object, which can be any resource.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">concerns</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#concern-of"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#endorsed-by">
+    <rdfs:comment xml:lang="en">A concept can be endorsed by an Agent without said Agent having mentioned or advanced it initially, and without any additional comment.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">endorsed by</rdfs:label>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#endorses"/>
+    <skos:note xml:lang="en">This term, along with ibis:endorses, enables an Agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</skos:note>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#endorses">
+    <rdfs:comment xml:lang="en">An Agent can endorse a concept without having initially mentioned or advanced it, and without any additional comment.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">endorses</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#endorsed-by"/>
+    <skos:note xml:lang="en">This term, along with ibis:endorsed-by, enables an Agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</skos:note>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#generalizes">
+    <rdfs:comment xml:lang="en">The subject is a more generic form of the object.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">generalizes</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#specializes"/>
+    <skos:note xml:lang="en">The equivalent property skos:narrower asserts that the object is narrower than the subject, while the subject of ibis:generalizes is more general than the object.</skos:note>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#opposed-by">
+    <rdfs:comment xml:lang="en">Indicates a subject position opposed by an object argument.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">opposed by</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#opposes"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#opposes">
+    <rdfs:comment xml:lang="en">Indicates a subject argument that opposes an object position.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">opposes</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#opposed-by"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#questioned-by">
+    <rdfs:comment xml:lang="en">Indicates a belief called into question by an issue.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">questioned by</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:subPropertyOf rdf:resource="https://privatealpha.com/ontology/ibis/1#suggests"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#questions"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#questions">
+    <rdfs:comment xml:lang="en">Indicates an issue that raises doubt on a belief.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">questions</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subPropertyOf rdf:resource="https://privatealpha.com/ontology/ibis/1#suggested-by"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#questioned-by"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#replaced-by">
+    <rdfs:comment xml:lang="en">Indicates when a concept is replaced by another concept of the same type.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">replaced by</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/isReplacedBy"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#replaces"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#replaces">
+    <rdfs:comment xml:lang="en">Indicates when a concept replaces another concept of the same type.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">replaces</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/replaces"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#replaced-by"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#responds-to">
+    <rdfs:comment xml:lang="en">Indicates an issue to which the subject position responds.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">responds to</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#response"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#response">
+    <rdfs:comment xml:lang="en">Indicates a position that responds to the subject issue.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">response</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#responds-to"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#specializes">
+    <rdfs:comment xml:lang="en">The subject is a more specific form of the object.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">specializes</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#generalizes"/>
+    <skos:note xml:lang="en">The equivalent property skos:broader asserts that the object is broader than the subject, while the subject of ibis:specializes is more specific than the object.</skos:note>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#suggested-by">
+    <rdfs:comment xml:lang="en">Indicates when the subject issue is suggested by the object belief.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">suggested by</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#suggests"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#suggests">
+    <rdfs:comment xml:lang="en">Indicates when the subject belief suggests the object issue.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">suggests</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Issue"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#suggested-by"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#supported-by">
+    <rdfs:comment xml:lang="en">Indicates a subject position supported by an object argument.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">supported by</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#supports"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://privatealpha.com/ontology/ibis/1#supports">
+    <rdfs:comment xml:lang="en">Indicates a subject argument that supports an object position.</rdfs:comment>
+    <rdfs:domain rdf:resource="https://privatealpha.com/ontology/ibis/1#Argument"/>
+    <rdfs:isDefinedBy rdf:resource="https://privatealpha.com/ontology/ibis/1#"/>
+    <rdfs:label xml:lang="en">supports</rdfs:label>
+    <rdfs:range rdf:resource="https://privatealpha.com/ontology/ibis/1#Position"/>
+    <owl:inverseOf rdf:resource="https://privatealpha.com/ontology/ibis/1#supported-by"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

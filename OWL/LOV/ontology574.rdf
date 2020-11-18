@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<title>GeoNames Ontology - Geo Semantic Web</title>
+<link href="/geonames.ico" rel="shortcut icon">
+<link rel="StyleSheet" href="/geonames.css" type="text/css">
+</head>
+
+<body>
+
+
+<table id="topmenutable"><tbody><tr>
+<td class="topmenu">&nbsp;<a href="https://www.geonames.org/">GeoNames Home</a>&nbsp;|&nbsp;<a href="https://www.geonames.org/postal-codes/">Postal Codes</a>&nbsp;|&nbsp;<a href="https://www.geonames.org/export/">Download / Webservice</a>&nbsp;|&nbsp;<a href="https://www.geonames.org/about.html">About</a>&nbsp;|</td>
+
+<td class="topsearch">
+   <form class="topsearch" name="searchForm" method="post" action="/servlet/geonames" onsubmit="javascript:fulltextsearch();return false;">
+
+      search <input class="topmenu" name="q" size="20" value="" type="text">
+
+     <input name="srv" value="1" type="hidden">
+   </form>
+</td></tr>
+</tbody></table>
+
+
+
+
+<div style="margin: auto; width: 650px; text-align: left;">
+
+<h3>GeoNames Ontology</h3>
+
+<h4>The Semantic Web</h4>
+
+The <i>Semantic Web</i> is a project that intends to add computer-processable meaning (semantics) to the Word Wide Web.
+
+<p/>
+
+In Feb 2004, The World Wide Web Consortium released the Resource Description Framework (RDF) and the <i>OWL Web Ontology Language</i> (OWL) as W3C Recommendations. RDF is used to represent information and to exchange knowledge in the Web. OWL is used to publish and share sets of terms called ontologies, supporting advanced Web search, software agents and knowledge management.
+
+<h4>The GeoNames Ontology</h4>
+
+The GeoNames Ontology makes it possible to add geospatial semantic information to the Word Wide Web.
+All over 11 million geonames toponyms now have a unique URL with a corresponding RDF web service. Other services describe the relation between toponyms.
+<p/>
+
+The Ontology for GeoNames is available in OWL :
+<a href="https://www.geonames.org/ontology/ontology_v3.2.rdf">https://www.geonames.org/ontology/ontology_v3.2.rdf</a>, <a href="https://www.geonames.org/ontology/mappings_v3.01.rdf">mappings</a>
+
+<p/>
+GeoNames is using <i>303 (See Other) redirection</i> to distinguish the <b>Concept</b> (thing as is) from the <b>Document</b> about it.
+
+<p>
+For the town <i>Embrun</i> in France we have these two URIs :
+<br>
+[1] <a href="https://sws.geonames.org/3020251/">https://sws.geonames.org/3020251/</a><br/>
+[2] <a href="https://sws.geonames.org/3020251/about.rdf">https://sws.geonames.org/3020251/about.rdf</a><br/>
+
+<p>
+
+The first URI [1] stands for the town in France. You use this URI if you want to refer to the town. The second URI [2] is the document with the information geonames has about <i>Embrun</i>. The geonames web server is configured to redirect requests for [1] to [2]. The redirection tells Semantic Web Agents that <i>Embrun</i> is not residing on the geonames server but that geonames has information about it instead. 
+See our blog posting about <a href="http://geonames.wordpress.com/2006/10/21/semantic-web-concept-vs-document/">"Concept vs. Document"</a> for more information.
+<p>
+An example of RDF description of a geonames "Feature" document, as obtained through the RDF Webservice at URI  <a href="https://sws.geonames.org/3020251/about.rdf">https://sws.geonames.org/3020251/about.rdf</a>
+<pre>
+&lt;rdf:RDF 
+	xmlns:cc="http://creativecommons.org/ns#" 
+	xmlns:dcterms="http://purl.org/dc/terms/" 
+	xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+	xmlns:gn="https://www.geonames.org/ontology#" 
+	xmlns:owl="http://www.w3.org/2002/07/owl#" 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+	xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"&gt;
+&lt;gn:Feature rdf:about="https://sws.geonames.org/3020251/"&gt;
+  &lt;rdfs:isDefinedBy rdf:resource="https://sws.geonames.org/3020251/about.rdf"/&gt;
+  &lt;gn:name&gt;Embrun&lt;/gn:name&gt;
+  &lt;gn:alternateName xml:lang="oc"&gt;Ambrun&lt;/gn:alternateName&gt;
+  &lt;gn:featureClass rdf:resource="https://www.geonames.org/ontology#P"/&gt;
+  &lt;gn:featureCode rdf:resource="https://www.geonames.org/ontology#P.PPL"/&gt;
+  &lt;gn:countryCode&gt;FR&lt;/gn:countryCode&gt;
+  &lt;gn:population&gt;7069&lt;/gn:population&gt;
+  &lt;gn:postalCode&gt;05200&lt;/gn:postalCode&gt;
+  &lt;gn:postalCode&gt;05201&lt;/gn:postalCode&gt;
+  &lt;gn:postalCode&gt;05202&lt;/gn:postalCode&gt;
+  &lt;gn:postalCode&gt;05208&lt;/gn:postalCode&gt;
+  &lt;gn:postalCode&gt;05209&lt;/gn:postalCode&gt;
+  &lt;wgs84_pos:lat&gt;44.56387&lt;/wgs84_pos:lat&gt;
+  &lt;wgs84_pos:long&gt;6.49526&lt;/wgs84_pos:long&gt;
+  &lt;gn:parentFeature rdf:resource="https://sws.geonames.org/6446638/"/&gt;
+  &lt;gn:parentCountry rdf:resource="https://sws.geonames.org/3017382/"/&gt;
+  &lt;gn:parentADM1 rdf:resource="https://sws.geonames.org/2985244/"/&gt;
+  &lt;gn:parentADM2 rdf:resource="https://sws.geonames.org/3013738/"/&gt;
+  &lt;gn:parentADM3 rdf:resource="https://sws.geonames.org/3016701/"/&gt;
+  &lt;gn:parentADM4 rdf:resource="https://sws.geonames.org/6446638/"/&gt;
+  &lt;gn:nearbyFeatures rdf:resource="https://sws.geonames.org/3020251/nearby.rdf"/&gt;
+  &lt;gn:locationMap rdf:resource="https://www.geonames.org/3020251/embrun.html"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://de.wikipedia.org/wiki/Embrun"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://en.wikipedia.org/wiki/Embrun%2C_Hautes-Alpes"/&gt;
+  &lt;rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/Embrun%2C_Hautes-Alpes"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://fr.wikipedia.org/wiki/Embrun_%28Hautes-Alpes%29"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://it.wikipedia.org/wiki/Embrun"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://nl.wikipedia.org/wiki/Embrun"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://oc.wikipedia.org/wiki/Ambrun"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://pl.wikipedia.org/wiki/Embrun"/&gt;
+  &lt;gn:wikipediaArticle rdf:resource="https://vo.wikipedia.org/wiki/Embrun_%28Hautes-Alpes%29"/&gt;
+&lt;/gn:Feature&gt;
+&lt;foaf:Document rdf:about="https://sws.geonames.org/3020251/about.rdf"&gt;
+  &lt;foaf:primaryTopic rdf:about="https://sws.geonames.org/3020251/"/&gt;
+  &lt;cc:license rdf:resource="https://creativecommons.org/licenses/by/3.0/"/&gt;
+  &lt;cc:attributionURL rdf:resource="https://sws.geonames.org/3020251/"/&gt;
+  &lt;cc:attributionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;GeoNames&lt;/cc:attributionName&gt;
+  &lt;dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date"&gt;2006-01-15&lt;/dcterms:created&gt;
+  &lt;dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"&gt;2010-04-19&lt;/dcterms:modified&gt;
+&lt;/foaf:Document&gt;
+&lt;/rdf:RDF&gt;
+</pre>
+
+
+
+<h4>Linked Data</h4>
+
+The Features in the <i>GeoNames Semantic Web</i> are interlinked with each other. Depending on applicability the following documents are available for a Feature :
+<p>
+The <b>children</b> (countries for a continent, administrative subdivisions for a country, ...). As an example the children of France : 
+<a href="https://sws.geonames.org/3017382/contains.rdf">https://sws.geonames.org/3017382/contains.rdf</a><p/>
+The <b>neighbours</b> (neigbouring countries). As an example the neighbours of France :
+<a href="https://sws.geonames.org/3017382/neighbours.rdf">https://sws.geonames.org/3017382/neighbours.rdf</a><p/>
+<b>Nearby</b> features. Nearby to the Eiffel Tower are Champ de Mars,Trocad&eacute;ro - Palais de Chaillot, ...:
+<a href="https://sws.geonames.org/6254976/nearby.rdf">https://sws.geonames.org/6254976/nearby.rdf</a><br/>
+
+<br/><br/><br/>
+
+
+<h4>Entry Points into the GeoNames Semantic Web</h4>
+
+There are several ways how you can enter the GeoNames Semantic Web :
+
+<ul class="list">
+
+<li> start from <a href="https://sws.geonames.org/6295630/">mother earth</a> and follow the Linked Data links.
+
+<li> use the <a href="https://www.geonames.org/export/geonames-search.html">geonames search webservice</a> with the <i>type=rdf</i> parameter option.
+
+<li> <a href="https://download.geonames.org/export/dump/">download the database dump</a> and construct the url for the features using the pattern "http://sws.geonames.org/<i>geonameId</i>/"
+
+<li>  <a href="https://download.geonames.org/all-geonames-rdf.zip">RDF dump</a> with 11985741 features and about 182 mio rdf triples (2020 02 14). The dump has one rdf document per toponym on every line of the file. Note: The file is pretty large. Make sure the tool you use to uncompress is able to deal with the size and does not stop after 2GB, an issue that happens with some old (windows) tool versions.
+
+
+
+</ul>
+
+<br/><br/><br/>
+
+
+<h4>Contact</h4>
+<a href="http://en.wikipedia.org/wiki/User:Universimmedia">Bernard Vatant</a> : <a href="http://www.mondeca.com">Mondeca</a>. (ontology)
+<p/>
+Marc Wick (implementation)
+
+
+<br/><br/><br/>
+
+
+<h4>More Information</h4>
+
+<ul class="list">
+
+<li>Harry Chen in the <a href="https://web.archive.org/web/20080212144050/http://www.geospatialsemanticweb.com/2006/10/14/geonames-ontology-in-owl">Geospatial Semantic Web Blog</a> describes the key concepts of the GeoNames Ontology.
+
+<li> <a href="http://www.geonames.org/statistics/total.html">Overwiev over GeoNames Feature Codes</a> with number of features per code
+
+<li> More information on <a href="http://linkeddata.org/">Linked Data</a>.
+
+</ul>
+
+
+<br/><br/><br/>
+
+
+<h4>Version History </h4>
+
+2019 November, <a href="https://www.geonames.org/ontology/ontology_v3.2.rdf">Version 3.2</a>
+Elisa Kendall
+<p>
+
+
+2012 November, <a href="https://www.geonames.org/ontology/ontology_v3.1.rdf">Version 3.1</a>
+<ul>
+<li>            Added : gn:GeonamesFeature, subclass of gn:Feature.</li>
+<li>            Added : explicit property gn:geonamesID, mandatory and unique for each gn:GeonamesFeature instance.</li>
+<li>            Deleted : owl:FunctionalProperty declarations for properties attached to gn:Feature, replaced by local cardinality restrictions on gn:GeonamesFeature
+            The gn:Feature class and attached properties can therefore be used in the open world for features not necessarily identified in the Geonames data base, or with partial descriptions.
+<li>            Modified : Equivalent classes and superclasses of geonames:Feature in other vocabularies.</li>
+<li>            Added : new feature codes for historical features.
+            Improved metadata.</li>
+</ul>
+
+<p>
+
+
+2012 February, <a href="https://www.geonames.org/ontology/ontology_v3.0.1.rdf">Version 3.0.1</a>:
+<ul>
+<li>Improved metadata!</li>
+<li>Change gn:featureClass and gn:featureCode superproperty from dc:subject to dc:type.</li>
+<li>Property chain ensuring consistency of feature code and feature class values (OWL 2.0).</li>
+<li>Indication of new and deprecated feature codes using skos:historyNote</li>
+<li>Multilingual labels for codes (russian, bulgarian, swedish and norwegian)</li>
+<li>Explicit code values using skos:notation</li>
+<li>New types of alternate names (historical, colloquial).</li>
+<li>Equivalent classes matching feature codes in various ontologies such as schema.org, linkedgeodata.org, dbpedia.org, INSEE ontology  are provided in a separate file at <a href="">http://www.geonames.org/ontology/mappings_v3.0.1.rdf</a></li>
+</ul>
+
+<p>
+
+2010 October,  <a href="http://www.geonames.org/ontology/ontology_v2.2.1.rdf">Version 2.2.1</a>: restore name properties, subproperties of skos labels.
+
+<p>
+
+
+2010 September, <a href="http://www.geonames.org/ontology/ontology_v2.2.rdf">Version 2.2</a>: use skos labels, add URIs for parent admin divisions.
+
+<p>
+
+
+2010 June, <a href="http://www.geonames.org/ontology/ontology_v2.1.rdf">Version 2.1</a>: changed inCountry to countryCode. Added Metadata for license information.
+
+<p>
+
+2007 Apr 02, Version 2.0 : added isOfficialName, locatedIn, relationships with GEMET concepts
+
+<p>
+
+2006 Oct 30, Version 1.2.3 : added labels for name and alternate names
+
+<p>
+
+2006 Oct 25, Version 1.2.2 : cosmetics  
+
+<p>
+
+
+2006 Oct 23, Version 1.2.1 : linked data document with backlink to main feature.
+
+<p>
+
+2006 Oct 21, <a href="http://geonames.wordpress.com/2006/10/21/semantic-web-concept-vs-document/">Version 1.2</a> : New URIs with 303 redirect, linked data (contains, neighbours, nearby)
+
+<p>
+
+2006 Oct 14, <a href="http://geonames.wordpress.com/2006/10/14/semantic-web/">Version 1.0</a>
+
+</div>
+
+
+
+<p>&nbsp;<p>&nbsp;<p>&nbsp;<p>&nbsp;
+<div id="pageFooter">
+info@geonames.org <img src="/img/smallant.gif" alt="ant" align="middle" hspace="40" border="0">
+
+<p>
+
+<a href="/">GeoNames Home</a>
+<span class="separator">&#8226;</span>
+<a href="/postal-codes/">Postal Codes</a>
+<span class="separator">&#8226;</span>
+<a href="/export/">Download / Webservice</a>
+<span class="separator">&#8226;</span>
+<a href="http://forum.geonames.org">Forum</a>
+<span class="separator">&#8226;</span>
+<a href="http://geonames.wordpress.com">Blog</a>
+<span class="separator">&#8226;</span>
+<a href="/sitemap.html">Sitemap</a>
+
+</p>
+
+
+</div>
+
+
+</body>
+
+</html>
+

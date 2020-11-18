@@ -1,0 +1,909 @@
+
+
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"> 
+		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" 
+		xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:="http://purl.org/innovation/ns#" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xmlns:ns="http://purl.org/innovation/ns#" 
+xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" 
+xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+xmlns:owl="http://www.w3.org/2002/07/owl#" 
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+xmlns:skos="http://www.w3.org/2004/02/skos/core#" 
+xmlns:dcterms="http://purl.org/dc/terms/" 
+>
+
+		<head> 
+		  <title>Ontology for Innovation</title> 
+		  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+		  <link href="http://xmlns.com/xmlns-style.css" rel="stylesheet"  type="text/css" /> 
+		  <link href="http://xmlns.com/foaf/spec/style.css" rel="stylesheet"  type="text/css" /> 
+		  <link href="http://purl.org/innovation/ns.owl" rel="alternate"  type="application/rdf+xml" /> 
+		</head>
+
+		<body>
+
+		<h1>Ontology for Innovation</h1> 
+		<h2>Document Namespace: <a href="null">http://purl.org/innovation/ns#</a></h2>
+		
+		<dl> 
+			<dt>Last Updated:</dt> 
+		    <dd>2012-07-22</dd>
+		    <dt>Latest version:</dt> 
+		    <dd>Version 1.0.0, 22 July 2012: <a href="http://purl.org/innovation/ns">http://purl.org/innovation/ns#</a></dd> 
+		    <dt>Authors:</dt> 
+		    <dd>
+		
+				William Greenly <a href="mailto:admin@lexicater.co.uk">admin@lexicater.co.uk</a>
+			
+		    </dd> 
+		    <dt>Contributors:</dt> 
+		    <dd>
+		  		Dr Dirk Weirich<br />
+				Mark Birbeck
+		    </dd> 
+		  </dl> 
+		    
+		  <!-- Creative Commons License --> 
+		   <p><a href="http://creativecommons.org/licenses/by/1.0/">This work is licensed under a <a href="null">Creative Commons Attribution License</a>. This copyright applies to the <em>Ontology for Innovation</em> and accompanying documentation in RDF. Regarding underlying technology, this ontology uses W3C's <a href="http://www.w3.org/RDF/">RDF</a> technology, an open Web standard that can be freely used by anyone.</p> 	
+		  <p>This document also reuses the <a href="http://xmlns.com/foaf/spec/">FOAF specification</a> CSS stylesheet.</p>	
+			
+		
+		<h2 id="sec-toc">Table of Contents</h2> 
+		  <ul> 
+		    <li><a href="#sec-intro">Introduction</a></li> 
+		    <li><a href="#sec-about">About this Ontology</a></li> 
+		    <li><a href="#sec-acknowledgements">Acknowledgements</a></li> 
+		    <li><a href="#sec-overview">Overview</a></li> 
+		    <li><a href="#sec-examples">Examples</a></li> 
+		    <li><a href="#sec-classes">Classes</a></li> 
+		    <li><a href="#sec-objectproperties">Object Properties</a></li> 
+		    <li><a href="#sec-datatypeproperties">Datatype Properties</a></li> 
+		    <li><a href="#sec-individuals">Individuals</a></li> 
+		    
+		  </ul> 
+		
+		<a id="sec-intro"></a>
+		<h2 id="intro">Introduction</h2>
+		<p>The exact definition of innovation is debatable both in the academic and practical sense. Neither an art or a science, its core function is to meet the wants and needs of others. It should be seen as separate but invaluable to enterprise, being concerned more with the application rather than the capitalisation of an idea.</p>
+		
+		<a id="sec-about"></a>
+		<h2 id="about">About this Ontology</h2>
+
+		<p>
+		One key use case for this ontology is to faciliate the matching of needs and innovations. This document does not provide specific guidelines or formal rules for achieving this. However the following concepts might be factors in deciding when an innovation qualifies as fulfilling a need. This can also incrementally be applied to qualify innovations as solutions to problems (and hence qualify as fulfilling a need).
+</p>
+<p>
+<b>Usage || Improvement || Benefit</b> matches <b>Problem</b><br />
+<b>Usage || Improvement || Benefit</b> matches <b>Symptom</b><br />
+</p>
+<p>
+As already stated, there are no formal rules for matching by Improvements or Usage. However, it should be noted that Symptoms, Benefits and Development Stages have all been primed to be modelled using SKOS. There are individuals that pre-define schemes and members. These should be used and extended accordingly. It is encouraged that schemes and concepts ulitmately become linked with SKOS terms defining the relationship between such instances.
+		</p>
+		
+		<a id="sec-acknowledgements"></a>
+		<h2 id="acknowledgements">Acknowledgements</h2>
+		<p>The author of the document takes no credit and acknowledges that credit is attributable entirely by collective contribution. In particular, in addition to those formal contributions, the author would like to thank the <a href="http://www.nic.nhs.uk">National Innovation Centre</a> and related affiliates, along with all those innovators that took the time to share insight and knowledge.</p>
+		 <p>This document also reuses the <a href="http://xmlns.com/foaf/spec/">FOAF specification</a> CSS stylesheet.</p>	
+		
+		<a id="sec-examples"></a>
+		<h2 id="examples">Examples</h2>
+<p>Describing an innovation</p>
+		<div class="example"> 
+    <pre> 
+
+@prefix gr:  &lt;http://purl.org/goodrelations/v1#&gt; .
+@prefix foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;.
+@prefix dc: &lt;http://purl.org/dc/elements/1.1/&gt;.
+@prefix innovation: &lt;http://purl.org/innovation/ns#&gt;.
+@prefix ex: &lt;http://www.example.com/&gt;.
+@prefix dbpedia: &lt;http://dbpedia.org/resource/&gt;.
+@prefix ncicb: &lt;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#&gt;.
+@prefix rdfs: &lt;http://www.w3.org/2004/02/skos/core#&gt;.
+@prefix skos: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;.
+
+
+ex:glucose-monitor dc:title "Non invasive testing of blood glucose levels";
+		   innovation:embodiedBy ex:lein-2000-glucose-meter;
+		   innovation:hasImprovement &lt;uuid:aaaaaaaa&gt;;
+		   innovation:hasBenefit ncicb:reduced-waiting-times;
+		   innovation:hasDevelopmentStage innovation:d5-distributing-the-product;
+		   innovation:causesDisruption &lt;uuid:cccccccc&gt;.
+
+ex:lein-2000-glucose-meter dc:title "The Lein 2000 blood glucose meter";
+	     rdf:type gr:ProductOrServiceModel;
+	     rdf:type innovation:Embodiment;
+	     rdf:type ncicb:Diagnostic_Therapeutic_and_Research_Equipment;
+	     innovation:hasUsage &lt;uuid:bbbbbbbb&gt;.
+
+&lt;uuid:bbbbbbbb&gt; innovation:usedBy dbpedia:Physician;
+		 innovation:usedOn ex:Diabetics.
+
+&lt;uuid:aaaaaaaa&gt; innovation:improvesEffectivenessOf dbpedia:Medical_Test.
+
+&lt;uuid:cccccccc&gt; rdf:type innovation:Disruption;
+		 innovation:deprecates ncicb:Blood_Glucose_Blood_Test.
+
+ncicb:reduced-waiting-times rdf:type skos:Concept;
+		 rdfs:label "Reduced waiting times";
+		 skos:inScheme innovation:health-benefits.
+
+</pre> 
+  </div> 
+		
+		<a id="sec-overview"></a>
+		<h2 id="overview">Overview</h2>
+		<p><img width="700" src="innovation.jpg" alt="conceptual diagram of ontology" style="border:1px solid black;"  /></p>
+		<h3>A-Z of Terms</h3>
+		<div class="azlist"> 
+		<p>Classes: |
+		<a href="#term_Benefit">Benefit</a> | <a href="#term_DevelopmentStage">DevelopmentStage</a> | <a href="#term_Disruption">Disruption</a> | <a href="#term_Embodiment">Embodiment</a> | <a href="#term_Improvement">Improvement</a> | <a href="#term_Innovation">Innovation</a> | <a href="#term_Innovator">Innovator</a> | <a href="#term_Need">Need</a> | <a href="#term_Problem">Problem</a> | <a href="#term_Symptom">Symptom</a> | <a href="#term_Usage">Usage</a> | </p>
+		<p>Object Properties: |
+		<a href="#term_affects">affects</a> | <a href="#term_buildsOn">buildsOn</a> | <a href="#term_causesDisruption">causesDisruption</a> | <a href="#term_deprecates">deprecates</a> | <a href="#term_developedBy">developedBy</a> | <a href="#term_embodiedBy">embodiedBy</a> | <a href="#term_embodies">embodies</a> | <a href="#term_enabledBy">enabledBy</a> | <a href="#term_enables">enables</a> | <a href="#term_fulfils">fulfils</a> | <a href="#term_hasBenefit">hasBenefit</a> | <a href="#term_hasDeveloped">hasDeveloped</a> | <a href="#term_hasImprovement">hasImprovement</a> | <a href="#term_hasSympton">hasSympton</a> | <a href="#term_hasUsage">hasUsage</a> | <a href="#term_improves">improves</a> | <a href="#term_improvesEffectivenessOf">improvesEffectivenessOf</a> | <a href="#term_improvesEfficiencyOf">improvesEfficiencyOf</a> | <a href="#term_improvesQualityOf">improvesQualityOf</a> | <a href="#term_improvesValueOf">improvesValueOf</a> | <a href="#term_isDeprecatedBy">isDeprecatedBy</a> | <a href="#term_isDeveloping">isDeveloping</a> | <a href="#term_isLiberatedBy">isLiberatedBy</a> | <a href="#term_liberates">liberates</a> | <a href="#term_manifestedBy">manifestedBy</a> | <a href="#term_manifests">manifests</a> | <a href="#term_solves">solves</a> | <a href="#term_usedBy">usedBy</a> | <a href="#term_usedOn">usedOn</a> | <a href="#term_usedWith">usedWith</a> | </p>
+		<p>Datatype Properties: |
+		<a href="#term_expectedMarketEntry">expectedMarketEntry</a> | </p>
+		<p>Individuals: |
+		<a href="#term_d1-defining-the-need">d1-defining-the-need</a> | <a href="#term_d2-designing-the-solution">d2-designing-the-solution</a> | <a href="#term_d3-developing-the-opportunity">d3-developing-the-opportunity</a> | <a href="#term_d4-demonstrating-the-benefits">d4-demonstrating-the-benefits</a> | <a href="#term_d5-distributing-the-product">d5-distributing-the-product</a> | <a href="#term_economic-benefits">economic-benefits</a> | <a href="#term_economic-symptoms">economic-symptoms</a> | <a href="#term_health-benefits">health-benefits</a> | <a href="#term_health-symptoms">health-symptoms</a> | <a href="#term_legal-benefits">legal-benefits</a> | <a href="#term_legal-symptoms">legal-symptoms</a> | <a href="#term_scientific-benefits">scientific-benefits</a> | <a href="#term_scientific-symptoms">scientific-symptoms</a> | <a href="#term_social-benefits">social-benefits</a> | <a href="#term_social-symptoms">social-symptoms</a> | <a href="#term_stages-of-innovation">stages-of-innovation</a> | </p><h2 id="sec-classes">Classes</h2>
+		<div class="specterm classterm " id="term_Benefit"> 
+            <h3>Class: Benefit</h3> 
+            <em>http://purl.org/innovation/ns#Benefit</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Range of:</th> <td> <a href="#term_hasBenefit">hasBenefit</a> </td></tr> <tr><th>Super Classes:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Usage">Usage</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Problem">Problem</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Improvement">Improvement</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Need">Need</a> </td></tr> 
+            </table> 
+            <p>A benefit to something or someone.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Benefit">#</a>] <!-- Benefit --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_DevelopmentStage"> 
+            <h3>Class: DevelopmentStage</h3> 
+            <em>http://purl.org/innovation/ns#DevelopmentStage</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    </td></tr> <tr><th>Super Classes:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Need">Need</a> <a href="#term_Problem">Problem</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Usage">Usage</a> <a href="#term_Improvement">Improvement</a> </td></tr> 
+            </table> 
+            <p>A stage of development. An example set of development stages, but equally those used to describe software lifecylces, music production lifecylces or anything creative can be used.
+
+e.g
+
+Define a need, 
+Design a solution, 
+Develop the opportunity, 
+Demonstrate the benefits, 
+Distribute the product.
+
+(taken from the 5 D's defined by the National Innovation Centre, 2011)</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_DevelopmentStage">#</a>] <!-- DevelopmentStage --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Disruption"> 
+            <h3>Class: Disruption</h3> 
+            <em>http://purl.org/innovation/ns#Disruption</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_deprecates">deprecates</a> <a href="#term_liberates">liberates</a> </td></tr> <tr><th>Disjoint Classes:</th> <td><a href="#term_Embodiment">Embodiment</a>  <a href="#term_Problem">Problem</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Need">Need</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Usage">Usage</a> <a href="#term_Improvement">Improvement</a> </td></tr> 
+            </table> 
+            <p>Disruption caused by innovation. Typically this due to the liberation of deprecation of something.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Disruption">#</a>] <!-- Disruption --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+
+		
+		<div class="specterm classterm " id="term_Embodiment"> 
+            <h3>Class: Embodiment</h3> 
+            <em>http://purl.org/innovation/ns#Embodiment</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_hasUsage">hasUsage</a> <a href="#term_embodies">embodies</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Problem">Problem</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Need">Need</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Usage">Usage</a> <a href="#term_Improvement">Improvement</a> </td></tr> 
+            </table> 
+            <p>The physical or tangible manfestiation of some idea, invention or innovation.
+A device, process, service, or product that emobodies some idea, invention or innovation.
+
+e.g The Firefox web browser is an embodiment of the innovation HTTP
+e.g Amoxicillin is an embodiment of the innovation Anibiotic</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Embodiment">#</a>] <!-- Embodiment --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Improvement"> 
+            <h3>Class: Improvement</h3> 
+            <em>http://purl.org/innovation/ns#Improvement</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_improves">improves</a> <a href="#term_improvesValueOf">improvesValueOf</a> <a href="#term_improvesEfficiencyOf">improvesEfficiencyOf</a> <a href="#term_improvesEffectivenessOf">improvesEffectivenessOf</a> <a href="#term_improvesQualityOf">improvesQualityOf</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Need">Need</a> <a href="#term_Problem">Problem</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Usage">Usage</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Innovation">Innovation</a> </td></tr> 
+            </table> 
+            <p>The class of things that are improvements to something i.e making something better than it was.
+
+Specific improvements include those that provide improved efficiency, effectiveness, value or quality.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Improvement">#</a>] <!-- Improvement --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Innovation"> 
+            <h3>Class: Innovation</h3> 
+            <em>http://purl.org/innovation/ns#Innovation</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_buildsOn">buildsOn</a> <a href="#term_embodiedBy">embodiedBy</a> <a href="#term_fulfils">fulfils</a> <a href="#term_hasImprovement">hasImprovement</a> <a href="#term_enabledBy">enabledBy</a> <a href="#term_solves">solves</a> <a href="#term_developedBy">developedBy</a> <a href="#term_expectedMarketEntry">expectedMarketEntry</a> <a href="#term_hasBenefit">hasBenefit</a> <a href="#term_enables">enables</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Improvement">Improvement</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Usage">Usage</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Need">Need</a> <a href="#term_Problem">Problem</a> </td></tr> 
+            </table> 
+            <p>The innovation is a conceptual entity, concerned with the idea. Its application comes in the form of benefits and improvements and the things that embody it.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Innovation">#</a>] <!-- Innovation --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Innovator"> 
+            <h3>Class: Innovator</h3> 
+            <em>http://purl.org/innovation/ns#Innovator</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_isDeveloping">isDeveloping</a> <a href="#term_hasDeveloped">hasDeveloped</a>  </td></tr> </td></tr> 
+	    <tr><th>Super Classes:</th> <td> <a href="http://xmlns.com/foaf/0.1/Agent">http://xmlns.com/foaf/0.1/Agent</a> </td></tr>
+            </table> 
+            <p>A person, groups or organisation that can think out of the box, show great expertise or most importantly can find solutions to problems and meet the wants and needs of others.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Innovator">#</a>] <!-- Innovator --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Need"> 
+            <h3>Class: Need</h3> 
+            <em>http://purl.org/innovation/ns#Need</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_manifestedBy">manifestedBy</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Disruption">Disruption</a> <a href="#term_Problem">Problem</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Improvement">Improvement</a> <a href="#term_Usage">Usage</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Benefit">Benefit</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Innovation">Innovation</a> </td></tr> 
+            </table> 
+            <p>A need of a particular group or indivual of or for something that is lacking or requires improvement or problem solving.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Need">#</a>] <!-- Need --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Problem"> 
+            <h3>Class: Problem</h3> 
+            <em>http://purl.org/innovation/ns#Problem</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_affects">affects</a> <a href="#term_hasSympton">hasSympton</a> <a href="#term_manifests">manifests</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Need">Need</a> <a href="#term_Benefit">Benefit</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Usage">Usage</a> <a href="#term_Improvement">Improvement</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Embodiment">Embodiment</a> </td></tr> 
+            </table> 
+            <p>The manifestation of a need. This is represented by a set of symptoms (general phenoma) affecting groups of things.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Problem">#</a>] <!-- Problem --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Symptom"> 
+            <h3>Class: Symptom</h3> 
+            <em>http://purl.org/innovation/ns#Symptom</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    </td></tr> <tr><th>Super Classes:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Improvement">Improvement</a> <a href="#term_Problem">Problem</a> <a href="#term_Need">Need</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Usage">Usage</a> <a href="#term_Benefit">Benefit</a> </td></tr> 
+            </table> 
+            <p>A symptom of a problem. This class is intended to comprise of SKOS concepts belonging to different schemes.</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Symptom">#</a>] <!-- Symptom --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		
+		<div class="specterm classterm " id="term_Usage"> 
+            <h3>Class: Usage</h3> 
+            <em>http://purl.org/innovation/ns#Usage</em> <br /><table style="th { float: top; }"> 
+		    <tr><th>Status:</th> 
+		    <td><span property="vs:status" >stable</span></td></tr> 
+	    <tr><th>Domain of:</th> <td> <a href="#term_usedBy">usedBy</a> <a href="#term_usedOn">usedOn</a> <a href="#term_usedWith">usedWith</a> </td></tr> <tr><th>Disjoint Classes:</th> <td> <a href="#term_Disruption">Disruption</a> <a href="#term_Symptom">Symptom</a> <a href="#term_Problem">Problem</a> <a href="#term_Embodiment">Embodiment</a> <a href="#term_Innovation">Innovation</a> <a href="#term_Improvement">Improvement</a> <a href="#term_Need">Need</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="#term_Benefit">Benefit</a> </td></tr> 
+            </table> 
+            <p>The application or usage of a device or process.
+
+Typically this is described using the properties usedBy, usedOn and usedWith</p> 
+            <p style="float: right; font-size: small;">[<a href="#term_Usage">#</a>] <!-- Usage --> [<a href="#sec-toc">back to top</a>]</p> 
+            <br/> 
+            </div>
+		<h2 id="sec-objectproperties">Object Properties</h2>
+		<div class="specterm classterm " id="term_affects">
+			<h3>Property: affects</h3>
+			<em>http://purl.org/innovation/ns#affects</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Problem">Problem</a> </td></tr> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The group of things affected by a problem. Again it is recommended that a SKOS model is used for such instances.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_affects">#</a>] <!-- affects --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_buildsOn">
+			<h3>Property: buildsOn</h3>
+			<em>http://purl.org/innovation/ns#buildsOn</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>It is common for one innovation to build upon others. It doesn't neccessarily denote or infer that the subject has improvements on the object or is enabled by the object.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_buildsOn">#</a>] <!-- buildsOn --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_causesDisruption">
+			<h3>Property: causesDisruption</h3>
+			<em>http://purl.org/innovation/ns#causesDisruption</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Disruption">Disruption</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Innovation is always disruptive, either directly or indirectly. Many innovators risk livelihood and reputation in the pursuit of innovation, many organisations capitalise on innovation, many organisations fail as a result.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_causesDisruption">#</a>] <!-- causesDisruption --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_deprecates">
+			<h3>Property: deprecates</h3>
+			<em>http://purl.org/innovation/ns#deprecates</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Disruption">Disruption</a> </td></tr>  </td></tr> </td></tr> </td></tr> 
+		 
+		</table>
+		<p>Innovation will invariabily deprecate the need for an existing products or services, but not necessarily related products or services e.g the automobile deprecates the horse and carriage, but not necessarily the organisations that provide a carriage service.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_deprecates">#</a>] <!-- deprecates --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_developedBy">
+			<h3>Property: developedBy</h3>
+			<em>http://purl.org/innovation/ns#developedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovator">Innovator</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		<tr><th>Super Properties:</th> <td> <a href="http://xmlns.com/foaf/0.1/maker">http://xmlns.com/foaf/0.1/maker</a> </td></tr> 
+		</table>
+		<p>Relates an innovation to the innovator or innovators who developed it.
+
+Innovators are generally groups, organisations or people</p>
+		<p style="float: right; font-size: small;">[<a href="#term_developedBy">#</a>] <!-- developedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_embodiedBy">
+			<h3>Property: embodiedBy</h3>
+			<em>http://purl.org/innovation/ns#embodiedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Embodiment">Embodiment</a> </td></tr> <tr><th>Inverse Properties:</th> <td> <a href="#term_embodies">embodies</a> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Relates an innovation to a device, process, product, or service (make, model or brand) that embodies the innovation
+
+e.g The innovation HTTP is emobdied by the browser Firefox
+e.g The innovation anibiotic is embodied by Amoxicillin</p>
+		<p style="float: right; font-size: small;">[<a href="#term_embodiedBy">#</a>] <!-- embodiedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_embodies">
+			<h3>Property: embodies</h3>
+			<em>http://purl.org/innovation/ns#embodies</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Embodiment">Embodiment</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Relates a device, process, product, or service (make, model or brand) to an innovation that it embodies
+
+e.g The Firefox web browser embodies the innovation HTTP
+e.g Amoxicillin embodies the innovation Anibiotic</p>
+		<p style="float: right; font-size: small;">[<a href="#term_embodies">#</a>] <!-- embodies --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_enabledBy">
+			<h3>Property: enabledBy</h3>
+			<em>http://purl.org/innovation/ns#enabledBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Where one innovation is enabled by another innovation or innovations. It is common for innovators to have a solution to a problem that is dependent on something else not yet known, discovered, invented or innovated.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_enabledBy">#</a>] <!-- enabledBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_enables">
+			<h3>Property: enables</h3>
+			<em>http://purl.org/innovation/ns#enables</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Inverse Properties:</th> <td> <a href="#term_enabledBy">enabledBy</a> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Where one innovation enables a different innovation or innovations.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_enables">#</a>] <!-- enables --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_fulfils">
+			<h3>Property: fulfils</h3>
+			<em>http://purl.org/innovation/ns#fulfils</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Need">Need</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The applicabiity of an idea can be tested by its ability to fulfil a need. This property therefore links an innovation to a need.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_fulfils">#</a>] <!-- fulfils --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasBenefit">
+			<h3>Property: hasBenefit</h3>
+			<em>http://purl.org/innovation/ns#hasBenefit</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Benefit">Benefit</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Relates an innovation to some benefit or benefts of that innovation.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasBenefit">#</a>] <!-- hasBenefit --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasDeveloped">
+			<h3>Property: hasDeveloped</h3>
+			<em>http://purl.org/innovation/ns#hasDeveloped</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovator">Innovator</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		<tr><th>Super Properties:</th> <td> <a href="http://xmlns.com/foaf/0.1/made">http://xmlns.com/foaf/0.1/made</a> </td></tr> 
+		</table>
+		<p>Relates innovator to the innovations they have developed.
+
+Innovators can be groups, organisations or people.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasDeveloped">#</a>] <!-- hasDeveloped --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasDevelopmentStage">
+			<h3>Property: hasDevelopmentStage</h3>
+			<em>http://purl.org/innovation/ns#hasDevelopmentStage</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_DevelopmentStage">DevelopmentStage</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		 
+		</table>
+		<p>Relates innovator to the innovations they have developed.
+
+Innovators can be groups, organisations or people.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasDevelopmentStage">#</a>] <!-- hasDevelopmentStage --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasImprovement">
+			<h3>Property: hasImprovement</h3>
+			<em>http://purl.org/innovation/ns#hasImprovement</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Links an innovation to some improvement or improvements it provides.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasImprovement">#</a>] <!-- hasImprovement --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasSympton">
+			<h3>Property: hasSympton</h3>
+			<em>http://purl.org/innovation/ns#hasSympton</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Problem">Problem</a> </td></tr> <tr><th>Range:</th> <td> <a href="http://purl.org/innovation/ns#Sympton">http://purl.org/innovation/ns#Sympton</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>A symptom of a problem. It is recommended that Symptoms follow a SKOS hierarchy.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasSympton">#</a>] <!-- hasSympton --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_hasUsage">
+			<h3>Property: hasUsage</h3>
+			<em>http://purl.org/innovation/ns#hasUsage</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Embodiment">Embodiment</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Usage">Usage</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The problem or need of some individual, group or organisation.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_hasUsage">#</a>] <!-- hasUsage --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_improves">
+			<h3>Property: improves</h3>
+			<em>http://purl.org/innovation/ns#improves</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> <tr><th>Sub Properties:</th> <td> <a href="#term_improvesValueOf">improvesValueOf</a> <a href="#term_improvesQualityOf">improvesQualityOf</a> <a href="#term_improvesEfficiencyOf">improvesEfficiencyOf</a> <a href="#term_improvesEffectivenessOf">improvesEffectivenessOf</a> </td></tr> </td></tr> 
+		</table>
+		<p>Links an improvement to something it improves.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_improves">#</a>] <!-- improves --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_improvesEffectivenessOf">
+			<h3>Property: improvesEffectivenessOf</h3>
+			<em>http://purl.org/innovation/ns#improvesEffectivenessOf</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> </td></tr> <tr><th>Super Properties:</th> <td> <a href="#term_improves">improves</a> </td></tr> 
+		</table>
+		<p>An improvement to the effectiveness of the object i.e effectuates an increase in the desired result.
+
+e.g the combustion engine improves the effectiveness of a vehicle.
+
+Without consideration for cost of increase i.e does not necessitate an improvement in efficiciency.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_improvesEffectivenessOf">#</a>] <!-- improvesEffectivenessOf --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_improvesEfficiencyOf">
+			<h3>Property: improvesEfficiencyOf</h3>
+			<em>http://purl.org/innovation/ns#improvesEfficiencyOf</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> </td></tr> <tr><th>Super Properties:</th> <td> <a href="#term_improves">improves</a> </td></tr> 
+		</table>
+		<p>An improvement to the efficiency of the of the object. i.e reducing the cost, waste, time or skill required to produce the desired (same) results
+
+e.g
+
+Compared to other modes of transportation, a bicycle is efficient because it enables people to get to their destination with less effort.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_improvesEfficiencyOf">#</a>] <!-- improvesEfficiencyOf --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_improvesQualityOf">
+			<h3>Property: improvesQualityOf</h3>
+			<em>http://purl.org/innovation/ns#improvesQualityOf</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> </td></tr> <tr><th>Super Properties:</th> <td> <a href="#term_improves">improves</a> </td></tr> 
+		</table>
+		<p>An improvement to the reliability, durability, accessibility, usability or some other non-functional aspect of the object.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_improvesQualityOf">#</a>] <!-- improvesQualityOf --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_improvesValueOf">
+			<h3>Property: improvesValueOf</h3>
+			<em>http://purl.org/innovation/ns#improvesValueOf</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Improvement">Improvement</a> </td></tr> </td></tr> </td></tr> </td></tr> <tr><th>Super Properties:</th> <td> <a href="#term_improves">improves</a> </td></tr> 
+		</table>
+		<p>An improvement to the worth or value of the object i.e as a result of the improvement something becomes more valuable or worthwhile. 
+e.g:
+
+Nuclear Fission improves the value of Uranium.
+HTTP improves the value of the internet.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_improvesValueOf">#</a>] <!-- improvesValueOf --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_isDeprecatedBy">
+			<h3>Property: isDeprecatedBy</h3>
+			<em>http://purl.org/innovation/ns#isDeprecatedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><tr><th>Range:</th> <td> <a href="#term_Disruption">Disruption</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The agents or things deprecated by a particular innovation.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_isDeprecatedBy">#</a>] <!-- isDeprecatedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_isDeveloping">
+			<h3>Property: isDeveloping</h3>
+			<em>http://purl.org/innovation/ns#isDeveloping</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovator">Innovator</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Relates an innovator to a current innovation that they are developing.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_isDeveloping">#</a>] <!-- isDeveloping --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_isLiberatedBy">
+			<h3>Property: isLiberatedBy</h3>
+			<em>http://purl.org/innovation/ns#isLiberatedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><tr><th>Range:</th> <td> <a href="#term_Disruption">Disruption</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The agents or things liberated by a particular innovation.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_isLiberatedBy">#</a>] <!-- isLiberatedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_liberates">
+			<h3>Property: liberates</h3>
+			<em>http://purl.org/innovation/ns#liberates</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Disruption">Disruption</a> </td></tr>  </td></tr> </td></tr> </td></tr> 
+		 
+		</table>
+		<p>Innovation has the ability to free or liberate some kind of repressed, constrained or untapped potential.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_liberates">#</a>] <!-- liberates --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		
+		<div class="specterm classterm " id="term_manifestedBy">
+			<h3>Property: manifestedBy</h3>
+			<em>http://purl.org/innovation/ns#manifestedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Need">Need</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Problem">Problem</a> </td></tr> <tr><th>Inverse Properties:</th> <td> <a href="#term_manifests">manifests</a> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The problems that manifest a particular need. A need is generally described by its problems.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_manifestedBy">#</a>] <!-- manifestedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_manifests">
+			<h3>Property: manifests</h3>
+			<em>http://purl.org/innovation/ns#manifests</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Problem">Problem</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Need">Need</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The problem that manifests a need. The problem defines the characteristics of the need.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_manifests">#</a>] <!-- manifests --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_solves">
+			<h3>Property: solves</h3>
+			<em>http://purl.org/innovation/ns#solves</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="#term_Problem">Problem</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Connects an innovation to the problems it solves. Generally speaking, innovations that solve a need do so by solving similar problems associated with the need.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_solves">#</a>] <!-- solves --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_usedBy">
+			<h3>Property: usedBy</h3>
+			<em>http://purl.org/innovation/ns#usedBy</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Usage">Usage</a> </td></tr> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Relates a usage node to the thing that makes use of the device or process i.e the activator or implementor.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_usedBy">#</a>] <!-- usedBy --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_usedOn">
+			<h3>Property: usedOn</h3>
+			<em>http://purl.org/innovation/ns#usedOn</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Usage">Usage</a> </td></tr> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Defines the recipient use.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_usedOn">#</a>] <!-- usedOn --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_usedWith">
+			<h3>Property: usedWith</h3>
+			<em>http://purl.org/innovation/ns#usedWith</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Usage">Usage</a> </td></tr> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>Where something is used in conjunction with something else.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_usedWith">#</a>] <!-- usedWith --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		<h2 id="sec-datatypeproperties">Datatype Properties</h2>
+		<div class="specterm classterm " id="term_expectedMarketEntry">
+			<h3>Property: expectedMarketEntry</h3>
+			<em>http://purl.org/innovation/ns#expectedMarketEntry</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Domain:</th> <td> <a href="#term_Innovation">Innovation</a> </td></tr> <tr><th>Range:</th> <td> <a href="http://www.w3.org/2001/XMLSchema#dateTime">http://www.w3.org/2001/XMLSchema#dateTime</a> </td></tr> </td></tr> </td></tr> </td></tr> 
+		</table>
+		<p>The expected date of introduction into the market. Mass production, commoditisation or  availability for sale.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_expectedMarketEntry">#</a>] <!-- expectedMarketEntry --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		<h2 id="sec-individuals">Individuals</h2>
+		<div class="specterm classterm " id="term_d1-defining-the-need">
+			<h3>Individual: d1-defining-the-need</h3>
+			<em>http://purl.org/innovation/ns#d1-defining-the-need</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> </td></tr> 
+		</table>
+		<p>A solution will have the best the chance of success if there is a clear and accurate understanding of the users needs.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_d1-defining-the-need">#</a>] <!-- d1-defining-the-need --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_d2-designing-the-solution">
+			<h3>Individual: d2-designing-the-solution</h3>
+			<em>http://purl.org/innovation/ns#d2-designing-the-solution</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> </td></tr> 
+		</table>
+		<p>A well designed innovation is more likely to succeed. Looking at your users needs, work out how your innovatiion can meet them. Indentify the benefits, considering the users or recipients that will gain from your innovation. Outline final designs for your innovation and how they will meet the users’ needs. Decide when to stop designing and, if appropriate, start developing the idea.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_d2-designing-the-solution">#</a>] <!-- d2-designing-the-solution --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_d3-developing-the-opportunity">
+			<h3>Individual: d3-developing-the-opportunity</h3>
+			<em>http://purl.org/innovation/ns#d3-developing-the-opportunity</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> </td></tr> 
+		</table>
+		<p>Develop a prototype allowing for some ‘user preference’ analysis which can be fed back to the designers.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_d3-developing-the-opportunity">#</a>] <!-- d3-developing-the-opportunity --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_d4-demonstrating-the-benefits">
+			<h3>Individual: d4-demonstrating-the-benefits</h3>
+			<em>http://purl.org/innovation/ns#d4-demonstrating-the-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="#term_DevelopmentStage">DevelopmentStage</a> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> </td></tr> 
+		</table>
+		<p>Test and demonstrate both the functional and non-functional qualities of the solution, emphasising the beneftis to the user.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_d4-demonstrating-the-benefits">#</a>] <!-- d4-demonstrating-the-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_d5-distributing-the-product">
+			<h3>Individual: d5-distributing-the-product</h3>
+			<em>http://purl.org/innovation/ns#d5-distributing-the-product</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="#term_DevelopmentStage">DevelopmentStage</a> </td></tr> 
+		</table>
+		<p>Execute marketing plan and conducting key post-launch checks.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_d5-distributing-the-product">#</a>] <!-- d5-distributing-the-product --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_economic-benefits">
+			<h3>Individual: economic-benefits</h3>
+			<em>http://purl.org/innovation/ns#economic-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> </td></tr> 
+		</table>
+		<p>Those benefits that are of an economic nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_economic-benefits">#</a>] <!-- economic-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_economic-symptoms">
+			<h3>Individual: economic-symptoms</h3>
+			<em>http://purl.org/innovation/ns#economic-symptoms</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those symptons that are of an economic nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_economic-symptoms">#</a>] <!-- economic-symptoms --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_health-benefits">
+			<h3>Individual: health-benefits</h3>
+			<em>http://purl.org/innovation/ns#health-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those benefits that are of a health related nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_health-benefits">#</a>] <!-- health-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_health-symptoms">
+			<h3>Individual: health-symptoms</h3>
+			<em>http://purl.org/innovation/ns#health-symptoms</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> </td></tr> 
+		</table>
+		<p>Those symptons that are health related.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_health-symptoms">#</a>] <!-- health-symptoms --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_legal-benefits">
+			<h3>Individual: legal-benefits</h3>
+			<em>http://purl.org/innovation/ns#legal-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those benefits that are of a legal nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_legal-benefits">#</a>] <!-- legal-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_legal-symptoms">
+			<h3>Individual: legal-symptoms</h3>
+			<em>http://purl.org/innovation/ns#legal-symptoms</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those symptons that are of a legal nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_legal-symptoms">#</a>] <!-- legal-symptoms --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_scientific-benefits">
+			<h3>Individual: scientific-benefits</h3>
+			<em>http://purl.org/innovation/ns#scientific-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those benefits that are of a scientific nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_scientific-benefits">#</a>] <!-- scientific-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_scientific-symptoms">
+			<h3>Individual: scientific-symptoms</h3>
+			<em>http://purl.org/innovation/ns#scientific-symptoms</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those symptons that are of a scientific nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_scientific-symptoms">#</a>] <!-- scientific-symptoms --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_social-benefits">
+			<h3>Individual: social-benefits</h3>
+			<em>http://purl.org/innovation/ns#social-benefits</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>Those benefits that are of a social nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_social-benefits">#</a>] <!-- social-benefits --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_social-symptoms">
+			<h3>Individual: social-symptoms</h3>
+			<em>http://purl.org/innovation/ns#social-symptoms</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> </td></tr> 
+		</table>
+		<p>Those symptons that are of a social nature.</p>
+		<p style="float: right; font-size: small;">[<a href="#term_social-symptoms">#</a>] <!-- social-symptoms --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		
+		<div class="specterm classterm " id="term_stages-of-innovation">
+			<h3>Individual: stages-of-innovation</h3>
+			<em>http://purl.org/innovation/ns#stages-of-innovation</em> <br /><table style="th { float: top; }">
+			<tr><th>Status:</th>
+			<td><span property="vs:status" >stable</span></td></tr>
+		<tr><th>Type of:</th> <td> <a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a> <a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">http://www.w3.org/2004/02/skos/core#ConceptScheme</a> </td></tr> 
+		</table>
+		<p>A scheme consisting of the the stages of development, comprised by the National Innovation Centre. It could be inferred by the asserted facts about an innovation what stage it qualifies for e.g if it is asserted that an innovation fulfils a particular need, then it qualifies as beingat least at development stage 1 (defining the need).</p>
+		<p style="float: right; font-size: small;">[<a href="#term_stages-of-innovation">#</a>] <!-- stages-of-innovation --> [<a href="#sec-toc">back to top</a>]</p>
+		<br/>
+		</div>
+		</body> </html>
+
+

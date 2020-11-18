@@ -1,0 +1,615 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://www.w3.org/1999/xhtml" version="XHTML+RDFa 1.0">
+   <head>
+      <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8"></meta>
+      <title>IMGpedia Ontology</title>
+      <!link href="ontology/style/rhizomer.css" type="text/css" rel="stylesheet"></link--->
+	  <style>#metadata table {
+	width: 100%;
+}
+#metadata .input-error {
+	background: #FFCCCC;
+}
+#metadata .yui-ac-input {
+	position: relative;
+}
+.yui-skin-sam .yui-tt .bd {
+    color: black !important;
+    background-color: lightgrey !important;
+    font-family: "Lucida Sans Unicode" !important;
+    border: 1px solid gray !important;
+}
+
+#metadata .yui-ac-container {
+	width:200%;
+}
+#metadata .ac-label {
+	display:inline;
+	margin-right:5px;
+}
+#metadata .ac-uri {
+	color:lightGrey;
+	font-size:xx-small;
+	font-style:italic;
+}
+#metadata .ac-range {
+	color:gray;
+	display:inline;
+	font-size:x-small;
+	text-align:right;
+}
+#metadata input[type="text"].literal {
+	width: 82%;
+}
+#metadata select[name="lang"] {
+	width: 15%;
+        float: right;
+        margin-right: 1px;
+}
+#metadata input[type="text"], input[type="password"], select, textarea {
+	width: 99%;
+}
+#metadata input, select, textarea {
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode";
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+}
+#metadata img {
+	vertical-align: top;
+}
+#waitImage {
+	clear: all;
+	position: relative;
+	left: 50%;
+	width: 16px;
+	margin-left: -16px;
+	margin-top: 10px;
+}
+#metadata a, .rdf2html a {
+	text-decoration:none;
+	color:#50408E;
+}
+#metadata a, .rdf2html a {
+	color:#50408E;
+}
+#metadata a.browse, .rdf2html a.browse {
+	text-decoration: underline;
+}
+#metadata a.browse:visited, .rdf2html a.browse:visited {
+	color:#80708E;
+}
+#metadata p, .rdf2html p {
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode" ;
+	text-align: justify;
+} 
+#metadata ol, .rdf2html ol {
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode" ;
+	text-align: justify;
+}
+#metadata ul, .rdf2html ul {
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode" ;
+	text-align: justify;
+}
+#metadata td, #metadata th, .rdf2html td, .rdf2html th {
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode";
+	vertical-align: baseline;
+}
+#metadata td.actions {
+	text-align: right;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: lightgrey;
+}
+#metadata .description .actions a {
+	font-size: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 1px;
+	padding-left: 1px;
+}
+#metadata .description .actions a.specific {
+	color: #DB4105;
+	font-weight: bold;
+}
+.edition {
+	float: right;
+	font-size: 9px;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 0px;
+}
+.description {
+	background-color: white;
+	border: 1px solid;
+	clear: both;
+	margin-top: 4px;
+}
+.description table {
+	font-size: 10px;
+	width: 100%;
+}
+.description table table{
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgrey;
+}
+.description th {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgrey;
+}
+.description td {
+	vertical-align: top;
+}
+.description td:last-child {
+	width: 100%;
+}
+.description .object-type {
+	display: inline;
+}
+.description .property-object {
+	display: block;
+}
+.description th .property-object {
+	display: inline;
+}
+.description .connector {
+	font-style: italic;
+	display: none;
+	margin-left: -0.4em;
+}
+.description th .connector {
+	font-style: normal;
+	display: inline;
+	margin-left: 0em;
+}
+.description tr[class="http://www.w3.org/2000/01/rdf-schema#label"] {
+        display: none;
+}
+.description tr[class="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"] td a.describe {
+        display: none;
+}
+.description tr[class="http://rhizomik.net/rhizomer/services#hasService"] {
+        display: none;
+}
+.description tr[class="http://swrc.ontoware.org/ontology#authors"] {
+        display: none;
+}
+.description tr[class="http://purl.org/dc/elements/1.1/creator"] {
+        display: none;
+}
+.browser {
+	font-size: 10px;
+	text-align: center;
+}
+#logo a {
+	text-decoration: none;
+	color:#80708E;
+	font-size: 10px;
+	font-family: "Lucida Sans Unicode";
+}
+#footlogo {
+	position: relative;
+	left: 50%;
+	width: 200px;
+	margin-left: -100px;
+	margin-top: 20px;
+}
+img
+{
+	border: 0;
+}
+.list-object, .list-object div
+{
+    display: inline;
+}
+.list-object .connector
+{
+	font-style: italic;
+	display: inline;
+}
+.rdfaslist .browser, .rdfaslist .edition, .rdfaslist .actions
+{
+	display: none;
+}
+.rdfaslist .description {
+	background-color: #f0f0f0;
+	border: none;
+	clear: both;
+	margin-top: 4px;
+}
+.rdfaslist .description table {
+	font-size: 10px;
+	width: 100%;
+}
+.rdfaslist .description table table{
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgrey;
+}
+.rdfaslist .description th {
+	border-bottom-width: 0px;
+	text-align: left;
+}
+.rdfaslist .description th a:first-child,
+.rdfaslist .description th .connector
+{
+	display: none;
+}
+.rdfaslist .description td .connector
+{
+	display: inline;
+}
+.rdfaslist .description td .property-object
+{
+	display: inline;
+}</style>
+   </head>
+   <body>
+      <div xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" class="rdf2html">
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#CLD" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#CLD" title="Browse http://imgpedia.dcc.uchile.cl/ontology#CLD">Color Layout Descriptor</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Descriptor de la Distribución del Color" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subClassOf">rdfs:subClassOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subClassOf"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Descriptor" xml:lang="es"></div>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#GHD" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#GHD" title="Browse http://imgpedia.dcc.uchile.cl/ontology#GHD">Gray Histogram Descriptor</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Histograma de Grises" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subClassOf">rdfs:subClassOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subClassOf"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#HOG" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#HOG" title="Browse http://imgpedia.dcc.uchile.cl/ontology#HOG">Histogram of Oriented Gradient</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Histograma de Orientación del Gradiente" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subClassOf">rdfs:subClassOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subClassOf"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#Image" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Imagen" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subClassOf">rdfs:subClassOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subClassOf"><a class="browse" href="http://schema.org/ImageObject" title="Browse http://schema.org/ImageObject">http://schema.org/ImageObject</a></div>
+                     <div class="connector">&nbsp; and</div>
+                     <div class="property-object" rel="rdfs:subClassOf"><a class="browse" href="http://dbpedia.org/ontology/StillImage" title="Browse http://dbpedia.org/ontology/StillImage">http://dbpedia.org/ontology/StillImage</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" typeof="owl:Class">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" title="Browse http://imgpedia.dcc.uchile.cl/ontology#ImageRelation">Image Relation</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Class" title="Browse http://www.w3.org/2002/07/owl#Class">owl:Class</a></th>
+               </tr>
+               <div property="rdfs:label" content="Relación entre Imágenes" xml:lang="es"></div>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#appearsIn" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#appearsIn" title="Browse http://imgpedia.dcc.uchile.cl/ontology#appearsIn">The image appears in the Wikipedia article</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="La imagen aparece en el recurso" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2002/07/owl#Thing" title="Browse http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#associatedWith" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#associatedWith" title="Browse http://imgpedia.dcc.uchile.cl/ontology#associatedWith">Tha image is related to the DBpedia resource</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="La imagen aparece en el recurso" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2002/07/owl#Thing" title="Browse http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></div>
+                  </td>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://dbpedia.org/ontology/related" title="Browse http://dbpedia.org/ontology/related">http://dbpedia.org/ontology/related</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#describes" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#describes" title="Browse http://imgpedia.dcc.uchile.cl/ontology#describes">Describes an image</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="Descriptor de una imagen" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#distance" typeof="owl:DatatypeProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#distance" title="Browse http://imgpedia.dcc.uchile.cl/ontology#distance">The distance between the images in the relation</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#DatatypeProperty" title="Browse http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" title="Browse http://imgpedia.dcc.uchile.cl/ontology#ImageRelation">Image Relation</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="La distancia entre las imágenes de la relación" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2001/XMLSchema#float" title="Browse http://www.w3.org/2001/XMLSchema#float">http://www.w3.org/2001/XMLSchema#float</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#fileURL" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#fileURL" title="Browse http://imgpedia.dcc.uchile.cl/ontology#fileURL">The URL of the image in Wikimedia Commons</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="La URL de la imagen en Wikimedia Commons" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://ogp.me/ns#image" title="Browse http://ogp.me/ns#image">http://ogp.me/ns#image</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#height" typeof="owl:DatatypeProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#height" title="Browse http://imgpedia.dcc.uchile.cl/ontology#height">Image height in pixels</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#DatatypeProperty" title="Browse http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="Altura de la imagen en unidades de pixel" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2001/XMLSchema#integer" title="Browse http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a></div>
+                  </td>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://ogp.me/ns#image:height" title="Browse http://ogp.me/ns#image:height">http://ogp.me/ns#image:height</a></div>
+                     <div class="connector">&nbsp; and</div>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://schema.org/height" title="Browse http://schema.org/height">http://schema.org/height</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#similar" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#similar" title="Browse http://imgpedia.dcc.uchile.cl/ontology#similar">A similar image</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="Una imagen similar" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://dbpedia.org/ontology/similar" title="Browse http://dbpedia.org/ontology/similar">http://dbpedia.org/ontology/similar</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#sourceImg" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#sourceImg" title="Browse http://imgpedia.dcc.uchile.cl/ontology#sourceImg">The source of an image relation</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" title="Browse http://imgpedia.dcc.uchile.cl/ontology#ImageRelation">Image Relation</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="El sujeto de la relación entre imágenes" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#targetImg" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#targetImg" title="Browse http://imgpedia.dcc.uchile.cl/ontology#targetImg">The target of an image relation</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" title="Browse http://imgpedia.dcc.uchile.cl/ontology#ImageRelation">Image Relation</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="El objeto de la relación entre imágenes" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#usesDescriptor" typeof="owl:ObjectProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#usesDescriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#usesDescriptor">The descriptor used in the relation</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#ObjectProperty" title="Browse http://www.w3.org/2002/07/owl#ObjectProperty">owl:ObjectProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#ImageRelation" title="Browse http://imgpedia.dcc.uchile.cl/ontology#ImageRelation">Image Relation</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="El descriptor usado en la relación" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#value" typeof="owl:DatatypeProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#value" title="Browse http://imgpedia.dcc.uchile.cl/ontology#value">Descriptor value</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#DatatypeProperty" title="Browse http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Descriptor" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Descriptor">Descriptor</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="Valor del descriptor" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2001/XMLSchema#string" title="Browse http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a></div>
+                  </td>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" title="Browse http://www.w3.org/1999/02/22-rdf-syntax-ns#value">rdf:value</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://imgpedia.dcc.uchile.cl/ontology#width" typeof="owl:DatatypeProperty">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#width" title="Browse http://imgpedia.dcc.uchile.cl/ontology#width">Image width in pixels</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#DatatypeProperty" title="Browse http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a></th>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#domain">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#domain" title="Browse http://www.w3.org/2000/01/rdf-schema#domain">rdfs:domain</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:domain"><a class="browse" href="http://imgpedia.dcc.uchile.cl/ontology#Image" title="Browse http://imgpedia.dcc.uchile.cl/ontology#Image">Image</a></div>
+                  </td>
+               </tr>
+               <div property="rdfs:label" content="Ancho de la imagen en unidades de pixel" xml:lang="es"></div>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#range">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#range" title="Browse http://www.w3.org/2000/01/rdf-schema#range">rdfs:range</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:range"><a class="browse" href="http://www.w3.org/2001/XMLSchema#integer" title="Browse http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a></div>
+                  </td>
+               </tr>
+               <tr class="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+                  <td><a class="browse" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="Browse http://www.w3.org/2000/01/rdf-schema#subPropertyOf">rdfs:subPropertyOf</a></td>
+                  <td>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://ogp.me/ns#image:width" title="Browse http://ogp.me/ns#image:width">http://ogp.me/ns#image:width</a></div>
+                     <div class="connector">&nbsp; and</div>
+                     <div class="property-object" rel="rdfs:subPropertyOf"><a class="browse" href="http://schema.org/width" title="Browse http://schema.org/width">http://schema.org/width</a></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div class="description">
+            <table about="http://njh.me/" typeof="owl:Ontology">
+               <tr>
+                  <th colspan="2"><a class="browse" href="http://njh.me/" title="Browse http://njh.me/">The IMGpedia Ontology</a><div xmlns="" class="connector"> a </div><a class="browse" href="http://www.w3.org/2002/07/owl#Ontology" title="Browse http://www.w3.org/2002/07/owl#Ontology">owl:Ontology</a></th>
+               </tr>
+               <div property="rdfs:label" content="La Ontología de IMGpedia"></div>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

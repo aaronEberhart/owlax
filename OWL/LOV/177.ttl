@@ -1,0 +1,651 @@
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://privatealpha.com/ontology/content-inventory/1> a bibo:Webpage;
+  dc:subject <https://privatealpha.com/ontology/content-inventory/1#>;
+  foaf:primaryTopic <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#Advertisement> a owl:Class;
+  rdfs:label "Advertisement"^^xsd:token;
+  rdfs:comment "In general there is no programmatic way to tell whether a resource is an advertisement, since advertisements on the Web look (to a machine) like any other resource. This is intended to be a decorator class to indicate that the subject is an advertisement. It can therefore be combined with other classes such as foaf:Image, or bibo:AudioVisualDocument."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subClassOf foaf:Document;
+  skos:example """@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ci:   <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://example.club/17-mindblowing-ways-to-write-listicles> a bibo:Article ;
+  dct:title \"17 Mindblowing Ways to Write Listicles!\"@en ;
+  dct:hasPart <https://adtech.biz/assets/punch-the-monkey> .
+
+<https://adtech.biz/assets/punch-the-monkey> a foaf:Image, ci:Advertisement ;
+  dct:title \"Punch The Monkey And WIN!#@$!%%^!\"@en .
+            """@en .
+
+<https://privatealpha.com/ontology/content-inventory/1#action> a owl:ObjectProperty;
+  rdfs:label "action"^^xsd:token;
+  rdfs:comment "Relates a document to an action to take."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:subPropertyOf <http://purl.org/NET/c4dm/event.owl#factor_of> .
+
+<https://privatealpha.com/ontology/content-inventory/1#canonical-slug> a owl:DatatypeProperty,
+    owl:FunctionalProperty;
+  rdfs:label "canonical-slug"^^xsd:token;
+  rdfs:comment "This is the canonical slug associated with the resource, and should be populated with the slug which is actually in use."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:string;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#slug> .
+
+<https://privatealpha.com/ontology/content-inventory/1#circulated> a bibo:DocumentStatus;
+  rdfs:label "circulated"^^xsd:token;
+  rdfs:comment "The document is available for select people to see, but not published in the strict literal sense."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#confidential> a bibo:DocumentStatus;
+  rdfs:label "confidential"^^xsd:token;
+  rdfs:comment "The document is confidential and not for publication."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#depicts> a owl:ObjectProperty;
+  rdfs:label "depicts"^^xsd:token;
+  rdfs:comment "The document explicitly depicts this concept (or other entity)."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:seeAlso foaf:depicts;
+  rdfs:subPropertyOf dc:references;
+  skos:note "This term is identical in meaning to foaf:depicts except that the latter constrains its domain to images only, whereas this can relate any kind of document. The range of this property is also left open, to accommodate any kind of resource being depicted."@en .
+
+<https://privatealpha.com/ontology/content-inventory/1#desired-outcome> a owl:ObjectProperty;
+  rdfs:label "desired-outcome"^^xsd:token;
+  rdfs:comment "This property is intended to indicate what the document is supposed to do—what material effect it is supposed to produce. It is intentionally open-ended, and as such can point to something like a skos:Concept, another document, or a literal string of text describing the outcome."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:type;
+  skos:example """@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ci:   <https://privatealpha.com/ontology/content-inventory/1#> .
+@prefix eg:   <https://backoffice.example.club/concepts/> .
+
+# we can extend our article metadata the following way:
+
+<https://example.club/17-mindblowing-ways-to-write-listicles> a bibo:Article ;
+  dct:title \"17 Mindblowing Ways to Write Listicles!\"@en ;
+  ci:desired-outcome eg:maximize-clicks .
+
+# and create a corresponding resource to unambiguously identify the goal:
+
+eg:maximize-clicks a skos:Concept ;
+  skos:prefLabel \"Maximize Clicks\"@en ;
+  skos:description \"Moar clicks means moar monies.\"@en .
+            """@en .
+
+<https://privatealpha.com/ontology/content-inventory/1#embed> a owl:ObjectProperty;
+  rdfs:label "embed"^^xsd:token;
+  rdfs:comment "This property specifies an embedded resource, such as an image, which is visible on the document's canvas."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:hasPart .
+
+<https://privatealpha.com/ontology/content-inventory/1#empty> a bibo:DocumentStatus;
+  rdfs:label "empty"^^xsd:token;
+  rdfs:comment "The document contains no content."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#evokes> a owl:ObjectProperty;
+  rdfs:label "evokes"^^xsd:token;
+  rdfs:comment "The document evokes the given concept without mentioning it explicitly."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#assumes> .
+
+<https://privatealpha.com/ontology/content-inventory/1#form> a owl:ObjectProperty;
+  rdfs:label "form"^^xsd:token;
+  rdfs:comment "This property specifies form target, which may or may not be visible to the user."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#link> .
+
+<https://privatealpha.com/ontology/content-inventory/1#include> a owl:ObjectProperty;
+  rdfs:label "include"^^xsd:token;
+  rdfs:comment "This property specifies a related resource which is not directly visible to the user."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:requires .
+
+<https://privatealpha.com/ontology/content-inventory/1#incomplete> a bibo:DocumentStatus;
+  rdfs:label "incomplete"^^xsd:token;
+  rdfs:comment "The document has been started, but is clearly not finished."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#incorrect> a bibo:DocumentStatus;
+  rdfs:label "incorrect"^^xsd:token;
+  rdfs:comment "The content of this document is factually wrong."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#indegree> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "indegree"^^xsd:token;
+  rdfs:comment "The number of links pointing at the specified resource."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Directed_graph#Indegree_and_outdegree> .
+
+<https://privatealpha.com/ontology/content-inventory/1#indexed> a owl:DatatypeProperty,
+    owl:FunctionalProperty;
+  rdfs:label "indexed"^^xsd:token;
+  rdfs:comment "This is a boolean value to indicate whether or not a resource ought to be indexed. It does not necessarily ascribe a policy: an absence of an explicit true value does not necessarily imply the resource ought not be indexed, but the presence of a false value probably should."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:boolean .
+
+<https://privatealpha.com/ontology/content-inventory/1#introduces> a owl:ObjectProperty;
+  rdfs:label "introduces"^^xsd:token;
+  rdfs:comment "The document defines, describes, or otherwise introduces the audience to this concept."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#mentions> .
+
+<https://privatealpha.com/ontology/content-inventory/1#keep> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "keep"^^xsd:token;
+  rdfs:comment "Keep this document to which this is associated; make no changes to it at this time."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#landing> a bibo:DocumentStatus;
+  rdfs:label "landing"^^xsd:token;
+  rdfs:comment "The resource is a landing page from some other medium (e.g. e-mail, television, billboard). This status is a hint to automated systems which would otherwise orphan or retire a landing page with no inbound links."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#lists> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "lists"^^xsd:token;
+  rdfs:comment "The number of lists in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#non-audience> a owl:ObjectProperty;
+  rdfs:label "non-audience"^^xsd:token;
+  rdfs:comment "This property complements dct:audience insofar as enabling the author or editor to designate a set of entities who are explicitly not the intended audience of the document."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range dc:AgentClass;
+  rdfs:seeAlso dc:audience .
+
+<https://privatealpha.com/ontology/content-inventory/1#obsolete> a bibo:DocumentStatus;
+  rdfs:label "obsolete"^^xsd:token;
+  rdfs:comment "The content of this document was correct and relevant at one point, but external circumstances have caused it to lapse in relevance or factual accuracy."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#orphan> a bibo:DocumentStatus;
+  rdfs:label "orphan"^^xsd:token;
+  rdfs:comment "The resource is not explicitly pending or removed from publication, however it has managed to be disconnected from the rest of the site: There is no path to it from a landing page, and it is not a landing page on its own. That is to say that the resource either has no inbound links, or if it does, those links are from other resources that are in the same situation. Documents which are only linked from retired documents are also considered orphans."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#outdegree> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "outdegree"^^xsd:token;
+  rdfs:comment "The number of links emanating from the specified resource."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Directed_graph#Indegree_and_outdegree> .
+
+<https://privatealpha.com/ontology/content-inventory/1#primary> a owl:FunctionalProperty,
+    owl:ObjectProperty;
+  rdfs:label "primary"^^xsd:token;
+  rdfs:comment "Denotes the primary variant that concretely represents the resource."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#variant> .
+
+<https://privatealpha.com/ontology/content-inventory/1#proofread> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "proofread"^^xsd:token;
+  rdfs:comment "Proofread this document."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#retire> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "retire"^^xsd:token;
+  rdfs:comment "Remove all references to this document and consign it to the archive."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#retired> a bibo:DocumentStatus;
+  rdfs:label "retired"^^xsd:token;
+  rdfs:comment "The document has been explicitly retired by an editor or curator, but still exists in the archive."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#revise> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "revise"^^xsd:token;
+  rdfs:comment "Revise or restructure this document."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#rewrite> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "rewrite"^^xsd:token;
+  rdfs:comment "Rewrite this document from scratch."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#split> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "split"^^xsd:token;
+  rdfs:comment "Split this document into multiple pieces."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#target> a owl:ObjectProperty;
+  rdfs:label "target"^^xsd:token;
+  rdfs:comment "Specify the URI of the target resource into which this document should be merged."@en;
+  rdfs:domain <https://privatealpha.com/ontology/content-inventory/1#Merge>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range foaf:Document .
+
+<https://privatealpha.com/ontology/content-inventory/1#tentative-merge> a <https://privatealpha.com/ontology/content-inventory/1#Action>,
+    <https://privatealpha.com/ontology/content-inventory/1#Merge>;
+  rdfs:label "tentative-merge"^^xsd:token;
+  rdfs:comment "Merge this document into some other document, though unspecified at this time as to which."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#unavailable> a bibo:DocumentStatus;
+  rdfs:label "unavailable"^^xsd:token;
+  rdfs:comment "The resource at the subject address is unavailable for reasons other than explicit retirement, e.g. HTTP 404 or 403, or going out of print."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#understands> a owl:ObjectProperty;
+  rdfs:label "understands"^^xsd:token;
+  rdfs:comment "This property relates an Audience to a SKOS concept that members of the audience are known to comprehend, and thereby do not need any additional explanation."@en;
+  rdfs:domain <https://privatealpha.com/ontology/content-inventory/1#Audience>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:seeAlso dc:educationLevel;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#aware-of> .
+
+<https://privatealpha.com/ontology/content-inventory/1#update-metadata> a <https://privatealpha.com/ontology/content-inventory/1#Action>;
+  rdfs:label "update-metadata"^^xsd:token;
+  rdfs:comment "Update the metadata of this document, such as keywords, audience, etc."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#> .
+
+<https://privatealpha.com/ontology/content-inventory/1#words-and-blocks> a <http://purl.org/linked-data/cube#DataStructureDefinition>;
+  rdfs:label "words-and-blocks"^^xsd:token;
+  <http://purl.org/linked-data/cube#component> [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#blocks>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#videos>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#max>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#sections>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#mean>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#high-quartile>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#embeds>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#words>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#dimension> <https://privatealpha.com/ontology/content-inventory/1#document>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#characters>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#stylesheets>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#sd>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#min>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#images>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#scripts>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#median>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#forms>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#low-quartile>
+  ], [
+    a <http://purl.org/linked-data/cube#ComponentSpecification>;
+    <http://purl.org/linked-data/cube#measure> <https://privatealpha.com/ontology/content-inventory/1#tables>
+  ];
+  rdfs:comment "A set of descriptive statistics pertaining to the number of words per block of text in a given document."@en .
+
+<https://doriantaylor.com/person/dorian-taylor#me> foaf:name "Dorian Taylor"@en .
+
+<https://privatealpha.com/ontology/content-inventory/1#alias> a owl:ObjectProperty;
+  rdfs:label "alias"^^xsd:token;
+  rdfs:comment "Denotes an alternate URI for the subject resource. It extends owl:sameAs insofar as asserting that the object is somehow less canonical than the subject."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf owl:sameAs;
+  owl:inverseOf <https://privatealpha.com/ontology/content-inventory/1#alias-for> .
+
+<https://privatealpha.com/ontology/content-inventory/1#assumes> a owl:ObjectProperty;
+  rdfs:label "assumes"^^xsd:token;
+  rdfs:comment "The document assumes the audience is familiar with this concept, and may not mention it explicitly."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:seeAlso dc:educationLevel;
+  rdfs:subPropertyOf dc:references .
+
+<https://privatealpha.com/ontology/content-inventory/1#aware-of> a owl:ObjectProperty;
+  rdfs:label "aware-of"^^xsd:token;
+  rdfs:comment "This property relates an Audience to a SKOS concept that is likely to be in the orbit of the audience's members: they are aware that the concept exists, although they may not necessarily understand it."@en;
+  rdfs:domain <https://privatealpha.com/ontology/content-inventory/1#Audience>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:subPropertyOf skos:related .
+
+<https://privatealpha.com/ontology/content-inventory/1#blocks> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "blocks"^^xsd:token;
+  rdfs:comment "A block count is conceptually similar to a word or section count, though it counts the total of elements in the document considered to be text blocks, such as paragraphs, tables, lists and figures. It is suited for document types that have no concept of (semantic) sections, such as HTML. The purpose of this measurement is to provide a sort of ratio to the word count, to glean how well-proportioned the document is."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#canonical> a owl:FunctionalProperty,
+    owl:ObjectProperty;
+  rdfs:label "canonical"^^xsd:token;
+  rdfs:comment "Asserts the canonical URI of the subject resource, i.e., the one you always want to publish in content or redirect Web requests to."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf <https://privatealpha.com/ontology/content-inventory/1#alias-for> .
+
+<https://privatealpha.com/ontology/content-inventory/1#characters> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "characters"^^xsd:token;
+  rdfs:comment "This indicates the number of characters in a document, with punctuation and the XPath normalize-space function applied. Note this is characters, not bytes."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger;
+  rdfs:seeAlso <http://www.w3.org/TR/xpath/#function-normalize-space> .
+
+<https://privatealpha.com/ontology/content-inventory/1#document> a <http://purl.org/linked-data/cube#DimensionProperty>;
+  rdfs:label "document"^^xsd:token;
+  rdfs:comment "Document Reference"@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range foaf:Document .
+
+<https://privatealpha.com/ontology/content-inventory/1#embeds> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "embeds"^^xsd:token;
+  rdfs:comment "The number of embeds in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#eschews> a owl:ObjectProperty;
+  rdfs:label "eschews"^^xsd:token;
+  rdfs:comment "This property relates an Audience to a SKOS concept that members of the audience are known to actively avoid or regard with contempt. This relation is intended to represent the complement of values."@en;
+  rdfs:domain <https://privatealpha.com/ontology/content-inventory/1#Audience>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:seeAlso <https://privatealpha.com/ontology/content-inventory/1#values>;
+  rdfs:subPropertyOf skos:related .
+
+<https://privatealpha.com/ontology/content-inventory/1#forms> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "forms"^^xsd:token;
+  rdfs:comment "The number of forms in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#high-quartile> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "high-quartile"^^xsd:token;
+  rdfs:comment "Third Quartile"@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Quartile> .
+
+<https://privatealpha.com/ontology/content-inventory/1#images> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "images"^^xsd:token;
+  rdfs:comment "This indicates the number of images in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#link> a owl:ObjectProperty;
+  rdfs:label "link"^^xsd:token;
+  rdfs:comment "This property specifies an ordinary hyperlink, which is visible on the document's canvas."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:references .
+
+<https://privatealpha.com/ontology/content-inventory/1#low-quartile> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "low-quartile"^^xsd:token;
+  rdfs:comment "Equivalent to the bottom quarter, or 25th percentile, of the observed data."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Quartile> .
+
+<https://privatealpha.com/ontology/content-inventory/1#max> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "max"^^xsd:token;
+  rdfs:comment "Maximum"@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Sample_maximum> .
+
+<https://privatealpha.com/ontology/content-inventory/1#mean> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "mean"^^xsd:token;
+  rdfs:comment "Mean"@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Mean> .
+
+<https://privatealpha.com/ontology/content-inventory/1#median> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "median"^^xsd:token;
+  rdfs:comment "The median of a population "@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Median> .
+
+<https://privatealpha.com/ontology/content-inventory/1#mentions> a owl:ObjectProperty;
+  rdfs:label "mentions"^^xsd:token;
+  rdfs:comment "The document explicitly mentions this concept."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:subPropertyOf dc:references .
+
+<https://privatealpha.com/ontology/content-inventory/1#min> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "min"^^xsd:token;
+  rdfs:comment "The smallest observation in the sample."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Sample_minimum> .
+
+<https://privatealpha.com/ontology/content-inventory/1#representation> a owl:ObjectProperty;
+  rdfs:label "representation"^^xsd:token;
+  rdfs:comment "Denotes a resource that is a concrete representation of the subject, which assumed to be more abstract."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:hasFormat;
+  owl:deprecated true .
+
+<https://privatealpha.com/ontology/content-inventory/1#scripts> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "scripts"^^xsd:token;
+  rdfs:comment "The number of scripts in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#sd> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "sd"^^xsd:token;
+  rdfs:comment "Standard Deviation"@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:number;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Standard_deviation> .
+
+<https://privatealpha.com/ontology/content-inventory/1#sections> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "sections"^^xsd:token;
+  rdfs:comment "For document types that have a concrete representation of sections, this property may be used to capture their sum."@en;
+  rdfs:domain foaf:Document;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#slug> a owl:DatatypeProperty;
+  rdfs:label "slug"^^xsd:token;
+  rdfs:comment "The slug is a text token which represents either the full path or terminal path segment of an HTTP(S) URL by which a resource can be located. This property is mainly for the purpose of archiving old or alternative URL paths in a content inventory, for such tasks as generating URL rewriting maps."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:string .
+
+<https://privatealpha.com/ontology/content-inventory/1#stylesheets> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "stylesheets"^^xsd:token;
+  rdfs:comment "The number of stylesheets in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#tables> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "tables"^^xsd:token;
+  rdfs:comment "The number of tables in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#values> a owl:ObjectProperty;
+  rdfs:label "values"^^xsd:token;
+  rdfs:comment "This property relates an Audience to a SKOS concept that members of the audience are known to value, that is, to find meaningful in an axiological sense."@en;
+  rdfs:domain <https://privatealpha.com/ontology/content-inventory/1#Audience>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range skos:Concept;
+  rdfs:seeAlso <https://privatealpha.com/ontology/content-inventory/1#eschews>;
+  rdfs:subPropertyOf skos:related .
+
+<https://privatealpha.com/ontology/content-inventory/1#variant> a owl:ObjectProperty;
+  rdfs:label "variant"^^xsd:token;
+  rdfs:comment "Denotes a resource that is a variant of a concrete representation of the subject, which assumed to be more abstract."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subPropertyOf dc:hasFormat;
+  owl:equivalentProperty <https://privatealpha.com/ontology/content-inventory/1#representation> .
+
+<https://privatealpha.com/ontology/content-inventory/1#videos> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "videos"^^xsd:token;
+  rdfs:comment "The number of videos in the document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#words> a <http://purl.org/linked-data/cube#MeasureProperty>;
+  rdfs:label "words"^^xsd:token;
+  rdfs:comment "This indicates the number of words in a document, similar to the familiar function in a word processor. The exact method of counting words may vary by document type, language etc., and is thus out of scope from this document."@en;
+  rdfs:domain <http://purl.org/linked-data/cube#Observation>;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:range xsd:nonNegativeInteger .
+
+<https://privatealpha.com/ontology/content-inventory/1#Merge> a owl:Class;
+  rdfs:label "Merge"^^xsd:token;
+  rdfs:comment "In order to merge a document, we must define the target to which it ought to be merged. This class is identical to an Action, save for such a property."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subClassOf <https://privatealpha.com/ontology/content-inventory/1#Action> .
+
+<https://privatealpha.com/ontology/content-inventory/1#alias-for> a owl:ObjectProperty;
+  rdfs:label "alias-for"^^xsd:token;
+  rdfs:comment "Denotes that the subject is the alias URI, and the object is more canonical (though not necessarily the most canonical)."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:seeAlso <https://privatealpha.com/ontology/content-inventory/1#canonical>;
+  rdfs:subPropertyOf owl:sameAs;
+  owl:inverseOf <https://privatealpha.com/ontology/content-inventory/1#alias> .
+
+<https://privatealpha.com/ontology/content-inventory/1#Audience> a owl:Class;
+  rdfs:label "Audience"^^xsd:token;
+  rdfs:comment "An audience represents the set of people who are the intended recipients of the resource. This class is at once an agent class as well as a conceptual entity, capable of being mixed into a SKOS concept scheme."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:seeAlso org:Role,
+    dc:audience;
+  rdfs:subClassOf skos:Concept,
+    dc:AgentClass .
+
+<https://privatealpha.com/ontology/content-inventory/1#Action> a owl:Class;
+  rdfs:label "Action"^^xsd:token;
+  rdfs:comment "An action, as its name implies, is meant to represent something a person or other agent ought to do to a document."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  rdfs:subClassOf <http://purl.org/NET/c4dm/event.owl#Event>;
+  skos:usageNote "Being a subclass of an event, a ci:Action can have agents, factors, products, places and times ascribed to it."@en .
+
+<https://privatealpha.com/ontology/content-inventory/1#> a owl:Ontology;
+  dc:title "A Content Inventory Vocabulary"@en;
+  dc:created "2012-01-23T11:52:00-08:00"^^xsd:dateTime;
+  dc:creator <https://doriantaylor.com/person/dorian-taylor#me>;
+  dc:modified "2015-02-03T14:39:00-08:00"^^xsd:dateTime,
+    "2018-10-06T16:23:52Z"^^xsd:dateTime,
+    "2020-07-04T01:24:22Z"^^xsd:dateTime,
+    "2019-03-05T23:38:59Z"^^xsd:dateTime,
+    "2019-07-10T22:28:06Z"^^xsd:dateTime,
+    "2019-04-07T16:36:10Z"^^xsd:dateTime,
+    "2020-04-30T01:05:51Z"^^xsd:dateTime,
+    "2019-07-07T22:10:55Z"^^xsd:dateTime,
+    "2020-06-29T02:24:58Z"^^xsd:dateTime,
+    "2019-09-04T20:27:32Z"^^xsd:dateTime,
+    "2012-12-11T22:22:00-08:00"^^xsd:dateTime,
+    "2014-02-06T14:10:00-08:00"^^xsd:dateTime,
+    "2019-07-21T23:05:32Z"^^xsd:dateTime,
+    "2017-04-06T15:24:00-07:00"^^xsd:dateTime,
+    "2020-01-26T05:02:30Z"^^xsd:dateTime,
+    "2019-04-18T01:01:09Z"^^xsd:dateTime,
+    "2020-04-24T23:16:20Z"^^xsd:dateTime;
+  dc:references <http://en.wikipedia.org/wiki/Standard_deviation>,
+    <http://vocab.org/frbr/extended>,
+    <https://www.w3.org/TR/vocab-data-cube/#ref_qb_Observation>,
+    <http://www.w3.org/TR/vocab-data-cube/>,
+    <https://www.w3.org/TR/vocab-data-cube/#ref_qb_MeasureProperty>,
+    <http://en.wikipedia.org/wiki/Content_strategy>,
+    <https://www.w3.org/TR/vocab-data-cube/#ref_qb_DataStructureDefinition>,
+    <https://www.w3.org/TR/prov-o/>,
+    <http://vocab.org/frbr/core>,
+    <http://en.wikipedia.org/wiki/Mean>,
+    <http://en.wikipedia.org/wiki/Five-number_summary>,
+    <http://www.w3.org/TR/vocab-data-cube/#ref_qb_DataSet>,
+    <https://www.w3.org/TR/vocab-data-cube/#ref_qb_DimensionProperty>;
+  bibo:uri <https://privatealpha.com/ontology/content-inventory/1#>;
+  <http://purl.org/vocab/vann/preferredNamespacePrefix> "ci"^^xsd:token;
+  xhv:license <http://creativecommons.org/licenses/by/2.5/ca/>;
+  rdfs:comment "This vocabulary defines a number of concepts peculiar to content strategy which are not accounted for by other vocabularies."@en;
+  rdfs:isDefinedBy <https://privatealpha.com/ontology/content-inventory/1#>;
+  owl:imports foaf:,
+    bibo:,
+    owl:,
+    skos:,
+    dc:,
+    <http://purl.org/NET/c4dm/event.owl#>,
+    xsd:,
+    <http://purl.org/linked-data/cube#>;
+  owl:versionInfo "0.14" .
+
+ [xhv:role xhv:note] .
+
+ [xhv:role xhv:note] .
+
+ [xhv:role xhv:note] .
+
+ [xhv:role xhv:note] .
+
+ [xhv:role xhv:note] .
+
+ [xhv:role xhv:note] .

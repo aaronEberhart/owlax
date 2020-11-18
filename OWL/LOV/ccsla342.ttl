@@ -1,0 +1,146 @@
+@prefix : <http://cookingbigdata.com/linkeddata/ccsla#> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix gr: 		<http://purl.org/goodrelations/v1#> .
+@prefix dc: 	<http://purl.org/dc/terms/> .
+@prefix time: 		<http://www.w3.org/2006/time#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: 	<http://schema.org/> .
+@prefix cc: <https://creativecommons.org/ns#> .
+
+
+
+<http://cookingbigdata.com/linkeddata/ccsla#> 
+	rdf:type owl:Ontology ;
+	rdfs:label "Service Level Agreement for Cloud Computing"@en ;
+	dc:title "SLA and SLO for Cloud Computing Services"@en ;
+	dc:description "Service Level Agreement for Cloud Computing Services. This ontology allows to define model of SLA/SLO used in large cloud computing providers such as Amazon, Azure, etc., including terms, claims, credit, compensations, etc"@en ;
+	dc:created "2018-03-06"^^xsd:date ;	
+	dc:modified "2018-04-03"^^xsd:date ;
+	dc:issued "2018-05-20"^^xsd:date ;
+    dc:creator :manuelparra ;
+	dc:publisher :cookingbigdata ;
+	owl:versionInfo "1.0"^^xsd:decimal ; 
+	dc:rights "Copyright © 2018 Manuel Parra-Royón";
+	cc:licence <https://creativecommons.org/licenses/by/3.0/>;
+	.
+	
+:manuelparra a foaf:Person;
+	foaf:name "Manuel Parra-Royon"^^xsd:string ;
+	foaf:homepage <https://twitter.com/manugrapevine> ;
+	foaf:mbox "manuparra@gmail.com"^^xsd:string  ;
+	rdfs:seeAlso <https://twitter.com/manugrapevine>;	
+	.
+:cookingbigdata a foaf:Organization;
+	foaf:name "CookingBigData"^^xsd:string ;
+	foaf:homepage <http://cookingbigdata.com> ;
+	rdfs:seeAlso <http://cookingbigdata.com/about>;
+	.
+:SLA a owl:Class, rdfs:Class ;
+	rdfs:label "SLA Class"@en;
+	rdfs:comment "SLA Main Class"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#SLA>;
+.
+
+:Term a owl:Class, rdfs:Class ;
+	rdfs:label "Term of the agreement"@en;
+	rdfs:comment "Term of the SLA"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#Term>;
+	.
+
+:Claim a owl:Class, rdfs:Class ;
+	rdfs:label "Claims of the agreement"@en;
+	rdfs:comment "Claims of the agreement license"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#Claim>;
+	rdfs:subClassOf :Term 
+	.
+
+:Limitation a owl:Class, rdfs:Class ;
+	rdfs:label "Limitations of the agreement"@en;
+	rdfs:comment "Limitations and Exclusions of the agreement license considering Compensations"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#Limitation>;
+	rdfs:subClassOf :Term 
+	.
+
+:ServiceCredit a owl:Class, rdfs:Class ;
+	rdfs:label "ServiceCredits of the agreement"@en;
+	rdfs:comment "ServiceCredits of the agreement license considering Compensations terms"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#ServiceCredit>;
+	rdfs:subClassOf :Term 
+	.
+
+:Definition a owl:Class, rdfs:Class ;
+	rdfs:label "Definitions of the agreement"@en;
+	rdfs:comment "Definitions of the agreement license used in terms"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#Definition>;
+	.
+
+:Condition a owl:Class, rdfs:Class ;
+	rdfs:label "Conditions of compensation"@en;
+	rdfs:comment "Conditions and levels of the agreement and compensation"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#Condition>;
+	.
+
+
+# SLA Properties
+
+:containsTerm a rdf:Property;
+	rdfs:label "SLA Contains"@en;
+	rdfs:comment "SLA contains Terms of the agreement"@en;
+	rdfs:domain :SLA;
+	rdfs:range :Term;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#containsTerm>;
+	.
+
+:includeDefs a rdf:Property;
+	rdfs:label "Include Defs"@en;
+	rdfs:comment "Include definitions"@en;
+	rdfs:domain :Term;
+	rdfs:range :Definition;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#includeDefs>;
+	.
+	
+:hasCompensation a rdf:Property;
+	rdfs:label "Term Compensation"@en;
+	rdfs:comment "Term Compensation of the agreement"@en;
+	rdfs:domain :Term;
+	rdfs:range :Condition;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#hasCompensation>;
+	.
+
+:includeValue
+	rdf:type owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccsla#includeValue>;
+	rdfs:comment "Values of the condition"@en ;
+	rdfs:domain :Condition;
+	rdfs:label "With values"@en ;
+	rdfs:range
+		[ rdf:type owl:Class ;
+			owl:unionOf (gr:QuantitativeValue gr:QualitativeValue)
+		] .
+		
+:hasValidity
+	rdf:type owl:ObjectProperty ;
+	rdfs:label "Validity interval"@en ;
+	rdfs:comment "Validity interval of an agreement term."@en ;
+	rdfs:domain :SLA ;
+	rdfs:range time:Interval 
+	.
+	
+:hasDefinitionValue
+	rdf:type owl:ObjectProperty ;
+	rdfs:label "Definition values"@en ;
+	rdfs:comment "Definition values of an agreement term."@en ;
+	rdfs:domain :Definition ;
+	rdfs:range schema:structuredValue 
+	.
+
+:hasTermValue
+	rdf:type owl:ObjectProperty ;
+	rdfs:label "Terms values"@en ;
+	rdfs:comment "Definition values of an agreement term."@en ;
+	rdfs:domain :Definition ;
+	rdfs:range schema:structuredValue 
+	.

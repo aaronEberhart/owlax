@@ -1,0 +1,160 @@
+@prefix : <http://cookingbigdata.com/linkeddata/ccregions#> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix dc: 	<http://purl.org/dc/terms/> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: 	<http://schema.org/> .
+
+
+<http://cookingbigdata.com/linkeddata/ccregions#>
+	rdf:type owl:Ontology ;
+	rdfs:label "Cloud Computing regions and availability zones"@en ;
+	dc:title "Vocabulary for Regions and Zones on Cloud Computing"@en ;
+	dc:description "Ontology for the definition of regions and zones of availability on CloudComputing platforms and services. This ontology allows to define model of regions used in large cloud computing providers such as Amazon, Azure, etc."@en ;
+	dc:created "2018-03-06"^^xsd:date ;	
+	dc:modified "2018-04-03"^^xsd:date ;
+	dc:issued "2018-04-20"^^xsd:date ;
+    dc:creator :manuelparra ;
+    dc:creator :manuelparra ;
+	dc:publisher :cookingbigdata ;
+	owl:versionInfo "1.0"^^xsd:decimal ; 
+	dc:rights "Copyright © 2018 Manuel Parra-Royón";
+	.
+	
+:manuelparra a foaf:Person;
+	foaf:name "Manuel Parra-Royon";
+	foaf:homepage <https://twitter.com/manugrapevine> ;
+	foaf:mbox "manuparra@gmail.com" ;
+	rdfs:seeAlso <https://twitter.com/manugrapevine>;	
+	.
+:cookingbigdata a foaf:Organization;
+	foaf:name "CookingBigData";
+	foaf:homepage <http://cookingbigdata.com> ;
+	rdfs:seeAlso <http://cookingbigdata.com/about>;
+	.
+## Classes
+
+:Region a owl:Class, rdfs:Class ;
+	rdfs:label "Region"@en;
+	rdfs:comment "Region"@en;
+	dc:description "A region is a physical location of a computer center where instances, servers, clusters, etc. are stored. A region is a separate geographic area"@en ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:AvailabilityZone a owl:Class, rdfs:Class ;
+	rdfs:label "Availability Zone"@en;
+	rdfs:comment "Availability Zone"@en;
+	dc:description "Each region has multiple isolated locations known as Availability Zones."@en ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+	
+:GeographicalZone a owl:Class, rdfs:Class ;
+	rdfs:label "Geographical Zone"@en;
+	rdfs:comment "Geographical Zone"@en;
+	dc:description "Each Region is hosted in a Geographical Area or Division."@en ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:Location a owl:Class, rdfs:Class ;
+	rdfs:label "Location"@en;
+	rdfs:comment "Location"@en;
+	dc:description "Physical location"@en ;
+	rdfs:subClassOf :Region ;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+## Properties
+
+:hasAvailabilityZone a rdf:Property;
+	rdfs:label "has Availability Zone"@en;
+	rdfs:comment "Each Zone has almost one Availability Zone"@en;
+	rdfs:domain :Region;
+	rdfs:range :AvailabilityZone;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+	
+:hasGeographicalZone a rdf:Property;
+	rdfs:label "has geographical zone"@en;
+	rdfs:comment "Each Region is hosted in a Geographical Area or Division"@en;
+	rdfs:domain :Region;
+	rdfs:range :GeographicalZone;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+
+# Properties Classes
+
+:region_name a rdf:Property;
+	rdfs:label "Region name"@en;
+	rdfs:comment "Name of the region."@en;
+	rdfs:domain :Region;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:region_code a rdf:Property;
+	rdfs:label "Region code"@en;
+	rdfs:comment "Short Code of the region."@en;
+	rdfs:domain :Region;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:region_location a rdf:Property;
+	rdfs:label "Region Location"@en;
+	rdfs:comment "Physical Location for a region."@en;
+	rdfs:domain :Location;
+	rdfs:range schema:Place;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:region_endpoint a rdf:Property;
+	rdfs:label "Region Endpoint"@en;
+	rdfs:comment "Region Endpoint is the URI of the main resource at the region."@en;
+	rdfs:domain :Region;
+	rdfs:range schema:EntryPoint;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:region_dataresidency a rdf:Property;
+	rdfs:label "Sovereignty Location"@en;
+	rdfs:comment "Region Data residency / Sovereignty Location."@en;
+	rdfs:domain :Region;
+	rdfs:range schema:AdministrativeArea;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:region_compilance a rdf:Property;
+	rdfs:label "Geo Compilance"@en;
+	rdfs:comment "Compilance with geographical boundaries."@en;
+	rdfs:domain :Region;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:geographical_zone a rdf:Property;
+	rdfs:label "Geo Name"@en;
+	rdfs:comment "Administrative Geographical area."@en;
+	rdfs:domain :GeographicalZone;
+	rdfs:range schema:AdministrativeArea;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+	
+:availabilityzone_name a rdf:Property;
+	rdfs:label "AZ Name"@en;
+	rdfs:comment "Name of the Availability Zone"@en;
+	rdfs:domain :AvailabilityZone;
+	rdfs:range xsd:string;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+
+:availabilityzone_status a rdf:Property;
+	rdfs:label "AZ Status"@en;
+	rdfs:comment "Status of the Availability Zone"@en;
+	rdfs:domain :AvailabilityZone;
+	rdfs:range xsd:boolean;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccregions>;
+	.
+

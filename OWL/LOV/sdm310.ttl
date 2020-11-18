@@ -1,0 +1,126 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix interval: <http://reference.data.gov.uk/def/intervals/>.
+@prefix voaf: <http://purl.org/vocommons/voaf#>.
+@prefix schema: <http://schema.org/>.
+@prefix sdm: <https://w3id.org/vocab/sdm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+####################
+# Ontology Metadata
+####################
+
+<https://w3id.org/vocab/sdm>
+	a owl:Ontology, voaf:vocabulary;
+	owl:versionInfo "v0.1";
+	rdfs:comment "A vocabulary to represent SPARQL endpoint metadata."@en;
+	dct:description "A small vocabulary for representing SPARQL endpoint metadata on the web"@en ;
+	dct:title "SPARQL endpoint metadata"@en;
+	dct:issued "2013-10-14"^^xsd:date;
+	dct:modified "2013-10-15"^^xsd:date;
+	dct:modified "2016-03-16"^^xsd:date;
+	dct:creator [foaf:name "Ghislain Auguste Atemezing"; rdfs:seeAlso <http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf> ; foaf:homepage <http://www.atemezing.org>] ;
+	dct:contributor [foaf:name "Kingsley Idehen"; schema:affiliation[foaf:homepage <http://www.openlinksw.com>; foaf:name "OpenLink Software"]]  ;
+    dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> .
+
+##########
+# Classes
+##########
+
+sdm:EndPointFeatureExtension a owl:Class;
+	a rdfs:Class;
+	rdfs:label "EndPoint feature extension"@fr;
+	rdfs:subClassOf sd:Feature;
+	rdfs:comment "Principal class extending the sd:Feature for providing more metadata on an endpoint service. "@en;
+	.
+
+sdm:SPARQLRequest a owl:Class ;
+	a rdfs:Class;
+	rdfs:label "SPARQL request"@en;
+	rdfs:subClassOf http:Request;
+	.
+	
+sdm:TripleStore a owl:Class ;
+	a rdfs:Class;
+	rdfs:label "Triple store"@en;
+	rdfs:subClassOf dctype:Software;
+	.
+	
+	
+##################################
+# Object Properties 
+##################################
+
+sdm:developer a owl:ObjectProperty, rdf:Property;
+    rdfs:label "developer"@en;
+    rdfs:domain sdm:TripleStore;
+	rdfs:range org:Organization;
+	rdfs:comment "Developer of the triple store"@en;
+	.
+
+sdm:httpMessage a owl:ObjectProperty, rdf:Property;
+    rdfs:label "http message"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range http:Message;
+	rdfs:comment "Links to the message of an http connection, and helps to connect with http:httpVersion which is a rdfs:Literal"@en;
+	.
+	
+sdm:scheduledDowntime a owl:ObjectProperty, rdf:Property;
+    rdfs:label "scheduled downtime"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range interval:CalendarInterval;
+	rdfs:comment "Links to an interval period time"@en;
+	.
+	
+sdm:request a owl:ObjectProperty, rdf:Property;
+    rdfs:label "requests"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range sdm:SPARQLRequest;
+	rdfs:comment "Links to a SPARQL request"@en;
+	.
+	
+sdm:tripleStore a owl:ObjectProperty, rdf:Property;
+    rdfs:label "tripleStore"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range sdm:TripleStore;
+	rdfs:comment "Links to a given software acting as a triple store"@en;
+	.
+	
+##################################
+# Data Properties 
+##################################
+
+sdm:maxResultPerRequest a owl:DatatypeProperty, rdf:Property;
+    rdfs:label "Max results per request"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range xsd:integer;
+	rdfs:comment "The limit of the maximum results for the endpoint service"@en;
+	.
+	
+sdm:remainingPerRequest a owl:DatatypeProperty, rdf:Property;
+    rdfs:label "Remaining per request"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range xsd:integer;
+	rdfs:comment "The remaining results for a given request"@en;
+	.
+
+sdm:queryTimeOut a owl:DatatypeProperty, rdf:Property;
+    rdfs:label "query time out"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range xsd:integer;
+	rdfs:comment "The timeout of a query in milliseconds"@en;
+	.
+
+sdm:mirror a owl:DatatypeProperty, rdf:Property;
+    rdfs:label "mirror"@en;
+    rdfs:domain sdm:EndPointFeatureExtension;
+	rdfs:range xsd:anyURI;
+	rdfs:comment "URI of a mirror of the endpoint service"@en;
+	.

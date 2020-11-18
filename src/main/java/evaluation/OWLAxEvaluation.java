@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -64,9 +62,9 @@ public class OWLAxEvaluation {
 		allResults.forEach(a -> {owlaxResults.add(a.get(0));ontologyCompositions.add(a.get(1));owlaxCoverage.add(a.get(2));});
 		
 		HashMap<String,Double> avgs = (HashMap<String,Double>)owlaxCoverage.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.averagingDouble(Map.Entry::getValue)));
-		avgCovgPercentAll = avgs.get("percent coverage all axioms");
-		avgCovgPercentClass = avgs.get("percent coverage all class axioms");
-		avgCovgPercentSimple = avgs.get("percent coverage only simple class axioms");
+		avgCovgPercentAll = avgs.get("percent expressibility all axioms");
+		avgCovgPercentClass = avgs.get("percent expressibility all class axioms");
+		avgCovgPercentSimple = avgs.get("percent expressibility only simple class axioms");
 		
 		//precalc numerators and denominators
 		double all = owlaxResults.stream().flatMap(hashMap -> hashMap.entrySet().stream()).collect(Collectors.groupingBy(Map.Entry::getKey,Collectors.summingDouble(Map.Entry::getValue))).values().stream().collect(Collectors.summingDouble(a -> a));
@@ -86,7 +84,7 @@ public class OWLAxEvaluation {
 		unusedOWLAx = findUnused(owlaxResults);
 		unusedOntologyAxioms = findUnused(ontologyCompositions);
 		
-		// average coverage for average result ignoring other
+		// average expressibility for average result ignoring other
 		meanCoverage = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("miss")) / meanResult.size();
 		meanCoverageIgnoringSubclass = (meanResult.values().stream().collect(Collectors.summingDouble(a -> a)) - meanResult.get("miss") - meanResult.get("subclass")) / meanResult.size();
 		
@@ -98,24 +96,19 @@ public class OWLAxEvaluation {
 		// get average mode
 		meanMode = modeResult.values().stream().collect(Collectors.summingDouble(a -> a)) / modeResult.size();
 		
-		// calculating the medians
-		//medianResult = medians(owlaxResults);	
-		//medianOntology = medians(ontologyCompositions);
-		
-		// get average median
-		//meanMedian = medianResult.values().stream().collect(Collectors.summingDouble(a -> a)) / medianResult.size();
-		
 		// calculating std devs
 		stdDevResult = stdDevs(owlaxResults,meanResult);	
 		stdDevOntology = stdDevs(ontologyCompositions,meanOntology);
 		
 		// get average std dev
 		meanStdDev = stdDevResult.values().stream().collect(Collectors.summingDouble(a -> a)) / stdDevResult.size();
+		
 	}
 
 	/**
 	 * calculate the medians of a list of hashmaps
 	 */
+	@SuppressWarnings("unused")
 	private static HashMap<String,Double> medians(ArrayList<HashMap<String,Double>> maps) {
 		HashMap<String,Double> median = new HashMap<String,Double>();
 		
@@ -292,7 +285,7 @@ public class OWLAxEvaluation {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("Evaluation Results:\n\nAll Axioms Combined:\nTotal Percent Coverage: %f\nTotal Percent Coverage Ignoring Subclass: %f\nTotal Percent Axioms OWLAx Unique: %f\nTotal Percent Missed: %fAverage Ontology Coverage"
+		sb.append(String.format("Evaluation Results:\n\nAll Axioms Combined:\nTotal Percent Expressibility: %f\nTotal Percent Expressibility Ignoring Subclass: %f\nTotal Percent Axioms OWLAx Unique: %f\nTotal Percent Missed: %fAverage Ontology Expressibility"
 				+ "\nAverage Axiom-Type Count: %f\nAverage Axiom-Type Count Ignoring Subclass: %f\nAverage Miss Count: %f\nAverage Axiom-Type Standard Deviation: %f\nAverage Axiom-Type Mode: %f\nAverage Axiom-Type Median: %f\n\n",totalCoverage,totalCoverageIgnoringSubclass,allHitOnlyOWLAx,1.0-totalCoverage,meanCoverage,meanCoverageIgnoringSubclass,meanResult.get("miss")/meanResult.size(),meanStdDev,meanMode,meanMedian));
 		sb.append(String.format("Mean OWLAx Result:\n\t%s\n\n",getMeanOWLAxResult().toString()));
 		sb.append(String.format("Mode OWLAx Result:\n\t%s\n\n",getModeOWLAxResult().toString()));
@@ -323,8 +316,8 @@ public class OWLAxEvaluation {
 	
 	public String toCSV() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("All Axioms Combined\nAverage Ontology Coverage All Axioms,%f\nAverage Ontology Coverage Class Axioms,%f\nAverage Ontology Coverage Simple Class Axioms,%f\nTotal Percent Coverage,%f\nTotal Percent Missed,"
-				+ "%f\nTotal Percent Coverage Ignoring Subclass,%f\nTotal Percent Missed Ignoring Subclass,%f\nTotal Percent Axioms OWLAx Unique,%f\nAverage Axiom-Type Count,"
+		sb.append(String.format("All Axioms Combined\nAverage Ontology Expressibility All Axioms,%f\nAverage Ontology Expressibility Class Axioms,%f\nAverage Ontology Expressibility Simple Class Axioms,%f\nTotal Percent Expressibility,%f\nTotal Percent Missed,"
+				+ "%f\nTotal Percent Expressibility Ignoring Subclass,%f\nTotal Percent Missed Ignoring Subclass,%f\nTotal Percent Axioms OWLAx Unique,%f\nAverage Axiom-Type Count,"
 				+ "%f\nAverage Axiom-Type Count Ignoring Subclass,%f\nAverage Miss Count,%f\nAverage Axiom-Type Count Standard Deviation,%f\nAverage Axiom-Type Count Mode,%f\nAverage Axiom-Type Count Median,%f",
 				avgCovgPercentAll,avgCovgPercentClass,avgCovgPercentSimple,totalCoverage,1.0-totalCoverage,totalCoverageIgnoringSubclass,1.0-totalCoverageIgnoringSubclass,allHitOnlyOWLAx,meanCoverage,meanCoverageIgnoringSubclass,
 				meanResult.get("miss")/meanResult.size(),meanStdDev,meanMode,meanMedian));

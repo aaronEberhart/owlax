@@ -1,0 +1,1891 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" 
+          "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"> 
+
+<html xml:lang="en" version="XHTML+RDFa 1.0"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:biol="http://purl.org/NET/biol/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:ubio="urn:lsid:ubio.org:predicates:"> 
+<head profile="http://www.w3.org/1999/xhtml/vocab http://purl.org/uF/rel-license/1.0/">
+
+<link rel="stylesheet" type="text/css" href="onto_spec.css" />
+<link rel="alternate" type="application/rdf+xml" title="RDF/XML Version" href="botany.rdf" />
+ <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="Toby Inkster" />
+<meta name="robots" content="all" />
+<title>Biological Taxonomy Vocabulary 0.2 (Botany)</title>
+</head>
+<body typeof="owl:Ontology" about="http://purl.org/NET/biol/botany#">
+
+	<div class="head"> 
+		<p>
+			<a href="http://purl.org/NET/biol/" style="background:transparent"><img height="55" width="95" src="http://buzzword.org.uk/rdf/biol/biol-small" alt="Biol Vocab" style="border:0;background:transparent" /></a>
+		</p>
+		
+		<h1 property="dc:title">Biological Taxonomy Vocabulary 0.2 (Botany)</h1>
+		<h2>
+			Buzzword.org.uk Namespace
+			<span property="dc:modified" content="2009-03-18">18 March 2009</span>
+		</h2>
+		
+		<dl>
+			<dt>Latest version:</dt>
+			<dd><a href="http://purl.org/NET/biol/botany">http://purl.org/NET/biol/botany</a></dd>
+			<dd>(<a href="http://purl.org/NET/biol/botany.rdf" type="application/rdf+xml" title="Biological Taxonomy Vocabulary 0.2 (Botany) - RDF Schema">RDF Schema</a>)</dd>
+			<dt>Editor:</dt>
+			<dd rel="dc:creator">
+				<address typeof="foaf:Person" style="font-style:normal">
+					<a rel="foaf:page" property="foaf:name" href="http://tobyinkster.co.uk/">Toby Inkster</a>, 
+					<i class="taxon" rel="biol:hasTaxonomy">
+						<span property="biol:kingdom" content="Animalia">
+							<span property="biol:phylum" content="Chordata">
+								<span property="biol:class" content="Mammalia">
+									<span property="biol:order" content="Primates">
+										<span property="biol:family" content="Hominidae">
+											<span property="biol:genus" content="Homo">
+												<span property="biol:species" content="Sapiens">
+													<a property="biol:name" rel="biol:seeAlso" href="http://species.wikimedia.org/wiki/Homo_sapiens">Homo sapiens</a>.
+												</span>
+											</span>
+										</span>
+									</span>
+								</span>
+							</span>
+						</span>
+						<span property="biol:authority" content="Linnaeus, 1758"></span>
+						<span property="dc:date" content="2008-05-08"></span>
+					</i>
+				</address>
+			</dd>
+		</dl>
+		<p class="copyright"><span class="dc:rights">Copyright &copy; 2008&#8211;09 Toby Inkster</span>, <a href="http://creativecommons.org/licenses/by-sa/2.0/uk/" rel="license dc:license" title="Creative Commons Attribution-Share Alike 2.0 (UK: England &amp; Wales) Licence">some rights reserved</a>.</p>
+
+	</div>
+
+	<hr />
+
+	<p property="dc:description">This is a specialist botanical variant of the <a href="http://purl.org/NET/biol/ns">Biological Taxonomy Vocabulary</a>. It may be useful if you feel restricted by the core vocabulary and need to describe plants in a greater level of detail than it allows.</p>
+
+<h2>At a Glance</h2>
+<div class="glance" id="glance" style="padding: 5px; border: dotted; background-color: #ddd;">
+<p>Classes: | <a href="#term_Taxonomy">Taxonomy</a> |  </p>
+<p>Properties: | <a href="#term_aberration">aberration</a> | 
+<a href="#term_aggregate">aggregate</a> | 
+<a href="#term_authority">authority</a> | 
+<a href="#term_biovar">biovar</a> | 
+<a href="#term_branch">branch</a> | 
+<a href="#term_breed">breed</a> | 
+<a href="#term_class">class</a> | 
+<a href="#term_claudius">claudius</a> | 
+<a href="#term_cohort">cohort</a> | 
+<a href="#term_commonName">commonName</a> | 
+<a href="#term_complex">complex</a> | 
+<a href="#term_convariety">convariety</a> | 
+<a href="#term_cultivar">cultivar</a> | 
+<a href="#term_cultivarGroup">cultivarGroup</a> | 
+<a href="#term_division">division</a> | 
+<a href="#term_domain">domain</a> | 
+<a href="#term_empire">empire</a> | 
+<a href="#term_falanx">falanx</a> | 
+<a href="#term_family">family</a> | 
+<a href="#term_familyGroup">familyGroup</a> | 
+<a href="#term_form">form</a> | 
+<a href="#term_genus">genus</a> | 
+<a href="#term_genusGroup">genusGroup</a> | 
+<a href="#term_gigaorder">gigaorder</a> | 
+<a href="#term_grade">grade</a> | 
+<a href="#term_grandorder">grandorder</a> | 
+<a href="#term_group">group</a> | 
+<a href="#term_groupOfBreeds">groupOfBreeds</a> | 
+<a href="#term_hasTaxonomy">hasTaxonomy</a> | 
+<a href="#term_hybrid">hybrid</a> | 
+<a href="#term_hyperorder">hyperorder</a> | 
+<a href="#term_infraclass">infraclass</a> | 
+<a href="#term_infradomain">infradomain</a> | 
+<a href="#term_infrafamily">infrafamily</a> | 
+<a href="#term_infraform">infraform</a> | 
+<a href="#term_infragenus">infragenus</a> | 
+<a href="#term_infrakingdom">infrakingdom</a> | 
+<a href="#term_infralegion">infralegion</a> | 
+<a href="#term_infraorder">infraorder</a> | 
+<a href="#term_infraphylum">infraphylum</a> | 
+<a href="#term_infrasection">infrasection</a> | 
+<a href="#term_infraseries">infraseries</a> | 
+<a href="#term_infraspecies">infraspecies</a> | 
+<a href="#term_infratribe">infratribe</a> | 
+<a href="#term_infravariety">infravariety</a> | 
+<a href="#term_interkingdom">interkingdom</a> | 
+<a href="#term_kingdom">kingdom</a> | 
+<a href="#term_klepton">klepton</a> | 
+<a href="#term_legion">legion</a> | 
+<a href="#term_lusus">lusus</a> | 
+<a href="#term_magnorder">magnorder</a> | 
+<a href="#term_megaorder">megaorder</a> | 
+<a href="#term_microspecies">microspecies</a> | 
+<a href="#term_midkingdom">midkingdom</a> | 
+<a href="#term_midphylum">midphylum</a> | 
+<a href="#term_mirorder">mirorder</a> | 
+<a href="#term_name">name</a> | 
+<a href="#term_nation">nation</a> | 
+<a href="#term_order">order</a> | 
+<a href="#term_parvclass">parvclass</a> | 
+<a href="#term_parvorder">parvorder</a> | 
+<a href="#term_pathovar">pathovar</a> | 
+<a href="#term_phylum">phylum</a> | 
+<a href="#term_population">population</a> | 
+<a href="#term_section">section</a> | 
+<a href="#term_sectionOfBreeds">sectionOfBreeds</a> | 
+<a href="#term_seeAlso">seeAlso</a> | 
+<a href="#term_series">series</a> | 
+<a href="#term_serogroup">serogroup</a> | 
+<a href="#term_serovar">serovar</a> | 
+<a href="#term_species">species</a> | 
+<a href="#term_speciesGroup">speciesGroup</a> | 
+<a href="#term_speciesSubgroup">speciesSubgroup</a> | 
+<a href="#term_strain">strain</a> | 
+<a href="#term_subclass">subclass</a> | 
+<a href="#term_subcohort">subcohort</a> | 
+<a href="#term_subdivision">subdivision</a> | 
+<a href="#term_subdomain">subdomain</a> | 
+<a href="#term_subfamily">subfamily</a> | 
+<a href="#term_subfamilyGroup">subfamilyGroup</a> | 
+<a href="#term_subform">subform</a> | 
+<a href="#term_subgenus">subgenus</a> | 
+<a href="#term_subgroup">subgroup</a> | 
+<a href="#term_subkingdom">subkingdom</a> | 
+<a href="#term_sublegion">sublegion</a> | 
+<a href="#term_suborder">suborder</a> | 
+<a href="#term_subphylum">subphylum</a> | 
+<a href="#term_subsection">subsection</a> | 
+<a href="#term_subseries">subseries</a> | 
+<a href="#term_subspecies">subspecies</a> | 
+<a href="#term_subtribe">subtribe</a> | 
+<a href="#term_subvariety">subvariety</a> | 
+<a href="#term_superclass">superclass</a> | 
+<a href="#term_supercohort">supercohort</a> | 
+<a href="#term_superdomain">superdomain</a> | 
+<a href="#term_superfamily">superfamily</a> | 
+<a href="#term_superform">superform</a> | 
+<a href="#term_supergenus">supergenus</a> | 
+<a href="#term_superkingdom">superkingdom</a> | 
+<a href="#term_superlegion">superlegion</a> | 
+<a href="#term_superorder">superorder</a> | 
+<a href="#term_superphylum">superphylum</a> | 
+<a href="#term_supersection">supersection</a> | 
+<a href="#term_superseries">superseries</a> | 
+<a href="#term_superspecies">superspecies</a> | 
+<a href="#term_supertribe">supertribe</a> | 
+<a href="#term_supervariety">supervariety</a> | 
+<a href="#term_suprakingdom">suprakingdom</a> | 
+<a href="#term_supraphylum">supraphylum</a> | 
+<a href="#term_synklepton">synklepton</a> | 
+<a href="#term_tribe">tribe</a> | 
+<a href="#term_variety">variety</a> | 
+</p>
+</div>
+
+<h2>Rank Hierarchy</h2>
+<ul>
+	<li><a href="#term_superdomain">superdomain</a></li>
+	<li><a href="#term_domain">domain</a></li>
+	<li><a href="#term_subdomain">subdomain</a></li>
+	<li><a href="#term_infradomain">infradomain</a></li>
+	<li><a href="#term_empire">empire</a></li>
+	<li><a href="#term_superkingdom">superkingdom</a></li>
+	<li><a href="#term_suprakingdom">suprakingdom</a></li>
+	<li><a href="#term_midkingdom">midkingdom</a></li>
+	<li><a href="#term_kingdom"><b>kingdom</b></a></li>
+	<li><a href="#term_subkingdom">subkingdom</a></li>
+	<li><a href="#term_interkingdom">interkingdom</a></li>
+	<li><a href="#term_branch">branch</a></li>
+	<li><a href="#term_infrakingdom">infrakingdom</a></li>
+	<li><a href="#term_superphylum">superphylum</a></li>
+	<li><a href="#term_supraphylum">supraphylum</a></li>
+	<li><a href="#term_midphylum">midphylum</a></li>
+	<li><a href="#term_phylum">phylum</a></li>
+	<li><a href="#term_subphylum">subphylum</a></li>
+	<li><a href="#term_infraphylum">infraphylum</a></li>
+	<li><a href="#term_division"><b>division</b></a></li>
+	<li><a href="#term_subdivision">subdivision</a></li>
+	<li><a href="#term_claudius">claudius</a></li>
+	<li><a href="#term_superclass">superclass</a></li>
+	<li><a href="#term_grade">grade</a></li>
+	<li><a href="#term_class"><b>class</b></a></li>
+	<li><a href="#term_subclass">subclass</a></li>
+	<li><a href="#term_infraclass">infraclass</a></li>
+	<li><a href="#term_parvclass">parvclass</a></li>
+	<li><a href="#term_group">group</a></li>
+	<li><a href="#term_subgroup">subgroup</a></li>
+	<li><a href="#term_superlegion">superlegion</a></li>
+	<li><a href="#term_legion">legion</a></li>
+	<li><a href="#term_sublegion">sublegion</a></li>
+	<li><a href="#term_infralegion">infralegion</a></li>
+	<li><a href="#term_supercohort">supercohort</a></li>
+	<li><a href="#term_cohort">cohort</a></li>
+	<li><a href="#term_subcohort">subcohort</a></li>
+	<li><a href="#term_magnorder">magnorder</a></li>
+	<li><a href="#term_superorder">superorder</a></li>
+	<li><a href="#term_series">series</a></li>
+	<li><a href="#term_subseries">subseries</a></li>
+	<li><a href="#term_grandorder">grandorder</a></li>
+	<li><a href="#term_gigaorder">gigaorder</a></li>
+	<li><a href="#term_megaorder">megaorder</a></li>
+	<li><a href="#term_mirorder">mirorder</a></li>
+	<li><a href="#term_order"><b>order</b></a></li>
+	<li><a href="#term_hyperorder">hyperorder</a></li>
+	<li><a href="#term_suborder">suborder</a></li>
+	<li><a href="#term_infraorder">infraorder</a></li>
+	<li><a href="#term_parvorder">parvorder</a></li>
+	<li><a href="#term_cohort">cohort</a></li>
+	<li><a href="#term_superfamily">superfamily</a></li>
+	<li><a href="#term_familyGroup">familyGroup</a></li>
+	<li><a href="#term_family"><b>family</b></a></li>
+	<li><a href="#term_subfamilyGroup">subfamilyGroup</a></li>
+	<li><a href="#term_subfamily">subfamily</a></li>
+	<li><a href="#term_infrafamily">infrafamily</a></li>
+	<li><a href="#term_supertribe">supertribe</a></li>
+	<li><a href="#term_tribe">tribe</a></li>
+	<li><a href="#term_subtribe">subtribe</a></li>
+	<li><a href="#term_infratribe">infratribe</a></li>
+	<li><a href="#term_supergenus">supergenus</a></li>
+	<li><a href="#term_genusGroup">genusGroup</a></li>
+	<li><a href="#term_genus"><b>genus</b></a></li>
+	<li><a href="#term_subgenus">subgenus</a></li>
+	<li><a href="#term_infragenus">infragenus</a></li>
+	<li><a href="#term_supersection">supersection</a></li>
+	<li><a href="#term_section">section</a></li>
+	<li><a href="#term_subsection">subsection</a></li>
+	<li><a href="#term_infrasection">infrasection</a></li>
+	<li><a href="#term_superseries">superseries</a></li>
+	<li><a href="#term_series">series</a></li>
+	<li><a href="#term_subseries">subseries</a></li>
+	<li><a href="#term_infraseries">infraseries</a></li>
+	<li><a href="#term_superspecies">superspecies</a></li>
+	<li><a href="#term_complex">complex</a></li>
+	<li><a href="#term_speciesGroup">speciesGroup</a></li>
+	<li><a href="#term_speciesSubgroup">speciesSubgroup</a></li>
+	<li><a href="#term_aggregate">aggregate</a></li>
+	<li><a href="#term_synklepton">synklepton</a></li>
+	<li><a href="#term_species"><b>species</b></a></li>
+	<li><a href="#term_microspecies">microspecies</a></li>
+	<li><a href="#term_klepton">klepton</a></li>
+	<li><a href="#term_aggregate">aggregate</a></li>
+	<li><a href="#term_subspecies">subspecies</a></li>
+	<li><a href="#term_infraspecies">infraspecies</a></li>
+	<li><a href="#term_group">group</a></li>
+	<li><a href="#term_hybrid">hybrid</a></li>
+	<li><a href="#term_convariety">convariety</a></li>
+	<li><a href="#term_supervariety">supervariety</a></li>
+	<li><a href="#term_variety">variety</a></li>
+	<li><a href="#term_subvariety">subvariety</a></li>
+	<li><a href="#term_infravariety">infravariety</a></li>
+	<li><a href="#term_superform">superform</a></li>
+	<li><a href="#term_form">form</a></li>
+	<li><a href="#term_subform">subform</a></li>
+	<li><a href="#term_infraform">infraform</a></li>
+	<li><a href="#term_cultivarGroup">cultivarGroup</a></li>
+	<li><a href="#term_cultivar">cultivar</a></li>
+	<li><a href="#term_groupOfBreeds">groupOfBreeds</a></li>
+	<li><a href="#term_sectionOfBreeds">sectionOfBreeds</a></li>
+	<li><a href="#term_breed">breed</a></li>
+	<li><a href="#term_strain">strain</a></li>
+	<li><a href="#term_aberration">aberration</a></li>
+	<li><a href="#term_serogroup">serogroup</a></li>
+	<li><a href="#term_serovar">serovar</a></li>
+	<li><a href="#term_biovar">biovar</a></li>
+	<li><a href="#term_pathovar">pathovar</a></li>
+	<li><a href="#term_population">population</a></li>
+	<li><a href="#term_lusus">lusus</a></li>
+</ul>
+
+<hr />
+<h2>Classes and Properties (full detail)</h2>
+<div class="specterm" id="term_Taxonomy"><h3>Class: botany:Taxonomy   -   lang(en-GB, testing)</h3>
+<em>Taxonomy</em>
+ - lang(en-GB, ...) 
+<br/>
+<p style="float: right; font-size: small;">[<a href="#glance">back to top</a>]</p>
+<br/>
+<table><tr><th>in range of:</th><td><ul><li><a href="#term_hasTaxonomy">hasTaxonomy</a></li>
+</ul></td></tr>
+
+<tr><th>in domain of:</th><td><ul><li><a href="#term_authority">authority</a></li>
+<li><a href="#term_seeAlso">seeAlso</a></li>
+<li><a href="#term_lusus">lusus</a></li>
+<li><a href="#term_population">population</a></li>
+<li><a href="#term_pathovar">pathovar</a></li>
+<li><a href="#term_biovar">biovar</a></li>
+<li><a href="#term_serovar">serovar</a></li>
+<li><a href="#term_serogroup">serogroup</a></li>
+<li><a href="#term_aberration">aberration</a></li>
+<li><a href="#term_strain">strain</a></li>
+<li><a href="#term_breed">breed</a></li>
+<li><a href="#term_sectionOfBreeds">sectionOfBreeds</a></li>
+<li><a href="#term_groupOfBreeds">groupOfBreeds</a></li>
+<li><a href="#term_cultivar">cultivar</a></li>
+<li><a href="#term_cultivarGroup">cultivarGroup</a></li>
+<li><a href="#term_infraform">infraform</a></li>
+<li><a href="#term_subform">subform</a></li>
+<li><a href="#term_form">form</a></li>
+<li><a href="#term_superform">superform</a></li>
+<li><a href="#term_nation">nation</a></li>
+<li><a href="#term_infravariety">infravariety</a></li>
+<li><a href="#term_subvariety">subvariety</a></li>
+<li><a href="#term_variety">variety</a></li>
+<li><a href="#term_supervariety">supervariety</a></li>
+<li><a href="#term_convariety">convariety</a></li>
+<li><a href="#term_hybrid">hybrid</a></li>
+<li><a href="#term_infraspecies">infraspecies</a></li>
+<li><a href="#term_subspecies">subspecies</a></li>
+<li><a href="#term_aggregate">aggregate</a></li>
+<li><a href="#term_klepton">klepton</a></li>
+<li><a href="#term_microspecies">microspecies</a></li>
+<li><a href="#term_species">species</a></li>
+<li><a href="#term_synklepton">synklepton</a></li>
+<li><a href="#term_speciesSubgroup">speciesSubgroup</a></li>
+<li><a href="#term_speciesGroup">speciesGroup</a></li>
+<li><a href="#term_complex">complex</a></li>
+<li><a href="#term_superspecies">superspecies</a></li>
+<li><a href="#term_infraseries">infraseries</a></li>
+<li><a href="#term_subseries">subseries</a></li>
+<li><a href="#term_series">series</a></li>
+<li><a href="#term_superseries">superseries</a></li>
+<li><a href="#term_infrasection">infrasection</a></li>
+<li><a href="#term_subsection">subsection</a></li>
+<li><a href="#term_section">section</a></li>
+<li><a href="#term_supersection">supersection</a></li>
+<li><a href="#term_infragenus">infragenus</a></li>
+<li><a href="#term_subgenus">subgenus</a></li>
+<li><a href="#term_genus">genus</a></li>
+<li><a href="#term_genusGroup">genusGroup</a></li>
+<li><a href="#term_supergenus">supergenus</a></li>
+<li><a href="#term_infratribe">infratribe</a></li>
+<li><a href="#term_subtribe">subtribe</a></li>
+<li><a href="#term_tribe">tribe</a></li>
+<li><a href="#term_supertribe">supertribe</a></li>
+<li><a href="#term_infrafamily">infrafamily</a></li>
+<li><a href="#term_subfamily">subfamily</a></li>
+<li><a href="#term_subfamilyGroup">subfamilyGroup</a></li>
+<li><a href="#term_family">family</a></li>
+<li><a href="#term_familyGroup">familyGroup</a></li>
+<li><a href="#term_superfamily">superfamily</a></li>
+<li><a href="#term_falanx">falanx</a></li>
+<li><a href="#term_parvorder">parvorder</a></li>
+<li><a href="#term_infraorder">infraorder</a></li>
+<li><a href="#term_suborder">suborder</a></li>
+<li><a href="#term_hyperorder">hyperorder</a></li>
+<li><a href="#term_order">order</a></li>
+<li><a href="#term_mirorder">mirorder</a></li>
+<li><a href="#term_megaorder">megaorder</a></li>
+<li><a href="#term_gigaorder">gigaorder</a></li>
+<li><a href="#term_grandorder">grandorder</a></li>
+<li><a href="#term_superorder">superorder</a></li>
+<li><a href="#term_magnorder">magnorder</a></li>
+<li><a href="#term_subcohort">subcohort</a></li>
+<li><a href="#term_cohort">cohort</a></li>
+<li><a href="#term_supercohort">supercohort</a></li>
+<li><a href="#term_infralegion">infralegion</a></li>
+<li><a href="#term_sublegion">sublegion</a></li>
+<li><a href="#term_legion">legion</a></li>
+<li><a href="#term_superlegion">superlegion</a></li>
+<li><a href="#term_subgroup">subgroup</a></li>
+<li><a href="#term_group">group</a></li>
+<li><a href="#term_parvclass">parvclass</a></li>
+<li><a href="#term_infraclass">infraclass</a></li>
+<li><a href="#term_subclass">subclass</a></li>
+<li><a href="#term_class">class</a></li>
+<li><a href="#term_grade">grade</a></li>
+<li><a href="#term_superclass">superclass</a></li>
+<li><a href="#term_claudius">claudius</a></li>
+<li><a href="#term_subdivision">subdivision</a></li>
+<li><a href="#term_division">division</a></li>
+<li><a href="#term_infraphylum">infraphylum</a></li>
+<li><a href="#term_subphylum">subphylum</a></li>
+<li><a href="#term_phylum">phylum</a></li>
+<li><a href="#term_midphylum">midphylum</a></li>
+<li><a href="#term_supraphylum">supraphylum</a></li>
+<li><a href="#term_superphylum">superphylum</a></li>
+<li><a href="#term_infrakingdom">infrakingdom</a></li>
+<li><a href="#term_branch">branch</a></li>
+<li><a href="#term_interkingdom">interkingdom</a></li>
+<li><a href="#term_subkingdom">subkingdom</a></li>
+<li><a href="#term_kingdom">kingdom</a></li>
+<li><a href="#term_midkingdom">midkingdom</a></li>
+<li><a href="#term_suprakingdom">suprakingdom</a></li>
+<li><a href="#term_superkingdom">superkingdom</a></li>
+<li><a href="#term_empire">empire</a></li>
+<li><a href="#term_infradomain">infradomain</a></li>
+<li><a href="#term_subdomain">subdomain</a></li>
+<li><a href="#term_domain">domain</a></li>
+<li><a href="#term_superdomain">superdomain</a></li>
+<li><a href="#term_commonName">commonName</a></li>
+<li><a href="#term_name">name</a></li>
+</ul></td></tr>
+
+<tr><th>subclass of:</th><td><ul><li><a href="http://purl.org/NET/biol/ns#BotTaxonomy">biol:BotTaxonomy</a></li>
+</ul></td></tr>
+</table>
+
+</div><div class="specterm" id="term_aberration">
+<h3>Property: botany:aberration   -   lang(en-GB, testing)</h3>
+<em>aberration</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_aggregate">
+<h3>Property: botany:aggregate   -   lang(en-GB, testing)</h3>
+<em>aggregate</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_authority">
+<h3>Property: botany:authority   -   lang(en-GB, testing)</h3>
+<em>authority</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_biovar">
+<h3>Property: botany:biovar   -   lang(en-GB, testing)</h3>
+<em>biovar</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_branch">
+<h3>Property: botany:branch   -   lang(en-GB, testing)</h3>
+<em>branch</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_breed">
+<h3>Property: botany:breed   -   lang(en-GB, testing)</h3>
+<em>breed</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_class">
+<h3>Property: botany:class   -   lang(en-GB, testing)</h3>
+<em>class</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_claudius">
+<h3>Property: botany:claudius   -   lang(en-GB, testing)</h3>
+<em>claudius</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_cohort">
+<h3>Property: botany:cohort   -   lang(en-GB, testing)</h3>
+<em>cohort</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_commonName">
+<h3>Property: biol:commonName   -   lang(en-GB, testing)</h3>
+<em>commonName</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_complex">
+<h3>Property: botany:complex   -   lang(en-GB, testing)</h3>
+<em>complex</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_convariety">
+<h3>Property: botany:convariety   -   lang(en-GB, testing)</h3>
+<em>convariety</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_cultivar">
+<h3>Property: botany:cultivar   -   lang(en-GB, testing)</h3>
+<em>cultivar</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_cultivarGroup">
+<h3>Property: botany:cultivarGroup   -   lang(en-GB, testing)</h3>
+<em>cultivarGroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_division">
+<h3>Property: botany:division   -   lang(en-GB, testing)</h3>
+<em>division</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_domain">
+<h3>Property: botany:domain   -   lang(en-GB, testing)</h3>
+<em>domain</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_empire">
+<h3>Property: botany:empire   -   lang(en-GB, testing)</h3>
+<em>empire</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_falanx">
+<h3>Property: botany:falanx   -   lang(en-GB, testing)</h3>
+<em>falanx</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_family">
+<h3>Property: botany:family   -   lang(en-GB, testing)</h3>
+<em>family</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_familyGroup">
+<h3>Property: botany:familyGroup   -   lang(en-GB, testing)</h3>
+<em>familyGroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_form">
+<h3>Property: botany:form   -   lang(en-GB, testing)</h3>
+<em>form</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_genus">
+<h3>Property: botany:genus   -   lang(en-GB, testing)</h3>
+<em>genus</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_genusGroup">
+<h3>Property: botany:genusGroup   -   lang(en-GB, testing)</h3>
+<em>genusGroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_gigaorder">
+<h3>Property: botany:gigaorder   -   lang(en-GB, testing)</h3>
+<em>gigaorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_grade">
+<h3>Property: botany:grade   -   lang(en-GB, testing)</h3>
+<em>grade</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_grandorder">
+<h3>Property: botany:grandorder   -   lang(en-GB, testing)</h3>
+<em>grandorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_group">
+<h3>Property: botany:group   -   lang(en-GB, testing)</h3>
+<em>group</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_groupOfBreeds">
+<h3>Property: botany:groupOfBreeds   -   lang(en-GB, testing)</h3>
+<em>groupOfBreeds</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_hasTaxonomy">
+<h3>Property: botany:hasTaxonomy   -   lang(en-GB, testing)</h3>
+<em>hasTaxonomy</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_hybrid">
+<h3>Property: botany:hybrid   -   lang(en-GB, testing)</h3>
+<em>hybrid</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_hyperorder">
+<h3>Property: botany:hyperorder   -   lang(en-GB, testing)</h3>
+<em>hyperorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraclass">
+<h3>Property: botany:infraclass   -   lang(en-GB, testing)</h3>
+<em>infraclass</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infradomain">
+<h3>Property: botany:infradomain   -   lang(en-GB, testing)</h3>
+<em>infradomain</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infrafamily">
+<h3>Property: botany:infrafamily   -   lang(en-GB, testing)</h3>
+<em>infrafamily</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraform">
+<h3>Property: botany:infraform   -   lang(en-GB, testing)</h3>
+<em>infraform</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infragenus">
+<h3>Property: botany:infragenus   -   lang(en-GB, testing)</h3>
+<em>infragenus</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infrakingdom">
+<h3>Property: botany:infrakingdom   -   lang(en-GB, testing)</h3>
+<em>infrakingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infralegion">
+<h3>Property: botany:infralegion   -   lang(en-GB, testing)</h3>
+<em>infralegion</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraorder">
+<h3>Property: botany:infraorder   -   lang(en-GB, testing)</h3>
+<em>infraorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraphylum">
+<h3>Property: botany:infraphylum   -   lang(en-GB, testing)</h3>
+<em>infraphylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infrasection">
+<h3>Property: botany:infrasection   -   lang(en-GB, testing)</h3>
+<em>infrasection</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraseries">
+<h3>Property: botany:infraseries   -   lang(en-GB, testing)</h3>
+<em>infraseries</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infraspecies">
+<h3>Property: botany:infraspecies   -   lang(en-GB, testing)</h3>
+<em>infraspecies</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infratribe">
+<h3>Property: botany:infratribe   -   lang(en-GB, testing)</h3>
+<em>infratribe</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_infravariety">
+<h3>Property: botany:infravariety   -   lang(en-GB, testing)</h3>
+<em>infravariety</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_interkingdom">
+<h3>Property: botany:interkingdom   -   lang(en-GB, testing)</h3>
+<em>interkingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_kingdom">
+<h3>Property: botany:kingdom   -   lang(en-GB, testing)</h3>
+<em>kingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_klepton">
+<h3>Property: botany:klepton   -   lang(en-GB, testing)</h3>
+<em>klepton</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_legion">
+<h3>Property: botany:legion   -   lang(en-GB, testing)</h3>
+<em>legion</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_lusus">
+<h3>Property: botany:lusus   -   lang(en-GB, testing)</h3>
+<em>lusus</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_magnorder">
+<h3>Property: botany:magnorder   -   lang(en-GB, testing)</h3>
+<em>magnorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_megaorder">
+<h3>Property: botany:megaorder   -   lang(en-GB, testing)</h3>
+<em>megaorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_microspecies">
+<h3>Property: botany:microspecies   -   lang(en-GB, testing)</h3>
+<em>microspecies</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_midkingdom">
+<h3>Property: botany:midkingdom   -   lang(en-GB, testing)</h3>
+<em>midkingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_midphylum">
+<h3>Property: botany:midphylum   -   lang(en-GB, testing)</h3>
+<em>midphylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_mirorder">
+<h3>Property: botany:mirorder   -   lang(en-GB, testing)</h3>
+<em>mirorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_name">
+<h3>Property: biol:name   -   lang(en-GB, testing)</h3>
+<em>name</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_nation">
+<h3>Property: botany:nation   -   lang(en-GB, testing)</h3>
+<em>nation</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_order">
+<h3>Property: botany:order   -   lang(en-GB, testing)</h3>
+<em>order</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_parvclass">
+<h3>Property: botany:parvclass   -   lang(en-GB, testing)</h3>
+<em>parvclass</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_parvorder">
+<h3>Property: botany:parvorder   -   lang(en-GB, testing)</h3>
+<em>parvorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_pathovar">
+<h3>Property: botany:pathovar   -   lang(en-GB, testing)</h3>
+<em>pathovar</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_phylum">
+<h3>Property: botany:phylum   -   lang(en-GB, testing)</h3>
+<em>phylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_population">
+<h3>Property: botany:population   -   lang(en-GB, testing)</h3>
+<em>population</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_section">
+<h3>Property: botany:section   -   lang(en-GB, testing)</h3>
+<em>section</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_sectionOfBreeds">
+<h3>Property: botany:sectionOfBreeds   -   lang(en-GB, testing)</h3>
+<em>sectionOfBreeds</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_seeAlso">
+<h3>Property: botany:seeAlso   -   lang(en-GB, testing)</h3>
+<em>seeAlso</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://xmlns.com/foaf/0.1/Document">foaf:Document</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_series">
+<h3>Property: botany:series   -   lang(en-GB, testing)</h3>
+<em>series</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_serogroup">
+<h3>Property: botany:serogroup   -   lang(en-GB, testing)</h3>
+<em>serogroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_serovar">
+<h3>Property: botany:serovar   -   lang(en-GB, testing)</h3>
+<em>serovar</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_species">
+<h3>Property: botany:species   -   lang(en-GB, testing)</h3>
+<em>species</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_speciesGroup">
+<h3>Property: botany:speciesGroup   -   lang(en-GB, testing)</h3>
+<em>speciesGroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_speciesSubgroup">
+<h3>Property: botany:speciesSubgroup   -   lang(en-GB, testing)</h3>
+<em>speciesSubgroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_strain">
+<h3>Property: botany:strain   -   lang(en-GB, testing)</h3>
+<em>strain</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subclass">
+<h3>Property: botany:subclass   -   lang(en-GB, testing)</h3>
+<em>subclass</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subcohort">
+<h3>Property: botany:subcohort   -   lang(en-GB, testing)</h3>
+<em>subcohort</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subdivision">
+<h3>Property: botany:subdivision   -   lang(en-GB, testing)</h3>
+<em>subdivision</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subdomain">
+<h3>Property: botany:subdomain   -   lang(en-GB, testing)</h3>
+<em>subdomain</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subfamily">
+<h3>Property: botany:subfamily   -   lang(en-GB, testing)</h3>
+<em>subfamily</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subfamilyGroup">
+<h3>Property: botany:subfamilyGroup   -   lang(en-GB, testing)</h3>
+<em>subfamilyGroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subform">
+<h3>Property: botany:subform   -   lang(en-GB, testing)</h3>
+<em>subform</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subgenus">
+<h3>Property: botany:subgenus   -   lang(en-GB, testing)</h3>
+<em>subgenus</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subgroup">
+<h3>Property: botany:subgroup   -   lang(en-GB, testing)</h3>
+<em>subgroup</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subkingdom">
+<h3>Property: botany:subkingdom   -   lang(en-GB, testing)</h3>
+<em>subkingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_sublegion">
+<h3>Property: botany:sublegion   -   lang(en-GB, testing)</h3>
+<em>sublegion</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_suborder">
+<h3>Property: botany:suborder   -   lang(en-GB, testing)</h3>
+<em>suborder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subphylum">
+<h3>Property: botany:subphylum   -   lang(en-GB, testing)</h3>
+<em>subphylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subsection">
+<h3>Property: botany:subsection   -   lang(en-GB, testing)</h3>
+<em>subsection</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subseries">
+<h3>Property: botany:subseries   -   lang(en-GB, testing)</h3>
+<em>subseries</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subspecies">
+<h3>Property: botany:subspecies   -   lang(en-GB, testing)</h3>
+<em>subspecies</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subtribe">
+<h3>Property: botany:subtribe   -   lang(en-GB, testing)</h3>
+<em>subtribe</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_subvariety">
+<h3>Property: botany:subvariety   -   lang(en-GB, testing)</h3>
+<em>subvariety</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superclass">
+<h3>Property: botany:superclass   -   lang(en-GB, testing)</h3>
+<em>superclass</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supercohort">
+<h3>Property: botany:supercohort   -   lang(en-GB, testing)</h3>
+<em>supercohort</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superdomain">
+<h3>Property: botany:superdomain   -   lang(en-GB, testing)</h3>
+<em>superdomain</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superfamily">
+<h3>Property: botany:superfamily   -   lang(en-GB, testing)</h3>
+<em>superfamily</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superform">
+<h3>Property: botany:superform   -   lang(en-GB, testing)</h3>
+<em>superform</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supergenus">
+<h3>Property: botany:supergenus   -   lang(en-GB, testing)</h3>
+<em>supergenus</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superkingdom">
+<h3>Property: botany:superkingdom   -   lang(en-GB, testing)</h3>
+<em>superkingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superlegion">
+<h3>Property: botany:superlegion   -   lang(en-GB, testing)</h3>
+<em>superlegion</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superorder">
+<h3>Property: botany:superorder   -   lang(en-GB, testing)</h3>
+<em>superorder</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superphylum">
+<h3>Property: botany:superphylum   -   lang(en-GB, testing)</h3>
+<em>superphylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supersection">
+<h3>Property: botany:supersection   -   lang(en-GB, testing)</h3>
+<em>supersection</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superseries">
+<h3>Property: botany:superseries   -   lang(en-GB, testing)</h3>
+<em>superseries</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_superspecies">
+<h3>Property: botany:superspecies   -   lang(en-GB, testing)</h3>
+<em>superspecies</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supertribe">
+<h3>Property: botany:supertribe   -   lang(en-GB, testing)</h3>
+<em>supertribe</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supervariety">
+<h3>Property: botany:supervariety   -   lang(en-GB, testing)</h3>
+<em>supervariety</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_suprakingdom">
+<h3>Property: botany:suprakingdom   -   lang(en-GB, testing)</h3>
+<em>suprakingdom</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_supraphylum">
+<h3>Property: botany:supraphylum   -   lang(en-GB, testing)</h3>
+<em>supraphylum</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_synklepton">
+<h3>Property: botany:synklepton   -   lang(en-GB, testing)</h3>
+<em>synklepton</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_tribe">
+<h3>Property: botany:tribe   -   lang(en-GB, testing)</h3>
+<em>tribe</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div><div class="specterm" id="term_variety">
+<h3>Property: botany:variety   -   lang(en-GB, testing)</h3>
+<em>variety</em> - lang(en-GB, ...) 
+<br/><table style="th { float: top; }">
+<tr><th>Domain:</th>
+<td><li><a href="#term_Taxonomy">Taxonomy</a></li>
+</td>
+</tr>
+<tr><th>Range:</th>
+<td><li><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</td></tr>
+
+</table>
+<br/></div></body></html>

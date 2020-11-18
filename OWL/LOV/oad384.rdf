@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ATTENTION! 
+This is the previous version of the ontology.
+The current version is available at http://culturalis.org/oad/
+
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:viaf="http://viaf.org/ontology/1.1/#" xmlns:eac-cpf="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:gn="http://www.geonames.org/ontology#" xmlns:bio="http://purl.org/vocab/bio/0.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:oad="http://lod.xdams.org/reload/oad#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://lod.xdams.org/reload/oad/" xml:base="http://lod.xdams.org/reload/oad/" xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" xmlns:vann="http://purl.org/vocab/vann/" xmlns:cc="http://creativecommons.org/ns#">
+	<owl:Ontology rdf:about="http://lod.xdams.org/reload/oad">
+		<owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+		<owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod120130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod220130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod320130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod420130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod520130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod620130429"/>
+		<skos:historyNote rdf:nodeID="vers1_2mod720130429"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</owl:versionInfo>
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<vann:preferredNamespacePrefix>oad</vann:preferredNamespacePrefix>
+		<vann:preferredNamespaceUri>http://lod.xdams.org/reload/oad/</vann:preferredNamespaceUri>
+		<dc:title>Ontology for archival description</dc:title>
+		<dc:description>An ontology for the description of archival data (OAD, “Ontology of Archival Description”) using the Web Ontology Language (OWL). This ontology represents the classes and properties needed to expose the archival resources as linked data.</dc:description>
+		<cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+<dc:creator>Reload Team</dc:creator>
+<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</owl:Ontology>
+	<rdf:Description rdf:nodeID="vers1_2mod120130429">
+		<rdf:value>Creata la Classe oad:production</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod220130429">
+		<rdf:value>Creata la Classe oad:custody</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod320130429">
+		<rdf:value>Creata la Object Proerty oad:has_production</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod420130429">
+		<rdf:value>Creata la Object Proerty oad:has_custody</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod520130429">
+		<rdf:value>Deprecata la Object property oad:has_nameOfCreator</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod620130429">
+		<rdf:value>Deprecata la Object property oad:has_repository</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<rdf:Description rdf:nodeID="vers1_2mod720130429">
+		<rdf:value>Creata la Object Proerty oad:has_entity</rdf:value>
+		<dc:date>29 aprile 2013</dc:date>
+		<dcterms:creator rdf:resource="http://labs.regesta.com/progettoReload/partners/"/>
+	</rdf:Description>
+	<owl:Class rdf:about="uod">
+		<rdfs:label xml:lang="en">Unit of description</rdfs:label>
+		<rdfs:label xml:lang="it">Unità of descrizione</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="levelOfDescription">
+		<rdfs:label xml:lang="en">Level of description</rdfs:label>
+		<rdfs:label xml:lang="it">Livello di descrizione</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="administrativeBiographicalHistory">
+		<rdfs:label xml:lang="en">Administrative / Biographical history History</rdfs:label>
+		<rdfs:label xml:lang="it">Storia istituzionale/ amministrativa o biografia</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="findingAid">
+		<rdfs:label xml:lang="en">Finding aid</rdfs:label>
+		<rdfs:label xml:lang="it">Strumento di ricerca</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="publicationNote">
+		<rdfs:label xml:lang="en">Publication note</rdfs:label>
+		<rdfs:label xml:lang="it">Bibliografia</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="eadElement">
+		<rdfs:label xml:lang="en">EAD Schema's element or attribute</rdfs:label>
+		<rdfs:label xml:lang="it">Elemento o attributo dello Schema EAD</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:about="place">
+		<rdfs:label xml:lang="en">Place</rdfs:label>
+		<rdfs:label xml:lang="it">Luogo</rdfs:label>
+		<rdfs:subClassOf rdf:resource="http://www.geonames.org/ontology#Feature"/>
+	</owl:Class>
+	<owl:Class rdf:about="production">
+		<rdfs:label xml:lang="en">Production</rdfs:label>
+		<rdfs:label xml:lang="it">Produzione</rdfs:label>
+		<dc:description xml:lang="it">Le classi production e custody sono state inserite per descrivere il rapporto tra una risorsa archivistica e una entità (CPF), volendo esplicitare anche le date di relazione verso un soggetto produttore o un conservatore, gestendo in questo modo ad esempio anche i cambi di custodia</dc:description>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa classe è stata inserita nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:Class>
+	<owl:Class rdf:about="custody">
+		<rdfs:label xml:lang="en">Custody</rdfs:label>
+		<rdfs:label xml:lang="it">Conservazione</rdfs:label>
+		<dc:description xml:lang="it">Le classi production e custody sono state inserite per descrivere il rapporto tra una risorsa archivistica e una entità (CPF), volendo esplicitare anche le date di relazione verso un soggetto produttore o un conservatore, gestendo in questo modo ad esempio anche i cambi di custodia</dc:description>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa classe è stata inserita nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="has_level">
+		<rdfs:label xml:lang="en">Level of description</rdfs:label>
+		<rdfs:label xml:lang="it">Livello di descrizione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="levelOfDescription"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.1.4_level_of_description"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_nameOfCreator">
+		<rdfs:label xml:lang="en">Name of creator(s)</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/entity"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.2.1_name_of_creators"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa proprietà è stata deprecata nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_administrativeBiographicalHistory">
+		<rdfs:label xml:lang="en">Administrative / Biographical history</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="administrativeBiographicalHistory"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.2.2_administrative_biographical_history"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_languageScriptsOfMaterial">
+		<rdfs:label xml:lang="en">Language/scripts of material</rdfs:label>
+		<rdfs:label xml:lang="it">Lingua/scrittura della documentazione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://id.loc.gov/vocabulary/iso639-1/iso639-1_Language"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.4.3_language_scripts_of_material"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_relatedUnitsOfDescription">
+		<rdfs:label xml:lang="en">Has related units of description</rdfs:label>
+		<rdfs:label xml:lang="it">Ha unità di descrizione collegate</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="uod"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.5.3_related_units_of_description"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_publicationNote">
+		<rdfs:label xml:lang="en">Has publication note</rdfs:label>
+		<rdfs:label xml:lang="it">Ha bibliografia</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="publicationNote"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.5.4_publication_note"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_repository">
+		<rdfs:label xml:lang="en">Has repository</rdfs:label>
+		<rdfs:label xml:lang="it">Soggetto conservatore</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/entity"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa proprietà è stata deprecata nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_findingAid">
+		<rdfs:label xml:lang="en">Finding aids</rdfs:label>
+		<rdfs:label xml:lang="it">Strumenti di ricerca</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="findingAid"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.4.5_finding_aids"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_filePlan">
+		<rdfs:label xml:lang="en">File Plan</rdfs:label>
+		<rdfs:label xml:lang="it">Sistema di classificazione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_production">
+		<rdfs:label xml:lang="en">Has Production</rdfs:label>
+		<rdfs:label xml:lang="it">Prodotto da</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="production"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa proprietà è stata inserita nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_custody">
+		<rdfs:label xml:lang="en">Has Custody</rdfs:label>
+		<rdfs:label xml:lang="it">Conservato da</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="custody"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa proprietà è stata inserita nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_entity">
+		<rdfs:label xml:lang="en">Has Entity</rdfs:label>
+		<rdfs:label xml:lang="it">Entità collegata</rdfs:label>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="custody"/>
+					<owl:Class rdf:about="production"/>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
+		<rdfs:range rdf:resource="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/entity"/>
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Questa proprietà è stata inserita nella versione del 29 aprile 2013</owl:versionInfo>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="use_eadElement">
+		<rdfs:label xml:lang="en">Use EAD element or attribute</rdfs:label>
+		<rdfs:label xml:lang="it">Utilizza l'elemento o attributo di EAD</rdfs:label>
+		<rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+		<rdfs:range rdf:resource="eadElement"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_accessPoint">
+		<!-- è la proprietà usata per marcare i controlaccess -->
+		<rdfs:label xml:lang="en">Has key access point</rdfs:label>
+		<rdfs:label xml:lang="it">Ha chiave di indice</rdfs:label>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="uod"/>
+					<owl:Class rdf:about="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/entity"/>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+					<owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+					<owl:Class rdf:about="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/entity"/>
+					<owl:Class rdf:about="place"/>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_accessPointPerson">
+		<rdfs:subPropertyOf rdf:resource="has_accessPoint"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_accessPointPlace">
+		<rdfs:subPropertyOf rdf:resource="has_accessPoint"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_accessPointCorporateBody">
+		<rdfs:subPropertyOf rdf:resource="has_accessPoint"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="has_accessPointFamily">
+		<rdfs:subPropertyOf rdf:resource="has_accessPoint"/>
+	</owl:ObjectProperty>
+	<!-- ========================Datatype Property======================= -->
+	<owl:DatatypeProperty rdf:about="referenceCode">
+		<rdfs:label xml:lang="en">Reference code</rdfs:label>
+		<rdfs:label xml:lang="it">Segnatura o codice identificativo</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.1.1_reference_codes"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="title">
+		<rdfs:label xml:lang="en">Title</rdfs:label>
+		<rdfs:label xml:lang="it">Denominazione o titolo</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.1.2_title"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="date">
+		<rdfs:label xml:lang="en">Date(s)</rdfs:label>
+		<rdfs:label xml:lang="it">Data/e</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.1.3_dates"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="extentAndMedium">
+		<rdfs:label xml:lang="en">Extent and medium of the unit of description (quantity, bulk, or size)</rdfs:label>
+		<rdfs:label xml:lang="it">Consistenza e supporto dell'unità di descrizione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.1.5_extent_and_medium_of_the_unit_of_description"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="archivalHistory">
+		<rdfs:label xml:lang="en">Archival history</rdfs:label>
+		<rdfs:label xml:lang="it">Storia archivistica</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.2.3_archival_history"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="immediateSourceOfAcquisitionOrTransfer">
+		<rdfs:label xml:lang="en">Immediate source of acquisition or transfer</rdfs:label>
+		<rdfs:label xml:lang="it">Modalità di acquisizione o versamento</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.2.4_immediate_source_of_acquisition_or_transfer"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="scopeAndContent">
+		<rdfs:label xml:lang="en">Scope and content</rdfs:label>
+		<rdfs:label xml:lang="it">Ambiti e contenuto</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.3.1_scope_and_content"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="appraisalDestructionAndSchedulingInformation">
+		<rdfs:label xml:lang="en">Appraisal, destruction and scheduling information</rdfs:label>
+		<rdfs:label xml:lang="it">Procedure, tempi e criteri di valutazione e scarto</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.3.2_appraisal_destruction_and_scheduling_information"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="accruals">
+		<rdfs:label xml:lang="en">Accruals</rdfs:label>
+		<rdfs:label xml:lang="it">Incrementi previsti</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.3.3_accruals"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="systemOfArrangement">
+		<rdfs:label xml:lang="en">System of arrangement</rdfs:label>
+		<rdfs:label xml:lang="it">Criteri di ordinamento</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.3.4_system_of_arrangement"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="conditionsGoverningAccess">
+		<rdfs:label xml:lang="en">Conditions governing access</rdfs:label>
+		<rdfs:label xml:lang="it">Condizioni che regolano l’accesso</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.4.1_conditions_governing_access"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="conditionsGoverningReproduction">
+		<rdfs:label xml:lang="en">Conditions governing reproduction</rdfs:label>
+		<rdfs:label xml:lang="it">Condizioni che regolano la riproduzione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.4.2_conditions_governing_reproduction"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="physicalCharacteristicsAndTechnicalRequirements">
+		<rdfs:label xml:lang="en">Physical characteristics and technical requirements</rdfs:label>
+		<rdfs:label xml:lang="it">Caratteristiche materiali e requisiti tecnici</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.4.4_physical_characteristics_and_technical_requirements"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="existenceAndLocationOfOriginals">
+		<rdfs:label xml:lang="en">Existence and location of originals</rdfs:label>
+		<rdfs:label xml:lang="it">Esistenza e localizzazione degli originali</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.5.1_existence_and_location_of_originals"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="existenceAndLocationOfCopies">
+		<rdfs:label xml:lang="en">Existence and location of copies</rdfs:label>
+		<rdfs:label xml:lang="it">Esistenza e localizzazione di copie</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.5.2_existence_and_location_of_copies"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="otherlevel">
+		<rdfs:label xml:lang="en">Other Level of description</rdfs:label>
+		<rdfs:label xml:lang="it">Altro livello di descrizione</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="note">
+		<rdfs:label xml:lang="en">Note</rdfs:label>
+		<rdfs:label xml:lang="it">Note</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.6.1_note"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="archivistsNote">
+		<rdfs:label xml:lang="en">Archivist's Note</rdfs:label>
+		<rdfs:label xml:lang="it">Nota dell’archivista</rdfs:label>
+		<rdfs:domain rdf:resource="uod"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+		<rdfs:isDefinedBy rdf:resource="isadOntology/isad_3.7.1_archivist_s_note"/>
+	</owl:DatatypeProperty>
+</rdf:RDF>

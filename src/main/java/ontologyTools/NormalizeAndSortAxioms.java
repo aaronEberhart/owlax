@@ -72,17 +72,18 @@ import uk.ac.manchester.cs.owl.owlapi.OWLSubPropertyChainAxiomImpl;
  * Normalizes and sorts the axioms in an ontology so that 
  * they can be evaluated for OWLAx coverage
  * 
- * @author Aaron Eberhart
- * @author DaSe Lab
+ * @author 
+ * @author 
  *
  */
 public class NormalizeAndSortAxioms  {
 	
 	private static int ontologyIndex = -1;
-	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","reflexive role","irreflexive role","symmetric role","asymmetric role","role cardinality","data cardinality","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range"};
+	private static final String[] ontologyHashKeys = {"subclass","equivalent classes","disjoint classes","disjoint union","subrole","subdata","equivalent roles","equivalent data","disjoint roles","disjoint data","subrole chain","inverse role","reflexive role","irreflexive role","symmetric role","asymmetric role","role cardinality","data cardinality","functional role","functional data","inverse functional role","transitive role","role domain","data domain","role range","data range","has key"};
 	private ArrayList<OWLSubClassOfAxiom> classAxioms;
 	private ArrayList<OWLSubClassOfAxiom> complexClassAxioms;
 	private ArrayList<OWLPropertyAxiom> roleAxioms;
+	private ArrayList<OWLAxiom> keyAxioms;
 	private HashMap<String,Double> ontologyComposition;
 	
 	/**
@@ -96,24 +97,27 @@ public class NormalizeAndSortAxioms  {
 		roleAxioms = new ArrayList<OWLPropertyAxiom>();
 		classAxioms = new ArrayList<OWLSubClassOfAxiom>();
 		complexClassAxioms = new ArrayList<OWLSubClassOfAxiom>();
+		keyAxioms = new ArrayList<OWLAxiom>();
 		
 		//save the quantities of these things for later
 		ontologyComposition = new HashMap<String,Double>(){private static final long serialVersionUID = 3L;{
 			put("number of classes",(double)ontology.classesInSignature().count());
 			put("number of roles",(double)ontology.objectPropertiesInSignature().count());
 			put("number of data properties",(double)ontology.dataPropertiesInSignature().count());
+			put("original number of logical axioms",(double)ontology.getLogicalAxiomCount());
+			put("original number of axioms",(double)ontology.getAxiomCount());
 			put(ontology.getFormat().toString(),(double)ontologyIndex);
 			put(ontology.getOntologyID().toString(),(double)ontologyIndex--);
 			for (String key : ontologyHashKeys){put(key,0.0);}
 		}};
 		
 		//sort the axioms from the ontology
-		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {
-			System.err.println(e);}});
+		getAxioms(ontology).forEach(a -> {try {sortAxiomByType(a.getAxiomWithoutAnnotations());} catch (Exception e) {System.err.println(e);}});
 		
 		ontologyComposition.put("simple class axioms", (double)classAxioms.size());
 		ontologyComposition.put("complex class axioms", (double)complexClassAxioms.size());
 		ontologyComposition.put("role axioms", (double)roleAxioms.size());
+		ontologyComposition.put("key axioms", (double)keyAxioms.size());
 	}
 
 	/**
@@ -127,7 +131,7 @@ public class NormalizeAndSortAxioms  {
 	 * False if the type string of an axiom is Annotation, class assertion, role/data assertion, Different individuals, or Declaration, True otherwise
 	 */
 	private boolean correctType(String type) {
-		return !(type.equals("DifferentIndividuals") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") 
+		return !(type.equals("DifferentIndividuals") || type.equals("SameIndividual") || type.equals("Rule") || type.equals("AnnotationAssertion") || type.equals("Declaration") 
 				|| type.equals("AnnotationPropertyDomainOf") || type.equals("AnnotationPropertyRangeOf") || type.contentEquals("SubAnnotationPropertyOf") 
 				|| type.equals("AnnotationPropertyDomain") || type.equals("AnnotationPropertyRange") || type.contentEquals("SubAnnotationProperty") 
 				|| type.equals("ClassAssertion") || type.equals("ObjectPropertyAssertion") || type.equals("DataPropertyAssertion") || type.equals("DatatypeDefinition"));
@@ -243,6 +247,10 @@ public class NormalizeAndSortAxioms  {
 			}else if (type.equals("DataPropertyDomain")) {
 				ontologyComposition.replace("data domain", ontologyComposition.get("data domain") + 1);
 				parseSubClassOfAxiom(new OWLSubClassOfAxiomImpl(new OWLDataSomeValuesFromImpl(((OWLDataPropertyDomainAxiom)axiom).getProperty(), new OWLDatatypeImpl(IRI.create("rdfs:Literal"))), ((OWLDataPropertyDomainAxiom)axiom).getDomain(), Collections.emptyList()));	
+			//has key
+			}else if (type.equals("HasKey")) {
+				ontologyComposition.replace("has key", ontologyComposition.get("has key") + 1);
+				keyAxioms.add(axiom);
 			// oops forgot one
 			}else {
 				throw new Exception("Axiom not handled:\n\t"+axiom.toString());

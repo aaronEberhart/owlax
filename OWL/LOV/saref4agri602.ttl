@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="SPARQL-Generate" />
+  <title>SAREF4AGRI: an extension of SAREF for the agriculture and food domain</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="../../static/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="../../static/media/gantry5/assets/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../static/media/gantry5/engines/nucleus/css-compiled/nucleus.css" rel="stylesheet" />
+  <link href="../../static/templates/g5_helium/custom/css-compiled/helium_19.css" rel="stylesheet" />
+  <link href="../../static/media/gantry5/assets/css/bootstrap-gantry.css" rel="stylesheet" />
+  <link href="../../static/media/gantry5/engines/nucleus/css-compiled/joomla.css" rel="stylesheet" />
+  <link href="../../static/media/jui/css/icomoon.css" rel="stylesheet" />
+  <link href="../../static/templates/g5_helium/custom/css-compiled/helium-joomla_19.css" rel="stylesheet" />
+  <link href="../../static/templates/g5_helium/custom/css-compiled/custom_19.css" rel="stylesheet" />
+  <link href="../../static/lode/home.css" rel="stylesheet" />
+  <link href="../../static/jqtree/jqtree.css" rel="stylesheet">
+  <script src="../../static/templates/g5_helium/js/jui/jquery.min.js?06eedc97766b70aa1fa0e80231495faa"></script>
+  <script src="../../static/media/jui/js/jquery-noconflict.js?06eedc97766b70aa1fa0e80231495faa"></script>
+  <script src="../../static/media/jui/js/jquery-migrate.min.js?06eedc97766b70aa1fa0e80231495faa"></script>
+  <script src="../../static/media/system/js/caption.js?06eedc97766b70aa1fa0e80231495faa"></script>
+  <script src="../../static/media/jui/js/bootstrap.min.js?06eedc97766b70aa1fa0e80231495faa"></script>
+  <script src="../../static/templates/g5_helium/js/juitabs.js"></script>
+
+  <script>
+    jQuery(window).on('load', function() {
+      new JCaption('img.caption');
+    });
+  </script>
+  <!--[if (gte IE 8)&(lte IE 9)]>
+        <script type="text/javascript" src="../../static/media/gantry5/assets/js/html5shiv-printshiv.min.js"></script>
+        <link rel="stylesheet" href="../../static/media/gantry5/engines/nucleus/css/nucleus-ie9.css" type="text/css"/>
+        <script type="text/javascript" src="../../static/media/gantry5/assets/js/matchmedia.polyfill.js"></script>
+        <![endif]-->
+
+</head><body class="gantry g-helium-style site com_content view-article no-layout no-task dir-ltr itemid-217 outline-19 g-offcanvas-left g-default g-style-preset1">
+  <div id="g-offcanvas" data-g-offcanvas-swipe="1" data-g-offcanvas-css3="1">
+    <div class="g-grid">
+      <div class="g-block size-100">
+        <div class="g-content g-particle">
+          <div id="g-mobilemenu-container" data-g-menu-breakpoint="48rem"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="g-page-surround">
+    <div class="g-offcanvas-hide g-offcanvas-toggle" data-offcanvas-toggle aria-controls="g-offcanvas" aria-expanded="false"><i class="fa fa-fw fa-bars"></i></div>
+    <section id="g-navigation">
+      <div class="g-container">
+        <div class="g-grid">
+          <div class="g-block size-17">
+            <div class="g-content g-particle">
+              <a href="https://www.etsi.org/" title="" rel="home" class="g-logo g-logo-helium">
+                <img src="../../static/images/logo-l.png" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="g-block size-65">
+            <div class="g-content g-particle">
+              <nav class="g-main-nav" role="navigation" data-g-hover-expand="true">
+                <ul class="g-toplevel">
+
+
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-217 active g-standard  ">
+                    <a class="g-menu-item-container" href="/index.html">
+                      <span class="g-menu-item-content">
+                        <span class="g-menu-item-title">Home</span>
+                      </span>
+                    </a>
+                  </li>
+
+
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-242 g-standard  ">
+                    <a class="g-menu-item-container" href="/core/">
+                      <span class="g-menu-item-content">
+                        <span class="g-menu-item-title">SAREF core</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-242 g-standard  ">
+                    <a class="g-menu-item-container" href="/extensions.html">
+                      <span class="g-menu-item-content">
+                        <span class="g-menu-item-title">Extensions</span>
+                      </span>
+                    </a>
+                  </li>
+
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-242 g-standard  ">
+                    <a class="g-menu-item-container" href="/sources/">
+                      <span class="g-menu-item-content">
+                        <span class="g-menu-item-title">Participate</span>
+                      </span>
+                    </a>
+                  </li>
+
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-242 g-standard  ">
+                    <a class="g-menu-item-container" href="https://www.etsi.org/committee/smartm2m">
+                      <span class="g-menu-item-content">
+                        <span class="g-menu-item-title">SmartM2M</span>
+                      </span>
+                    </a>
+                  </li>
+
+                  <li class="g-menu-item g-menu-item-type-component g-menu-item-242 g-standard">
+                    <form method="GET" action="/search.html">
+                      <input class="form-control" id="q" name="q" placeholder="&#x1F50E; ex., device"/>
+                    </form>
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="g-block g-social-header size-17">
+            <div class="g-content g-particle">
+              <div class="g-social ">
+                <a target="_blank" href="https://twitter.com/ETSI_STANDARDS" title="" aria-label="">
+                  <span class="fa fa-twitter fa-fw"></span> <span class="g-social-text"></span> </a>
+                <a target="_blank" href="https://www.facebook.com/etsi.standards" title="" aria-label="">
+                  <span class="fa fa-facebook-official"></span> <span class="g-social-text"></span> </a>
+                <a target="_blank" href="https://www.linkedin.com/company/etsi?trk=biz-companies-cym" title="" aria-label="">
+                  <span class="fa fa-linkedin-square"></span> <span class="g-social-text"></span> </a>
+                <a target="_blank" href="https://www.youtube.com/user/ETSIstandards" title="" aria-label="">
+                  <span class="fa fa-youtube-play"></span> <span class="g-social-text"></span> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+<header id="g-header">
+  <div class="g-container">
+    <div class="g-block size-100">
+      <div class="g-content g-particle">
+        <h1><a href="https://saref.etsi.org/saref4agri/">SAREF4AGRI: an extension of SAREF for the agriculture and food domain</a></h1>
+        <dl>
+          <dt>Latest version:</dt><dd><a href='https://saref.etsi.org/saref4agri/'>https://saref.etsi.org/saref4agri/</a></dd>
+          <dt>Permanent IRI for this version (v1.1.2)</dt><dd><a href='https://saref.etsi.org/saref4agri/v1.1.2/'>https://saref.etsi.org/saref4agri/v1.1.2/</a></dd>
+          
+          <dt>ETSI Technical Specification</dt><dd><a href='https://www.etsi.org/deliver/etsi_ts/103400_103499/10341006/01.01.02_60/ts_10341006v010102p.pdf'>https://www.etsi.org/deliver/etsi_ts/103400_103499/10341006/01.01.02_60/ts_10341006v010102p.pdf</a></dd>
+          <dt>Sources on the SAREF Forge</dt><dd><a href='https://saref.etsi.org/sources/saref4agri/'>https://saref.etsi.org/sources/saref4agri/</a></dd>
+          <dt>Publication Date</dt><dd>2019-04-30</dd>
+          <dt>Last Modification Date</dt><dd>2020-06-05</dd>
+          <dt>Creators</dt><dd>
+<ul>
+<li><a href="https://w3id.org/people/mpoveda/">Maria Poveda-Villalon</a> (<a href="http://www.oeg-upm.net/">Universidad Politécnica de Madrid</a>)</li>
+<li><a href="http://www.garcia-castro.com/foaf.rdf#me">Raúl Garcia-Castro</a> (<a href="http://www.oeg-upm.net/">Universidad Politécnica de Madrid</a>)</li>
+<li><a href="https://www.linkedin.com/in/lauradaniele">Laura Daniele</a> (<a href="https://tno.nl/">TNO</a>)</li>
+<li><a href="https://www.linkedin.com/in/mderoode">Mike de Roode</a> (<a href="https://tno.nl/">TNO</a>)</li>
+</ul>
+ </dd>
+          <dt>Contributors</dt><dd>
+<ul>
+<li><a href="https://www.researchgate.net/profile/Jack_Verhoosel">Jack Verhoosel</a> (<a href="https://tno.nl/">TNO</a>)</li>
+</ul>
+ </dd>
+          <dt>Ontology requirements and tests</dt><dd><a href='requirements'>requirements</a> and <a href='tests'>tests</a></dd>
+          
+          <dt>Prefix and namespace declaration:<dt>
+          <dd>Turtle: <code>@prefix s4agri: &lt;https://saref.etsi.org/saref4agri/&gt; .</code><dd>
+          <dd>SPARQL: <code>PREFIX s4agri: &lt;https://saref.etsi.org/saref4agri/&gt;</code><dd>
+           <dt>Download serialization:</dt><dd>
+            <span><a href="saref4agri.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON--LD-blue.svg"/></a></span>
+            <span><a href="saref4agri.n3" target="_blank"><img src="https://img.shields.io/badge/Format-N3-blue.svg"/></a></span>
+            <span><a href="saref4agri.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N--Triples-blue.svg"/></a></span>
+            <span><a href="saref4agri.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg"/></a></span>
+            <span><a href="saref4agri.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-Turtle-blue.svg"/></a></span>
+           </dd>
+           <dt>License:</dt><dd>
+            <span><a href="https://forge.etsi.org/etsi-software-license" target="_blank"><img src="https://img.shields.io/badge/License-https://forge.etsi.org/etsi--software--license-blue.svg"/></a></span>
+           </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</header> 
+<section>
+  <div class="container">
+ <h2>Abstract</h2>
+<p>The present document has been developed in the context of the STF 534, an ETSI specialists task force that was established with the goal to extend SAREF <a href="#[1]">[1]</a> for the domains of Smart Cities, Smart Industry &amp; Manufacturing, and Smart AgriFood (<a href="https://portal.etsi.org/STF/stfs/STFHomePages/STF534">https://portal.etsi.org/STF/stfs/STFHomePages/STF534</a>). In particular, the present document is a technical specification of SAREF4AGRI, an OWL-DL ontology that extends SAREF for the Smart Agriculture and Food Chain domain. The intention of SAREF4AGRI is to connect SAREF with existing ontologies (such as W3C SSN, W3C SOSA, GeoSPARQL, etc.) and important standardization initiatives and ontologies in the Smart Agriculture and Food Chain domain, including ICAR for livestock data (<a href="https://www.icar.org/">https://www.icar.org/</a>), AEF for agricultural equipment (<a href="http://www.aef-online.org">http://www.aef-online.org</a>), Plant Ontology Consortium for plants (<a href="http://archive.plantontology.org">http://archive.plantontology.org</a>), AgGateway for IT support for arable farming (<a href="http://www.aggateway.org/">http://www.aggateway.org/</a>), as mentioned in the associated SAREF4AGRI requirements document ETSI TR 103 511 <a href="#[i.2]">[i.2]</a>.</p>
+<p>To show the potential of SAREF4AGRI, the present document focuses on two examples, which are the &quot;livestock farming&quot; and &quot;smart irrigation&quot; use cases. Various other examples exist in the Smart Agriculture and Food Chain domain, such as arable farming, horticulture, agricultural equipment, greenhouses and food chain, as mentioned in <a href="#[i.2]">[i.2]</a> (for an exhaustive list of use cases, see also the H2020 Large Scale Pilot &quot;Internet of Food and Farm 2020 (IoF2020)&quot; at <a href="https://iof2020.eu/trials">https://iof2020.eu/trials</a>). However, it was necessary to make actionable choices within the STF 534 timeframe and the available resources, thus livestock farming and smart irrigation have been chosen as the two initial examples to create SAREF4AGRI. As a next step, it is recommended to further refine the proposed livestock farming and smart irrigation examples to add relevant sensors that are not considered yet, and also consider additional use cases to create new releases of SAREF4AGRI, following and extending the examples provided in the present document. As all the SAREF ontologies, SAREF4AGRI is a dynamic semantic model that is meant to evolve over time. Therefore, the stakeholders in the AgriFood domain (starting from the ICAR, AEF and AgGateway initiatives) are invited to use, validate and provide feedback on SAREF4AGRI, collaborating with the SAREF ontology experts to improve and evolve SAREF4AGRI in an iterative and interactive manner, so that changes and additions can be incorporated in future releases of the present document.</p>
+<p>The livestock farming and smart irrigation use cases used as basis to create SAREF4AGRI in the present document are concerned with the integration of multiple data sources for the purpose of providing decision support services located on the local &quot;Farm Management System&quot; of the farmers or provided by a service over the network. Multiple data sources of interest include GPS, meteorological data (both historic and current), remote observation (via satellite sources such as Copernicus) and local observation using near or proximal sensors. As an extension of SAREF, which is a semantic model for IoT that describes smart devices and applications in terms of their functions, services, states and measurements <a href="#[1]">[1]</a>, SAREF4AGRI is concerned with the description of proximal sensors that measure a variety of relevant parameters for agriculture, including: (on animal) movement, temperature, etc., (in the soil) moisture/humidity, Ph value, salinity, compaction, (on plant) plant colour (NDVI), etc. The measurements from these sensors need to be integrated by a decision support service to enable the planning of (for example) a treatment plan for animals (in a livestock scenario), or a decision to irrigate or harvest (in an irrigation, horticulture or greenhouse context). The requirements used to create the SAREF4AGRI extension specified in the present document are described in the associated ETSI TR 103 511 <a href="#[i.2]">[i.2]</a>.</p>
+<p>The prefixes and namespaces used in SAREF4AGRI and in the present document are listed in <a href="#namespacedeclarations">the Namespace Declarations section</a></p>
+
+<div id='toc2'>
+  <h2>Table of Content</h2>
+  <ol>
+    <li><a href='#introduction'>Introduction</a></li>
+    <li><a href='#namespacedeclarations'>Namespace Declarations</a></li>
+    <li><a href='#classes'>Classes</a></li>
+    <li><a href='#objectproperties'>Object Properties</a></li>
+    <li><a href='#dataproperties'>Data Properties</a></li>
+    <li><a href='#namedindividuals'>Named Individuals</a></li>
+    <li><a href='#annotationproperties'>Annotation Properties</a></li><li><a href='#references'>References</a></li><li><a href='#acknowledgements'>Acknowledgements</a></li>
+    <li><a href='#toc'>Hierarchies of Terms</a></li>
+  </ol>
+</div><h2>Introduction</h2>
+<h3>General Overview</h3>
+
+
+<p>An overview of the SAREF4AGRI ontology is provided in <a href="#Figure_1">Figure 1</a>. For all the entities described in the present document, it is indicated whether they are defined in the SAREF4AGRI extension or elsewhere by the prefix included before their identifier, i.e. if the element is defined in SAREF4AGRI, the prefix is s4agri, while if the element is reused from another ontology it is indicated by a prefix according to Table 1.</p>
+<p>Arrows are used to represent properties between classes and to represent some RDF, RDF-S and OWL constructs, more precisely:</p>
+<ul>
+ <li>Plain arrows with white triangles represent the <a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a> relation between two classes. The origin of the arrow is the class to be declared as subclass of the class at the destination of the arrow.</li>
+ <li>Dashed arrows between two classes indicate a local restriction in the origin class, i.e. that the object property can be instantiated between the classes in the origin and the destination of the arrow. The identifier of the object property is indicated within the arrow.</li>
+ <li>Dashed arrows with identifiers between stereotype signs (i.e. "<< >>") refer to OWL constructs that are applied to some ontology elements, that is, they can be applied to classes or properties depending on the OWL construct being used.</li>
+ <li>Dashed arrows with no identifier are used to represent the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> relation, indicating that the element in the origin of the arrow is an instance of the class in the destination of the arrow.</li>
+</ul>
+<p>Datatype properties are denoted by rectangles attached to the classes, in an UML-oriented way. Dashed boxes represent local restrictions in the class, i.e. datatype properties that can be applied to the class they are attached to.</p>
+<p>Individuals are denoted by rectangles in which the identifier is underlined.</p>
+<p>Note that <a href="#Figure_1">Figure 1</a> aims at showing a global overview of the main classes of SAREF4AGRI and their mutual relations. </p>
+
+
+<figure>
+  <a href="diagrams/Overview.png"><img src="diagrams/Overview.png" alt="SAREF4AGRI Overview"/></a>
+  <figcaption id="Figure_1">Figure 1: SAREF4AGRI overview</figcaption>
+</figure>
+
+
+<h3>Platform, System and Deployment</h3>
+
+<p>The model defined in SAREF4AGRI for representing platforms, systems and deployments is depicted in <a href="#Figure_2">Figure 2</a>. The main entities in the modelling are represented by the <a href="http://www.w3.org/ns/ssn/System">ssn:System</a> and <a href="http://www.w3.org/ns/ssn/Deployment">ssn:Deployment</a> classes. Note that the design patterns for modelling these concepts have been taken from the W3C SSN ontology and, as a best practice for reuse, the SAREF4AGRI model refers directly to the URIs of the SSN (<a href="http://www.w3.org/ns/ssn/">http://www.w3.org/ns/ssn/</a>) and SOSA (<a href="http://www.w3.org/ns/sosa/">http://www.w3.org/ns/sosa/</a>) ontologies. </p>
+<p>The <a href="http://www.w3.org/ns/ssn/System">ssn:System</a> class in the SSN ontology represents a system and is components as specific devices, actuators or sensors. Moreover, the <a href="http://www.w3.org/ns/ssn/Deployment">ssn:Deployment</a> class from the SSN ontology describes the deployment of one or more systems on a <a href="http://www.w3.org/ns/sosa/Platform">ssn:Platform</a> for a particular purpose for a given time period. SAREF4AGRI defines a <a href="https://saref.etsi.org/core/Device">saref:Device</a> as subclass of an <a href="http://www.w3.org/ns/ssn/System">ssn:System</a> and extends the <a href="http://www.w3.org/ns/ssn/Deployment">ssn:Deployment</a> class by means of the <a href="#s4agri:Deployment">s4agri:Deployment</a> class. In this way, it is possible to represent a specific installation of a certain agricultural system (e.g. a smart irrigation system) in a given space (expressed by means of the property <a href="#s4agri:hasDeploymentPeriod">s4agri:hasDeploymentPeriod</a>) and at a given temporal frame (expressed by means of the property <a href="#s4agri:isDeployedAtSpace">s4agri:isDeployedAtSpace</a>) where SAREF4AGRI devices (e.g. a pluviometer, a soil tensiometer, a weather station and a watering gun) can be deployed. The deployment can involve a given <a href="http://www.w3.org/ns/sosa/Platform">ssn:Platform</a> which hosts the system deployed in such deployment. In order to represent temporal information the TIME ontology has been reused. For the geographical information both the GeoSPARQL ontology (<a href="http://www.opengis.net/ont/geosparql#">http://www.opengis.net/ont/geosparql#</a>) and the WGS84 Geo vocabulary (<a href="http://www.w3.org/2003/01/geo/wgs84_pos#">http://www.w3.org/2003/01/geo/wgs84_pos#</a>) are reused.</p>
+
+
+<figure>
+  <a href="diagrams/Platform.png"><img src="diagrams/Platform.png" alt="Platform, System and Deployment"/></a>
+  <figcaption id="Figure_2">Figure 2: Platform, System and Deployment</figcaption>
+</figure>
+
+
+<h3>Measurement</h3>
+
+<p>As shown in <a href="#Figure_3">Figure 3</a>, the modelling of measurements in SAREF4AGRI relies on the measurement model proposed in SAREF to express information about a certain property to be measured, its measured value, its measurement unit and the time of the measurement.</p>
+<p>This modelling includes the <a href="https://saref.etsi.org/core/FeatureOfInterest">saref:FeatureOfInterest</a> (whose design pattern has been taken from the W3C SSN ontology) that provides the means to refer to the real world phenomena that is being observed in a given measurement (e.g. a cow can be defined in SAREF4AGRI as the feature of interest of a weight measurement made by a weight sensor). The reader is referred to the SAREF specification <a href="#[1]">[1]</a> for details about the modelling of measurements, whereas the present document includes details only for the new concepts created in SAREF4AGRI, such as the classes and instances added to support the livestock farming and smart irrigation use cases. Note that a work item ETSI TS 103 264 <a href="#[1]">[1]</a> has been opened to evolve the current SAREF core specification ETSI TS 103 264 <a href="#[1]">[1]</a>  according to the latest developments in various sectors, including the input from the SAREF4AGRI extension in the present document. ETSI TS 103 264 <a href="#[1]">[1]</a> work item will result in an updated SAREF 3.0 core ontology. The following properties (to be included in SAREF 3.0) are reused in SAREF4AGRI to complete the model of measurements:</p>
+<ul>
+  <li><a href="https://saref.etsi.org/core/isPropertyOf">saref:isPropertyOf</a> (and its inverse <a href="https://saref.etsi.org/core/hasProperty">saref:hasProperty</a>) to link the property being observed with the feature of interest.</li>
+  <li><a href="https://saref.etsi.org/core/isMeasurementOf">saref:isMeasurementOf</a> (and its inverse <a href="https://saref.etsi.org/core/hasMeasurement">saref:hasMeasurement</a>) to link a given measurement with the feature of interest being observed.</li>
+  <li><a href="https://saref.etsi.org/core/measurementMadeBy">saref:measurementMadeBy</a> has been included as complement of the <a href="https://saref.etsi.org/core/makesMeasurement">saref:makesMeasurement</a>, as its inverse, to link a measurement and the device that produces it.</li>
+</ul>
+
+<figure>
+  <a href="diagrams/Measurement.png"><img src="diagrams/Measurement.png" alt="Measurement model"/></a>
+  <figcaption id="Figure_3">Figure 3: Measurement model</figcaption>
+</figure>
+
+<p>In order to support the Smart Irrigation use case, a number of units of measure have been added to SAREF4AGRI as instances of the <a href="https://saref.etsi.org/core/UnitOfMeasure">saref:UnitOfMeasure</a> class, namely dbpedia:DBM (decibel-milliwatts), om:millivolt (millivolt), om:millimetre (millimetre), om:millibar (millibar) and om:degree_Celsius (degree Celsius). Additionally, for the livestock farming use case the om:Liter unit has been added. These instances have been reused from DBpedia (<a href="https://wiki.dbpedia.org/">https://wiki.dbpedia.org/</a>) and the Ontology of units of Measure (OM) 2.0 (<a href="http://www.ontology-of-units-of-measure.org/">http://www.ontology-of-units-of-measure.org/</a>).</p>
+<p>In order to support the livestock farming use case (and potentially other use cases such as arable farming and horticulture in future SAREF4AGRI releases), the <a href="#s4agri:Animal">s4agri:Animal</a>, <a href="#s4agri:AnimalGroup">s4agri:AnimalGroup</a> and <a href="#s4agri:Crop">s4agri:Crop</a> classes have been added to SAREF4AGRI as subclasses of <a href="https://saref.etsi.org/core/FeatureOfInterest">saref:FeatureOfInterest</a> (see clause 4.2.4).</p>
+<p>In this way, measurements from relevant sensors (such as on animal activity movement, temperature, weight, milking yield, etc.) can be related via the isMeasurementOf relation to specific e.g. (groups of) animals that are instances of the <a href="https://saref.etsi.org/core/FeatureOfInterest">saref:FeatureOfInterest</a> class. This relation is explained in more detail in the following clause. </p>
+
+
+<h3>Animal, Crop and Soil (Feature of Interest)</h3>
+
+<p>The main features of interest in SAREF4AGRI currently support (aspects of) the livestock farming and smart irrigation use cases and are represented by the <a href="#s4agri:Animal">s4agri:Animal</a>, <a href="#s4agri:AnimalGroup">s4agri:AnimalGroup</a>, <a href="#s4agri:Crop">s4agri:Crop</a> and <a href="#s4agri:Soil">s4agri:Soil</a> classes that are shown in <a href="#Figure_4">Figure 4</a>. </p>
+
+<figure>
+  <a href="diagrams/FoI.png"><img src="diagrams/FoI.png" alt="Animal, Crop and Soil"/></a>
+  <figcaption id="Figure_4">Figure 4: Animal, Crop and Soil</figcaption>
+</figure>
+
+<p>The <a href="#s4agri:Animal">s4agri:Animal</a> class describes an animal that can be classified in SAREF4AGRI reusing the TAXRANK taxonomy vocabulary (<a href="http://purl.obolibrary.org/obo/taxrank.owl#">http://purl.obolibrary.org/obo/taxrank.owl#</a>). Besides the reuse of the TAXRANK taxonomy vocabulary, an animal is furthermore defined in SAREF4AGRI in order to have a birth and death date. An animal also has a unique identifier and can be part of one or more <a href="#s4agri:AnimalGroup">s4agri:AnimalGroup</a> that are used to conduct experiments and observations on the livestock. Note that animals can be also specialized using subclasses, as is shown in the example in clause 4.3.1 with the ex:LactatingCow class that was created as a subclass of <a href="#s4agri:Animal">s4agri:Animal</a>. Animals and animal groups are related to measurements via the <a href="https://saref.etsi.org/core/FeatureOfinterest">saref:FeatureOfinterest</a> concept of SAREF (see clause 4.2.3). </p>
+<p>The <a href="#s4agri:Soil">s4agri:Soil</a> class represents the upper layer of the earth in which plants grow. The <a href="#s4agri:Crop">s4agri:Crop</a> class describes a collection of homogeneous plant species that is grown on a large scale commercially (especially a cereal, fruit, or vegetable) and is planted on a single location. A <a href="#s4agri:Crop">s4agri:Crop</a> is grown on some <a href="#s4agri:Parcel">s4agri:Parcel</a>, which is an area of land, defined in SAREF4AGRI as subclass of the geosp:Feature (see clause 4.2.6). Moreover, <a href="#s4agri:Crop">s4agri:Crop</a> is related to measurements via <a href="https://saref.etsi.org/core/FeatureOfInterest">saref:FeatureOfInterest</a> (see clause 4.2.3</a>).</p>
+
+
+<h3>Device</h3>
+
+<p>SAREF4AGRI extends the device hierarchy defined in SAREF in order to include devices needed to support the livestock farming and the smart irrigation use cases. These devices are shown in <a href="#Figure_5">Figure 5</a>. The devices included for the Smart Irrigation use case are: <a href="#s4agri:Pluviometer">s4agri:Pluviometer</a>, <a href="#s4agri:SoilTensiometer">s4agri:SoilTensiometer</a>, <a href="#s4agri:WeatherStation">s4agri:WeatherStation</a>, and <a href="#s4agri:WateringGun">s4agri:WateringGun</a>. The devices included for the Livestock Farming use case are: <a href="#s4agri:MovementActivitySensor">s4agri:MovementActivitySensor</a>, EatingActivitySensor, <a href="#s4agri:MilkingSensor">s4agri:MilkingSensor</a>, and <a href="#s4agri:WeightSensor">s4agri:WeightSensor</a>.</p>
+
+<figure>
+  <a href="diagrams/Device.png"><img src="diagrams/Device.png" alt="Device hierarchy"/></a>
+  <figcaption id="Figure_5">Figure 5: Device hierarchy</figcaption>
+</figure>
+
+
+<h3>Property</h3>
+
+<p>SAREF4AGRI extends the property hierarchy defined in SAREF in order to include properties needed to support the livestock farming and the smart irrigation use cases. These devices are shown in <a href="#Figure_6">Figure 6</a>. The properties included for the smart irrigation use case are: <a href="#s4agri:SoilMoisture">s4agri:SoilMoisture</a>, <a href="#s4agri:IrrigationWater">s4agri:IrrigationWater</a>, <a href="#s4agri:SoilTemperature">s4agri:SoilTemperature</a>, <a href="#s4agri:AirTemperature">s4agri:AirTemperature</a>, <a href="#s4agri:AmbientHumidity">s4agri:AmbientHumidity</a>, <a href="#s4agri:Precipitation">s4agri:Precipitation</a> and <a href="#s4agri:PlantGrowthStage">s4agri:PlantGrowthStage</a>.</p>
+<p>The properties included for the livestock farming use case are: <a href="#s4agri:Yield">s4agri:Yield</a> (which can further be specialized in subclasses, such as MilkYield, CropYield, MeatYield, MilkYield, etc. as needed) and <a href="#s4agri:Intake">s4agri:Intake</a> (which can further be specialized in subclasses, such as FoodIntake for animals, FertilizerIntake for crops, etc. as needed). </p>
+
+<figure>
+  <a href="diagrams/Property.png"><img src="diagrams/Property.png" alt="Property hierarchy"/></a>
+  <figcaption id="Figure_6">Figure 6: Property hierarchy</figcaption>
+</figure>
+
+
+
+<h3>Topology</h3>
+
+<p>SAREF4AGRI adopts the same topology modelling pattern that is adopted in the SAREF4CITY extension <a href="#[i.3]">[i.3]</a>, where existing standard ontologies have been reused for this purpose. As shown in <a href="#Figure_7">Figure 7</a>, for representing spatial objects in SAREF4AGRI, the geosp:SpatialObject class from GeoSPARQL has been reused along with its subclasses geosp:Feature, geosp:Geometry and the properties geosp:sfContains, geosp:sfWithin and geosp:hasGeometry. In addition, the class geo:Point and the property geo:location have been reused from the "WGS84 Geo Positioning vocabulary" (which is the W3C de-facto standard for geographical information) in order to be able to indicate that something is located at certain coordinates. </p>
+
+<figure>
+  <a href="diagrams/Topology.png"><img src="diagrams/Topology.png" alt="Topology model"/></a>
+  <figcaption id="Figure_7">Figure 7: Topology model</figcaption>
+</figure>
+
+
+<p>For the purpose of SAREF4AGRI, the geosp:Feature class has been extended with the following subclasses: </p>
+<ul>
+  <li>the <a href="#s4agri:Farm">s4agri:Farm</a></li>
+  <li>the <a href="#s4agri:Building">s4agri:Building</a></li>
+  <li>the <a href="#s4agri:BuildingSpace">s4agri:BuildingSpace</a></li>
+  <li>the <a href="#s4agri:Parcel">s4agri:Parcel</a></li>
+</ul>
+<p>A <a href="#s4agri:Farm">s4agri:Farm</a> can contain one or more <a href="#s4agri:Building">s4agri:Building</a> and <a href="#s4agri:Parcel">s4agri:Parcel</a> (via the geosp:sfContains relation). Note that these types of feature are used in the present document as examples, but more feature types (and building types) can be added as needed. Moreover, a <a href="#s4agri:Building">s4agri:Building</a> can be further decomposed in one or more <a href="#s4agri:BuildingSpaces">s4agri:BuildingSpaces</a> (once again via the geosp:sfContains relation). As subclasses of geosp:Feature, all the classes mentioned above inherit the possibility to have a physical geometric description using geosp:Geometry, if needed (e.g. especially relevant for <a href="#s4agri:Parcel">s4agri:Parcel</a>). As subclasses of geosp:SpatialObject, all the classes mentioned above also inherit the possibility to use the geo:location property to indicate that something is located at certain coordinates (e.g. especially relevant for <a href="#s4agri:Bulding">s4agri:Bulding</a>). </p>
+
+
+<h3>Person and Organization</h3>
+
+<p>As it is modelled in the SAREF4CITY extension <a href="#[i.3]">[i.3]</a>, also SAREF4AGRI reuses the FOAF vocabulary (<a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>) and Schema.org vocabulary (<a href="https://schema.org/">https://schema.org/</a>) to represent the concepts of Person and Organization. <a href="#Figure_8">Figure 8</a> shows that in SAREF4AGRI the foaf:Person and org:Organization classes are extended with the <a href="#s4agri:Farmer">s4agri:Farmer</a> and <a href="#s4agri:FarmHolding">s4agri:FarmHolding</a> subclasses to describe farmers and their organizations. Both foaf:Person and org:Organization are subclass of foaf:Agent. Organizations (e.g. <a href="#s4agri:FarmHolding">s4agri:FarmHolding</a>) have members (e.g. farmers). Both <a href="#s4agri:Farmer">s4agri:Farmer</a> and <a href="#s4agri:FarmHolding">s4agri:FarmHolding</a> can manage some <a href="#s4agri:Farm">s4agri:Farm</a>. </p>
+
+<figure>
+  <a href="diagrams/Person.png"><img src="diagrams/Person.png" alt="Person and Organization model"/></a>
+  <figcaption id="Figure_8">Figure 8: Person and Organization model</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+<div id='namespacedeclarations'>
+<h2>Namespace Declarations</h2>
+<dl>  
+  <dt>wgs84:</dt>
+  <dd>http://www.w3.org/2003/01/geo/wgs84_pos#</dd>  
+  <dt>owl:</dt>
+  <dd>http://www.w3.org/2002/07/owl#</dd>  
+  <dt>saref:</dt>
+  <dd>https://saref.etsi.org/core/</dd>  
+  <dt>xsd:</dt>
+  <dd>http://www.w3.org/2001/XMLSchema#</dd>  
+  <dt>rdfs:</dt>
+  <dd>http://www.w3.org/2000/01/rdf-schema#</dd>  
+  <dt>ssn:</dt>
+  <dd>http://www.w3.org/ns/ssn/</dd>  
+  <dt>geo:</dt>
+  <dd>http://www.opengis.net/ont/geosparql#</dd>  
+  <dt>rdf:</dt>
+  <dd>http://www.w3.org/1999/02/22-rdf-syntax-ns#</dd>  
+  <dt>dcterms:</dt>
+  <dd>http://purl.org/dc/terms/</dd>  
+  <dt>s4agri:</dt>
+  <dd>https://saref.etsi.org/saref4agri/</dd>  
+  <dt>time:</dt>
+  <dd>http://www.w3.org/2006/time#</dd>  
+  <dt>vann:</dt>
+  <dd>http://purl.org/vocab/vann/</dd>  
+  <dt>foaf:</dt>
+  <dd>http://xmlns.com/foaf/0.1/</dd>  
+  <dt>sosa:</dt>
+  <dd>http://www.w3.org/ns/sosa/</dd>
+<dl>
+</div>
+
+
+
+<div id='classes'>
+  <h2>Classes</h2>
+  
+  <ul class='hlist'>  
+    <li><a href="#s4agri:Animal" title="s4agri:Animal">Animal</a></li>  
+    <li><a href="#s4agri:AnimalGroup" title="s4agri:AnimalGroup">Animal Group</a></li>  
+    <li><a href="#s4agri:Building" title="s4agri:Building">Building</a></li>  
+    <li><a href="#s4agri:BuildingSpace" title="s4agri:BuildingSpace">Building space</a></li>  
+    <li><a href="#s4agri:Crop" title="s4agri:Crop">Crop</a></li>  
+    <li><a href="#s4agri:Deployment" title="s4agri:Deployment">Deployment</a></li>  
+    <li><a href="#s4agri:EatingActivitySensor" title="s4agri:EatingActivitySensor">Eating activity sensor</a></li>  
+    <li><a href="#s4agri:Farm" title="s4agri:Farm">Farm</a></li>  
+    <li><a href="#s4agri:FarmHolding" title="s4agri:FarmHolding">Farm holding</a></li>  
+    <li><a href="#s4agri:Farmer" title="s4agri:Farmer">Farmer</a></li>  
+    <li><a href="#s4agri:ID" title="s4agri:ID">ID</a></li>  
+    <li><a href="#s4agri:Intake" title="s4agri:Intake">Intake</a></li>  
+    <li><a href="#s4agri:MilkingSensor" title="s4agri:MilkingSensor">Milking sensor</a></li>  
+    <li><a href="#s4agri:MovementActivitySensor" title="s4agri:MovementActivitySensor">Movement activity sensor</a></li>  
+    <li><a href="#s4agri:Parcel" title="s4agri:Parcel">Parcel</a></li>  
+    <li><a href="#s4agri:Platform" title="s4agri:Platform">Platform</a></li>  
+    <li><a href="#s4agri:Pluviometer" title="s4agri:Pluviometer">Pluviometer</a></li>  
+    <li><a href="#s4agri:Soil" title="s4agri:Soil">Soil</a></li>  
+    <li><a href="#s4agri:SoilTensiometer" title="s4agri:SoilTensiometer">Soil tensiometer</a></li>  
+    <li><a href="#s4agri:Thermometer" title="s4agri:Thermometer">Thermometer</a></li>  
+    <li><a href="#s4agri:WateringGun" title="s4agri:WateringGun">Watering gun</a></li>  
+    <li><a href="#s4agri:WateringSystem" title="s4agri:WateringSystem">Watering system</a></li>  
+    <li><a href="#s4agri:WateringValve" title="s4agri:WateringValve">Watering valve</a></li>  
+    <li><a href="#s4agri:WeatherStation" title="s4agri:WeatherStation">Weather station</a></li>  
+    <li><a href="#s4agri:WeightSensor" title="s4agri:WeightSensor">Weight sensor</a></li>  
+    <li><a href="#s4agri:Yield" title="s4agri:Yield">Yield</a></li>
+  </ul>
+  <div id='s4agri:Animal' class='entity'><a name='https://saref.etsi.org/saref4agri/Animal'></a>
+    <h3>Animal<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Animal</p>
+    <div class='comment'><p>
+    An individual and identifiable living organism that feeds on organic matter, typically having specialized sense organs and nervous system and able to respond rapidly to stimuli.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/FeatureOfInterest' title='Feature of interest: https://saref.etsi.org/core/'>saref:FeatureOfInterest</a><sup title='class' class='type-c'>c</sup><br/> <a href='http://purl.obolibrary.org/obo/TAXRANK_1000000' title='has taxon rank: <<no comment>>'>http://purl.obolibrary.org/obo/TAXRANK_1000000</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://purl.obolibrary.org/obo/TAXRANK_0000000' title='Taxon rank: <<no comment>>'>http://purl.obolibrary.org/obo/TAXRANK_0000000</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasBirthDate' title='has birth date: A relation to express the birth date of an animal.'>s4agri:hasBirthDate</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 <a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a><br/> <a href='#s4agri:hasDeathDate' title='has death date: A relation to express the death date of an animal.'>s4agri:hasDeathDate</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 <a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a><br/> <a href='#s4agri:hasID' title='has id: A relation to express the unique identifier of an animal.'>s4agri:hasID</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>max</span> 1 <a href='#s4agri:ID' title='ID: ID'>s4agri:ID</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 <a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a><br/> <a href='#s4agri:isLocatedIn' title='is located in: A relation to express the physical location of a saref4agri entity (e.g., an animal)'>s4agri:isLocatedIn</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:isMemberOf' title='is member of: A relation to express that an animal can be part of groups.'>s4agri:isMemberOf</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:AnimalGroup' title='Animal Group: A collection of one or multiple animals.'>s4agri:AnimalGroup</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:AnimalGroup' class='entity'><a name='https://saref.etsi.org/saref4agri/AnimalGroup'></a>
+    <h3>Animal Group<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/AnimalGroup</p>
+    <div class='comment'><p>
+    A collection of one or multiple animals.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/FeatureOfInterest' title='Feature of interest: https://saref.etsi.org/core/'>saref:FeatureOfInterest</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasMember' title='has member: A relation to represent  the members of an AnimalGroup.'>s4agri:hasMember</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Animal' title='Animal: An individual and identifiable living organism that feeds on organic matter, typically having specialized sense organs and nervous system and able to respond rapidly to stimuli.'>s4agri:Animal</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 <a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a><br/> <a href='#s4agri:isLocatedIn' title='is located in: A relation to express the physical location of a saref4agri entity (e.g., an animal)'>s4agri:isLocatedIn</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Building' class='entity'><a name='https://saref.etsi.org/saref4agri/Building'></a>
+    <h3>Building<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Building</p>
+    <div class='comment'><p>
+    A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space).</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:contains' title='contains: contains'>s4agri:contains</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:BuildingSpace' title='Building space: An entity used to define the physical spaces of the building. A building space contains devices or building objects.'>s4agri:BuildingSpace</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 </dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:BuildingSpace' class='entity'><a name='https://saref.etsi.org/saref4agri/BuildingSpace'></a>
+    <h3>Building space<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/BuildingSpace</p>
+    <div class='comment'><p>
+    An entity used to define the physical spaces of the building. A building space contains devices or building objects.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Crop' class='entity'><a name='https://saref.etsi.org/saref4agri/Crop'></a>
+    <h3>Crop<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Crop</p>
+    <div class='comment'><p>
+    A collection of cultivated plants that is grown on a large scale commercially, especially a cereal, fruit, or vegetable.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/FeatureOfInterest' title='Feature of interest: https://saref.etsi.org/core/'>saref:FeatureOfInterest</a><sup title='class' class='type-c'>c</sup><br/> <a href='http://purl.obolibrary.org/obo/TAXRANK_1000000' title='has taxon rank: <<no comment>>'>http://purl.obolibrary.org/obo/TAXRANK_1000000</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://purl.obolibrary.org/obo/TAXRANK_0000000' title='Taxon rank: <<no comment>>'>http://purl.obolibrary.org/obo/TAXRANK_0000000</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasHarvestDate' title='has harvest date: A relation to express the day the crop is harvested.'>s4agri:hasHarvestDate</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>some</span> <a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a><br/> <a href='#s4agri:hasPlantDate' title='has plant date: A relation to express the day the crop is planted.'>s4agri:hasPlantDate</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>some</span> <a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Deployment' class='entity'><a name='https://saref.etsi.org/saref4agri/Deployment'></a>
+    <h3>Deployment<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Deployment</p>
+    <div class='comment'><p>
+    Deployment<br/>The scenario, including temporal and spatial information, in which the systems and devices are installed.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.w3.org/ns/ssn/Deployment' title='Deployment: <<no comment>>'>ssn:Deployment</a><sup title='class' class='type-c'>c</sup><br/> <a href='http://www.w3.org/ns/ssn/deployedOnPlatform' title='deployed on platform: Relation between a deployment and the platform(s) involved in the deployment.'>ssn:deployedOnPlatform</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.w3.org/ns/sosa/Platform' title='Platform: A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms (definition taken from http://www.w3.org/ns/sosa/Platform)'>sosa:Platform</a><sup title='class' class='type-c'>c</sup><br/> <a href='http://www.w3.org/ns/ssn/deployedSystem' title='deployed system: Relation between a deployment and the system deployed.'>ssn:deployedSystem</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.w3.org/ns/ssn/System' title='System: System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems. (Definition taken from http://www.w3.org/ns/ssn/System)'>ssn:System</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasDeploymentPeriod' title='has deployment period: Relation to indicate the temporal duration or period of a deployment.'>s4agri:hasDeploymentPeriod</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.w3.org/2006/time#TemporalEntity' title='Temporal entity: A temporal interval or instant.'>time:TemporalEntity</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:isDeployedAtSpace' title='is deployed at space: Relation to indicate the geographical componet of a deployment.'>s4agri:isDeployedAtSpace</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='http://www.opengis.net/ont/geosparql#SpatialObject' title='SpatialObject: The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry.'>geo:SpatialObject</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:EatingActivitySensor' class='entity'><a name='https://saref.etsi.org/saref4agri/EatingActivitySensor'></a>
+    <h3>Eating activity sensor<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/EatingActivitySensor</p>
+    <div class='comment'><p>
+    Eating activity sensor</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Farm' class='entity'><a name='https://saref.etsi.org/saref4agri/Farm'></a>
+    <h3>Farm<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Farm</p>
+    <div class='comment'><p>
+    A plot of land used for the scope of farming which can contain buildings and parcels.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:contains' title='contains: contains'>s4agri:contains</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Building' title='Building: A building represents a structure that provides shelter for its occupants or contents and stands in one place. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space).'>s4agri:Building</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:contains' title='contains: contains'>s4agri:contains</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Parcel' title='Parcel: An area of land, which might be used for grazing animals or planting crops. The parcel is defined as an undividable logical area of land which contains homogeneous items.'>s4agri:Parcel</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 </dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:FarmHolding' class='entity'><a name='https://saref.etsi.org/saref4agri/FarmHolding'></a>
+    <h3>Farm holding<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/FarmHolding</p>
+    <div class='comment'><p>
+    A class to decsribe a saref4agri farm holding as subcass of an org:Organization</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://schema.org/Organization' title='Organization: <<no comment>>'>https://schema.org/Organization</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>only</span> <a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a><br/> <a href='#s4agri:managesFarm' title='manages farm: manages farm'>s4agri:managesFarm</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Farm' title='Farm: A plot of land used for the scope of farming which can contain buildings and parcels.'>s4agri:Farm</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Farmer' class='entity'><a name='https://saref.etsi.org/saref4agri/Farmer'></a>
+    <h3>Farmer<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Farmer</p>
+    <div class='comment'><p>
+    A class to decsribe a saref4agri farmer as subcass of a foaf:Person</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://xmlns.com/foaf/0.1/Person' title='Person: <<no comment>>'>foaf:Person</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>only</span> <a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a><br/> <a href='#s4agri:managesFarm' title='manages farm: manages farm'>s4agri:managesFarm</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Farm' title='Farm: A plot of land used for the scope of farming which can contain buildings and parcels.'>s4agri:Farm</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:ID' class='entity'><a name='https://saref.etsi.org/saref4agri/ID'></a>
+    <h3>ID<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/ID</p>
+    <div class='comment'><p>
+    ID</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      
+      
+      
+      <dt>is in range of</dt><dd><a href='#s4agri:hasID' title='has id: A relation to express the unique identifier of an animal.'>s4agri:hasID</a><sup title='class' class='type-c'>c</sup></dd>
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Intake' class='entity'><a name='https://saref.etsi.org/saref4agri/Intake'></a>
+    <h3>Intake<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Intake</p>
+    <div class='comment'><p>
+    The amount of food or other substance taken into the body of an animal or into the soil.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:MilkingSensor' class='entity'><a name='https://saref.etsi.org/saref4agri/MilkingSensor'></a>
+    <h3>Milking sensor<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/MilkingSensor</p>
+    <div class='comment'><p>
+    Milking sensor</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:MovementActivitySensor' class='entity'><a name='https://saref.etsi.org/saref4agri/MovementActivitySensor'></a>
+    <h3>Movement activity sensor<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/MovementActivitySensor</p>
+    <div class='comment'><p>
+    Movement activity sensor</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Parcel' class='entity'><a name='https://saref.etsi.org/saref4agri/Parcel'></a>
+    <h3>Parcel<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Parcel</p>
+    <div class='comment'><p>
+    An area of land, which might be used for grazing animals or planting crops. The parcel is defined as an undividable logical area of land which contains homogeneous items.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.opengis.net/ont/geosparql#Feature' title='Feature: This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types.'>geo:Feature</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:contains' title='contains: contains'>s4agri:contains</a><sup title='object property' class='type-op'>op</sup> <span class='logic'>some</span> <a href='#s4agri:Crop' title='Crop: A collection of cultivated plants that is grown on a large scale commercially, especially a cereal, fruit, or vegetable.'>s4agri:Crop</a><sup title='class' class='type-c'>c</sup><br/> <a href='#s4agri:hasName' title='has name: A relation to express the name of an entity (e.g.,animal).'>s4agri:hasName</a><sup title='data property' class='type-dp'>dp</sup> <span class='logic'>max</span> 1 <a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Platform' class='entity'><a name='https://saref.etsi.org/saref4agri/Platform'></a>
+    <h3>Platform<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Platform</p>
+    <div class='comment'><p>
+    Platform</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.w3.org/ns/sosa/Platform' title='Platform: A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms (definition taken from http://www.w3.org/ns/sosa/Platform)'>sosa:Platform</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Pluviometer' class='entity'><a name='https://saref.etsi.org/saref4agri/Pluviometer'></a>
+    <h3>Pluviometer<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Pluviometer</p>
+    <div class='comment'><p>
+    A sensor that measures the rain fall.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Soil' class='entity'><a name='https://saref.etsi.org/saref4agri/Soil'></a>
+    <h3>Soil<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Soil</p>
+    <div class='comment'><p>
+    Upper layer of the earth in which plants grow.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/FeatureOfInterest' title='Feature of interest: https://saref.etsi.org/core/'>saref:FeatureOfInterest</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:SoilTensiometer' class='entity'><a name='https://saref.etsi.org/saref4agri/SoilTensiometer'></a>
+    <h3>Soil tensiometer<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/SoilTensiometer</p>
+    <div class='comment'><p>
+    A sensor that measures the soil moisture.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Thermometer' class='entity'><a name='https://saref.etsi.org/saref4agri/Thermometer'></a>
+    <h3>Thermometer<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Thermometer</p>
+    <div class='comment'><p>
+    Thermometer</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:WateringGun' class='entity'><a name='https://saref.etsi.org/saref4agri/WateringGun'></a>
+    <h3>Watering gun<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/WateringGun</p>
+    <div class='comment'><p>
+    An actuator to irrigate an space.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Actuator' title='Actuator: <<no comment>>'>saref:Actuator</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:WateringSystem' class='entity'><a name='https://saref.etsi.org/saref4agri/WateringSystem'></a>
+    <h3>Watering system<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/WateringSystem</p>
+    <div class='comment'><p>
+    Watering system</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.w3.org/ns/ssn/System' title='System: System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems. (Definition taken from http://www.w3.org/ns/ssn/System)'>ssn:System</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:WateringValve' class='entity'><a name='https://saref.etsi.org/saref4agri/WateringValve'></a>
+    <h3>Watering valve<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/WateringValve</p>
+    <div class='comment'><p>
+    Watering valve</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Actuator' title='Actuator: <<no comment>>'>saref:Actuator</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:WeatherStation' class='entity'><a name='https://saref.etsi.org/saref4agri/WeatherStation'></a>
+    <h3>Weather station<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/WeatherStation</p>
+    <div class='comment'><p>
+    A sensor o system that measure weather conditions.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='http://www.w3.org/ns/ssn/System' title='System: System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems. (Definition taken from http://www.w3.org/ns/ssn/System)'>ssn:System</a><sup title='class' class='type-c'>c</sup><br/> <a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:WeightSensor' class='entity'><a name='https://saref.etsi.org/saref4agri/WeightSensor'></a>
+    <h3>Weight sensor<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/WeightSensor</p>
+    <div class='comment'><p>
+    Weight sensor</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      <dt>has super-classes</dt><dd><a href='https://saref.etsi.org/core/Sensor' title='Sensor: <<no comment>>'>saref:Sensor</a><sup title='class' class='type-c'>c</sup></dd>
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+  <div id='s4agri:Yield' class='entity'><a name='https://saref.etsi.org/saref4agri/Yield'></a>
+    <h3>Yield<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#classes'>Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Yield</p>
+    <div class='comment'><p>
+    The produced amount of food for animals or of agricultural products.</p></div>   
+      <div class='description'><dl>
+      
+      
+      
+      
+      
+      
+       
+    
+    </dl></div>
+  </div>
+</div>
+
+
+
+<div id='objectproperties'>
+  <h2>Object Properties</h2>
+  
+  <ul class='hlist'>  
+    <li><a href="#s4agri:contains" title="s4agri:contains">contains</a></li>  
+    <li><a href="#s4agri:generates" title="s4agri:generates">generates</a></li>  
+    <li><a href="#s4agri:hasDeploymentPeriod" title="s4agri:hasDeploymentPeriod">has deployment period</a></li>  
+    <li><a href="#s4agri:hasID" title="s4agri:hasID">has id</a></li>  
+    <li><a href="#s4agri:hasMember" title="s4agri:hasMember">has member</a></li>  
+    <li><a href="#s4agri:hasReceived" title="s4agri:hasReceived">has received</a></li>  
+    <li><a href="#s4agri:isContainedIn" title="s4agri:isContainedIn">is contained in</a></li>  
+    <li><a href="#s4agri:isDeployedAtSpace" title="s4agri:isDeployedAtSpace">is deployed at space</a></li>  
+    <li><a href="#s4agri:isLocatedIn" title="s4agri:isLocatedIn">is located in</a></li>  
+    <li><a href="#s4agri:isLocationOf" title="s4agri:isLocationOf">is location of</a></li>  
+    <li><a href="#s4agri:isMemberOf" title="s4agri:isMemberOf">is member of</a></li>  
+    <li><a href="#s4agri:managesFarm" title="s4agri:managesFarm">manages farm</a></li>  
+    <li><a href="#s4agri:receives" title="s4agri:receives">receives</a></li>
+  </ul>
+  <div id='s4agri:contains' class='entity'><a name='https://saref.etsi.org/saref4agri/contains'></a>
+    <h3>contains<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/contains</p>
+    <div class='comment'><p>
+    contains</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>has super-properties</dt><dd><a href='http://www.opengis.net/ont/geosparql#sfContains' title='contains: Exists if the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*'>geo:sfContains</a><sup title='object property' class='type-op'>op</sup></dd>
+      <dt>is inverse of</dt><dd><a href='#s4agri:isContainedIn' title='is contained in: is contained in'>s4agri:isContainedIn</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:generates' class='entity'><a name='https://saref.etsi.org/saref4agri/generates'></a>
+    <h3>generates<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/generates</p>
+    <div class='comment'><p>
+    A relation to represent the yield generated by a Crop.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>has super-properties</dt><dd><a href='https://saref.etsi.org/core/hasProperty' title='has property: Relation between a feature of interest and its properties.'>saref:hasProperty</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:hasDeploymentPeriod' class='entity'><a name='https://saref.etsi.org/saref4agri/hasDeploymentPeriod'></a>
+    <h3>has deployment period<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasDeploymentPeriod</p>
+    <div class='comment'><p>
+    Relation to indicate the temporal duration or period of a deployment.<br/>has deployment period</p></div>   
+        
+      <div class='description'><dl>
+        
+      </dl></div>
+  </div>
+  <div id='s4agri:hasID' class='entity'><a name='https://saref.etsi.org/saref4agri/hasID'></a>
+    <h3>has id<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasID</p>
+    <div class='comment'><p>
+    A relation to express the unique identifier of an animal.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>has super-properties</dt><dd><a href='#owl:topObjectProperty' title='http://www.w3.org/2002/07/owl#topObjectProperty'>owl:topObjectProperty</a><sup title='object property' class='type-op'>op</sup></dd>
+      <dt>has range</dt><dd><a href='#s4agri:ID' title='ID: ID'>s4agri:ID</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:hasMember' class='entity'><a name='https://saref.etsi.org/saref4agri/hasMember'></a>
+    <h3>has member<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasMember</p>
+    <div class='comment'><p>
+    A relation to represent  the members of an AnimalGroup.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:isMemberOf' title='is member of: A relation to express that an animal can be part of groups.'>s4agri:isMemberOf</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:hasReceived' class='entity'><a name='https://saref.etsi.org/saref4agri/hasReceived'></a>
+    <h3>has received<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasReceived</p>
+    <div class='comment'><p>
+    has received</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:receives' title='receives: A relation to represent the intake/consumption of certain substances in a Crop.'>s4agri:receives</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:isContainedIn' class='entity'><a name='https://saref.etsi.org/saref4agri/isContainedIn'></a>
+    <h3>is contained in<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/isContainedIn</p>
+    <div class='comment'><p>
+    is contained in</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:contains' title='contains: contains'>s4agri:contains</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:isDeployedAtSpace' class='entity'><a name='https://saref.etsi.org/saref4agri/isDeployedAtSpace'></a>
+    <h3>is deployed at space<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/isDeployedAtSpace</p>
+    <div class='comment'><p>
+    Relation to indicate the geographical componet of a deployment.<br/>is deployed at space</p></div>   
+        
+      <div class='description'><dl>
+        
+      </dl></div>
+  </div>
+  <div id='s4agri:isLocatedIn' class='entity'><a name='https://saref.etsi.org/saref4agri/isLocatedIn'></a>
+    <h3>is located in<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/isLocatedIn</p>
+    <div class='comment'><p>
+    A relation to express the physical location of a saref4agri entity (e.g., an animal)</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:isLocationOf' title='is location of: is location of'>s4agri:isLocationOf</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:isLocationOf' class='entity'><a name='https://saref.etsi.org/saref4agri/isLocationOf'></a>
+    <h3>is location of<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/isLocationOf</p>
+    <div class='comment'><p>
+    is location of</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:isLocatedIn' title='is located in: A relation to express the physical location of a saref4agri entity (e.g., an animal)'>s4agri:isLocatedIn</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:isMemberOf' class='entity'><a name='https://saref.etsi.org/saref4agri/isMemberOf'></a>
+    <h3>is member of<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/isMemberOf</p>
+    <div class='comment'><p>
+    A relation to express that an animal can be part of groups.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>is inverse of</dt><dd><a href='#s4agri:hasMember' title='has member: A relation to represent  the members of an AnimalGroup.'>s4agri:hasMember</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:managesFarm' class='entity'><a name='https://saref.etsi.org/saref4agri/managesFarm'></a>
+    <h3>manages farm<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/managesFarm</p>
+    <div class='comment'><p>
+    manages farm</p></div>   
+        
+      <div class='description'><dl>
+        
+      </dl></div>
+  </div>
+  <div id='s4agri:receives' class='entity'><a name='https://saref.etsi.org/saref4agri/receives'></a>
+    <h3>receives<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#objectproperties'>Object Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/receives</p>
+    <div class='comment'><p>
+    A relation to represent the intake/consumption of certain substances in a Crop.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>has super-properties</dt><dd><a href='https://saref.etsi.org/core/hasMeasurement' title='is feature of interest of: Relation betwwen a feature of interest and the measurments that are about it.'>saref:hasMeasurement</a><sup title='object property' class='type-op'>op</sup></dd>
+      <dt>is inverse of</dt><dd><a href='#s4agri:hasReceived' title='has received: has received'>s4agri:hasReceived</a><sup title='object property' class='type-op'>op</sup></dd>
+      </dl></div>
+  </div>
+</div>
+
+
+
+<div id='dataproperties'>
+  <h2>Data Properties</h2>
+  <ul class='hlist'>  
+    <li><a href="#s4agri:hasBirthDate" title="s4agri:hasBirthDate">has birth date</a></li>  
+    <li><a href="#s4agri:hasDeathDate" title="s4agri:hasDeathDate">has death date</a></li>  
+    <li><a href="#s4agri:hasHarvestDate" title="s4agri:hasHarvestDate">has harvest date</a></li>  
+    <li><a href="#s4agri:hasName" title="s4agri:hasName">has name</a></li>  
+    <li><a href="#s4agri:hasPlantDate" title="s4agri:hasPlantDate">has plant date</a></li>
+  </ul>
+  <div id='s4agri:hasBirthDate' class='entity'><a name='https://saref.etsi.org/saref4agri/hasBirthDate'></a>
+    <h3>has birth date<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#dataproperties'>Data Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasBirthDate</p>
+    <div class='comment'><p>
+    A relation to express the birth date of an animal.</p></div>
+    <div class='description'><dl>
+      <dt>has range</dt><dd><a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a></dd>
+    </dl></div>
+  </div>
+  <div id='s4agri:hasDeathDate' class='entity'><a name='https://saref.etsi.org/saref4agri/hasDeathDate'></a>
+    <h3>has death date<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#dataproperties'>Data Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasDeathDate</p>
+    <div class='comment'><p>
+    A relation to express the death date of an animal.</p></div>
+    <div class='description'><dl>
+      <dt>has range</dt><dd><a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a></dd>
+    </dl></div>
+  </div>
+  <div id='s4agri:hasHarvestDate' class='entity'><a name='https://saref.etsi.org/saref4agri/hasHarvestDate'></a>
+    <h3>has harvest date<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#dataproperties'>Data Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasHarvestDate</p>
+    <div class='comment'><p>
+    A relation to express the day the crop is harvested.</p></div>
+    <div class='description'><dl>
+      <dt>has super-properties</dt><dd><a href='#owl:topDataProperty' title='http://www.w3.org/2002/07/owl#topDataProperty'>owl:topDataProperty</a><sup title='data property' class='type-dp'>dp</sup></dd>
+      <dt>has range</dt><dd><a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a></dd>
+    </dl></div>
+  </div>
+  <div id='s4agri:hasName' class='entity'><a name='https://saref.etsi.org/saref4agri/hasName'></a>
+    <h3>has name<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#dataproperties'>Data Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasName</p>
+    <div class='comment'><p>
+    A relation to express the name of an entity (e.g.,animal).</p></div>
+    <div class='description'><dl>
+      <dt>has range</dt><dd><a href='http://www.w3.org/2001/XMLSchema#string' title='http://www.w3.org/2001/XMLSchema#string'>xsd:string</a></dd>
+    </dl></div>
+  </div>
+  <div id='s4agri:hasPlantDate' class='entity'><a name='https://saref.etsi.org/saref4agri/hasPlantDate'></a>
+    <h3>has plant date<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#dataproperties'>Data Property ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/hasPlantDate</p>
+    <div class='comment'><p>
+    A relation to express the day the crop is planted.</p></div>
+    <div class='description'><dl>
+      <dt>has super-properties</dt><dd><a href='#owl:topDataProperty' title='http://www.w3.org/2002/07/owl#topDataProperty'>owl:topDataProperty</a><sup title='data property' class='type-dp'>dp</sup></dd>
+      <dt>has range</dt><dd><a href='http://www.w3.org/2001/XMLSchema#dateTime' title='http://www.w3.org/2001/XMLSchema#dateTime'>xsd:dateTime</a></dd>
+    </dl></div>
+  </div>
+</div>
+
+
+
+<div id='namedindividuals'>
+  <h2>Named Individuals</h2>
+  <ul class='hlist'>  
+    <li>
+    <a href='#s4agri:AirTemperature' title='s4agri:AirTemperature'>Air temperature</a>
+    </li>  
+    <li>
+    <a href='#s4agri:AmbientHumidity' title='s4agri:AmbientHumidity'>Ambient humidity</a>
+    </li>  
+    <li>
+    <a href='#s4agri:IrrigationWater' title='s4agri:IrrigationWater'>Irrigation water</a>
+    </li>  
+    <li>
+    <a href='#s4agri:PlantGrowthStage' title='s4agri:PlantGrowthStage'>Plant growth stage</a>
+    </li>  
+    <li>
+    <a href='#s4agri:Precipitation' title='s4agri:Precipitation'>Precipitation</a>
+    </li>  
+    <li>
+    <a href='#s4agri:SoilMoisture' title='s4agri:SoilMoisture'>Soil moisture</a>
+    </li>  
+    <li>
+    <a href='#s4agri:SoilTemperature' title='s4agri:SoilTemperature'>Soil temperature</a>
+    </li>
+  </ul>
+  <div id='s4agri:AirTemperature' class='entity'><a name='https://saref.etsi.org/saref4agri/AirTemperature'></a>
+    <h3>Air temperature<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/AirTemperature</p>
+    <div class='comment'><p>
+    The degree or intensity of heat present in the air.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Temperature' title='Temperature: A saref:Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin)'>saref:Temperature</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:AmbientHumidity' class='entity'><a name='https://saref.etsi.org/saref4agri/AmbientHumidity'></a>
+    <h3>Ambient humidity<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/AmbientHumidity</p>
+    <div class='comment'><p>
+    The amount of water vapour in the air.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Humidity' title='Humidiy, aka Humidity: A saref:Property related to some measurements that are characterized by a certain value that is measured in a humidity unit'>saref:Humidity</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:IrrigationWater' class='entity'><a name='https://saref.etsi.org/saref4agri/IrrigationWater'></a>
+    <h3>Irrigation water<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/IrrigationWater</p>
+    <div class='comment'><p>
+    The amount of water falling in the soil by irrigation methods.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Property' title='Property: Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended.'>saref:Property</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:PlantGrowthStage' class='entity'><a name='https://saref.etsi.org/saref4agri/PlantGrowthStage'></a>
+    <h3>Plant growth stage<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/PlantGrowthStage</p>
+    <div class='comment'><p>
+    The level or stage of growth of the plant.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Property' title='Property: Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended.'>saref:Property</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:Precipitation' class='entity'><a name='https://saref.etsi.org/saref4agri/Precipitation'></a>
+    <h3>Precipitation<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/Precipitation</p>
+    <div class='comment'><p>
+    The amount of water falling in the soil by natural process (e.g. rain).</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Property' title='Property: Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended.'>saref:Property</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:SoilMoisture' class='entity'><a name='https://saref.etsi.org/saref4agri/SoilMoisture'></a>
+    <h3>Soil moisture<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/SoilMoisture</p>
+    <div class='comment'><p>
+    The amount of water or humidity contained in the soil.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Property' title='Property: Anything that can be sensed, measured or controlled in households, common public buildings or offices. We propose here a list of properties that are relevant for the purpose of SAREF, but this list can be extended.'>saref:Property</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+  <div id='s4agri:SoilTemperature' class='entity'><a name='https://saref.etsi.org/saref4agri/SoilTemperature'></a>
+    <h3>Soil temperature<span class='backlink'> back to <a href='#toc'>ToC</a> or <a href='#namedindividuals'>Named Individuals ToC</a></span></h3>
+    <p><strong>IRI:</strong> https://saref.etsi.org/saref4agri/SoilTemperature</p>
+    <div class='comment'><p>
+    The degree or intensity of heat present in the soil.</p></div>   
+        
+      <div class='description'><dl>
+        
+      <dt>belongs to</dt><dd><a href='https://saref.etsi.org/core/Temperature' title='Temperature: A saref:Property related to some measurements that are characterized by a certain value that is measured in a temperature unit (degree_Celsius, degree_Fahrenheit, or degree_kelvin)'>saref:Temperature</a><sup title='class' class='type-c'>c</sup></dd>
+      </dl></div>
+  </div>
+</div>
+
+
+<h2 id="references">References</h2>
+<h3>Normative references</h3>
+
+<ul>
+  <li id="[1]">[1] ETSI TS 103 264 (V3.1.1) (02-2020): "SmartM2M; Smart Applications; Reference Ontology and oneM2M Mapping".</li>
+</ul>
+
+<h3>Informative references</h3>
+
+<ul>
+  <li id="[i.1]">[i.1] ETSI TR 103 411 (V1.1.1) (2017-02): "SmartM2M Smart Appliances SAREF extension investigation".</li>
+  <li id="[i.2]">[i.2] ETSI TR 103 511 (V1.1.1) (2018-10): "SmartM2M; SAREF extension investigation; Requirements for AgriFood domain".</li>
+  <li id="[i.3]">[i.3] ETSI TS 103 410-4 (V1.1.2) (2020-04): "SmartM2M; Extension to SAREF; Part 4: Smart Cities Domain".</li>
+  <li id="[i.4]">[i.4] Verhoosel J. and Spek J.: "Applying Ontologies in the Dairy Farming Domain for Big Data Analysis". Proceedings of the 1st Semantic Web Technologies for the Internet of Things (SWIT) 2016 workshop, co-located with 15th International Semantic Web Conference (ISWC 2016), Kobe, Japan, October 2016, pg. 91-100, CEUR.
+<br/>NOTE: Available at <a href="http://ceur-ws.org/Vol-1783/">http://ceur-ws.org/Vol-1783/</a>.</li>
+</ul>
+
+
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>The editors would like to thank the ETSI SmartM2M technical committee for providing guidance and expertise.</p>
+<p>Also, many thanks to the ETSI staff and all other current and former active Participants of the ETSI SmartM2M group for their support, technical input and suggestions that led to improvements to this ontology.</p>
+<p>Also, special thanks goes to the ETSI SmartM2M Technical Officer Guillemin Patrick for his help.</p>
+
+  </div>
+</section>
+<section>
+  <div class="container">
+    <nav id="toc">
+      <h2 class="introductory" id="table-of-contents">Term hierarchy</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="classes-toc-tab" data-toggle="tab" href="#classes-toc" role="tab" aria-controls="classes-toc" aria-selected="true">Classes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="objectproperties-toc-tab" data-toggle="tab" href="#objectproperties-toc" role="tab" aria-controls="profile" aria-selected="false">ObjectProperties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="dataproperties-toc-tab" data-toggle="tab" href="#dataproperties-toc" role="tab" aria-controls="profile" aria-selected="false">DataProperties</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane show active" id="classes-toc" role="tabpanel" aria-labelledby="classes-toc-tab">
+
+<ul>  
+  <li><a href="#http://purl.obolibrary.org/obo/TAXRANK_0000000" title="http://purl.obolibrary.org/obo/TAXRANK_0000000">Taxon rank</a></li>  
+  <li><a href="#geo:SpatialObject" title="geo:SpatialObject">SpatialObject</a>
+  <ul>  
+    <li><a href="#geo:Feature" title="geo:Feature">Feature</a>
+    <ul>  
+      <li><a href="#s4agri:Building" title="s4agri:Building">Building</a></li>  
+      <li><a href="#s4agri:BuildingSpace" title="s4agri:BuildingSpace">Building space</a></li>  
+      <li><a href="#s4agri:Farm" title="s4agri:Farm">Farm</a></li>  
+      <li><a href="#s4agri:Parcel" title="s4agri:Parcel">Parcel</a></li>
+    </ul></li>  
+    <li><a href="#geo:Geometry" title="geo:Geometry">Geometry</a>
+    <ul>  
+      <li><a href="#wgs84:Point" title="wgs84:Point">Point</a></li>
+    </ul></li>
+  </ul></li>  
+  <li><a href="#wgs84:SpatialThing" title="wgs84:SpatialThing">wgs84:SpatialThing</a></li>  
+  <li><a href="#time:TemporalEntity" title="time:TemporalEntity">Temporal entity</a>
+  <ul>  
+    <li><a href="#time:Instant" title="time:Instant">Instant</a></li>  
+    <li><a href="#time:Interval" title="time:Interval">Time interval</a></li>
+  </ul></li>  
+  <li><a href="#sosa:Platform" title="sosa:Platform">Platform</a>
+  <ul>  
+    <li><a href="#s4agri:Platform" title="s4agri:Platform">Platform</a></li>
+  </ul></li>  
+  <li><a href="#ssn:Deployment" title="ssn:Deployment">Deployment</a>
+  <ul>  
+    <li><a href="#s4agri:Deployment" title="s4agri:Deployment">Deployment</a></li>
+  </ul></li>  
+  <li><a href="#ssn:System" title="ssn:System">System</a>
+  <ul>  
+    <li><a href="#saref:Device" title="saref:Device">Device</a>
+    <ul>  
+      <li><a href="#saref:Actuator" title="saref:Actuator">Actuator</a>
+      <ul>  
+        <li><a href="#s4agri:WateringGun" title="s4agri:WateringGun">Watering gun</a></li>  
+        <li><a href="#s4agri:WateringValve" title="s4agri:WateringValve">Watering valve</a></li>
+      </ul></li>  
+      <li><a href="#saref:Sensor" title="saref:Sensor">Sensor</a>
+      <ul>  
+        <li><a href="#s4agri:EatingActivitySensor" title="s4agri:EatingActivitySensor">Eating activity sensor</a></li>  
+        <li><a href="#s4agri:MilkingSensor" title="s4agri:MilkingSensor">Milking sensor</a></li>  
+        <li><a href="#s4agri:MovementActivitySensor" title="s4agri:MovementActivitySensor">Movement activity sensor</a></li>  
+        <li><a href="#s4agri:Pluviometer" title="s4agri:Pluviometer">Pluviometer</a></li>  
+        <li><a href="#s4agri:SoilTensiometer" title="s4agri:SoilTensiometer">Soil tensiometer</a></li>  
+        <li><a href="#s4agri:Thermometer" title="s4agri:Thermometer">Thermometer</a></li>  
+        <li><a href="#s4agri:WeatherStation" title="s4agri:WeatherStation">Weather station</a></li>  
+        <li><a href="#s4agri:WeightSensor" title="s4agri:WeightSensor">Weight sensor</a></li>
+      </ul></li>
+    </ul></li>  
+    <li><a href="#s4agri:WateringSystem" title="s4agri:WateringSystem">Watering system</a></li>  
+    <li><a href="#s4agri:WeatherStation" title="s4agri:WeatherStation">Weather station</a></li>
+  </ul></li>  
+  <li><a href="#foaf:Agent" title="foaf:Agent">Agent</a>
+  <ul>  
+    <li><a href="#foaf:Person" title="foaf:Person">Person</a>
+    <ul>  
+      <li><a href="#s4agri:Farmer" title="s4agri:Farmer">Farmer</a></li>
+    </ul></li>  
+    <li><a href="#https://schema.org/Organization" title="https://schema.org/Organization">Organization</a>
+    <ul>  
+      <li><a href="#s4agri:FarmHolding" title="s4agri:FarmHolding">Farm holding</a></li>
+    </ul></li>
+  </ul></li>  
+  <li><a href="#saref:Command" title="saref:Command">Command</a></li>  
+  <li><a href="#saref:FeatureOfInterest" title="saref:FeatureOfInterest">Feature of interest</a>
+  <ul>  
+    <li><a href="#s4agri:Animal" title="s4agri:Animal">Animal</a></li>  
+    <li><a href="#s4agri:AnimalGroup" title="s4agri:AnimalGroup">Animal Group</a></li>  
+    <li><a href="#s4agri:Crop" title="s4agri:Crop">Crop</a></li>  
+    <li><a href="#s4agri:Soil" title="s4agri:Soil">Soil</a></li>
+  </ul></li>  
+  <li><a href="#saref:Function" title="saref:Function">Function</a></li>  
+  <li><a href="#saref:Measurement" title="saref:Measurement">Measurement</a></li>  
+  <li><a href="#saref:Property" title="saref:Property">Property</a>
+  <ul>  
+    <li><a href="#saref:Humidity" title="saref:Humidity">Humidiy, aka Humidity</a></li>  
+    <li><a href="#saref:Temperature" title="saref:Temperature">Temperature</a></li>  
+    <li><a href="#saref:Time" title="saref:Time">Time</a></li>
+  </ul></li>  
+  <li><a href="#saref:State" title="saref:State">State</a></li>  
+  <li><a href="#saref:Task" title="saref:Task">Task</a></li>  
+  <li><a href="#saref:UnitOfMeasure" title="saref:UnitOfMeasure">Unit of measure</a></li>  
+  <li><a href="#s4agri:ID" title="s4agri:ID">ID</a></li>  
+  <li><a href="#s4agri:Intake" title="s4agri:Intake">Intake</a></li>  
+  <li><a href="#s4agri:Yield" title="s4agri:Yield">Yield</a></li>
+</ul>
+          </div>
+          <div class="tab-pane" id="objectproperties-toc" role="tabpanel" aria-labelledby="objectproperties-toc-tab">
+
+<ul>  
+  <li><a href="#http://purl.obolibrary.org/obo/TAXRANK_1000000" title="http://purl.obolibrary.org/obo/TAXRANK_1000000">has taxon rank</a></li>  
+  <li><a href="#geo:hasGeometry" title="geo:hasGeometry">has geometry</a></li>  
+  <li><a href="#geo:sfContains" title="geo:sfContains">contains</a>
+  <ul>  
+    <li><a href="#s4agri:contains" title="s4agri:contains">contains</a></li>
+  </ul></li>  
+  <li><a href="#geo:sfWithin" title="geo:sfWithin">within</a></li>  
+  <li><a href="#owl:topObjectProperty" title="owl:topObjectProperty">owl:topObjectProperty</a>
+  <ul>  
+    <li><a href="#s4agri:hasID" title="s4agri:hasID">has id</a></li>
+  </ul></li>  
+  <li><a href="#wgs84:long" title="wgs84:long">longitude</a></li>  
+  <li><a href="#sosa:hosts" title="sosa:hosts">host</a></li>  
+  <li><a href="#sosa:isHostedBy" title="sosa:isHostedBy">is hosted by</a></li>  
+  <li><a href="#ssn:deployedOnPlatform" title="ssn:deployedOnPlatform">deployed on platform</a></li>  
+  <li><a href="#ssn:deployedSystem" title="ssn:deployedSystem">deployed system</a></li>  
+  <li><a href="#ssn:hasDeployment" title="ssn:hasDeployment">has deployment</a></li>  
+  <li><a href="#ssn:hasSubSystem" title="ssn:hasSubSystem">has subsystem</a></li>  
+  <li><a href="#ssn:inDeployment" title="ssn:inDeployment">in deployment</a></li>  
+  <li><a href="#foaf:based_near" title="foaf:based_near">foaf:based_near</a>
+  <ul>  
+    <li><a href="#wgs84:location" title="wgs84:location">location</a></li>
+  </ul></li>  
+  <li><a href="#foaf:member" title="foaf:member">member</a></li>  
+  <li><a href="#saref:accomplishes" title="saref:accomplishes">accomplishes</a></li>  
+  <li><a href="#saref:actsUpon" title="saref:actsUpon">acts upon</a></li>  
+  <li><a href="#saref:controlsProperty" title="saref:controlsProperty">controls property</a></li>  
+  <li><a href="#saref:hasCommand" title="saref:hasCommand">has command</a></li>  
+  <li><a href="#saref:hasFunction" title="saref:hasFunction">has function</a></li>  
+  <li><a href="#saref:hasMeasurement" title="saref:hasMeasurement">is feature of interest of</a>
+  <ul>  
+    <li><a href="#s4agri:receives" title="s4agri:receives">receives</a></li>
+  </ul></li>  
+  <li><a href="#saref:hasProperty" title="saref:hasProperty">has property</a>
+  <ul>  
+    <li><a href="#s4agri:generates" title="s4agri:generates">generates</a></li>
+  </ul></li>  
+  <li><a href="#saref:hasState" title="saref:hasState">has state</a></li>  
+  <li><a href="#saref:isAccomplishedBy" title="saref:isAccomplishedBy">is accomplished by</a></li>  
+  <li><a href="#saref:isCommandOf" title="saref:isCommandOf">is command of</a></li>  
+  <li><a href="#saref:isControlledByDevice" title="saref:isControlledByDevice">is controlled by device</a></li>  
+  <li><a href="#saref:isMeasuredByDevice" title="saref:isMeasuredByDevice">is measured by device</a></li>  
+  <li><a href="#saref:isMeasuredIn" title="saref:isMeasuredIn">is measured in</a></li>  
+  <li><a href="#saref:isMeasurementOf" title="saref:isMeasurementOf">has feature of interest</a></li>  
+  <li><a href="#saref:isPropertyOf" title="saref:isPropertyOf">is property of</a></li>  
+  <li><a href="#saref:makesMeasurement" title="saref:makesMeasurement">makes measurement</a></li>  
+  <li><a href="#saref:measurementMadeBy" title="saref:measurementMadeBy">measurement made by</a></li>  
+  <li><a href="#saref:measuresProperty" title="saref:measuresProperty">measures property</a></li>  
+  <li><a href="#saref:relatesToMeasurement" title="saref:relatesToMeasurement">relates to measurement</a></li>  
+  <li><a href="#saref:relatesToProperty" title="saref:relatesToProperty">relates to property</a></li>  
+  <li><a href="#s4agri:hasDeploymentPeriod" title="s4agri:hasDeploymentPeriod">has deployment period</a></li>  
+  <li><a href="#s4agri:hasMember" title="s4agri:hasMember">has member</a></li>  
+  <li><a href="#s4agri:hasReceived" title="s4agri:hasReceived">has received</a></li>  
+  <li><a href="#s4agri:isContainedIn" title="s4agri:isContainedIn">is contained in</a></li>  
+  <li><a href="#s4agri:isDeployedAtSpace" title="s4agri:isDeployedAtSpace">is deployed at space</a></li>  
+  <li><a href="#s4agri:isLocatedIn" title="s4agri:isLocatedIn">is located in</a></li>  
+  <li><a href="#s4agri:isLocationOf" title="s4agri:isLocationOf">is location of</a></li>  
+  <li><a href="#s4agri:isMemberOf" title="s4agri:isMemberOf">is member of</a></li>  
+  <li><a href="#s4agri:managesFarm" title="s4agri:managesFarm">manages farm</a></li>
+</ul>
+          </div>
+          <div class="tab-pane" id="dataproperties-toc" role="tabpanel" aria-labelledby="dataproperties-toc-tab">
+
+<ul>  
+  <li><a href="#owl:topDataProperty" title="owl:topDataProperty">owl:topDataProperty</a>
+  <ul>  
+    <li><a href="#s4agri:hasHarvestDate" title="s4agri:hasHarvestDate">has harvest date</a></li>  
+    <li><a href="#s4agri:hasPlantDate" title="s4agri:hasPlantDate">has plant date</a></li>
+  </ul></li>  
+  <li><a href="#wgs84:alt" title="wgs84:alt">altitude</a></li>  
+  <li><a href="#wgs84:lat" title="wgs84:lat">latitude</a></li>  
+  <li><a href="#saref:hasDescription" title="saref:hasDescription">has description</a></li>  
+  <li><a href="#saref:hasManufacturer" title="saref:hasManufacturer">has manufacturer</a></li>  
+  <li><a href="#saref:hasModel" title="saref:hasModel">has model</a></li>  
+  <li><a href="#saref:hasTimestamp" title="saref:hasTimestamp">has timestamp</a></li>  
+  <li><a href="#saref:hasValue" title="saref:hasValue">has value</a></li>  
+  <li><a href="#s4agri:hasBirthDate" title="s4agri:hasBirthDate">has birth date</a></li>  
+  <li><a href="#s4agri:hasDeathDate" title="s4agri:hasDeathDate">has death date</a></li>  
+  <li><a href="#s4agri:hasName" title="s4agri:hasName">has name</a></li>
+</ul>
+          </div>
+        </div>
+    </nav>
+  </div>
+</section>
+
+  <section>
+   <div class="g-container border-top" style="font-size:10pt">
+        <p><em>This documentation page was generated automatically using <a href="https://w3id.org/sparql-generate/">SPARQL-Generate</a>, developed by <a href="https://maxime-lefrancois.info/">Maxime Lefrançois</a>. The <a href="https://saref.etsi.org/">SAREF public portal</a>, the <a href="https://saref.etsi.org/sources/">SAREF sources</a> with continuous integration and deployment, the <a href="https://saref.etsi.org/sources/saref-pipeline/">SAREF Pipeline</a> software, and ETSI Technical Specification <a href="https://www.etsi.org/deliver/etsi_ts/103600_103699/103673/01.01.01_60/ts_103673v010101p.pdf">TS 103 673 v1.1.1 "SAREF Development Framework and Workflow, Streamlining the Development of SAREF and its Extensions"</a>, have been developed in the context of the <a href="https://portal.etsi.org/STF/STFs/STF-HomePages/STF578">ETSI STF 578</a>, which followed the <a href="https://portal.etsi.org/STF/STFs/STF-HomePages/STF556">ETSI STF 556</a>.<em><p>
+   </div>
+  </section>
+  <footer id="g-footer">
+  <div class="g-container">
+    <div class="g-grid">
+      <div class="g-block size-15">
+        <div class="g-content g-particle">
+          <a href="https://www.etsi.org/" title="" class="g-logo g-logo-helium">
+            <img src="https://forge.etsi.org/files/ETSI-Logo_BW_S_Office1.png" alt="" />
+          </a>
+        </div>
+      </div>
+      <div class="g-block size-20">
+        <div class="g-content g-particle">© ETSI 2020<br /><a style="font-size:10pt; color:white" href="https://www.etsi.org/">Visit ETSI website for more information on Terms & Conditions.</a></div>
+      </div>
+      <div class="g-block g-horizontalmenu size-40">
+        <div class="g-content g-particle">
+          <nav class="g-main-nav" role="navigation" data-g-hover-expand="true">
+            <ul class="g-toplevel">
+              <li class="g-menu-item g-menu-item-type-component g-menu-item-245 g-standard  ">
+                <a class="g-menu-item-container" href="https://forge.etsi.org/index.php/legal-matters">
+                  <span class="g-menu-item-content">
+                    <span class="g-menu-item-title">Legal matters</span>
+                  </span>
+                </a>
+              </li>
+              <li class="g-menu-item g-menu-item-type-url g-menu-item-247 g-standard  ">
+                <a class="g-menu-item-container" href="mailto:cti_support@etsi.org?subject=[SAREF]">
+                  <span class="g-menu-item-content">
+                    <span class="g-menu-item-title">Contact &amp; Support</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="g-block size-25">
+        <div class="g-content g-particle">
+          <div class="">
+            <div class="g-totop">
+              <a href="#" id="g-totop" rel="nofollow">Back to top <i class="fa fa-chevron-up fa-fw"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="../../static/lode/scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

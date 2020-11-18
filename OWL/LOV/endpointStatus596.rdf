@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF 
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+xmlns:owl="http://www.w3.org/2002/07/owl#" 
+xmlns:geonames="http://www.geonames.org/ontology#" 
+xmlns:dcterms="http://purl.org/dc/terms/" 
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:lingvoj="http://www.lingvoj.org/ontology#"
+xmlns:org="http://www.w3.org/ns/org#"
+xmlns:gr="http://purl.org/goodrelations/v1#"
+xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+ 
+ <foaf:Document rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf">
+  <dcterms:publisher rdf:resource="http://dbpedia.org/resource/Mondeca"/>
+  <dcterms:modified>2011-12-08</dcterms:modified>
+  <dc:title>Mondeca FOAF</dc:title>
+  <dc:description>A description of Mondeca team members using FOAF and other vocabularies</dc:description>
+  <foaf:primaryTopic rdf:resource="http://dbpedia.org/resource/Mondeca"/>
+  <rdfs:seeAlso rdf:resource="http://www.mondeca.com/Company/Team"/>
+ </foaf:Document>
+ 
+ <gr:BusinessEntity rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca">
+  <rdfs:label>Mondeca</rdfs:label>
+  <gr:legalName>Mondeca S.A.</gr:legalName>
+  <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mondeca"/>
+  <foaf:homepage rdf:resource="http://www.mondeca.com"/>
+  <geonames:locatedIn rdf:resource="http://sws.geonames.org/2988507/"/>
+  <geonames:based_near rdf:resource="http://sws.geonames.org/3029374/"/>
+  <foaf:holdsAccount rdf:resource="http://twitter.com/mondecanews"/>
+  <foaf:holdsAccount rdf:resource="https://plus.google.com/b/113444223443027646787/"/>
+  <rdfs:seeAlso rdf:resource="http://www.linkedin.com/company/mondeca"/>
+  <foaf:weblog>
+   <foaf:Document rdf:about="http://mondeca.wordpress.com">
+    <dc:title>Leçons de Choses</dc:title>
+    <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+   </foaf:Document>
+  </foaf:weblog>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#adecarrara"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ahuynh"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#amay"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#apolonsky"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#bcarcenac"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#bvatant"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#cteissedre"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#frouze"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#fthibault"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#gdelaporte"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ggrandon"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#hcherfi"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#jdelahousse"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#kaluru"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lbegin"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lrozat"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mcoste"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ocarloni"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#pyv"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#sselami"/>
+  <org:hasMember rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#tfrancart"/>
+  <lingvoj:hasWorkingLanguage rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+  <lingvoj:hasCommunicationLanguage rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+ </gr:BusinessEntity>
+ 
+ <gr:ProductOrServiceModel rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#ITM">
+  <gr:hasManufacturer rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+  <rdfs:label>Intelligent Topic Manager</rdfs:label>
+  <foaf:homepage>http://www.mondeca.com/index.php/en/products/itm</foaf:homepage>
+ </gr:ProductOrServiceModel>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#adecarrara">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-adecarrara">
+   <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+   <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#adecarrara"/>
+   <org:role>
+    <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer">
+     <skos:prefLabel xml:lang="en">R&amp;D engineer</skos:prefLabel>
+     <skos:prefLabel xml:lang="fr">Ingénieur R&amp;D</skos:prefLabel>
+    </org:Role>
+   </org:role>
+  </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Albane de Carrara</foaf:name>
+  <foaf:givenName>Albane</foaf:givenName>
+  <foaf:familyName>de Carrara</foaf:familyName>
+  <foaf:mbox>albane.decarrara@mondeca.com</foaf:mbox>
+  <foaf:skypeID>albane.decarrara</foaf:skypeID>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#ahuynh">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-ahuynh">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ahuynh"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Anh Huynh</foaf:name>
+  <foaf:givenName>Anh</foaf:givenName>
+  <foaf:familyName>Huynh</foaf:familyName>
+  <foaf:mbox>anh.huynh@mondeca.com</foaf:mbox>
+  <foaf:skypeID>anh.huynh6</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/anh-huynh/0/852/b92"/>
+ </foaf:Person>
+      
+      <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#amay">
+            <org:hasMembership> 
+                  <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-amay">
+                        <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+                        <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#amay"/>
+                        <org:role>
+                              <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#CEO">
+                                    <skos:prefLabel xml:lang="en">CEO</skos:prefLabel>
+                                    <skos:prefLabel xml:lang="fr">DG</skos:prefLabel>
+                              </org:Role>
+                        </org:role>
+                  </org:Membership>
+            </org:hasMembership> 
+            <foaf:name>André May</foaf:name>
+            <foaf:givenName>André</foaf:givenName>
+            <foaf:familyName>May</foaf:familyName>
+            <foaf:mbox>andre.may@mondeca.com</foaf:mbox>
+      </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#apolonsky">
+  <org:memberOf rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+  <foaf:name>Alexander Polonsky</foaf:name>
+  <foaf:givenName>Alexander</foaf:givenName>
+  <foaf:familyName>Polonsky</foaf:familyName>
+  <foaf:mbox>alexander.polonsky@mondeca.com</foaf:mbox>
+  <foaf:skypeID>apolonsk</foaf:skypeID>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#bcarcenac">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-bcarcenac">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#bcarcenac"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#HeadConsultant">
+      <skos:prefLabel xml:lang="en">Head Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Directeur Consulting</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Benoit Carcenac</foaf:name>
+  <foaf:givenName>Benoit</foaf:givenName>
+  <foaf:familyName>Carcenac</foaf:familyName>
+  <foaf:mbox>benoit.carcenac@mondeca.com</foaf:mbox>
+  <foaf:skypeID>benoit.carcenac</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/benoit-carcenac/2/176/677"/>
+ </foaf:Person>
+
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#bvatant">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-bvatant">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#bvatant"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#KnowledgeConsultant">
+      <skos:prefLabel xml:lang="en">Senior Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Consultant Senior</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <owl:seeAlso rdf:resource="http://dblp.l3s.de/d2r/page/authors/Bernard_Vatant"/>
+  <owl:seeAlso rdf:resource="http://ontoworld.org/wiki/Special:URIResolver/Bernard_Vatant"/>
+  <owl:seeAlso rdf:resource="http://www.lingvoj.org/foaf.rdf#bv"/>
+  <foaf:name>Bernard Vatant</foaf:name>
+  <foaf:givenName>Bernard</foaf:givenName>
+  <foaf:familyName>Vatant</foaf:familyName>
+  <foaf:nick>universimmedia</foaf:nick>
+  <foaf:nick>hubject</foaf:nick>
+  <foaf:made rdf:resource="http://www.inria.fr/actualites/colloques/2008/ist08/mondeca.pdf"/>
+  <foaf:made rdf:resource="http://www.geonames.org/ontology/ontology_v2.1.rdf"/>
+  <foaf:made rdf:resource="http://www.mondeca.com/lab/bernard/roue_vide.pdf"/>
+  <foaf:mbox>bernard.vatant@mondeca.com</foaf:mbox>
+  <foaf:weblog rdf:resource="http://blog.hubjects.com"/>
+  <foaf:homepage rdf:resource="http://pagesperso-orange.fr/universimmedia"/>
+  <foaf:holdsAccount rdf:resource="https://plus.google.com/114406186864069390644"/>
+  <foaf:holdsAccount rdf:resource="http://en.wikipedia.org/wiki/User:Universimmedia"/>
+  <geonames:locatedIn rdf:resource="http://sws.geonames.org/3014258/"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Linked_Data"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Knowledge_representation_and_reasoning"/>
+  <foaf:currentProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://datalift.org"/>
+    <rdfs:label xml:lang="fr">Datalift</rdfs:label>
+   </foaf:Project>
+  </foaf:currentProject>
+       <foaf:currentProject>
+             <foaf:Project>
+                   <foaf:homepage rdf:resource="http://labs.mondeca.com/dataset/lov/index.html"/>
+                   <rdfs:label xml:lang="fr">Linked Open Vocabularies</rdfs:label>
+             </foaf:Project>
+       </foaf:currentProject>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#cteissedre">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-cteissedre">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#cteissedre"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Charles Teissèdre</foaf:name>
+  <foaf:givenName>Charles</foaf:givenName>
+  <foaf:familyName>Teissèdre</foaf:familyName>
+  <foaf:mbox>charles.teissedre@mondeca.com</foaf:mbox>
+  <foaf:skypeID>charles.teissedre1</foaf:skypeID>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh">
+  <owl:seeAlso rdf:resource="http://dblp.l3s.de/d2r/page/authors/Florence_Amardeilh"/>
+  <owl:seeAlso rdf:resource="http://semanticweb.org/wiki/Florence_Amardeilh"/>
+  <rdfs:seeAlso rdf:resource="http://videolectures.net/florence_amardeilh/"/>
+  <rdfs:seeAlso rdf:resource="http://en.scientificcommons.org/florence_amardeilh/"/>
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-famardeilh">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Head">
+      <skos:prefLabel xml:lang="en">Head of R&amp;D</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Responsable R&amp;D</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Florence Amardeilh</foaf:name>
+  <foaf:givenName>Florence</foaf:givenName>
+  <foaf:familyName>Amardeilh</foaf:familyName>
+  <foaf:mbox>florence.amardeilh@mondeca.com</foaf:mbox>
+  <foaf:skypeID>florence.amardeilh1</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/florence-amardeilh/1/678/146"/>
+  <foaf:holdsAccount rdf:resource="http://www.viadeo.com/fr/profile/florence.amardeilh"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00488145"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00430812"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00411249"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00411230"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00411247"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00411266"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00380551"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00380552"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00400097"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00348925"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/tel-00146213"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00115243"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00115255"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00115252"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00102591"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00097820"/>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/hal-00022148"/>
+  <foaf:homepage rdf:resource="http://www.modyco.fr/index.php?option=com_community&amp;view=profile&amp;userid=110"/>
+  <foaf:currentProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://dafoe4app.fr"/>
+    <rdfs:label>DaFOE4App  </rdfs:label>
+   </foaf:Project>
+  </foaf:currentProject>
+  <foaf:currentProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://vigitermes.univ-rennes1.fr"/>
+    <rdfs:label xml:lang="fr">Vigitermes</rdfs:label>
+   </foaf:Project>
+  </foaf:currentProject>
+  <foaf:pastProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://www.tao-project.eu/"/>
+    <rdfs:label xml:lang="en">Transitioning Applications to Ontologies</rdfs:label>
+   </foaf:Project>
+  </foaf:pastProject>
+  <foaf:pastProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://www.projet-eiffel.org/"/>
+    <rdfs:label xml:lang="fr">Projet Eiffel</rdfs:label>
+   </foaf:Project>
+  </foaf:pastProject>
+  <foaf:pastProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://terranumerica.com/"/>
+    <rdfs:label xml:lang="fr">Terra Numerica</rdfs:label>
+   </foaf:Project>
+  </foaf:pastProject>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Category:Knowledge_representation"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Knowledge_management"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Information_technology"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Semantic_Web"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Resource_Description_Framework"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Web_Ontology_Language"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Social_web"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#frouze">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-frouze">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#frouze"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#TourismConsultant">
+      <skos:prefLabel xml:lang="en">Culture and Tourism Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Consultant tourisme et culture</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>François Rouzé</foaf:name>
+  <foaf:givenName>François</foaf:givenName>
+  <foaf:familyName>Rouzé</foaf:familyName>
+  <foaf:mbox>francois.rouze@mondeca.com</foaf:mbox>
+  <foaf:skypeID>francois.rouze</foaf:skypeID>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#fthibault">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-fthibault">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#fthibault"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#HeadInternationalSales">
+      <skos:prefLabel xml:lang="en">Head of International Sales</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Directeur du développement international</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>François Thibault</foaf:name>
+  <foaf:givenName>François</foaf:givenName>
+  <foaf:familyName>Thibault</foaf:familyName>
+  <foaf:mbox>francois.thibault@mondeca.com</foaf:mbox>
+  <foaf:skypeID>fthibault</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/in/francoisthibault"/>
+  <foaf:holdsAccount rdf:resource="http://twitter.com/mctibald"/>
+  <foaf:img rdf:resource="http://media03.linkedin.com/mpr/mpr/shrink_80_80/p/1/000/003/330/2d37210.jpg"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#gdelaporte">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-gdelaporte">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#gdelaporte"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#SalesManager">
+      <skos:prefLabel xml:lang="en">Sales Manager</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Directeur commercial</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Gilles Delaporte</foaf:name>
+  <foaf:givenName>Gilles</foaf:givenName>
+  <foaf:familyName>Delaporte</foaf:familyName>
+  <foaf:mbox>gilles.delaporte@mondeca.com</foaf:mbox>
+  <foaf:skypeID>gilles.delaporte</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/gilles-delaporte/0/401/5a8"/>
+  <foaf:holdsAccount rdf:resource="http://twitter.com/gillesdelaporte"/>
+  <foaf:made rdf:resource="http://www.tivipro.tv/chaine_sshome.php?id=17968"/>
+  <foaf:made rdf:resource="http://217.174.196.189/index.php/fr/documentation"/>
+  <foaf:pastProject rdf:resource="http://www.neotech.co.rs/IER/#explorer"/>
+  <foaf:pastProject rdf:resource="http://www.neotech.co.rs/KnowledgeBrowser"/>
+  <foaf:pastProject rdf:resource="http://client3.mondeca.com/scan-demo2/"/>
+ </foaf:Person>      
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#ggrandon">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-ggrandon">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ggrandon"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Gilles Grandon</foaf:name>
+  <foaf:givenName>Gilles</foaf:givenName>
+  <foaf:familyName>Grandon</foaf:familyName>
+  <foaf:mbox>gilles.grandon@mondeca.com</foaf:mbox>
+  <foaf:skypeID>gilles.grandon</foaf:skypeID>
+  <foaf:made rdf:resource="http://labs.mondeca.com/mondecalabs/skosReader.html"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#hcherfi">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-hcherfi">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#hcherfi"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#Consultant">
+      <skos:prefLabel xml:lang="en">Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Consultant</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Hacene Cherfi</foaf:name>
+  <foaf:givenName>Hacene</foaf:givenName>
+  <foaf:familyName>Cherfi</foaf:familyName>
+  <foaf:mbox>hacene.cherfi@mondeca.com</foaf:mbox>
+  <foaf:skypeID>hacene.cherfi</foaf:skypeID>
+  <foaf:made rdf:resource="http://www-sop.inria.fr/acacia/WORKSHOPS/KW4ED-KCAP2007/"/>
+  <foaf:img rdf:resource="http://www-sop.inria.fr/members/Hacene.Cherfi/resources/H_nine.jpg"/>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/in/hacenecherfi/fr"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#jdelahousse">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-jdelahousse">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#jdelahousse"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#CEO">
+      <skos:prefLabel xml:lang="en">Founder</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Fondateur</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Jean Delahousse</foaf:name>
+  <foaf:givenName>Jean</foaf:givenName>
+  <foaf:familyName>Delahousse</foaf:familyName>
+  <foaf:mbox>jean.delahousse@mondeca.com</foaf:mbox>
+  <foaf:skypeID>jean.delahousse</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/in/jeandelahousse"/>
+ </foaf:Person>
+      
+      <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#kaluru">
+            <org:hasMembership> 
+                  <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-kaluru">
+                        <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+                        <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#kaluru"/>
+                        <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+                  </org:Membership>
+            </org:hasMembership> 
+            <foaf:name>Karthik Aluru</foaf:name>
+            <foaf:givenName>Karthik</foaf:givenName>
+            <foaf:familyName>Aluru</foaf:familyName>
+            <foaf:mbox>karthik.aluru@mondeca.com</foaf:mbox>
+            <foaf:skypeID>karthik.aluru.1</foaf:skypeID>
+            <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Semantic_Web"/>
+            <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Resource_Description_Framework"/>
+            <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Web_Ontology_Language"/>
+            <foaf:holdsAccount rdf:resource="https://plus.google.com/104103530803017041912"/>
+            <foaf:holdsAccount rdf:resource="http://twitter.com/ozymanndias"/>
+            <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/karthik-aluru/7/3a6/51b"/>
+      </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#lbegin">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-lbegin">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lbegin"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#SeniorConsultant">
+      <skos:prefLabel xml:lang="en">Senior Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Consultant Senior</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Laurent Bégin</foaf:name>
+  <foaf:givenName>Laurent</foaf:givenName>
+  <foaf:familyName>Bégin</foaf:familyName>
+  <foaf:mbox>laurent.begin@mondeca.com</foaf:mbox>
+  <foaf:skypeID>laurent.begin1</foaf:skypeID>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Category:Knowledge_representation"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Knowledge_management"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Information_technology"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Semantic_Web"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Resource_Description_Framework"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Web_Ontology_Language"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-lnoel">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#InteractionDesigner">
+      <skos:prefLabel xml:lang="en">Interaction Designer</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Designer d'interactions</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Laurence Noël</foaf:name>
+  <foaf:givenName>Laurence</foaf:givenName>
+  <foaf:familyName>Noël</foaf:familyName>
+  <foaf:mbox>laurence.noel@mondeca.com</foaf:mbox>
+  <foaf:skypeID>laurence.noel</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/laurence-noel/11/b88/9a"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#lrozat">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-lrozat">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lrozat"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#TerminoOntologyConsultant">
+      <skos:prefLabel xml:lang="en">Terminology Ontology Consultant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Consultant Termino-ontologue</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Lise Rozat</foaf:name>
+  <foaf:givenName>Lise</foaf:givenName>
+  <foaf:familyName>Rozat</foaf:familyName>
+  <foaf:mbox>lise.rozat@mondeca.com</foaf:mbox>
+  <foaf:skypeID>lise.rozat1</foaf:skypeID>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/lise-rozat/16/23a/796"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mcoste">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-mcoste">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mcoste"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Martin Coste</foaf:name>
+  <foaf:givenName>Martin</foaf:givenName>
+  <foaf:familyName>Coste</foaf:familyName>
+  <foaf:mbox>martin.coste@mondeca.com</foaf:mbox>
+  <foaf:skypeID>martin.coste1</foaf:skypeID>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00400097"/>
+  <foaf:holdsAccount rdf:resource="http://twitter.com/martincoste"/>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/in/martincoste"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#ocarloni">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-ocarloni">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ocarloni"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Olivier Carloni</foaf:name>
+  <foaf:givenName>Olivier</foaf:givenName>
+  <foaf:familyName>Carloni</foaf:familyName>
+  <foaf:mbox>olivier.carloni@mondeca.com</foaf:mbox>
+  <foaf:skypeID>olivier.carloni</foaf:skypeID>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00115243"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#pyv">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-pyv">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#pyv"/>
+    <org:role rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#R-D-Engineer"/>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Pierre-Yves Vandenbussche</foaf:name>
+  <foaf:givenName>Pierre-Yves</foaf:givenName>
+  <foaf:familyName>Vandenbussche</foaf:familyName>
+  <foaf:mbox>pierre-yves.vandenbussche@mondeca.com</foaf:mbox>
+  <foaf:skypeID>pierre-yves.vandenbussche</foaf:skypeID>
+  <foaf:img rdf:resource="http://sites.google.com/site/pierreyvesvandenbussche/_/rsrc/1248727614450/Home/IMG_3826.JPG"/>
+  <foaf:holdsAccount rdf:resource="http://fr.linkedin.com/pub/pierre-yves-vandenbussche/19/548/1bb"/>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#sselami">
+  <org:hasMembership> 
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-sselami">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#sselami"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#AdministrativeAssistant">
+      <skos:prefLabel xml:lang="en">Administrative Assistant</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Assistante administrative</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Soheila Selami</foaf:name>
+  <foaf:givenName>Soheila</foaf:givenName>
+  <foaf:familyName>selami</foaf:familyName>
+  <foaf:mbox>soheila.selami@mondeca.com</foaf:mbox>
+  <foaf:skypeID>soheila.selami</foaf:skypeID>
+ </foaf:Person>
+ 
+ <foaf:Person rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#tfrancart">
+  <org:hasMembership>
+   <org:Membership rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca-tfrancart">
+    <org:organization rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mondeca"/>
+    <org:member rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#tfrancart"/>
+    <org:role>
+     <org:Role rdf:about="http://labs.mondeca.com/foaf/mondeca.rdf#TechnicalDirector">
+      <skos:prefLabel xml:lang="en">Technical Director</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Directeur technique</skos:prefLabel>
+     </org:Role>
+    </org:role>
+   </org:Membership>
+  </org:hasMembership> 
+  <foaf:name>Thomas Francart</foaf:name>
+  <foaf:givenName>Thomas</foaf:givenName>
+  <foaf:familyName>Francart</foaf:familyName>
+  <foaf:mbox>thomas.francart@mondeca.com</foaf:mbox>
+  <foaf:skypeID>thomas.francart1</foaf:skypeID>
+  <foaf:made rdf:resource="http://hal.archives-ouvertes.fr/halshs-00115252"/>
+  <foaf:holdsAccount rdf:resource="http://openlibrary.org/people/thomas"/>
+  <foaf:currentProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://cordis.europa.eu/fetch?CALLER=FP7_PROJ_EN&amp;ACTION=D&amp;DOC=23&amp;CAT=PROJ&amp;QUERY=012881014d98:5627:5572bb4a&amp;RCN=94446"/>
+    <rdfs:label xml:lang="en">Versatile InfoRmation Toolkit for end-Users oriented Open Sources explOitation (VIRTUOSO)</rdfs:label>
+   </foaf:Project>
+  </foaf:currentProject>
+  <foaf:pastProject>
+   <foaf:Project>
+    <foaf:homepage rdf:resource="http://www.tao-project.eu/"/>
+    <rdfs:label xml:lang="en">Transitioning Applications to Ontologies</rdfs:label>
+   </foaf:Project>
+  </foaf:pastProject>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/page/Degrowth"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Existentialism"/>
+  <foaf:topic_interest rdf:resource="http://dbpedia.org/resource/Deep_ecology"/>
+ </foaf:Person>
+ 
+ <!-- Documents -->
+ 
+ <foaf:Document rdf:about="http://www.inria.fr/actualites/colloques/2008/ist08/mondeca.pdf">
+  <dcterms:title>Des métadonnées aux descriptions de ressources</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#bvatant"/>
+  <dcterms:issued>2008</dcterms:issued>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://www.mondeca.com/index.php/en/content/download/481/3549/file/taln2009-Weiser-Coste-Amardeilh-%20articlerEIFFEL.pdf">
+  <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00488145">
+  <dcterms:title>VigiTermes : une plateforme de recherche et d&apos;analyse des publications scientifiques au service de la pharmacovigilance</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <dcterms:issued>2010</dcterms:issued>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00430812">
+  <dcterms:title>&quot;Confortation&quot;: About a New Category for Analyzing Biomedical Texts</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <dcterms:issued>2009</dcterms:issued>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00411249">
+  <dcterms:title>CA Manager Framework: Creating Customised Workflows for Ontology Population and Semantic Annotation</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <dcterms:contributor>
+   <foaf:Person>
+    <foaf:name>Kalina Bontcheva</foaf:name>
+    <foaf:homepage rdf:resource="http://www.dcs.shef.ac.uk/~kalina"/>
+   </foaf:Person>
+  </dcterms:contributor> 
+  <dcterms:contributor>
+   <foaf:Person>
+    <foaf:name>Danica Damljanovic</foaf:name>
+    <foaf:homepage rdf:resource="http://www.dcs.shef.ac.uk/~danica"/>
+   </foaf:Person>
+  </dcterms:contributor> 
+  <dcterms:issued>2009</dcterms:issued>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00411230">
+  <dcterms:title>Knowledge Claims in Scientific Literature, Uncertainty and Semantic Annotation: A Case Study in the Biological Domain</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <dcterms:issued>2009</dcterms:issued>
+ </foaf:Document>
+ 
+ <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00411247">
+  <dcterms:title>CA Manager: a Framework for Creating Customised Workflows for Ontology Population and Semantic Annotation</dcterms:title>
+  <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+  <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+  <dcterms:contributor>
+   <foaf:Person>
+    <foaf:name>Kalina Bontcheva</foaf:name>
+    <foaf:homepage rdf:resource="http://www.dcs.shef.ac.uk/~kalina"/>
+   </foaf:Person>
+  </dcterms:contributor> 
+  <dcterms:contributor>
+   <foaf:Person>
+    <foaf:name>Danica Damljanovic</foaf:name>
+    <foaf:homepage rdf:resource="http://www.dcs.shef.ac.uk/~danica"/>
+   </foaf:Person>
+  </dcterms:contributor> 
+  <dcterms:issued>2009</dcterms:issued>
+  </foaf:Document>
+   
+   <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00411266">
+    <dcterms:title>A Knowledge Management Platform for Documentation of Case Reports in Pharmacovigilance</dcterms:title>
+    <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+    <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+    <dcterms:issued>2009</dcterms:issued>
+   </foaf:Document>
+   
+   <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00380551">
+    <dcterms:title>Du texte à la connaissance : annotation sémantique et peuplement d&apos;ontologie appliqués à des artefacts logiciels</dcterms:title>
+    <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+    <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+    <dcterms:contributor>
+     <foaf:Person>
+      <foaf:name>Danica Damljanovic</foaf:name>
+      <foaf:homepage rdf:resource="http://www.dcs.shef.ac.uk/~danica"/>
+     </foaf:Person>
+    </dcterms:contributor> 
+    <dcterms:issued>2009</dcterms:issued>
+   </foaf:Document>
+    
+    <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00380552">
+      <dcterms:title>Enrichissement automatique d&apos;une base de connaissances biologiques à l&apos;aide des outils du Web sémantique</dcterms:title>
+      <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+      <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+     <dcterms:issued>2009</dcterms:issued>
+     </foaf:Document>
+       
+      <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00400097">
+        <dcterms:title>Chaîne de traitement linguistique : du repérage d&apos;expressions temporelles au peuplement d&apos;une ontologie de tourisme</dcterms:title>
+        <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+        <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+       <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#mcoste"/>
+       <dcterms:issued>2009</dcterms:issued>
+      </foaf:Document>
+ 
+       <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00348925">
+          <dcterms:title>Semantic Annotation and Ontology Population</dcterms:title>
+          <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+          <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+          <dcterms:issued>2008</dcterms:issued>
+         </foaf:Document>
+         
+         <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/tel-00146213">
+          <dcterms:title>Web Sémantique et Informatique Linguistique : propositions méthodologiques et réalisation d&apos;une plateforme logicielle</dcterms:title>
+          <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+          <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+          <dcterms:issued>2007</dcterms:issued>
+         </foaf:Document>
+         
+         <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00115243">
+          <dcterms:title>PressIndex: a Semantic Web Press Clipping Application</dcterms:title>
+          <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+          <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+          <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#ocarloni"/>
+          <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+          <dcterms:issued>2006</dcterms:issued>
+          </foaf:Document>
+           
+           <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00115255">
+            <dcterms:title>OntoPop or how to annotate documents and populate ontologies from texts</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+            <dcterms:issued>2006</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00115252">
+            <dcterms:title>Enrichissement de bases de connaissances par l&apos;annotation sémantique</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+            <dcterms:contributor rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#tfrancart"/>
+            <dcterms:issued>2006</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00102591">
+            <dcterms:title>Document annotation and ontology population from linguistic extractions</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+            <dcterms:issued>2005</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/halshs-00097820">
+            <dcterms:title>Annotation documentaire et peuplement d&apos;ontologie à partir d&apos;extractions linguistiques</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+            <dcterms:issued>2005</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://hal.archives-ouvertes.fr/hal-00022148">
+            <dcterms:title>Document Annotation and Ontology Population from Lingusitic Extraction</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#famardeilh"/>
+            <dcterms:issued>2005</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://archivesic.ccsd.cnrs.fr/docs/00/27/60/91/PDF/semdata_informaction.pdf">
+            <dcterms:title>From semantic web data to inform-action: a means to an end</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+            <dcterms:issued>2007</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://archivesic.ccsd.cnrs.fr/docs/00/40/00/23/PDF/noel_sfsic.pdf">
+            <dcterms:title>Design, communication et processus transformationnels</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+            <dcterms:issued>2008</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://www.laurencenoel.fr/doc/noel_designdays.pdf">
+            <dcterms:title>Vers une praxéologie du design</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+            <dcterms:issued>2009</dcterms:issued>
+           </foaf:Document>
+           
+           <foaf:Document rdf:about="http://www.laurencenoel.fr/doc/webartefact_complex_thinking.pdf">
+            <dcterms:title>Analyzing web artefacts by applying complex thinking</dcterms:title>
+            <dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+            <dcterms:creator rdf:resource="http://labs.mondeca.com/foaf/mondeca.rdf#lnoel"/>
+            <dcterms:issued>2008</dcterms:issued>
+           </foaf:Document>
+ 
+</rdf:RDF>

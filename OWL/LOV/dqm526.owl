@@ -1,0 +1,2388 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY dqm "http://purl.org/dqm-vocabulary/v1/dqm#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/dqm-vocabulary/v1/dqm#"
+     xml:base="http://purl.org/dqm-vocabulary/v1/dqm"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:dqm="http://purl.org/dqm-vocabulary/v1/dqm#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label xml:lang="en"
+            >The Data Quality Management Vocabulary - An Ontology for Data Requirements Management, Data Quality Monitoring, Data Quality Assessment, and Data Cleansing</rdfs:label>
+        <dc:creator rdf:datatype="&xsd;string"
+            >Christian F&#252;rber and Martin Hepp</dc:creator>
+        <dc:subject rdf:datatype="&xsd;string"
+            >Data Quality Management, Data Quality Assessment, Data Quality Monitoring, Data Profiling, Data Cleansing, Data Requirements Management</dc:subject>
+        <dc:title rdf:datatype="&xsd;string"
+            >The Data Quality Management Vocabulary</dc:title>
+        <dc:rights rdf:datatype="&xsd;string"
+            >The Data Quality Management Vocabulary is available under the Creative Commons Attribution - Non Commercial - Share Alike 3.0 Unported license; see http://creativecommons.org/licenses/by-nc-sa/3.0/. In a nutshell, you are free to copy, distribute and transmit the work and to remix/adapt the work (e.g. to import the ontology and create specializations of its elements) for non commercial purposes, as long as you attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). Proper Attribution: Simply include the statement &quot;This work is based on the Data Quality Management Vocabulary, developed by Christian F&#252;rber and Martin Hepp&quot; and link back to http://purl.org/dqm-vocabulary .</dc:rights>
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >V 1.00, Release 09-10-2011</owl:versionInfo>
+        <dcterms:license rdf:datatype="&xsd;string"
+            >http://creativecommons.org/licenses/by-nc-sa/3.0/</dcterms:license>
+        <rdfs:comment xml:lang="en"
+            >The Data Quality Management Vocabulary provides an ontology for the structured representation of data requirements, data quality assessment results, data cleansing rules, and data requirement violations connected to their origin. It, therefore, supports data quality monitoring, data quality assessment, and data cleansing in Semantic Web architectures.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dcterms;license"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;subject"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#affectedClass -->
+
+    <owl:ObjectProperty rdf:about="#affectedClass">
+        <rdfs:label xml:lang="en">Affected Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >An affected class holds one or more instances with one or more data requirement violations.</rdfs:comment>
+        <rdfs:range rdf:resource="#AffectedClass"/>
+        <rdfs:domain rdf:resource="#DataRequirementViolation"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#affectedInstance -->
+
+    <owl:ObjectProperty rdf:about="#affectedInstance">
+        <rdfs:label xml:lang="de"
+            >Affected Instance</rdfs:label>
+        <rdfs:comment xml:lang="de"
+            >An affected instance is the data instance that contains one or more data requirement violations.</rdfs:comment>
+        <rdfs:range rdf:resource="#AffectedInstance"/>
+        <rdfs:domain rdf:resource="#DataRequirementViolation"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#affectedProperty -->
+
+    <owl:ObjectProperty rdf:about="#affectedProperty">
+        <rdfs:label xml:lang="de"
+            >Affected Property</rdfs:label>
+        <rdfs:comment xml:lang="de"
+            >An affected property specifies the property of a data instance that contains one or more data requirement violations. Some data requirement violations, such as functional dependency violations, have more than one affected property.</rdfs:comment>
+        <rdfs:range rdf:resource="#AffectedProperty"/>
+        <rdfs:domain rdf:resource="#DataRequirementViolation"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#appliesFor -->
+
+    <owl:ObjectProperty rdf:about="#appliesFor">
+        <rdfs:label xml:lang="en">Applise For</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects data requirements with the tasks in which the requirement applies.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:range rdf:resource="#Task"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+        <owl:inverseOf rdf:resource="#hasRequirement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#assessedClass -->
+
+    <owl:ObjectProperty rdf:about="#assessedClass">
+        <rdfs:label xml:lang="en">Assessed Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The assessed class is the class that holds the instances that have been analyzed to compute the assessment score.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="#TestedClass"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#assessedProperty -->
+
+    <owl:ObjectProperty rdf:about="#assessedProperty">
+        <rdfs:label xml:lang="en"
+            >Assessed Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The assessed property represents all properties that have been tested for rule violations during the computation of the assessment score.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="#TestedProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#basedOn -->
+
+    <owl:ObjectProperty rdf:about="#basedOn">
+        <rdfs:label xml:lang="en">Based On</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a data quality score with the data requirements that were used to calculate the score.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+        <owl:inverseOf rdf:resource="#hasScore"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#blacklistClass -->
+
+    <owl:ObjectProperty rdf:about="#blacklistClass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Blacklist Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A blacklist class holds instances with values that are disallowed for a certain data set.</rdfs:comment>
+        <rdfs:range rdf:resource="#BlacklistClass"/>
+        <rdfs:domain rdf:resource="#IllegalValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#blacklistProperty -->
+
+    <owl:ObjectProperty rdf:about="#blacklistProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Blacklist Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A blacklist property holds the values that are disallowed for a certain data set.</rdfs:comment>
+        <rdfs:range rdf:resource="#BlacklistProperty"/>
+        <rdfs:domain rdf:resource="#IllegalValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#cleansesClass -->
+
+    <owl:ObjectProperty rdf:about="#cleansesClass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Cleanses Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property identifies classes that contain instances that shall be cleansed via a data cleansing rule.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataCleansingRule"/>
+        <rdfs:range rdf:resource="#TestedClass"/>
+        <rdfs:subPropertyOf rdf:resource="#dataCleansingRuleRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#cleansesProperty1 -->
+
+    <owl:ObjectProperty rdf:about="#cleansesProperty1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Cleanses Property 1</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property identifies a property that holds values that shall be cleansed.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataCleansingRule"/>
+        <rdfs:range rdf:resource="#TestedProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#dataCleansingRuleRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#conditionalProperty -->
+
+    <owl:ObjectProperty rdf:about="#conditionalProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Conditional Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The conditional property property indicates the URI of a property that holds values that can be used to filter the relevant subset of data for which a rule applies.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Condition"/>
+        <rdfs:range rdf:resource="#TestedProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#dataCleansingRuleRelationship -->
+
+    <owl:ObjectProperty rdf:about="#dataCleansingRuleRelationship">
+        <rdfs:label xml:lang="en"
+            >Data Cleansing Rule Relationship</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Data cleansing rule relationships are object properties of the data cleansing rules.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#dataElementRelationship -->
+
+    <owl:ObjectProperty rdf:about="#dataElementRelationship">
+        <rdfs:label xml:lang="en"
+            >Data Element Relationship</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The data element relationship property is an abstract property that holds object properties that are used to define internal and external relationships of data elements.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#dataRequirementsRelationship -->
+
+    <owl:ObjectProperty rdf:about="#dataRequirementsRelationship">
+        <rdfs:label xml:lang="en"
+            >Data Requirements Relationship</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The data requirements relationship property is an abstract property that holds object properties that are used to define internal and external relationships of data requirements.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition">
+        <rdfs:label xml:lang="en">Condition</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition</rdfs:comment>
+        <rdfs:range rdf:resource="#Condition"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition1 -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Condition 1</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalRule"/>
+                    <rdf:Description rdf:about="#MultiPropertyCleansingRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition2 -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Condition 2</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalRule"/>
+                    <rdf:Description rdf:about="#MultiPropertyCleansingRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition3 -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Condition 3</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalRule"/>
+                    <rdf:Description rdf:about="#MultiPropertyCleansingRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition4 -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition4">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Condition 4</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalRule"/>
+                    <rdf:Description rdf:about="#MultiPropertyCleansingRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasCondition5 -->
+
+    <owl:ObjectProperty rdf:about="#hasCondition5">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Condition 5</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects a conditional rule with a certain condition.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#hasCondition"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalRule"/>
+                    <rdf:Description rdf:about="#MultiPropertyCleansingRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasProperties -->
+
+    <owl:ObjectProperty rdf:about="#hasProperties">
+        <rdfs:label xml:lang="en">Has Properties</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Reconnects mapped classes and properties with each other.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#AffectedProperty"/>
+                    <rdf:Description rdf:about="#BlacklistProperty"/>
+                    <rdf:Description rdf:about="#TestedProperty"/>
+                    <rdf:Description rdf:about="#TrustedProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#AffectedClass"/>
+                    <rdf:Description rdf:about="#BlacklistClass"/>
+                    <rdf:Description rdf:about="#TestedClass"/>
+                    <rdf:Description rdf:about="#TrustedClass"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasRequirement -->
+
+    <owl:ObjectProperty rdf:about="#hasRequirement">
+        <rdfs:label xml:lang="en">Has Requirement</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the data requirements that have to be fulfilled to perform the task.</rdfs:comment>
+        <rdfs:range rdf:resource="#DataRequirement"/>
+        <rdfs:domain rdf:resource="#Task"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasScore -->
+
+    <owl:ObjectProperty rdf:about="#hasScore">
+        <rdfs:label xml:lang="en">Has Score</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects data requirements with the data quality score which was calculated based on the requirement.</rdfs:comment>
+        <rdfs:range rdf:resource="#DataQualityScore"/>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#next -->
+
+    <owl:ObjectProperty rdf:about="#next">
+        <rdfs:comment xml:lang="en"
+            >Links an instances to the next instance in an ordinal scale.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ScaleValue"/>
+        <rdfs:range rdf:resource="#ScaleValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceClass -->
+
+    <owl:ObjectProperty rdf:about="#referenceClass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Reference Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference class property points to the URI of a class that contains trusted instances, i.e. instances of high quality.</rdfs:comment>
+        <rdfs:range rdf:resource="#TrustedClass"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FuncDepReferenceRule"/>
+                    <rdf:Description rdf:about="#LegalValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty">
+        <rdfs:label xml:lang="en"
+            >Reference Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:range rdf:resource="#TrustedProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty1 -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Reference Property 1</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#referenceProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FuncDepReferenceRule"/>
+                    <rdf:Description rdf:about="#LegalValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty2 -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Reference Property 2</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:domain rdf:resource="#FuncDepReferenceRule"/>
+        <rdfs:subPropertyOf rdf:resource="#referenceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty3 -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Reference Property 3</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:domain rdf:resource="#FuncDepReferenceRule"/>
+        <rdfs:subPropertyOf rdf:resource="#referenceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty4 -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty4">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Reference Property 4</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:domain rdf:resource="#FuncDepReferenceRule"/>
+        <rdfs:subPropertyOf rdf:resource="#referenceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#referenceProperty5 -->
+
+    <owl:ObjectProperty rdf:about="#referenceProperty5">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Reference Property 5</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The reference property points to the URI of a property that holds trusted values, i.e. values of high quality</rdfs:comment>
+        <rdfs:domain rdf:resource="#FuncDepReferenceRule"/>
+        <rdfs:subPropertyOf rdf:resource="#referenceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ruleOfIdentification -->
+
+    <owl:ObjectProperty rdf:about="#ruleOfIdentification">
+        <rdfs:label xml:lang="en"
+            >Rule Of Identification</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The rule of identification property connects the data quality problem instances with the instance of the data requirement that has detected the problem.</rdfs:comment>
+        <rdfs:range rdf:resource="#DataRequirement"/>
+        <rdfs:domain rdf:resource="#DataRequirementViolation"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ruleViolation -->
+
+    <owl:ObjectProperty rdf:about="#ruleViolation">
+        <rdfs:label xml:lang="en">Rule Violation</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Connects data requirements with data quality problems that have been identified using the requirement.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:range rdf:resource="#DataRequirementViolation"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+        <owl:inverseOf rdf:resource="#ruleOfIdentification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#scaleValues -->
+
+    <owl:ObjectProperty rdf:about="#scaleValues">
+        <rdfs:label xml:lang="en">Scale Values</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Links to values of a certain ordinal or nominal scale.</rdfs:comment>
+        <rdfs:range rdf:resource="#ScaleValue"/>
+        <rdfs:domain rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#subTaskOf -->
+
+    <owl:ObjectProperty rdf:about="#subTaskOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">Sub Task Of</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Property that can be used to represent hierachies of between tasks.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Task"/>
+        <rdfs:range rdf:resource="#Task"/>
+        <rdfs:subPropertyOf rdf:resource="#dataRequirementsRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedClass -->
+
+    <owl:ObjectProperty rdf:about="#testedClass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Tested Class</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The tested class property specifies the class that holds the instances that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:range rdf:resource="#TestedClass"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty">
+        <rdfs:label xml:lang="en">Tested Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:range rdf:resource="#TestedProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#dataElementRelationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty1 -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Tested Property 1</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#testedProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty2 -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Tested Property 2</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#MatchingValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#testedProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty3 -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Tested Property 3</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#MatchingValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#testedProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty4 -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty4">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Tested Property 4</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#MatchingValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#testedProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#testedProperty5 -->
+
+    <owl:ObjectProperty rdf:about="#testedProperty5">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Tested Property 5</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property with the values that shall be tested for data quality problems.</rdfs:comment>
+        <rdfs:domain rdf:resource="#MatchingValueRule"/>
+        <rdfs:subPropertyOf rdf:resource="#testedProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#unitOfConfidence -->
+
+    <owl:ObjectProperty rdf:about="#unitOfConfidence">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Unit of Confidence</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The unit in which confidence is expressed.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:range rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#unitOfImportance -->
+
+    <owl:ObjectProperty rdf:about="#unitOfImportance">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Unit of Importance</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The unit in which importance is expressed.</rdfs:comment>
+        <rdfs:range rdf:resource="#Unit"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataElement"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                    <rdf:Description rdf:about="#Task"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#unitOfMeasurement -->
+
+    <owl:ObjectProperty rdf:about="#unitOfMeasurement">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Unit of Measurement</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Indicates the unit of measurement, e.g. of data quality scores. It is recommended to use UN/CEFACT common codes to specify the unit of measurement, e.g. &quot;P1&quot; stands for percent.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#addProperty -->
+
+    <owl:DatatypeProperty rdf:about="#addProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Add Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A property that shall be added to an instance.</rdfs:comment>
+        <rdfs:domain rdf:resource="#PropertyCompletion"/>
+        <rdfs:subPropertyOf rdf:resource="#cleansingProperty"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#addValue -->
+
+    <owl:DatatypeProperty rdf:about="#addValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Add Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A value that shall be added to a property of an instance.</rdfs:comment>
+        <rdfs:domain rdf:resource="#PropertyCompletion"/>
+        <rdfs:subPropertyOf rdf:resource="#cleansingProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#assessment -->
+
+    <owl:DatatypeProperty rdf:about="#assessment">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Assessment</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The assessment property indicates whether the rule shall be used for data quality assessment.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#cleansing -->
+
+    <owl:DatatypeProperty rdf:about="#cleansing">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Cleansing</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The data cleansing property specifies whether the rule shall be applied to cleanse the data in a data source.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#cleansingProperty -->
+
+    <owl:DatatypeProperty rdf:about="#cleansingProperty">
+        <rdfs:label xml:lang="en"
+            >Cleansing Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Cleansing properties are properties of data cleansing rules.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#commonCode -->
+
+    <owl:DatatypeProperty rdf:about="#commonCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >UN/CEFACT common code</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >UN/CEFACT common code of a unit of measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Unit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#confidence -->
+
+    <owl:DatatypeProperty rdf:about="#confidence">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Confidence</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The confidence property indicates how confident a rule creators is regarding the correctness of the rule.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#contains -->
+
+    <owl:DatatypeProperty rdf:about="#contains">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Contains</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds one or more consecutive characters that are supposed to be found in strings of another property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#currentValue -->
+
+    <owl:DatatypeProperty rdf:about="#currentValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Current Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The current value propertiy specifies the value to be removed.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ValueSubstitution"/>
+        <rdfs:subPropertyOf rdf:resource="#cleansingProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#endsWith -->
+
+    <owl:DatatypeProperty rdf:about="#endsWith">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Ends With</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds one or more consecutive characters that are supposed to be found at the end of strings of another property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#equals -->
+
+    <owl:DatatypeProperty rdf:about="#equals">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Equals</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds one or more consecutive characters that are supposed to be found in the same order in strings of another property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#expectedUpdateInterval -->
+
+    <owl:DatatypeProperty rdf:about="#expectedUpdateInterval">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Expected Update Interval</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The expected update interval specifies the time interval in which instances of a specific class must be updated in order to be current.</rdfs:comment>
+        <rdfs:domain rdf:resource="#UpdateRule"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#filtering -->
+
+    <owl:DatatypeProperty rdf:about="#filtering">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Filtering</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The filtering property indicates whether the rule shall be used for information filtering, i.e. only high quality data is retrieved.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#greaterThan -->
+
+    <owl:DatatypeProperty rdf:about="#greaterThan">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Greater Than</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds a numeric value that is used to identify values of a property that are greater than the value of this property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#hasURI -->
+
+    <owl:DatatypeProperty rdf:about="#hasURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has URI</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The hasURI property is used to map properties to instances of a class.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataElement"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#importance -->
+
+    <owl:DatatypeProperty rdf:about="#importance">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Importance</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the importance of a task, a data quality rule, or a data element.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataElement"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                    <rdf:Description rdf:about="#Task"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#lastModified -->
+
+    <owl:DatatypeProperty rdf:about="#lastModified">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Last Modified</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The property lastModified indicates the date and time when the rule was last modified.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#lessThan -->
+
+    <owl:DatatypeProperty rdf:about="#lessThan">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Less Than</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds a numeric value that is used to identify values of a property that are less than the value of this property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#lowerLimit -->
+
+    <owl:DatatypeProperty rdf:about="#lowerLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Lower Limit</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the lower limit a numeric property value shall obtain.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#IllegalValueRangeRule"/>
+                    <rdf:Description rdf:about="#LegalValueRangeRule"/>
+                    <rdf:Description rdf:about="#Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#newValue -->
+
+    <owl:DatatypeProperty rdf:about="#newValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">New Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The new value property specifies the new value which shall substitute the current value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ValueSubstitution"/>
+        <rdfs:subPropertyOf rdf:resource="#cleansingProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#notEqualTo -->
+
+    <owl:DatatypeProperty rdf:about="#notEqualTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Not Equal To</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds one or more consecutive characters that are used to identify values of another property that do not match with the value of this property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#officialName -->
+
+    <owl:DatatypeProperty rdf:about="#officialName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Official Name</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Official name of a value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ScaleValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#operatedValue -->
+
+    <owl:DatatypeProperty rdf:about="#operatedValue">
+        <rdfs:label xml:lang="en">Operated Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The operated value property is an abstract property for datatype properties that are used to express string filtering criteria.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#pattern -->
+
+    <owl:DatatypeProperty rdf:about="#pattern">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Pattern</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The pattern property can be used to express value patterns based on a simple syntax without the need for knowing regular expressions. E.g. the pattern &quot;AaaaaNN&quot; where &quot;A&quot; stands for capital letters, &quot;a&quot; for small letters, and &quot;N&quot; for numbers.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalSyntaxRule"/>
+                    <rdf:Description rdf:about="#SyntaxRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#plainScore -->
+
+    <owl:DatatypeProperty rdf:about="#plainScore">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Plain Score</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The plain score represents a data quality dimension score that was assessed by using a certain formula that accounts for the violations of data quality rules related to the size of the relevant data set.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#rank -->
+
+    <owl:DatatypeProperty rdf:about="#rank">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Rank</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Position of a value in an ordinal scale.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ScaleValue"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#regex -->
+
+    <owl:DatatypeProperty rdf:about="#regex">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Regular Expression</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The regular expressions property can be used to express legal character ranges and data patterns for values of a certain property via regular expressions.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalSyntaxRule"/>
+                    <rdf:Description rdf:about="#SyntaxRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#reqDescription -->
+
+    <owl:DatatypeProperty rdf:about="#reqDescription">
+        <rdfs:label xml:lang="en"
+            >Requirement Description</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Describes a data requirement in natural language.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#reqMetadata -->
+
+    <owl:DatatypeProperty rdf:about="#reqMetadata">
+        <rdfs:label xml:lang="en"
+            >Requirement Metadata</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >An abstract property that holds generic datatype properties that describe a data requirement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#reqName -->
+
+    <owl:DatatypeProperty rdf:about="#reqName">
+        <rdfs:label xml:lang="en"
+            >Requirement Name</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the name of a data requirement in natural language.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataCleansingRule"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#reqSource -->
+
+    <owl:DatatypeProperty rdf:about="#reqSource">
+        <rdfs:label xml:lang="en"
+            >Requirement Source</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the source of a data requirement.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataCleansingRule"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#requiredProperty -->
+
+    <owl:DatatypeProperty rdf:about="#requiredProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Required Property</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies whether a property must exist.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalPropertyCompletenessRule"/>
+                    <rdf:Description rdf:about="#PropertyCompletenessRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#requiredValue -->
+
+    <owl:DatatypeProperty rdf:about="#requiredValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Required Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies whether a value for a property must exist.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ConditionalPropertyCompletenessRule"/>
+                    <rdf:Description rdf:about="#PropertyCompletenessRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#scaleType -->
+
+    <owl:DatatypeProperty rdf:about="#scaleType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Scale Type</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Type of statistical scale.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Unit"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">interval</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">nominal</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">ordinal</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">ratio</rdf:first>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#sparqlrule -->
+
+    <owl:DatatypeProperty rdf:about="#sparqlrule">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">SPARQL rule</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property can store custom data requirements that are expressed via SPARQL queries.</rdfs:comment>
+        <rdfs:domain rdf:resource="#CustomRequirement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#startsWith -->
+
+    <owl:DatatypeProperty rdf:about="#startsWith">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Starts With</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Holds one or more consecutive characters that are supposed to be found at the beginning of strings of another property.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#operatedValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Condition"/>
+                    <rdf:Description rdf:about="#FuncDepValueRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#taskDependent -->
+
+    <owl:DatatypeProperty rdf:about="#taskDependent">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Task Dependent</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies whether the data quality rule is task dependent.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#taskDescription -->
+
+    <owl:DatatypeProperty rdf:about="#taskDescription">
+        <rdfs:label xml:lang="en"
+            >Task Description</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Describes the task in natural language.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Task"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#taskName -->
+
+    <owl:DatatypeProperty rdf:about="#taskName">
+        <rdfs:label xml:lang="en">Task Name</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the name of the task.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Task"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#technicalName -->
+
+    <owl:DatatypeProperty rdf:about="#technicalName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Technical Name</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Technical name of a value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ScaleValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#timeOfAssessment -->
+
+    <owl:DatatypeProperty rdf:about="#timeOfAssessment">
+        <rdfs:label xml:lang="en"
+            >Time Of Assessment</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The time of assessment represents the data and time when the data quality score was computed.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#timeOfIdentification -->
+
+    <owl:DatatypeProperty rdf:about="#timeOfIdentification">
+        <rdfs:label xml:lang="en"
+            >Time Of Identification</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The time of identification property specifies the date and time in which the data quality problem was detected</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirementViolation"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#unitDescription -->
+
+    <owl:DatatypeProperty rdf:about="#unitDescription">
+        <rdfs:label xml:lang="en"
+            >Unit Description</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Description of a unit of measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Unit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#unitName -->
+
+    <owl:DatatypeProperty rdf:about="#unitName">
+        <rdfs:label xml:lang="en">Unit Name</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Name of a unit of measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Unit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#upperLimit -->
+
+    <owl:DatatypeProperty rdf:about="#upperLimit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Upper Limit</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the upper limit a numeric property value shall obtain.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#IllegalValueRangeRule"/>
+                    <rdf:Description rdf:about="#LegalValueRangeRule"/>
+                    <rdf:Description rdf:about="#Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#validFrom -->
+
+    <owl:DatatypeProperty rdf:about="#validFrom">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Valid From</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the date and time from which a rule is valid.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataCleansingRule"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#validUntil -->
+
+    <owl:DatatypeProperty rdf:about="#validUntil">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Valid Until</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Specifies the date and time until a rule stays valid.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#reqMetadata"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataCleansingRule"/>
+                    <rdf:Description rdf:about="#DataRequirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#validation -->
+
+    <owl:DatatypeProperty rdf:about="#validation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Validation</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Validation indicates whether a data quality rule shall be used for validation during data entry.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataRequirement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#valueMeaning -->
+
+    <owl:DatatypeProperty rdf:about="#valueMeaning">
+        <rdfs:label xml:lang="en">Value Meaning</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Meaning of a value.</rdfs:comment>
+        <rdfs:domain rdf:resource="#ScaleValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#weightedScore -->
+
+    <owl:DatatypeProperty rdf:about="#weightedScore">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Weighted Score</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A weighted score is a data quality dimension score that is computed by integration of importance values of data requirements, tasks, or data elements.</rdfs:comment>
+        <rdfs:domain rdf:resource="#DataQualityScore"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Accuracy -->
+
+    <owl:Class rdf:about="#Accuracy">
+        <rdfs:label xml:lang="en">Accuracy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataQualityScore"/>
+        <rdfs:comment xml:lang="en"
+            >Accuracy is the degree to which a data value represents the desired state regarding its syntax and semantics.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#AffectedClass -->
+
+    <owl:Class rdf:about="#AffectedClass">
+        <rdfs:label rdf:datatype="&xsd;string">Affected Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >An affected class holds one or more affected instances</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#AffectedInstance -->
+
+    <owl:Class rdf:about="#AffectedInstance">
+        <rdfs:label xml:lang="en"
+            >Affected Instance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >An affected instance is a data instance that contains one or more data quality problems.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#AffectedProperty -->
+
+    <owl:Class rdf:about="#AffectedProperty">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Affected Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >An affected property specifies the property of a data instance that contains one or more data quality problems.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#BlacklistClass -->
+
+    <owl:Class rdf:about="#BlacklistClass">
+        <rdfs:label xml:lang="en">Blacklist Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >A blacklist class holds instances with values that are disallowed for a certain data set. Thus, illegal value rules refer to such classes over the blacklist class property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#BlacklistProperty -->
+
+    <owl:Class rdf:about="#BlacklistProperty">
+        <rdfs:label xml:lang="en"
+            >Blacklist Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >A blacklist property holds the values that are disallowed for a certain data set.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ClassRequirement -->
+
+    <owl:Class rdf:about="#ClassRequirement">
+        <rdfs:label xml:lang="en"
+            >Class Requirement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A class requirement is a data requirement that refers to the instances of a class as a whole.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Completeness -->
+
+    <owl:Class rdf:about="#Completeness">
+        <rdfs:label xml:lang="en">Completeness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataQualityScore"/>
+        <rdfs:comment xml:lang="en"
+            >Completeness is the extent to which data are of sufficient breadth, depth, and scope for the task at hand.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Condition -->
+
+    <owl:Class rdf:about="#Condition">
+        <rdfs:label xml:lang="en">Condition</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A condition constrains instances of a class to a certain subset for which certain data quality rules apply.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ConditionalPropertyCompletenessRule -->
+
+    <owl:Class rdf:about="#ConditionalPropertyCompletenessRule">
+        <rdfs:label xml:lang="en"
+            >Conditional Data Competeness Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ConditionalRule"/>
+        <rdfs:comment xml:lang="en"
+            >Conditional property completeness rules specify that a tested property and/or its literal values must exist when the value of another property obtains a certain state. E.g. the property foo:state must exist and have a value when the property foo:country obtains the value &quot;USA&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ConditionalRule -->
+
+    <owl:Class rdf:about="#ConditionalRule">
+        <rdfs:label xml:lang="en"
+            >Conditional Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MultiPropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A conditional rule is a multi property requirement that can be used to specify that values of a tested property A must always obtain a certain state under the condition that values of another property B obtain a certain state (condition).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ConditionalSyntaxRule -->
+
+    <owl:Class rdf:about="#ConditionalSyntaxRule">
+        <rdfs:label xml:lang="en"
+            >Conditional Syntax Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ConditionalRule"/>
+        <rdfs:comment xml:lang="en"
+            >Conditional syntax rules define that the literal values of a tested property must follow a certain syntax when the value of another property obtains a certain state. E.g. the property foo:state must have a value with two capital letters when the property foo:country obtains the value &quot;USA&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#CustomRequirement -->
+
+    <owl:Class rdf:about="#CustomRequirement">
+        <rdfs:label xml:lang="en"
+            >Custom Requirement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A custom requirement is a data requirement that is expressed via a SPARQL query.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DataCleansingRule -->
+
+    <owl:Class rdf:about="#DataCleansingRule">
+        <rdfs:label xml:lang="en"
+            >Data Cleansing Rule</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A data cleansing rule is an unambiguous rule that precisely specifies the required state of a data value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DataElement -->
+
+    <owl:Class rdf:about="#DataElement">
+        <rdfs:label xml:lang="en">Data Element</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A data element is a class, a property, an instance, or a literal value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DataQualityScore -->
+
+    <owl:Class rdf:about="#DataQualityScore">
+        <rdfs:label xml:lang="en"
+            >Data Quality Assessment</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Data quality score is an abstract class that can be used to structure data quality dimension scores that indicate the quality state of classes and/or properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DataRequirement -->
+
+    <owl:Class rdf:about="#DataRequirement">
+        <rdfs:label xml:lang="en"
+            >Data Requirement</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A data requirement is a prescribed directive or consensual agreement that defines the content and/or structure that constitute high quality data instances and values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DataRequirementViolation -->
+
+    <owl:Class rdf:about="#DataRequirementViolation">
+        <rdfs:label xml:lang="en"
+            >Data Requirement Violation</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A data requirement violation occurs when a data value or a data instance does not meet its requirements.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DuplicateInstance -->
+
+    <owl:Class rdf:about="#DuplicateInstance">
+        <rdfs:label xml:lang="en"
+            >Duplicate Instance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >Two or more instances are duplicates when they represent the same real world entity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#DuplicateInstanceRule -->
+
+    <owl:Class rdf:about="#DuplicateInstanceRule">
+        <rdfs:label xml:lang="en"
+            >Duplicate Instance Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MatchingValueRule"/>
+        <rdfs:comment xml:lang="en"
+            >A duplicate instance rule is a multi property requirement which specifies the properties that (when seen together) uniquely identify an entity. I.e. if the properties of two or more different instances represent the same state, then the instances represent the same entity. Thus, the instances are considered to be duplicates.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ExpiryRule -->
+
+    <owl:Class rdf:about="#ExpiryRule">
+        <rdfs:label xml:lang="en">Expiry Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#OutdatedInstanceRule"/>
+        <rdfs:comment xml:lang="en"
+            >An expiry rule is an outdated instance rule that specifies the expiration date of an instance that must not exceed the current date and time. Therefore, expiry rules require date information about the validity period of an instance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#FuncDepReferenceRule -->
+
+    <owl:Class rdf:about="#FuncDepReferenceRule">
+        <rdfs:label xml:lang="en"
+            >Functional Dependency Reference Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MatchingValueRule"/>
+        <rdfs:comment xml:lang="en"
+            >A functional dependency reference rule is a multi property requirement that specifies legal value combinations for two or more properties that are allowed to occur within the same instance. Functional dependency reference rules refer to reference properties of classes that hold instances with all allowed value combinations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#FuncDepValueRule -->
+
+    <owl:Class rdf:about="#FuncDepValueRule">
+        <rdfs:label xml:lang="en"
+            >Functionally Dependent Value Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ConditionalRule"/>
+        <rdfs:comment xml:lang="en"
+            >A functionally dependent value rule defines that the value of a tested property must have a certain value when the values of other properties obtain certain states (conditions). E.g. the property foo:inStock must have value &quot;true&quot; when the property foo:availableAmount is greater than zero.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#FunctionalDependencyViolation -->
+
+    <owl:Class rdf:about="#FunctionalDependencyViolation">
+        <rdfs:label xml:lang="en"
+            >Functional Dependency Violation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >A functional dependency violation is a combination of different property values within the same instance that must not occur together. E.g. an instance describing the man &#8220;Peter Miller&#8221; has the value &#8220;Mr.&#8221; as salutation property, but the value &#8220;female&#8221; as sex.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#IllegalValue -->
+
+    <owl:Class rdf:about="#IllegalValue">
+        <rdfs:label xml:lang="en">Illegal Value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >An illegal value is a data value that must not be used for a property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#IllegalValueRangeRule -->
+
+    <owl:Class rdf:about="#IllegalValueRangeRule">
+        <rdfs:label xml:lang="en"
+            >Illegal Value Range Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >An illegal value range rule is a property requirement that specifies the upper and/or lower boundary of numeric values that a certain property must not obtain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#IllegalValueRule -->
+
+    <owl:Class rdf:about="#IllegalValueRule">
+        <rdfs:label xml:lang="en"
+            >Illegal Value Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >An illegal value rule is a property requirement that specifies the values that a certain property must not obtain. Illegal value rules, therefore, refer to reference properties that hold all disallowed values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#LegalValueRangeRule -->
+
+    <owl:Class rdf:about="#LegalValueRangeRule">
+        <rdfs:label xml:lang="en"
+            >Legal Value Range Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A legal value range rule is a property requirement that specifies the upper and/or lower boundary of numeric values that a certain property is allowed to obtain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#LegalValueRule -->
+
+    <owl:Class rdf:about="#LegalValueRule">
+        <rdfs:label xml:lang="en"
+            >Legal Value Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A legal value rule is a property requirement that specifies all values that a certain property is allowed to obtain. Legal value rules, therefore, refer to reference properties of classes that hold instances with all allowed values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#LiteralCleansingRule -->
+
+    <owl:Class rdf:about="#LiteralCleansingRule">
+        <rdfs:label xml:lang="en"
+            >Literal Cleansing Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >Literal cleansing rules can be used to cleanse the literal values of a certain property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MatchingValueRule -->
+
+    <owl:Class rdf:about="#MatchingValueRule">
+        <rdfs:label xml:lang="en"
+            >Matching Value Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MultiPropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >Matching value rules are multi property requirements in which the property values of other instances are used to identify data requirements violations in an instance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MissingElement -->
+
+    <owl:Class rdf:about="#MissingElement">
+        <rdfs:label xml:lang="en">Missing Element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >A missing element is a data requirement violation that occurs when schema elements, instances, or data values are missing, but required.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MissingProperty -->
+
+    <owl:Class rdf:about="#MissingProperty">
+        <rdfs:label xml:lang="en"
+            >Missing Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MissingElement"/>
+        <rdfs:comment xml:lang="en"
+            >A property is missing when an instances does not contain a specific property that is required.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MissingPropertyAndValue -->
+
+    <owl:Class rdf:about="#MissingPropertyAndValue">
+        <rdfs:label xml:lang="en"
+            >Missing Property and Value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MissingElement"/>
+        <rdfs:comment xml:lang="en"
+            >Class for instances that miss both a property and its value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MissingValue -->
+
+    <owl:Class rdf:about="#MissingValue">
+        <rdfs:label xml:lang="en">Missing Value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MissingElement"/>
+        <rdfs:comment xml:lang="en"
+            >A missing value occurs when a property of an instance does not hold a value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MultiPropertyCleansingRule -->
+
+    <owl:Class rdf:about="#MultiPropertyCleansingRule">
+        <rdfs:label xml:lang="en"
+            >Multi Property Cleansing Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >Multi property cleansing rules can be used to cleanse the literal values of two or more dependent properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#MultiPropertyRequirement -->
+
+    <owl:Class rdf:about="#MultiPropertyRequirement">
+        <rdfs:label xml:lang="en"
+            >Multi Property Requirement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >Multi property requirements are data requirements that consider values from two or more properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#OutOfRangeValue -->
+
+    <owl:Class rdf:about="#OutOfRangeValue">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Out of Range Value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >A value is out of range when it is not part of the legal value range or when it is part of the illegal value range.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#OutdatedInstance -->
+
+    <owl:Class rdf:about="#OutdatedInstance">
+        <rdfs:label xml:lang="en"
+            >Outdated Instance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >An instance is outdated when it represents an outdated state of its corresponding real-world entity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#OutdatedInstanceRule -->
+
+    <owl:Class rdf:about="#OutdatedInstanceRule">
+        <rdfs:label xml:lang="en"
+            >Outdated Instance Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ClassRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >An outdated instance rule is a data requirement that specifies the point in time when an instance is not current anymore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PopulationCompleteness -->
+
+    <owl:Class rdf:about="#PopulationCompleteness">
+        <rdfs:label xml:lang="en"
+            >Population Completeness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Completeness"/>
+        <rdfs:comment xml:lang="en"
+            >Population completeness is the degree to which all objects of a certain reference are represented in a specific class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PopulationUniqueness -->
+
+    <owl:Class rdf:about="#PopulationUniqueness">
+        <rdfs:label xml:lang="en"
+            >Population Uniqueness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Uniqueness"/>
+        <rdfs:comment xml:lang="en"
+            >Entity uniqueness is the degree to which entities (that must be uniquely represented within a certain class) are unique.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PropertyCompleteness -->
+
+    <owl:Class rdf:about="#PropertyCompleteness">
+        <rdfs:label xml:lang="en"
+            >Property Completeness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Completeness"/>
+        <rdfs:comment xml:lang="en"
+            >Property completeness is the degree to which values for a specific property are missing in entities of a specific class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PropertyCompletenessRule -->
+
+    <owl:Class rdf:about="#PropertyCompletenessRule">
+        <rdfs:label xml:lang="en"
+            >Property Completeness Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A property completeness rule is a data requirement that specifies that a certain property and/or its value must exist in all instances of a certain class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PropertyCompletion -->
+
+    <owl:Class rdf:about="#PropertyCompletion">
+        <rdfs:label xml:lang="en"
+            >Property Completion Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MultiPropertyCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >A property completion rule specifies a property and value that shall be added to certain instances.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PropertyRequirement -->
+
+    <owl:Class rdf:about="#PropertyRequirement">
+        <rdfs:label xml:lang="en"
+            >Property Requirement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >Property requirements are data requirements that are related to values of a single property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#PropertyUniqueness -->
+
+    <owl:Class rdf:about="#PropertyUniqueness">
+        <rdfs:label xml:lang="en"
+            >Property Uniqueness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Uniqueness"/>
+        <rdfs:comment xml:lang="en"
+            >Property uniqueness is the degree to which the values of a property (that must only contain unique values within instances of a certain class) are unique.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ScaleValue -->
+
+    <owl:Class rdf:about="#ScaleValue">
+        <rdfs:label xml:lang="en">Scale Value</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A scale value is a value of a nominal or ordinal scale.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#SemanticAccuracy -->
+
+    <owl:Class rdf:about="#SemanticAccuracy">
+        <rdfs:label xml:lang="en"
+            >Semantic Accuracy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Accuracy"/>
+        <rdfs:comment xml:lang="en"
+            >Semantic accuracy is the degree to which the data values of an instance represent the correct state of an entity&#8217;s property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#StrictValueCombination -->
+
+    <owl:Class rdf:about="#StrictValueCombination">
+        <rdfs:label xml:lang="en"
+            >Strict Value Combination Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MultiPropertyCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >A strict value combination is a combination of two values of different properties that may only be assigned to each other, but not to other values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#SyntacticAccuracy -->
+
+    <owl:Class rdf:about="#SyntacticAccuracy">
+        <rdfs:label xml:lang="en"
+            >Syntactic Accuracy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Accuracy"/>
+        <rdfs:comment xml:lang="en"
+            >Syntactic accuracy is the degree to which data values of a property represent legal values and are free from syntax violations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#SyntaxRule -->
+
+    <owl:Class rdf:about="#SyntaxRule">
+        <rdfs:label xml:lang="en">Syntax Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A syntax rule is a property requirement that specifies the allowed characters and/or character pattern to be used in values for a certain property in instances of a certain class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#SyntaxViolation -->
+
+    <owl:Class rdf:about="#SyntaxViolation">
+        <rdfs:label xml:lang="en"
+            >Syntax Violation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >A syntax violation is a data requirement violation that occurs when a data value contains disallowed characters or does not match a predefined pattern.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Task -->
+
+    <owl:Class rdf:about="#Task">
+        <rdfs:label xml:lang="en">Task</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Classifies the tasks for which the data quality rule shall apply for.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#TestedClass -->
+
+    <owl:Class rdf:about="#TestedClass">
+        <rdfs:label xml:lang="en">Tested Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >A tested class is a class that holds the instances that shall be analyzed for data quality problems.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#TestedProperty -->
+
+    <owl:Class rdf:about="#TestedProperty">
+        <rdfs:label xml:lang="en">Tested Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >A tested property holds the values to be analyzed for data quality problems.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Timeliness -->
+
+    <owl:Class rdf:about="#Timeliness">
+        <rdfs:label xml:lang="en">Timeliness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataQualityScore"/>
+        <rdfs:comment xml:lang="en"
+            >Timeliness is the degree to which instances of a specific class (1) are updated within an expected time or (2) have not exceeded their expiration date.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#TrustedClass -->
+
+    <owl:Class rdf:about="#TrustedClass">
+        <rdfs:label xml:lang="en">Trusted Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >Legal value rules and functional dependency reference rules require the specification of a trusted class as a reference that holds instances with legal values / legal value combinations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#TrustedProperty -->
+
+    <owl:Class rdf:about="#TrustedProperty">
+        <rdfs:label xml:lang="en"
+            >Trusted Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataElement"/>
+        <rdfs:comment xml:lang="en"
+            >A trusted property holds the values that serve as a trusted reference in legal value rules / functional dependency reference rules, e.g. to define legal values for a tested property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#UniqueValueRule -->
+
+    <owl:Class rdf:about="#UniqueValueRule">
+        <rdfs:label xml:lang="en"
+            >Unique Value Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#PropertyRequirement"/>
+        <rdfs:comment xml:lang="en"
+            >A unique value rule is a property requirement that specifies that each value of a certain property must be unique in instances of a certain class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Uniqueness -->
+
+    <owl:Class rdf:about="#Uniqueness">
+        <rdfs:label xml:lang="en">Uniqueness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataQualityScore"/>
+        <rdfs:comment xml:lang="en"
+            >Uniqueness is the degree to which properties and classes are free of duplicate values and instances.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#UniquenessViolation -->
+
+    <owl:Class rdf:about="#UniquenessViolation">
+        <rdfs:label xml:lang="en"
+            >Uniqueness Violation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DataRequirementViolation"/>
+        <rdfs:comment xml:lang="en"
+            >A uniqueness violation occurs when two or more identical values are assigned to a property that requires unique values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#Unit -->
+
+    <owl:Class rdf:about="#Unit">
+        <rdfs:label xml:lang="en">Unit</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Class for units of numerical values that are used to express certain property states.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#UpdateRule -->
+
+    <owl:Class rdf:about="#UpdateRule">
+        <rdfs:label xml:lang="en">Update Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#OutdatedInstanceRule"/>
+        <rdfs:comment xml:lang="en"
+            >An update rule is an outdated instance rule that specifies the maximum duration tolerated without any updates. Update rules require timestamps about the last update of an instance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#ValueSubstitution -->
+
+    <owl:Class rdf:about="#ValueSubstitution">
+        <rdfs:label xml:lang="en"
+            >Value Substitution Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LiteralCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >A value substitution rule specifies a value to be removed and a new value that shall substitute the removed value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dqm-vocabulary/v1/dqm#WhitespaceRemoval -->
+
+    <owl:Class rdf:about="#WhitespaceRemoval">
+        <rdfs:label xml:lang="en"
+            >White Space Removal Rule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#LiteralCleansingRule"/>
+        <rdfs:comment xml:lang="en"
+            >A white space removal rule states that whitespaces at the beginning of a string and at the end of a string shall be removed for the specified property.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

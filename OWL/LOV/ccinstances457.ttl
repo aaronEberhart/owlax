@@ -1,0 +1,242 @@
+@prefix : <http://cookingbigdata.com/linkeddata/ccinstances#> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix dc:			<http://purl.org/dc/terms/> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix cc: 		<http://creativecommons.org/ns#> .
+
+<http://cookingbigdata.com/linkeddata/ccinstances#>
+	rdf:type owl:Ontology ;
+	rdfs:label "Cloud Instances definition"@en ;
+	dc:title "Ontology for Cloud Computing instances"@en ;
+	dc:description "Ontology for Cloud Computing Instances. Instance are classes of VM that comprise varying combinations of CPU, memory, storage, and networking capacity. This ontology allows to define the instantiation model of MVs used in large cloud computing providers such as Amazon, Azure, etc."@en ;
+	dc:created "2018-03-06"^^xsd:date ;	
+	dc:modified "2018-04-03"^^xsd:date ;
+	dc:issued "2018-04-20"^^xsd:date ;
+    dc:creator :manuelparra ;
+	dc:publisher :cookingbigdata ;
+	owl:versionInfo "1.0"^^xsd:decimal ; 
+	dc:rights "Copyright © 2018 Manuel Parra-Royón";
+	cc:license <http://creativecommons.org/licenses/by/3.0/>
+	.
+	
+:manuelparra a foaf:Person;
+	foaf:name "Manuel Parra-Royon";
+	foaf:homepage <https://twitter.com/manugrapevine> ;
+	foaf:mbox "manuparra@gmail.com" ;
+	rdfs:seeAlso <https://twitter.com/manugrapevine>;	
+	.
+:cookingbigdata a foaf:Organization;
+	foaf:name "CookingBigData";
+	foaf:homepage <http://cookingbigdata.com> ;
+	rdfs:seeAlso <http://cookingbigdata.com/about>;
+	.
+
+:Instance a owl:Class, rdfs:Class ;
+	rdfs:comment "Instance"@en ;
+	rdfs:label "Instance"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>;
+	.
+
+:ram a owl:Class, rdfs:Class ;
+	rdfs:comment "RAM"@en ;
+	rdfs:label "RAM"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>;
+	.
+	
+:cpu a owl:Class, rdfs:Class ;
+	rdfs:comment "CPU"@en ;
+	rdfs:label "CPU"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+
+:gpu a owl:Class, rdfs:Class ;
+	rdfs:comment "GPU"@en ;
+	rdfs:label "GPU"@en;
+	rdfs:subClassOf :cpu;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+
+:network a owl:Class, rdfs:Class ;
+	rdfs:comment "Network"@en ;
+	rdfs:label "Network"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+
+:storage a owl:Class, rdfs:Class ;
+	rdfs:comment "Storage"@en ;
+	rdfs:label "Storage"@en;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+
+## Properties
+
+:cpu_model a rdf:Property ;
+	rdfs:label "CPU Model"@en;
+	rdfs:comment "Model of CPU. For example: 8th Generation Intel® Core™ i5 Processors"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :cpu;
+	.
+
+:cpu_code a rdf:Property ;
+	rdfs:label "CPU ID"@en;
+	rdfs:comment "Processor Number. For example: i5-8600T"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :cpu;
+	.
+
+:cpu_cores a rdf:Property ;
+	rdfs:label "CPU cores"@en;
+	rdfs:comment "Numer of physical cores. For example: 6"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :cpu;
+	.
+
+:cpu_consumition a rdf:Property ;
+	rdfs:label "CPU TDP"@en;
+	rdfs:comment "CPU Thermal Design Power (TDP) represents the average power, in watts, the processor dissipates when operating at Base Frequency with all cores active under an Intel-defined, high-complexity workload"@en ;
+	rdfs:range xsd:decimal;
+	rdfs:domain :cpu;
+	.
+
+
+:cpu_threads a rdf:Property ;
+	rdfs:label "CPU threads"@en;
+	rdfs:comment "CPU threads"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :cpu;
+	.
+
+:cpu_frecuency a rdf:Property ;
+	rdfs:label "CPU Frecuency"@en;
+	rdfs:comment "Processor Base Frequency describes the rate at which the processor's transistors open and close. The processor base frequency is the operating point where TDP is defined. Frequency is measured in gigahertz (GHz), or billion cycles per second."@en ;
+	rdfs:range xsd:decimal;
+	rdfs:domain :cpu;
+	.
+
+:cpu_max_frecuency a rdf:Property ;
+	rdfs:label "CPU Max Frecuency"@en;
+	rdfs:comment "Max turbo frequency is the maximum single core frequency at which the processor is capable of operating using Intel® Turbo Boost Technology. Frequency is measured in gigahertz (GHz), or billion cycles per second."@en ;
+	rdfs:range xsd:decimal;
+	rdfs:domain :cpu;
+	.	
+
+:cpu_cache a rdf:Property ;
+	rdfs:label "CPU Cache"@en;
+	rdfs:comment "CPU Cache is an area of fast memory located on the processor. It refers to the architecture that allows all cores to dynamically share access to the last level cache."@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :cpu;
+	.
+
+:cpu_spped a rdf:Property ;
+	rdfs:label "CPU bus speed"@en;
+	rdfs:comment "A bus is a subsystem that transfers data between computer components or between computers. Types include (FSB) (DMI) (Intel I/O) (QPI)"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :cpu;
+	.
+	
+:ram_size a rdf:Property ;
+	rdfs:label "RAM size"@en;
+	rdfs:comment "RAM size of the instance. For example: 256 GB"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :ram;
+	.
+
+:ram_type a rdf:Property ;
+	rdfs:label "RAM Type"@en;
+	rdfs:comment "RAM Type. For example: DDR3"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :ram;
+	.
+		
+:ram_frecuency a rdf:Property ;
+	rdfs:label "RAM frecuency"@en;
+	rdfs:comment "RAM frecuency in MHz. For example: 2300 MHz"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :ram;
+	.
+
+:network_bandwidth a rdf:Property ;
+	rdfs:label "Network bandwidth"@en;
+	rdfs:comment "Network bandwidth in Mbps. For example: 1000 Mbps"@en ;
+	rdfs:range xsd:decimal;
+	rdfs:domain :network;
+		.
+:storage_size a rdf:Property ;
+	rdfs:label "Storage size"@en;
+	rdfs:comment "Storage size. For example: 500 GB"@en ;
+	rdfs:range xsd:decimal;
+	rdfs:domain :storage;
+	.
+		
+:storage_technology a rdf:Property ;
+	rdfs:label "Storage Technology"@en;
+	rdfs:comment "Storage Technology. For instance: SSD/HDD/..."@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :storage;
+	.
+
+:storage_bandwidth a rdf:Property ;
+	rdfs:label "Storage Bandwidth"@en;
+	rdfs:comment "Storage bandwidth in MB/s"@en ;
+	rdfs:range xsd:integer;
+	rdfs:domain :storage;
+	.
+
+## Properties Main Classes
+
+:code a rdf:Property ;
+	rdfs:label "Short Code"@en;
+	rdfs:comment "Instance group code"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :Instance;
+	.
+
+:model a rdf:Property ;
+	rdfs:label "Model Code"@en;
+	rdfs:comment "Unique identifier of the instance. It allows to know the name of the instance in a quick way. For instance: t2.medium"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :Instance;
+	.
+
+:type a rdf:Property ;
+	rdfs:label "Type Code"@en;
+	rdfs:comment "Name that groups together instances of the same or similar type under a common name; for example: Basic Group"@en ;
+	rdfs:range xsd:string;
+	rdfs:domain :Instance;
+	.
+	
+:hasCPU a rdf:Property;
+	rdfs:label "Has CPU"@en;
+	rdfs:comment "Specifies that the instance is provided with CPU"@en;
+	rdfs:domain :Instance;
+	rdfs:range :cpu;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+	
+:hasRAM a rdf:Property;
+	rdfs:label "Has RAM"@en;
+	rdfs:comment "Specifies that the instance is provided with RAM"@en;
+	rdfs:domain :Instance;
+	rdfs:range :ram;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+	
+:hasNetwork a rdf:Property;
+	rdfs:label "Has network"@en;
+	rdfs:comment "Specifies that the instance is provided with network"@en;
+	rdfs:domain :Instance;
+	rdfs:range :network;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+
+:hasStorage a rdf:Property;
+	rdfs:label "Has storage"@en;
+	rdfs:comment "Specifies that the instance is provided with storage"@en;
+	rdfs:domain :Instance;
+	rdfs:range :storage;
+	rdfs:isDefinedBy <http://cookingbigdata.com/linkeddata/ccinstances>; 
+	.
+

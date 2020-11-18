@@ -1,0 +1,1035 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://w3id.org/amlo/core#"
+     xml:base="http://w3id.org/amlo/core"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:Analytics="https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/Analytics/"
+     xmlns:AnnotationVocabulary="https://spec.edmcouncil.org/fibo/ontology/FND/Utilities/AnnotationVocabulary/"
+     xmlns:SpecificationMetadata="http://www.omg.org/techprocess/ab/SpecificationMetadata/">
+    <owl:Ontology rdf:about="http://w3id.org/amlo/core">
+        <owl:versionIRI rdf:resource="https://mopso.gitlab.io/amlo/core/core.rdf#20200621"/>
+        <dc:creator>Andrea Danielli</dc:creator>
+        <dc:creator>Enrico Fagnoni</dc:creator>
+        <dc:date>2020-07-07</dc:date>
+        <dc:description rdf:resource="https://mopso.gitlab.io/amlo/core/uml.png"/>
+        <dc:description xml:lang="en">The AMLO-core is the main module of the AMLO projects that extends the Financial Industry Business Ontology (FIBO) with some concepts to describe the Anti Money Laundering (AML) knowledge and facts.
+
+AMLO-core can be used as an upper ontology to derive taxonomies and axioms as well as a way to exchange information among investigators.</dc:description>
+        <dc:rights xml:lang="en">The amlo-core  vocabulary was developed by developed by Enrico Fagnoni and Andrea Danielli in the scope of the AMLO project Copyright (c) by 2019-2020 by LinkedDataCenter and it is available under the Creative Commons Attribution 4.0.  This work is an extension of the FIBO ontology Copyright (c) by 2014-2019 EDM Council, Inc. and Object Management Group, Inc.</dc:rights>
+        <dc:title xml:lang="en">Anti Money Laundering Ontology core vocabulary  (AMLO-core)</dc:title>
+        <dct:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <rdfs:comment xml:lang="en">AMLO-core is a formal conceptual model that defines the main terms used in Anti Money Laundering (AML) investigations. 
+
+AMLO-core  is developed by a multidisciplinary group of domain experts and data scientists as part of the AMLO project hosted by LinkedData.Center.</rdfs:comment>
+        <rdfs:label xml:lang="en">AMLO-core vocabulary</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://gitlab.com/mopso/amlo"/>
+        <rdfs:seeAlso rdf:resource="https://linkeddata.center/"/>
+        <owl:versionInfo>dev-1.1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/amlo/core#RiskEstimator -->
+
+    <rdfs:Datatype rdf:about="http://w3id.org/amlo/core#RiskEstimator">
+        <rdfs:comment xml:lang="it">un valore probabilistico che esclude certezze</rdfs:comment>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/amlo/core#assessedOn -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#assessedOn">
+        <owl:inverseOf rdf:resource="http://w3id.org/amlo/core#hasEvaluation"/>
+        <rdfs:comment xml:lang="it">si riferisce all&apos;oggetto di una valutazione</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#detects -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#detects">
+        <owl:inverseOf rdf:resource="http://w3id.org/amlo/core#isDetectedBy"/>
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core/DetectionEvent"/>
+        <rdfs:range rdf:resource="http://w3id.org/amlo/core#UnexpectedActivity"/>
+        <rdfs:comment xml:lang="it">rileva una operatività inattesa</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#hasEvaluation">
+        <rdfs:comment xml:lang="it">collega un soggetto ad una valutazione</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasGender -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#hasGender">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person"/>
+        <rdfs:range rdf:resource="http://w3id.org/amlo/core#Gender"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasSizeEstimator -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#hasSizeEstimator">
+        <rdfs:comment xml:lang="it">collega una stima quantitativa ad un rischio</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasSuspectRatingScore -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#hasSuspectRatingScore">
+        <rdfs:subPropertyOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/hasRatingScore"/>
+        <rdfs:range rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+        <rdfs:comment xml:lang="it">collega un valore qualitativo espresso su un rischio</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#isDetectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#isDetectedBy">
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core#UnexpectedActivity"/>
+        <rdfs:comment xml:lang="it">è rilevata da une evento di ricerca operatività sospetta</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#isRecordedIn -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#isRecordedIn">
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core#Transfer"/>
+        <rdfs:comment xml:lang="it">identifica un libro utilizzato per registrare un trasferimento</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#onRiskFactor -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#onRiskFactor">
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="it">collega qualcosa ald un concetto di rischio astratto</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#operatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#operatesIn">
+        <rdfs:domain rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent"/>
+        <rdfs:range rdf:resource="https://www.omg.org/spec/LCC/Countries/CountryRepresentation/GeopoliticalEntity"/>
+        <rdfs:comment xml:lang="en">states that the annotated subject operates in the related geopolitical entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#transfers -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#transfers">
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core#Transfer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="it">trasferisce qualcosa</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#wasBorn -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/amlo/core#wasBorn">
+        <rdfs:domain rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent"/>
+        <rdfs:range rdf:resource="https://www.omg.org/spec/LCC/Countries/CountryRepresentation/GeopoliticalEntity"/>
+        <rdfs:comment xml:lang="en">states that a person or an organization was bornor registered in the related geopolitical entity (municipality, country etc.)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/isIdentifiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/isIdentifiedBy"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/hasRatingScore -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/hasRatingScore"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/isReportedTo -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/isReportedTo"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/reportsOn -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/reportsOn"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/hasQuantityValue -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/hasQuantityValue"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/comprises -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/comprises"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasIdentity -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasIdentity"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/involves -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/involves"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/isProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/isProvidedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasRiskEstimator -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/amlo/core#hasRiskEstimator">
+        <rdfs:range rdf:resource="http://w3id.org/amlo/core#RiskEstimator"/>
+        <rdfs:comment xml:lang="it">un valore copreso tra 0 e 1 che rappresenta lo stimatore di un rischio</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core#hasTransferDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/amlo/core#hasTransferDescription">
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core#Transfer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="it">la descrizione testuale associata ad un bonifico</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/amlo/core/wasEstimatedOnDate -->
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/amlo/core/wasEstimatedOnDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://w3id.org/amlo/core/ConventionalMoneyValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="it">data in cui un vallore è stato stimato</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasCity -->
+
+    <owl:DatatypeProperty rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/hasCity"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/amlo/core#Accountable -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Accountable">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">identifica un agente come   responsabile di una operatività inattesa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Agent -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Agent">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent"/>
+        <rdfs:comment xml:lang="en">An agent is an autonomous individual that can be involved in AML ativities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Analyst -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Analyst">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingIssuer"/>
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingParty"/>
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">identifica un agente preposto alla valutazione di una operatività inattesa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Book -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Book">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasIdentity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/comprises"/>
+                        <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Record"/>
+                    </owl:Restriction>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">identifica un qualsiasi registro usato per annotare record</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Cash -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Cash">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/AmountOfMoney"/>
+        <rdfs:comment xml:lang="it">la somma di  ammotare di denaro contante. Per rifere  una somma  di denaro astratta (ad esempio quello trasferito con un bonifico) bisogna  la classe MonetaryAmount.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Gender -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Gender">
+        <rdfs:comment>A person Gender</rdfs:comment>
+        <rdfs:label></rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#IntangibleAsset -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#IntangibleAsset">
+        <rdfs:comment xml:lang="it">qualsiasi bene intangibile che non sia denaro o immobili</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#OriginatorBook -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#OriginatorBook">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#Book"/>
+        <rdfs:comment xml:lang="it">identifica un registro  (es. libro mastro) usato  usato per annotare un trasferimento  da parte dell&apos;ordinate</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#OriginatorParty -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#OriginatorParty">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">identifica  un agente che ordina un trasferimento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Reasoner -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Reasoner">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole"/>
+        <rdfs:comment xml:lang="it">identifica un un agente software che ragionando su dati esistenti inferisce nuove informazioni</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#RecipientBook -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#RecipientBook">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#Book"/>
+        <rdfs:comment xml:lang="it">identifica un registro  (es. libro mastro) usato  usato per annotare un trasferimento  dala parte del ricevente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#RecipientParty -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#RecipientParty">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">identifica un agente  come destinatario di un trasferimento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#RiskEvaluation -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#RiskEvaluation">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/Opinion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#assessedOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#onRiskFactor"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">un opinione espressa su un rischio</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#RiskRating -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#RiskRating">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#RiskEvaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#hasRiskEstimator"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://w3id.org/amlo/core#RiskEstimator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">una stima di un  fattore di rischio associato a qualcosa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#RiskSizing -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#RiskSizing">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#RiskEvaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/hasQuantityValue"/>
+                <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/QuantityValue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">un dimensionamento del rischio basato su una o più quantità misurabili associato a qualcosa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#SuspectRating -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#SuspectRating">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/Rating"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#hasSuspectRatingScore"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">rappresenta l&apos;esito di un’attività di investigazione su una operatività inattesa  finalizzata a valutarne il grado di sospetto</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#SuspectRatingScore -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#SuspectRatingScore">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/QualitativeRatingScore"/>
+        <rdfs:comment xml:lang="it">definisce qualitativamente il grado di sospetto che grava su qualcosa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#Transfer -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#Transfer">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/involves"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/amlo/core#Book"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#transfers"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://w3id.org/amlo/core#Cash"/>
+                            <rdf:Description rdf:about="http://w3id.org/amlo/core#IntangibleAsset"/>
+                            <rdf:Description rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/MonetaryAmount"/>
+                            <rdf:Description rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/RealEstate"/>
+                            <rdf:Description rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Good"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/amlo/core#OriginatorParty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://w3id.org/amlo/core#RecipientParty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">un trasferimento di denaro o di un altro valore che coinvolge un ordinate, un ricevente e eventuali registri su cui è annotato il trasferimento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#UnexpectedActivity -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#UnexpectedActivity">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Record"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/amlo/core#Accountable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">evidenzia un insieme di movimenti, eventi o azioni non usuali che sono attribuiti ad un agente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core#UnexpectedActivityReport -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core#UnexpectedActivityReport">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentReport"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/reportsOn"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/amlo/core#UnexpectedActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Reporting/isReportedTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://w3id.org/amlo/core#Analyst"/>
+                            <rdf:Description rdf:about="http://w3id.org/amlo/core/SuspectArchiver"/>
+                            <rdf:Description rdf:about="http://w3id.org/amlo/core/SuspectReporter"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">un documento che riporta una operatività inattesa da segnalare ad un agente preposto alla sua valutazione</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/ConventionalMoneyValue -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/ConventionalMoneyValue">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/QuantityValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core/wasEstimatedOnDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="it">Esprime valore adimensionale che permette di comparare valori espressi in differenti valute o merci. Se presente il valore deve essere associato ad una data in cui è stato calcolato.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/DetectionEvent -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/DetectionEvent">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentEvent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/amlo/core#hasEvaluation"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/amlo/core#UnexpectedActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">an assesment that discoveries one or more unexpected activity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/Detector -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/Detector">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole"/>
+        <rdfs:comment xml:lang="it">identifica un un agente software che analizzando distemi esterni identivica potenziali attivià inattese</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/FalsePositiveReport -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/FalsePositiveReport">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#UnexpectedActivityReport"/>
+        <rdfs:comment xml:lang="it">un report in cui si chiede l&apos;archiviazione di una attività inattesa in quanto giudicata un falso positivo</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/FamilyMember -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/FamilyMember">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">un congiunto di una persona</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/Oracle -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/Oracle">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole"/>
+        <rdfs:comment xml:lang="it">identifica un un agente software che analizzando l&apos;insieme dei dati nella knowqledge base fornisce risposte o consigli</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/PoliticalExposePerson -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/PoliticalExposePerson">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person"/>
+        <rdfs:comment xml:lang="it">una prersona politicamente esposta</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/SuspectActivityReport -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/SuspectActivityReport">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/amlo/core#UnexpectedActivityReport"/>
+        <rdfs:comment xml:lang="it">un report in cui si segnala una operazione sospetta all&apos;autorità competente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/SuspectArchiver -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/SuspectArchiver">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">un incaricato di archiviare un attività inattesa</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/SuspectDetector -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/SuspectDetector">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">chi identifica una operazione sospetta</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/amlo/core/SuspectReporter -->
+
+    <owl:Class rdf:about="http://w3id.org/amlo/core/SuspectReporter">
+        <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+        <rdfs:comment xml:lang="it">la persona incaricata di trasmetter una segnalazione di attività sospetta all&apos;autorità compenente</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/Bank -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/Bank"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/BankAccount -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/BankAccount">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/isIdentifiedBy"/>
+                        <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/BankAccountIdentifier"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasPartyInRole"/>
+                        <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/Bank"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/isProvidedBy"/>
+                        <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/Bank"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/BankAccountIdentifier -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/BankAccountIdentifier"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/AmountOfMoney -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/AmountOfMoney"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/MonetaryAmount -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/MonetaryAmount"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/Agents/AutonomousAgent"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/AgentsAndPeople/People/Person"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentEvent -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentEvent"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentReport -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/AssessmentReport"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/Opinion -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/Opinion"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Codes/CodeSet -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Codes/CodeSet"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Record -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Record">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/comprises"/>
+                <owl:someValuesFrom rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Record"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/QualitativeRatingScore -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/QualitativeRatingScore"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/Rating -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/Rating"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingIssuer -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingIssuer"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingParty -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Ratings/RatingParty"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/PartyInRole"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Roles/ThingInRole"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/RealEstate -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/RealEstate"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Good -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Good"/>
+    
+
+
+    <!-- https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/QuantityValue -->
+
+    <owl:Class rdf:about="https://spec.edmcouncil.org/fibo/ontology/FND/Quantities/QuantitiesAndUnits/QuantityValue"/>
+    
+
+
+    <!-- https://www.omg.org/spec/LCC/Countries/CountryRepresentation/GeopoliticalEntity -->
+
+    <owl:Class rdf:about="https://www.omg.org/spec/LCC/Countries/CountryRepresentation/GeopoliticalEntity"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/amlo/core#female -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#female">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#Gender"/>
+        <rdfs:comment xml:lang="en">a female person</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#male -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#male">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#Gender"/>
+        <rdfs:comment xml:lang="en">a male person</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#not-enough-data -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#not-enough-data">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+        <rdfs:comment xml:lang="it">valutazione non effettuata per mancanza di dati</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#not-suspicious -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#not-suspicious">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+        <rdfs:comment xml:lang="it">il soggetto annotato non è sospetto</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#suspect-codes -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#suspect-codes">
+        <rdf:type rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Codes/CodeSet"/>
+        <rdfs:comment xml:lang="it">definisce i possibili gradi di sospetto</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#suspicious -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#suspicious">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+        <rdfs:comment xml:lang="it">il soggetto annotato è sospetto</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://w3id.org/amlo/core#to-be-ignored -->
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/amlo/core#to-be-ignored">
+        <rdf:type rdf:resource="http://w3id.org/amlo/core#SuspectRatingScore"/>
+        <rdfs:comment xml:lang="it">il grado di sospetto non è valutato perchè una direttiva impedisce esplicitamente la valutazione del soggetto</rdfs:comment>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

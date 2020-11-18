@@ -33,8 +33,8 @@ import uk.ac.manchester.cs.owl.owlapi.OWLSubClassOfAxiomImpl;
  * Checks the normalized axioms in an ontology to see if they match 
  * the OWLAx axioms
  * 
- * @author Aaron Eberhart
- * @author DaSe Lab
+ * @author 
+ * @author 
  */
 public class OWLAxMatcher {
 	
@@ -97,16 +97,16 @@ public class OWLAxMatcher {
 		result2.put("complex class axioms", (double)normalizedAxioms.getOntologyComposition().get("complex class axioms"));
 		result2.put("total class axioms", (double)result2.get("simple class axioms") + result2.get("complex class axioms"));
 		result2.put("role axioms", (double)normalizedAxioms.getOntologyComposition().get("role axioms"));
-		result2.put("total overall axioms", (double)result2.get("total class axioms") + result2.get("role axioms"));
+		result2.put("total overall axioms", (double)result2.get("total class axioms") + result2.get("role axioms") + (double)normalizedAxioms.getOntologyComposition().get("key axioms"));
 		
 		ontology = normalizedAxioms.getOntologyComposition();
 		
 		matchAxioms(normalizedAxioms.getSimpleClassAxioms());
 		
-		result2.put("coverage count",result2.get("simple class axioms") - result.get("miss"));
-		result2.put("percent coverage all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("coverage count") / result2.get("total overall axioms"));
-		result2.put("percent coverage only simple class axioms",result2.get("simple class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("simple class axioms"));
-		result2.put("percent coverage all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("coverage count") / result2.get("total class axioms"));
+		result2.put("expressibility count",result2.get("simple class axioms") - result.get("miss"));
+		result2.put("percent expressibility all axioms", result2.get("total overall axioms") == 0.0 ? 0 : result2.get("expressibility count") / result2.get("total overall axioms"));
+		result2.put("percent expressibility only simple class axioms",result2.get("simple class axioms") == 0.0 ? 0.0 : result2.get("expressibility count") / result2.get("simple class axioms"));
+		result2.put("percent expressibility all class axioms",result2.get("total class axioms") == 0.0 ? 0.0 : result2.get("expressibility count") / result2.get("total class axioms"));
 	}
 
 	

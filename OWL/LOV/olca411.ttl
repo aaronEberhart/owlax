@@ -1,0 +1,168 @@
+@prefix : <https://w3id.org/vocab/olca#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix olca: <https://w3id.org/vocab/olca#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/vocab/olca> .
+@prefix cc: <http://creativecommons.org/ns#> .
+
+
+<https://w3id.org/vocab/olca> rdf:type owl:Ontology ;
+                               owl:versionIRI <http://linkedvocabs.org/vocab/olca_v2.0.ttl> ;
+                               dc:contributor <http://data.semanticweb.org/person/carlos-tejo-alonso> ,
+                                              <https://w3id.org/people/gatemezing> ;
+                               dc:creator <http://data.semanticweb.org/person/bernard-vatant> ;
+                               dc:issued "2013-02-07" ;
+                               dc:modified "2020-02-31" ;
+							   owl:priorVersion <http://linkedvocabs.org/vocab/olca/olca_v1.0.ttl> ;
+							   cc:licence <http://www.datagouv.fr/Licence-Ouverte-Open-Licence> ;
+                               dc:title "Ontology Loose Coupling Annotation"@en ;
+                               vann:preferredNamespacePrefix "olca" ;
+                               vann:preferredNamespaceUri olca: ;
+							   cc:licence <http://www.datagouv.fr/Licence-Ouverte-Open-Licence> ;
+                               rdfs:comment "A vocabulary defining annotations enabling loose coupling between classes and properties in ontologies. Those annotations define with some accuracy the expected use of properties, in particular across vocabularies, without the formal constraints entailed by the use of OWL or RDFS constructions"@en ;
+                               rdfs:label "Ontology Loose Coupling Annotation"@en ;
+                               rdfs:seeAlso <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgMetaSchema> ;
+                               owl:versionInfo "v2.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dc:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dc:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/vocab/olca#domainIncludes
+olca:domainIncludes rdf:type owl:AnnotationProperty ;
+                   rdfs:comment "A loose coupling of a property to possible or expected class it can describe. This annotation is to be used when one does not want to enforce formally the coupling by rdfs:domain or some owl:Restriction constraint. "@en ;
+                   rdfs:label "domain includes"@en ;
+                   olca:domainIncludes rdf:Property ,
+                                      owl:AnnotationProperty ,
+                                      owl:DatatypeProperty ,
+                                      owl:ObjectProperty ;
+                   olca:rangeIncludes rdfs:Class ,
+                                     owl:Class .
+
+
+###  https://w3id.org/vocab/olca#expectedProperty
+olca:expectedProperty rdf:type owl:AnnotationProperty ;
+                     rdfs:comment "A loose coupling of a class to possible or expected properties. This annotation is to be used when one does not want to enforce formally the coupling using rdfs:range or some owl:Restriction."@en ;
+                     rdfs:label "expected property"@en ;
+                     olca:domainIncludes rdfs:Class ,
+                                        owl:Class ;
+                     olca:rangeIncludes rdf:Property ,
+                                       owl:AnnotationProperty ,
+                                       owl:DatatypeProperty ,
+                                       owl:ObjectProperty .
+
+
+###  https://w3id.org/vocab/olca#rangeIncludes
+olca:rangeIncludes rdf:type owl:AnnotationProperty ;
+                  rdfs:comment "A loose coupling of a property to possible or expected values. This annotation is to be used when one does not want to enforce formally the coupling by rdfs:range or some owl:Restriction constraint."@en ;
+                  rdfs:label "range includes"@en ;
+                  olca:domainIncludes rdf:Property ,
+                                     owl:AnnotationProperty ,
+                                     owl:DatatypeProperty ,
+                                     owl:ObjectProperty ;
+                  olca:rangeIncludes rdfs:Class ,
+                                    owl:Class .
+
+
+###  https://w3id.org/vocab/olca#similarClass
+olca:similarClass rdf:type owl:AnnotationProperty ;
+                 rdfs:comment "A loose similarity of classes, typically across ontologies . This annotation is to be used when one does not want to enforce formally the coupling by owl:equivalentClass. "@en ;
+                 rdfs:label "similar class"@en ;
+                 olca:domainIncludes rdfs:Class ,
+                                    owl:Class ;
+                 olca:rangeIncludes rdfs:Class ,
+                                   owl:Class .
+
+
+###  https://w3id.org/vocab/olca#similarProperty
+olca:similarProperty rdf:type owl:AnnotationProperty ;
+                    rdfs:comment "A loose similary of properties, typically across ontologies . This annotation is to be used when one does not want to enforce formally the coupling by owl:equivalentProperty. "@en ;
+                    rdfs:label "similar property"@en ;
+                    olca:domainIncludes rdf:Property ,
+                                       owl:AnnotationProperty ,
+                                       owl:DatatypeProperty ,
+                                       owl:ObjectProperty ;
+                    olca:rangeIncludes rdf:Property ,
+                                      owl:AnnotationProperty ,
+                                      owl:DatatypeProperty ,
+                                      owl:ObjectProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/vocab/lingvoj#officialLanguage
+<https://w3id.org/vocab/lingvoj#officialLanguage> rdf:type owl:ObjectProperty ;
+                                                  rdfs:range <http://www.lingvoj.org/ontology#Lingvo> ;
+                                                  rdfs:comment "An official language of a country, project, organization or event."@en ;
+                                                  rdfs:label "official language"@en ;
+                                                  olca:domainIncludes <http://linkedevents.org/ontology/Event> ,
+                                                                     <http://schema.org/Country> ,
+                                                                     <http://xmlns.com/foaf/0.1/Organization> ,
+                                                                     <http://xmlns.com/foaf/0.1/Project> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
+###  http://www.lingvoj.org/ontology#Lingvo
+<http://www.lingvoj.org/ontology#Lingvo> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/vocab/olca
+<https://w3id.org/vocab/olca> rdf:type owl:NamedIndividual ,
+                                       <http://purl.org/vocommons/voaf#Vocabulary> .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+dc:subject olca:domainIncludes <http://xmlns.com/foaf/0.1/Document> ;
+           olca:rangeIncludes <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

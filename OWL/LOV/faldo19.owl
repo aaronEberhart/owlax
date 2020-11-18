@@ -1,0 +1,1541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+                                  .Class {padding:0.4em; width:99%; border-width: 1px; border-style: dashed; position:relative;
+					margin-top: 1.5em; border-style:solid; background:#e0e0e0}
+                                  .cp-type {font-weight: normal; font-size:90%; color:
+					maroon;} .nice-content td { width:50% }
+				  #header {
+                                        padding-top: 2px;
+                                        padding-left: 1px;
+                                        padding-right: 1px;
+					background-color: #333333;
+					
+					color: #ffffff;
+				  }
+				  #header a {
+                                        color: #ffffff;
+                                  }
+				  #header #logo {
+                                     padding-left: 20px;
+				  }
+				  #header #trail {
+                                     text-align: left;
+				  }
+				  #header #menu {
+                                     text-align: right;
+                                     padding-right: 20px;
+				  }
+				  body {
+                                    margin:0;
+                                    padding:0;
+                                    font-family: trebuchet ms,sans-serif!important;
+				  }
+				  table {
+                                    width:100%;
+                                    border-collapse: collapse;
+				  }
+				  #search {
+                                      margin-top:1em;
+                                      margin-left: 0.5em;
+                                      padding-left: 1px;
+                                      padding-right: 1px;
+                                      background-color: #F5F5F5;
+				  }
+				  h2, h3 {
+                                    border-bottom: 2px solid #ACBCD0;
+                                    color: #426490;
+                                    font-size: medium;
+                                    font-weight: bold;
+                                    margin-bottom: 0.5em;
+                                    margin-top: 1em;
+                                    padding: 0.25em 0;
+                                  }
+                                  .subsection {
+                                    margin-top: 0.5em;
+                                  }
+                                  th {
+                                     text-align: left;
+                                  }
+                                  .nice {
+                                    color: #000000;
+                                  }
+                                  .nice th, .nice td {
+                                      padding: 0.2em 0.3em;
+                                      vertical-align: top;
+                                  }
+                                  .nice tr td {
+                                    border-left: 1px solid #DEDEDE;
+                                  }
+                                  .nice tr td:first-child  {
+                                    border-left: 0px solid #DEDEDE;
+                                  }
+                                  .nice tr {
+                                    border-top: 1px solid #DEDEDE;
+                                  }
+                                  .nice tr:first-child {
+                                    border-top: 0px solid #DEDEDE;
+                                  }
+                                  #content {
+                                    margin-left:0.5em;
+                                    margin-right:0.5em;
+                                  }
+                                  .indent {
+                                    margin-left:2em;
+                                  }
+                                  #footer {
+                                    margin-top:1em;
+                                    padding-left:1px;
+                                    padding-right:1px;
+                                    background-color: #F5F5F5;
+                                    margin-bottom:0em;
+                                  }
+                                  #footer ul {
+                                     list-style: none outside none;
+                                  }
+				</style>
+</head>
+<body>
+<table id="header"><tr>
+<td id="logo"><a href="/" accesskey="1"><img src="http://www.biohackathon.org/bh-favicon.png" alt="" width="37px"></a></td>
+<td id="trail">
+					FALDO: Feature Annotation Location Description Ontology
+				</td>
+<td id="menu">
+<a href="http://biohackathon.org/resource/faldo.ttl">Turtle</a>
+					· <a href="http://biohackathon.org/resource/faldo.rdf">RDF/XML</a>
+                                        · <a href="https://groups.google.com/forum/#!forum/faldo" accesskey="9">Contact/Help</a>
+					· <a href="https://github.com/OBF/FALDO" rel="help">Documentation</a>
+</td>
+</tr></table>
+<table id="search">
+<tr><td style="width:20em;"><a href="#OntologyDescription">Ontology description</a></td></tr>
+<tr>
+<td><a href="#Classes">
+                                    Classes (
+                                    16
+                                    )
+                            </a></td>
+<td><select onChange="window.location.hash = document.getElementById('naviClass').value" id="naviClass"><option value="BagOfRegions">
+				faldo:BagOfRegions</option>
+<option value="BothStrandsPosition">
+				faldo:BothStrandsPosition</option>
+<option value="C-TerminalPosition">
+				faldo:C-TerminalPosition</option>
+<option value="CollectionOfRegions">
+				faldo:CollectionOfRegions</option>
+<option value="ExactPosition">
+				faldo:ExactPosition</option>
+<option value="ForwardStrandPosition">
+				faldo:ForwardStrandPosition</option>
+<option value="FuzzyPosition">
+				faldo:FuzzyPosition</option>
+<option value="InBetweenPosition">
+				faldo:InBetweenPosition</option>
+<option value="InRangePosition">
+				faldo:InRangePosition</option>
+<option value="ListOfRegions">
+				faldo:ListOfRegions</option>
+<option value="N-TerminalPosition">
+				faldo:N-TerminalPosition</option>
+<option value="OneOfPosition">
+				faldo:OneOfPosition</option>
+<option value="Position">
+				faldo:Position</option>
+<option value="Region">
+				faldo:Region</option>
+<option value="ReverseStrandPosition">
+				faldo:ReverseStrandPosition</option>
+<option value="StrandedPosition">
+				faldo:StrandedPosition</option></select></td>
+</tr>
+<tr><td><a href="#Properties">
+                                    Properties (
+                                    10
+                                    )
+                            </a></td></tr>
+<tr>
+<td><a style="objectPropertySearch" href="#ObjectProperties">
+                                    Object properties (
+                                    9
+                                    )
+                            </a></td>
+<td><select onChange="window.location.hash = document.getElementById('navi3').value" id="navi3"><option value="after">
+				faldo:after</option>
+<option value="before">
+				faldo:before</option>
+<option value="begin">
+				faldo:begin</option>
+<option value="beginOf">
+				faldo:beginOf</option>
+<option value="end">
+				faldo:end</option>
+<option value="endOf">
+				faldo:endOf</option>
+<option value="location">
+				faldo:location</option>
+<option value="possiblePosition">
+				faldo:possiblePosition</option>
+<option value="reference">
+				faldo:reference</option></select></td>
+</tr>
+<tr>
+<td><a style="datatypePropertySearch" href="#DatatypeProperties">
+                                    Datatype properties (
+                                    1
+                                    )
+                            </a></td>
+<td><select onChange="window.location.hash = window.location.hash = document.getElementById('navi4').value" id="navi4"><option value="position">
+				faldo:position</option></select></td>
+</tr>
+<tr>
+<td><a href="#InstanceData">
+                                    Instance data (
+                                    0
+                                    )
+                            </a></td>
+<td><select onChange="window.location.hash = window.location.hash = document.getElementById('navi5').value" id="navi5"></select></td>
+</tr>
+</table>
+<div id="content">
+<div id="sections">
+<div class="nice" id="section_OntologyDescription" style="position: relative;">
+<h2>
+						Ontology description
+					</h2>
+<div class="nice-content" id="OntologyDescription"><table>
+<tr><th colspan="2">
+<a></a><span class="cp-type">
+						(rdf:type
+						<a href="http://www.w3.org/2002/07/owl#Ontology">
+					owl:Ontology</a>
+						)
+					</span>
+</th></tr>
+<tr>
+<td><a href="http://purl.org/dc/terms/license">
+                                        dcterms:license</a></td>
+<td><a href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</a></td>
+</tr>
+<tr>
+<td><a href="http://spinrdf.org/spin#imports">
+                                        spin:imports</a></td>
+<td><a href="http://topbraid.org/spin/owlrl-all">http://topbraid.org/spin/owlrl-all</a></td>
+</tr>
+<tr>
+<td><a href="http://spinrdf.org/spin#imports">
+                                        spin:imports</a></td>
+<td><a href="http://topbraid.org/spin/rdfsplus">http://topbraid.org/spin/rdfsplus</a></td>
+</tr>
+<tr>
+<td><a href="http://spinrdf.org/spin#imports">
+                                        spin:imports</a></td>
+<td><a href="http://topbraid.org/spin/spinowl">http://topbraid.org/spin/spinowl</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#versionInfo">
+					owl:versionInfo</a></td>
+<td>
+						"Created at the Biohackathon 2012 and 2013"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="nice" id="section_Classes" style="position: relative;">
+<h2>
+						Classes
+					</h2>
+<div class="nice-content" id="Classes">
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#BagOfRegions"></a><tbody>
+<tr><th id="BagOfRegions">
+				faldo:BagOfRegions<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Used to describe a location that consists of a number of Regions but where the order is not known. e.g. the oddly named order() keyword in a INSDC file."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Bag of regions"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+					rdfs:seeAlso</a></td>
+<td><a href="http://www.insdc.org/files/feature_table.html">http://www.insdc.org/files/feature_table.html</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#CollectionOfRegions">
+				faldo:CollectionOfRegions</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag">
+				rdf:Bag</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#BothStrandsPosition"></a><tbody>
+<tr><th id="BothStrandsPosition">
+				faldo:BothStrandsPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The 'both strands position' indicates a region that is best described as being on 'both' strands of a double-stranded sequence, rather than one or the other."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Both strands position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#StrandedPosition">
+				faldo:StrandedPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ForwardStrandPosition">
+				faldo:ForwardStrandPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ReverseStrandPosition">
+				faldo:ReverseStrandPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#C-TerminalPosition"></a><tbody>
+<tr><th id="C-TerminalPosition">
+				faldo:C-TerminalPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The C-terminus is the end of an amino acid chain (protein or polypeptide), terminated by a free carboxyl group (-COOH)."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"C-Terminal position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+					rdfs:seeAlso</a></td>
+<td><a href="http://en.wikipedia.org/wiki/C-terminus">http://en.wikipedia.org/wiki/C-terminus</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#N-TerminalPosition">
+				faldo:N-TerminalPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#CollectionOfRegions"></a><tbody>
+<tr><th id="CollectionOfRegions">
+				faldo:CollectionOfRegions<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Sometimes a location of a feature is defined by a collection of regions e.g. join() and order() in INSDC records. One should always try to model the semantics more accurately than this, these are fallback options to encode legacy data."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Collection of regions"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://www.w3.org/2002/07/owl#Thing">
+				owl:Thing</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+		Restrict
+		<a href="#http://www.w3.org/2000/01/rdf-schema#member">
+				rdfs:member</a><br>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#ExactPosition"></a><tbody>
+<tr><th id="ExactPosition">
+				faldo:ExactPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"A position that is exactly known."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Exact position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#position">
+				faldo:position</a>
+			to <a href="http://www.w3.org/2002/07/owl#cardinality">owl:cardinality </a><a href="#http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</a><br>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InBetweenPosition">
+				faldo:InBetweenPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InRangePosition">
+				faldo:InRangePosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#OneOfPosition">
+				faldo:OneOfPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#hasKey">
+					owl:hasKey</a></td>
+<td>
+<a href="http://www.w3.org/2002/07/owl#hasKey">owl:hasKey</a> consisting of (<br><span class="indent"><a href="http://biohackathon.org/resource/faldo#position">
+				faldo:position</a></span><br><em>and</em><br><span class="indent"><a href="http://biohackathon.org/resource/faldo#reference">
+				faldo:reference</a></span><br>
+                                          )
+                                        </td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#ForwardStrandPosition"></a><tbody>
+<tr><th id="ForwardStrandPosition">
+				faldo:ForwardStrandPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The position is on the forward (positive, 5' to 3') strand. Shown as a '+' in GFF3 and GTF."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Forward/positive strand position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#StrandedPosition">
+				faldo:StrandedPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#BothStrandsPosition">
+				faldo:BothStrandsPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ReverseStrandPosition">
+				faldo:ReverseStrandPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#FuzzyPosition"></a><tbody>
+<tr><th id="FuzzyPosition">
+				faldo:FuzzyPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"A position that lacks exact data."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Fuzzy position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#InBetweenPosition"></a><tbody>
+<tr><th id="InBetweenPosition">
+				faldo:InBetweenPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This indicates that a feature is between two other positions that are both known exactly and that are next to each other. An example is a restriction enzyme cutting site. The cut is after one position and before the other position (hence, in between)."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"In between positions"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+      <a href="http://www.w3.org/2002/07/owl#intersectionOf">owl:intersectionOf</a>
+							(
+							<br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#before">
+				faldo:before</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a><br></span><em>and</em><br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#after">
+				faldo:after</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a><br></span>
+							)
+						</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InRangePosition">
+				faldo:InRangePosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#OneOfPosition">
+				faldo:OneOfPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#InRangePosition"></a><tbody>
+<tr><th id="InRangePosition">
+				faldo:InRangePosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Use when you have an idea of the range in which you can find the position, but you cannot be sure about the exact position."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Indeterminate position within a range"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#FuzzyPosition">
+				faldo:FuzzyPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+      <a href="http://www.w3.org/2002/07/owl#intersectionOf">owl:intersectionOf</a>
+							(
+							<br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#begin">
+				faldo:begin</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a>
+			to <a href="http://www.w3.org/2002/07/owl#maxQualifiedCardinality">owl:maxQualifiedCardinality </a><a href="#http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</a><br></span><em>and</em><br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#end">
+				faldo:end</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a>
+			to <a href="http://www.w3.org/2002/07/owl#maxQualifiedCardinality">owl:maxQualifiedCardinality </a><a href="#http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</a><br></span>
+							)
+						</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InBetweenPosition">
+				faldo:InBetweenPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#OneOfPosition">
+				faldo:OneOfPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#StrandedPosition">
+				faldo:StrandedPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#ListOfRegions"></a><tbody>
+<tr><th id="ListOfRegions">
+				faldo:ListOfRegions<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"As an ordered list of regions (but the list might not be complete)."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Should be used when the location of a region is defined by an ordered list of Regions. However, try to avoid using these types in favor of using more explicit semantics about why the order is important."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"List of regions"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+					rdfs:seeAlso</a></td>
+<td><a href="http://www.insdc.org/files/feature_table.html">http://www.insdc.org/files/feature_table.html</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#CollectionOfRegions">
+				faldo:CollectionOfRegions</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq">
+				rdf:Seq</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#N-TerminalPosition"></a><tbody>
+<tr><th id="N-TerminalPosition">
+				faldo:N-TerminalPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The position of the starting amino-acid a protein or polypeptide terminated by an amino acid with a free amine group (-NH2). The convention for writing peptide sequences is to put the N-terminus on the left and write the sequence from N- to C-terminus. Instances of this class are often used when the reference sequence is not complete "
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+					rdfs:seeAlso</a></td>
+<td><a href="http://en.wikipedia.org/wiki/N-terminus">http://en.wikipedia.org/wiki/N-terminus</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#C-TerminalPosition">
+				faldo:C-TerminalPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#OneOfPosition"></a><tbody>
+<tr><th id="OneOfPosition">
+				faldo:OneOfPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The position is known to be one of the more detailed positions listed by the location predicate."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"One of positions"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#FuzzyPosition">
+				faldo:FuzzyPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InBetweenPosition">
+				faldo:InBetweenPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InRangePosition">
+				faldo:InRangePosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#Position"></a><tbody>
+<tr><th id="Position">
+				faldo:Position<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Superclass for the general concept of a position on a sequence. The sequence is designated with the reference predicate."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://www.w3.org/2002/07/owl#Thing">
+				owl:Thing</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#reference">
+				faldo:reference</a>
+			to <a href="http://www.w3.org/2002/07/owl#cardinality">owl:cardinality </a><a href="#http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</a><br>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#Region"></a><tbody>
+<tr><th id="Region">
+				faldo:Region<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"A region describes a length of sequence with a start position and end position that represents a feature on a sequence, e.g. a gene."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Region"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://www.w3.org/2002/07/owl#Thing">
+				owl:Thing</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td>
+      <a href="http://www.w3.org/2002/07/owl#intersectionOf">owl:intersectionOf</a>
+							(
+							<br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#begin">
+				faldo:begin</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a><br></span><em>and</em><br><span class="indent">
+		Restrict
+		<a href="#http://biohackathon.org/resource/faldo#end">
+				faldo:end</a><a href="http://www.w3.org/2002/07/owl#onClass"> owl:onClass </a><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a><br></span>
+							)
+						</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#hasKey">
+					owl:hasKey</a></td>
+<td>
+<a href="http://www.w3.org/2002/07/owl#hasKey">owl:hasKey</a> consisting of (<br><span class="indent"><a href="http://biohackathon.org/resource/faldo#begin">
+				faldo:begin</a></span><br><em>and</em><br><span class="indent"><a href="http://biohackathon.org/resource/faldo#end">
+				faldo:end</a></span><br>
+                                          )
+                                        </td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#ReverseStrandPosition"></a><tbody>
+<tr><th id="ReverseStrandPosition">
+				faldo:ReverseStrandPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The position is on the reverse (complement, 3' to 5') strand of the sequence. Shown as '-' in GTF and GFF3."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Negative/reverse strand position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#StrandedPosition">
+				faldo:StrandedPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#BothStrandsPosition">
+				faldo:BothStrandsPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#disjointWith">
+					owl:disjointWith</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ForwardStrandPosition">
+				faldo:ForwardStrandPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#StrandedPosition"></a><tbody>
+<tr><th id="StrandedPosition">
+				faldo:StrandedPosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#Class">
+					owl:Class</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Part of the coordinate system denoting on which strand the feature can be found. If you do not yet know which stand the feature is on, you should tag the position with just this class. If you know more you should use one of the subclasses. This means a region described with a '.' in GFF3. A GFF3 unstranded position does not have this type in FALDO -- those are just a 'position'."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"Stranded position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+					rdfs:subClassOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="nice" id="section_Properties" style="position: relative;">
+<h2>
+						Properties
+					</h2>
+<div class="nice-content" id="Properties">
+<h3 id="ObjectProperties">Object properties</h3>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#after"></a><tbody>
+<tr><th id="after">
+				faldo:after<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This predicate is used when you want to describe a non-inclusive range. Only used in the InBetweenPosition to say it is after a nucleotide, but before the next one."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#domain">
+					rdfs:domain</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InBetweenPosition">
+				faldo:InBetweenPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"after"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#before"></a><tbody>
+<tr><th id="before">
+				faldo:before<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This predicate is used to indicate that the feature is found before the exact position. Use to indicate, for example, a cleavage site. The cleavage happens between two amino acids before one and after the other."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#domain">
+					rdfs:domain</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#InBetweenPosition">
+				faldo:InBetweenPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"before"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#begin"></a><tbody>
+<tr><th id="begin">
+				faldo:begin<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The inclusive beginning of a position. Also known as start."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#domain">
+					rdfs:domain</a></td>
+<td>
+      <a href="http://www.w3.org/2002/07/owl#unionOf">owl:unionOf</a>
+							(
+							<br><span class="indent"><a href="http://biohackathon.org/resource/faldo#Region">
+				faldo:Region</a></span><br><em>or</em><br><span class="indent"><a href="http://biohackathon.org/resource/faldo#InRangePosition">
+				faldo:InRangePosition</a></span><br>
+							)
+						</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"begin"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#inverseOf">
+					owl:inverseOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#beginOf">
+				faldo:beginOf</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#beginOf"></a><tbody>
+<tr><th id="beginOf">
+				faldo:beginOf<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This is the inverse of the begin:property. It is included to make it easier to write a number of OWL axioms. You should rarely use this in your raw data."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"beginOf"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#inverseOf">
+					owl:inverseOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#begin">
+				faldo:begin</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#end"></a><tbody>
+<tr><th id="end">
+				faldo:end<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The inclusive end of the position."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"end"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#inverseOf">
+					owl:inverseOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#endOf">
+				faldo:endOf</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#endOf"></a><tbody>
+<tr><th id="endOf">
+				faldo:endOf<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This is the inverse of the begin:end. It is included to make it easier to write a number of OWL axioms. You should rarely use this in your raw data."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"endOf"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2002/07/owl#inverseOf">
+					owl:inverseOf</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#end">
+				faldo:end</a></td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#location"></a><tbody>
+<tr><th id="location">
+				faldo:location<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"This is the link between the concept whose location you are annotating and its range or position. For example, when annotating the region that describes an exon, the exon would be the subject and the region would be the object of the triple or: 'active site' 'location' [is] 'position 3'."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"location"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td>
+      <a href="http://www.w3.org/2002/07/owl#unionOf">owl:unionOf</a>
+							(
+							<br><span class="indent"><a href="http://biohackathon.org/resource/faldo#CollectionOfRegions">
+				faldo:CollectionOfRegions</a></span><br><em>or</em><br><span class="indent"><a href="http://biohackathon.org/resource/faldo#Region">
+				faldo:Region</a></span><br><em>or</em><br><span class="indent"><a href="http://biohackathon.org/resource/faldo#Position">
+				faldo:Position</a></span><br>
+							)
+						</td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#possiblePosition"></a><tbody>
+<tr><th id="possiblePosition">
+				faldo:possiblePosition<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"One of the possible positions listed for a OneOfPosition element."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"possiblePosition"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#reference"></a><tbody>
+<tr><th id="reference">
+				faldo:reference<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#ObjectProperty">
+					owl:ObjectProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The reference is the resource that the position value is anchored to.  For example, a contig or chromosome in a genome assembly."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"reference"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="DatatypeProperties">Datatype properties</h3>
+<table class="subsection">
+<a name="http://biohackathon.org/resource/faldo#position"></a><tbody>
+<tr><th id="position">
+				faldo:position<span class="cp-type">
+								(rdf:type
+								<a href="http://www.w3.org/2002/07/owl#DatatypeProperty">
+					owl:DatatypeProperty</a>
+								)
+							</span>
+</th></tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"Denoted in 1-based closed coordinates, i.e. the position on the first amino acid or nucleotide of a sequence has the value 1. For nucleotide sequences we count from the 5'end of the sequence, while for Aminoacid sequences we start counting from the N-Terminus."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#comment">
+					rdfs:comment</a></td>
+<td>
+						"The position value is the offset along the reference where this position is found. Thus the only the position value in combination with the reference determines where a position is."
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#domain">
+					rdfs:domain</a></td>
+<td><a href="http://biohackathon.org/resource/faldo#ExactPosition">
+				faldo:ExactPosition</a></td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#label">
+					rdfs:label</a></td>
+<td>
+						"position"
+						<sup><a href=".">
+				xsd:string</a></sup>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/2000/01/rdf-schema#range">
+					rdfs:range</a></td>
+<td>
+      
+		Restrict
+		<a href="#"></a><a href="http://www.w3.org/2002/07/owl#onDataType"> owl:onDatatype </a> to 
+                        <a href="http://www.w3.org/2001/XMLSchema#integer">
+				xsd:integer</a> with a value of 
+                        
+                            at least <a href="#http://www.w3.org/2001/XMLSchema#integer">1</a><br>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="nice" id="section_InstanceData" style="position: relative;"><div class="nice-content" id="InstanceData"></div></div>
+</div>
+<script type="text/javascript"> <!-- UniProt.visibility.initSections('owl'); 
+			</script>
+</div>
+<div id="footer">
+<p>We would like to especially thank the organisers and funders of the <a href="http://www.biohackaton.org">BioHackathon</a> series of meetings for hosting the original discussions leading to FALDO</p>
+<p>FALDO is addittionaly supported by:</p>
+<ul>
+<li>
+<a href="http://biosciencedbc.jp/en/">National Bioscience Database Center (NBDC)</a> of <a href="http://www.jst.go.jp/">Japan Science and Technology Agency (JST)</a>
+</li>
+<li><a href="http://dbcls.rois.ac.jp/en/">Database Center for Life Science (DBCLS)</a></li>
+<li><a href="http://www.rois.ac.jp/">Research Organization of Information and Systems (ROIS)</a></li>
+<li>
+<a href="http://www.isb-sib.ch/groups/geneva/sp-xenarios.html">Swiss-Prot part of the SIB Swiss Institute of Bioinformatics</a> and supported by the <a href="http://www.sbfi.admin.ch/?lang=en">Swiss Federal Government through the The State Secretariat for Education, Research and Innovation SERI</a>.</li>
+<li><a href="http://www.nih.gov/">NIH under R24OD011883</a></li>
+<li>
+<a href="http://science.energy.gov/bes/">Director, Office of Science, Office of Basic Energy Sciences</a>, of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231.</li>
+<li><a href="http://www.scotland.gov.uk/Topics/Research/About/EBAR">Scottish Government Rural and Environmental Research and Analysis Directorate</a></li>
+<li><a href="http://www.ddbj.nig.ac.jp">DNA Databank of Japan (DDBJ)</a></li>
+</ul>
+</div>
+</body>
+</html>
