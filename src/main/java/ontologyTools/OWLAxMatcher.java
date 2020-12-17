@@ -33,8 +33,8 @@ import uk.ac.manchester.cs.owl.owlapi.OWLSubClassOfAxiomImpl;
  * Checks the normalized axioms in an ontology to see if they match 
  * the OWLAx axioms
  * 
- * @author 
- * @author 
+ * @author Aaron Eberhart
+ * @author DaSe Lab
  */
 public class OWLAxMatcher {
 	

@@ -34,6 +34,7 @@ import ontologyTools.OWLAxMatcher;
  * Test Class for OWLAx evaluation program
  * 
  * @author Aaron Eberhart
+ * @author DaSe Lab
  */
 public class Main {
 	

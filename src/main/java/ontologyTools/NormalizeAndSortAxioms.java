@@ -72,8 +72,8 @@ import uk.ac.manchester.cs.owl.owlapi.OWLSubPropertyChainAxiomImpl;
  * Normalizes and sorts the axioms in an ontology so that 
  * they can be evaluated for OWLAx coverage
  * 
- * @author 
- * @author 
+ * @author Aaron Eberhart
+ * @author DaSe Lab
  *
  */
 public class NormalizeAndSortAxioms  {
