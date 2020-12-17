@@ -58,7 +58,7 @@ public class Main {
 	 * @param dir File
 	 * @return OWLAxEvaluation
 	 */
-	private static ArrayList<ArrayList<HashMap<String,Double>>> runEval(File dir,int timeout) {
+	public static ArrayList<ArrayList<HashMap<String,Double>>> runEval(File dir,int timeout) {
 		
 		//check if it's a file of a dir of files
 		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
