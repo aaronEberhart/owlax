@@ -248,7 +248,7 @@ public class OWLAxMatcher {
 	/**
 	 * Gets the OWLAx axioms
 	 * 
-	 * @return List&lt;OWLSubClassOfAxiom>
+	 * @return List&lt;OWLSubClassOfAxiom&gt;
 	 */
 	public List<OWLSubClassOfAxiom> getOWLAxAxioms() {
 		return OWLAxAxioms;
@@ -258,7 +258,7 @@ public class OWLAxMatcher {
 	 * Gets the axioms from the ontology that are smaller than or the same size 
 	 * as the maximum size in OWLAx
 	 * 
-	 * @return ArrayList&lt;OWLSubClassOfAxiom>
+	 * @return ArrayList&lt;OWLSubClassOfAxiom&gt;
 	 */
 	public ArrayList<OWLSubClassOfAxiom> getSimpleClassAxioms() {
 		return normalizedAxioms.getSimpleClassAxioms();
@@ -267,7 +267,7 @@ public class OWLAxMatcher {
 	/**
 	 * Gets the axioms from the ontology that are bigger than the maximum size in OWLAx
 	 * 
-	 * @return ArrayList&lt;OWLSubClassOfAxiom>
+	 * @return ArrayList&lt;OWLSubClassOfAxiom&gt;
 	 */
 	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms() {
 		return normalizedAxioms.getComplexClassAxioms();
@@ -276,7 +276,7 @@ public class OWLAxMatcher {
 	/**
 	 * Gets the role axioms from the ontology
 	 * 
-	 * @return ArrayList&lt;OWLPropertyAxiom>
+	 * @return ArrayList&lt;OWLPropertyAxiom&gt;
 	 */
 	public ArrayList<OWLPropertyAxiom> getRoleAxioms() {
 		return normalizedAxioms.getRoleAxioms();
@@ -308,7 +308,7 @@ public class OWLAxMatcher {
 	/**
 	 * Returns a matching result paired with its ontology
 	 * 
-	 * @return ArrayList&lt;HashMap&lt;String,Integer>>
+	 * @return ArrayList&lt;HashMap&lt;String,Integer&gt;&gt;
 	 */
 	public ArrayList<HashMap<String,Double>> getMatches(){
 		ArrayList<HashMap<String,Double>> list = new ArrayList<HashMap<String,Double>>();

@@ -462,7 +462,7 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Returns a map that contains the count of each type of axiom in the ontology
 	 * 
-	 * @return HashMap&lt;String,Integer>
+	 * @return HashMap&lt;String,Integer&gt;
 	 */
 	public HashMap<String,Double> getOntologyComposition(){
 		return ontologyComposition;
@@ -489,7 +489,7 @@ public class NormalizeAndSortAxioms  {
 	/**
 	 * Gets the Role axioms (includes data property axioms)
 	 * 
-	 * @return ArrayList&lt;OWLPropertyAxiom>
+	 * @return ArrayList&lt;OWLPropertyAxiom&gt;
 	 */
 	public ArrayList<OWLPropertyAxiom> getRoleAxioms() {
 		return roleAxioms;
@@ -499,7 +499,7 @@ public class NormalizeAndSortAxioms  {
 	 * Gets all simple class Axioms that are shorter than or equal to
 	 * the max size of all OWLAx axioms
 	 * 
-	 * @return ArrayList&lt;OWLSubClassOfAxiom>
+	 * @return ArrayList&lt;OWLSubClassOfAxiom&gt;
 	 */
 	public ArrayList<OWLSubClassOfAxiom> getSimpleClassAxioms() {
 		return classAxioms;
@@ -509,7 +509,7 @@ public class NormalizeAndSortAxioms  {
 	 * Gets all complex class Axioms that are longer than the
 	 * max size of all OWLAx axioms
 	 * 
-	 * @return ArrayList&lt;OWLSubClassOfAxiom>
+	 * @return ArrayList&lt;OWLSubClassOfAxiom&gt;
 	 */
 	public ArrayList<OWLSubClassOfAxiom> getComplexClassAxioms() {
 		return complexClassAxioms;

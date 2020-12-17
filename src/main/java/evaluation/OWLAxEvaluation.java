@@ -48,7 +48,7 @@ public class OWLAxEvaluation {
 	 * Constructor that performs a simple evaluation on a list of ontology data and
 	 * owlax usage data.
 	 * 
-	 * @param resultsList ArrayList&lt;ArrayList&lt;HashMap&lt;String,Integer>>>
+	 * @param resultsList ArrayList&lt;ArrayList&lt;HashMap&lt;String,Integer&gt;&gt;&gt;
 	 */
 	public OWLAxEvaluation(ArrayList<ArrayList<HashMap<String,Double>>> resultsList) {
 		
@@ -168,7 +168,7 @@ public class OWLAxEvaluation {
 	/**
 	 * Gets the owlax results from the evaluation
 	 * 
-	 * @return ArrayList&lt;HashMap&lt;String,Integer>>
+	 * @return ArrayList&lt;HashMap&lt;String,Integer&gt;&gt;
 	 */
 	public ArrayList<HashMap<String,Double>> getOWLAxResults(){
 		return owlaxResults;
@@ -177,7 +177,7 @@ public class OWLAxEvaluation {
 	/**
 	 * gets the ontology composition data from the evaluation
 	 * 
-	 * @return ArrayList&lt;HashMap&lt;String,Integer>>
+	 * @return ArrayList&lt;HashMap&lt;String,Integer&gt;&gt;
 	 */
 	public ArrayList<HashMap<String,Double>> getOntologyCompositions(){
 		return ontologyCompositions;
@@ -186,7 +186,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get all results used for the evaluation
 	 * 
-	 * @return ArrayList&lt;ArrayList&lt;HashMap&lt;String,Integer>>>
+	 * @return ArrayList&lt;ArrayList&lt;HashMap&lt;String,Integer&gt;&gt;&gt;
 	 */
 	public ArrayList<ArrayList<HashMap<String,Double>>> getAllResults(){
 		return allResults;
@@ -195,7 +195,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the mean owlax result
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt; 
 	 */
 	public HashMap<String,Double> getMeanOWLAxResult() {
 		return meanResult;
@@ -204,7 +204,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the mean ontology result
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt; 
 	 */
 	public HashMap<String,Double> getMeanOntology() {
 		return meanOntology;
@@ -213,7 +213,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the standard deviations of the owlax results
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt; 
 	 */
 	public HashMap<String,Double> getStdDevOWLAxResult() {
 		return stdDevResult;
@@ -222,7 +222,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the standard deviations of the ontology results
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt;
 	 */
 	public HashMap<String,Double> getStdDevOntology() {
 		return stdDevOntology;
@@ -231,7 +231,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the modes of the owlax results
 	 * 
-	 * @return HashMap&lt;String,Integer>
+	 * @return HashMap&lt;String,Integer&gt;
 	 */
 	public HashMap<String,Double> getModeOWLAxResult() {
 		return modeResult;
@@ -240,7 +240,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the modes of the ontology results
 	 * 
-	 * @return HashMap&lt;String,Integer>
+	 * @return HashMap&lt;String,Integer&gt;
 	 */
 	public HashMap<String,Double> getModeOntology() {
 		return modeOntology;
@@ -249,7 +249,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the medians of the owlax results
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt;
 	 */
 	public HashMap<String,Double> getMedianOWLAxResult() {
 		return medianResult;
@@ -258,7 +258,7 @@ public class OWLAxEvaluation {
 	/**
 	 * get the medians of the ontology results
 	 * 
-	 * @return HashMap&lt;String,Double> 
+	 * @return HashMap&lt;String,Double&gt;
 	 */
 	public HashMap<String,Double> getMedianOntology() {
 		return medianOntology;
@@ -267,7 +267,7 @@ public class OWLAxEvaluation {
 	/**
 	 * gets the unused owlax axioms
 	 * 
-	 * @return ArrayList&lt;String>
+	 * @return ArrayList&lt;String&gt;
 	 */
 	public ArrayList<String> getUnusedOWLAxAxioms(){
 		return unusedOWLAx;
@@ -276,7 +276,7 @@ public class OWLAxEvaluation {
 	/**
 	 * gets the unused ontology axioms
 	 * 
-	 * @return ArrayList&lt;String>
+	 * @return ArrayList&lt;String&gt;
 	 */
 	public ArrayList<String> getUnusedOntologyAxioms(){
 		return unusedOntologyAxioms;
