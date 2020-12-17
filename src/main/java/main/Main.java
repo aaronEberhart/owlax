@@ -2,7 +2,6 @@ package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.UnloadableImportException;
@@ -42,13 +40,11 @@ public class Main {
 	
 	private static ArrayList<String> iris;
 	
-	static void doNothing(Object o) { }
-	
-	public static String inProfileString(boolean inProfile) {
-		return inProfile ? ",X" : ",";
+	private static String inProfileString(boolean inProfile) {
+		return inProfile ? ",1" : ",0";
 	}
 	
-	public static boolean usedIRIBefore(OWLOntology ontology) {
+	private static boolean usedIRIBefore(OWLOntology ontology) {
 		for (String iri : iris) {
 			if (iri.equals(ontology.getOntologyID().getOntologyIRI().get().toString())) { return true; }
 		}
@@ -62,12 +58,12 @@ public class Main {
 	 * @param dir File
 	 * @return OWLAxEvaluation
 	 */
-	public static ArrayList<ArrayList<HashMap<String,Double>>> runEval(File dir,int timeout) {
+	private static ArrayList<ArrayList<HashMap<String,Double>>> runEval(File dir,int timeout) {
 		
 		//check if it's a file of a dir of files
 		File[] files = dir.isFile() ? new File[]{dir} : dir.listFiles(a -> a.isFile());
 		ArrayList<ArrayList<HashMap<String,Double>>> results = new ArrayList<ArrayList<HashMap<String,Double>>>();
-		//System.out.println("Starting evaluation of "+dir.getName());
+		
 		try {
 			BufferedWriter w = new BufferedWriter(new FileWriter(new File(String.format("output/%sUnreadable.csv",dir.getName()))));
 			BufferedWriter p = new BufferedWriter(new FileWriter(new File(String.format("output/%sProfiles.csv",dir.getName()))));
@@ -77,7 +73,7 @@ public class Main {
 		//look at all the ontology files
 		for (File owlfile : files) {
 			
-			
+			//make a task to limit the execution time for broken files
 			ExecutorService executor = Executors.newCachedThreadPool();
 			Callable<Integer> task = new Callable<Integer>() {
 			   public Integer call() throws IOException, OWLOntologyCreationException {
@@ -100,6 +96,7 @@ public class Main {
 			    }
 			};
 			
+			//run the task
 			Future<Integer> future = executor.submit(task);
 			try {
 			   future.get(timeout, TimeUnit.SECONDS); 
@@ -128,78 +125,6 @@ public class Main {
 			//write to file
 			try {
 				Files.writeString(Paths.get(String.format("output/%sData.csv",dir.getName())),eval.toCSV());
-			}catch (IOException e) {System.err.println(e);}
-			
-			return results;
-		}
-		else { return results; }
-	}
-	
-	/*
-	 * run Evaluation once on all links read from file.
-	 * Will write results to text file
-	 * 
-	 * @param dir File
-	 * @return OWLAxEvaluation
-	 */
-	public static ArrayList<ArrayList<HashMap<String,Double>>> runEval(String filename) {
-
-		ArrayList<ArrayList<HashMap<String,Double>>> results = new ArrayList<ArrayList<HashMap<String,Double>>>();
-
-		try {
-			
-			Scanner s = new Scanner(new File(filename));
-			ArrayList<String> files = new ArrayList<String>();
-			
-			while(s.hasNextLine()) {
-				files.add(s.nextLine());			
-			}
-			
-			s.close();
-			
-			BufferedWriter w = new BufferedWriter(new FileWriter(new File(String.format("output/%sUnreadable.csv",filename))));
-			BufferedWriter p = new BufferedWriter(new FileWriter(new File(String.format("output/%sProfiles.csv",filename))));
-
-			p.write(",DL,EL,QL,RL,Full\n");			
-		
-		//look at all the ontology files
-		for (String owlfile : files) {
-			
-			try {
-				
-				System.out.println(owlfile);
-			   
-		    	OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(IRI.create(owlfile));
-				
-				if (!usedIRIBefore(ontology)){
-					
-					iris.add(ontology.getOntologyID().getOntologyIRI().get().toString());
-					
-					results.add(new OWLAxMatcher(new NormalizeAndSortAxioms(ontology)).getMatches());
-					
-					String profiles = inProfileString(new OWL2DLProfile().checkOntology(ontology).isInProfile())+inProfileString(new OWL2ELProfile().checkOntology(ontology).isInProfile())+inProfileString(new OWL2QLProfile().checkOntology(ontology).isInProfile())+inProfileString(new OWL2RLProfile().checkOntology(ontology).isInProfile())+inProfileString(new OWL2Profile().checkOntology(ontology).isInProfile());
-					
-					p.write(owlfile + profiles + "\n");
-				}
-					
-			}catch(UnloadableImportException e) {w.write(owlfile + "\n");
-			}catch(Exception e) {p.write(owlfile + ",,,,,\n");w.write(owlfile + "\n");}
-			
-		}
-		
-		p.close();
-		w.close();
-		
-		} catch (IOException e1) {System.err.println(e1);}
-		
-		if (!results.isEmpty()) {
-			
-			//do the evaluation
-			OWLAxEvaluation eval = new OWLAxEvaluation(results);
-			
-			//write to file
-			try {
-				Files.writeString(Paths.get(String.format("output/%sData.csv",filename)),eval.toCSV());
 			}catch (IOException e) {System.err.println(e);}
 			
 			return results;
