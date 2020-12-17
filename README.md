@@ -8,4 +8,4 @@ This code was used to perfom the evaluation that producd the data in [this sprea
 
 This links to the copy of [GO](https://bioportal.bioontology.org/ontologies/GO-PLUS) used in the evaluation. If you dowload it and place it in the OWL directory it should run correctly. 
 
-The LOV files were automatically pulled from the [LOV dump](https://lov.linkeddata.es/lov.nq.gz) using the python script. Most work but some will cause OWL API to hang for a while. If you run the evaluaton with this evaluation commented out in Main it will run much faster.
+The LOV files were automatically pulled from the [LOV dump](https://lov.linkeddata.es/lov.nq.gz) using the python script. Most work but some will cause OWL API to hang for a while. If you run the evaluaton with the function analyzing LOV commented out in Main it will run much faster.
