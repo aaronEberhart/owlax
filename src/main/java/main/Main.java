@@ -215,11 +215,6 @@ public class Main {
 		
 		iris = new ArrayList<String>();
 		
-		//Oxford
-		//runEval("oxLinks.txt");
-		
-		iris = new ArrayList<String>();
-		
 		ArrayList<ArrayList<HashMap<String,Double>>> allResults = new ArrayList<ArrayList<HashMap<String,Double>>>();
 		
 		//LOV
