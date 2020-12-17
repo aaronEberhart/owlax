@@ -2,7 +2,7 @@
 
 This code was used to perfom the evaluation that producd the data in [this spreadsheet](https://tinyurl.com/eswc2021).
 
-### [Javadoc](https://aaroneberhart.github.io/owlax/)
+### [Javadoc](https://aaroneberhart.github.io/owlax/index.html)
 
 ## Notes
 
