@@ -33,8 +33,7 @@ import ontologyTools.OWLAxMatcher;
 /**
  * Test Class for OWLAx evaluation program
  * 
- * @author 
- * @author 
+ * @author Aaron Eberhart
  */
 public class Main {
 	
