@@ -149,19 +149,19 @@ public class Main {
 		ArrayList<ArrayList<HashMap<String,Double>>> allResults = new ArrayList<ArrayList<HashMap<String,Double>>>();
 		
 		//LOV
-		//allResults.addAll(runEval(new File("OWL/LOV"),60));
+		allResults.addAll(runEval(new File("OWL/LOV"),60));
 		
 		//hydrography benchmarks
-		//allResults.addAll(runEval(new File("OWL/hydrographyBenchmarks"),Integer.MAX_VALUE));
+		allResults.addAll(runEval(new File("OWL/hydrographyBenchmarks"),Integer.MAX_VALUE));
 		
 		//anatomy benchmarks
-		//allResults.addAll(runEval(new File("OWL/anatomyBenchmarks"),Integer.MAX_VALUE));
+		allResults.addAll(runEval(new File("OWL/anatomyBenchmarks"),Integer.MAX_VALUE));
 				
 		//conference benchmarks
-		//allResults.addAll(runEval(new File("OWL/conferenceBenchmarks"),Integer.MAX_VALUE));
+		allResults.addAll(runEval(new File("OWL/conferenceBenchmarks"),Integer.MAX_VALUE));
 				
 		//ODPs
-		//allResults.addAll(runEval(new File("OWL/ODPs"),Integer.MAX_VALUE));
+		allResults.addAll(runEval(new File("OWL/ODPs"),Integer.MAX_VALUE));
 		
 		//ontobee
 		allResults.addAll(runEval(new File("OWL/Ontobee"),Integer.MAX_VALUE));
