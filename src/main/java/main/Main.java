@@ -22,6 +22,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.UnloadableImportException;
+import org.semanticweb.owlapi.model.parameters.Imports;
 import org.semanticweb.owlapi.profiles.OWL2DLProfile;
 import org.semanticweb.owlapi.profiles.OWL2ELProfile;
 import org.semanticweb.owlapi.profiles.OWL2Profile;
@@ -78,6 +79,7 @@ public class Main {
 		for (File owlfile : files) {
 			
 			
+			
 			ExecutorService executor = Executors.newCachedThreadPool();
 			Callable<Integer> task = new Callable<Integer>() {
 			   public Integer call() throws IOException, OWLOntologyCreationException {
@@ -114,7 +116,7 @@ public class Main {
 			}finally {future.cancel(true);executor.shutdownNow();}
 			
 		}
-		
+			
 		w.close();
 		p.close();
 		
@@ -223,19 +225,19 @@ public class Main {
 		ArrayList<ArrayList<HashMap<String,Double>>> allResults = new ArrayList<ArrayList<HashMap<String,Double>>>();
 		
 		//LOV
-		allResults.addAll(runEval(new File("OWL/LOV"),60));
+		//allResults.addAll(runEval(new File("OWL/LOV"),60));
 		
 		//hydrography benchmarks
-		allResults.addAll(runEval(new File("OWL/hydrographyBenchmarks"),Integer.MAX_VALUE));
+		//allResults.addAll(runEval(new File("OWL/hydrographyBenchmarks"),Integer.MAX_VALUE));
 		
 		//anatomy benchmarks
-		allResults.addAll(runEval(new File("OWL/anatomyBenchmarks"),Integer.MAX_VALUE));
+		//allResults.addAll(runEval(new File("OWL/anatomyBenchmarks"),Integer.MAX_VALUE));
 				
 		//conference benchmarks
-		allResults.addAll(runEval(new File("OWL/conferenceBenchmarks"),Integer.MAX_VALUE));
+		//allResults.addAll(runEval(new File("OWL/conferenceBenchmarks"),Integer.MAX_VALUE));
 				
 		//ODPs
-		allResults.addAll(runEval(new File("OWL/ODPs"),Integer.MAX_VALUE));
+		//allResults.addAll(runEval(new File("OWL/ODPs"),Integer.MAX_VALUE));
 		
 		//ontobee
 		allResults.addAll(runEval(new File("OWL/Ontobee"),Integer.MAX_VALUE));
